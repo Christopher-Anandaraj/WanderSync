@@ -2,6 +2,7 @@
 
 Group 18:
 - Bralon Burgess
+- Victor Hernandez
 
 > Please read these instructions then replace this `README.md` file with your own repository documentation as you see fit.
 
