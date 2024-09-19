@@ -1,3 +1,4 @@
 # Sprint0.5F24
-Xavistin Christopher Arul Arasu.
-Victor Hernandez
+- Xavistin Christopher Arul Arasu.
+- Victor Hernandez
+- Bralon Burgess
