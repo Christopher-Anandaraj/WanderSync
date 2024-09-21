@@ -3,3 +3,4 @@
 - Victor Hernandez
 - Bralon Burgess
 - Kenny Ding
+- Tyler Luo
