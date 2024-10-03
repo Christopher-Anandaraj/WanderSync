@@ -2,5 +2,3 @@
 - Xavistin Christopher Arul Arasu.
 - Victor Hernandez
 - Bralon Burgess
-- Kenny Ding
-- Tyler Luo
