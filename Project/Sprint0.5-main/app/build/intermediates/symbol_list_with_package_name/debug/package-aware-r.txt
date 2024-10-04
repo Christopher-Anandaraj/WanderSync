@@ -3167,7 +3167,10 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id box
 id buttonPanel
+id button_quit
+id button_start
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3202,10 +3205,12 @@ id coordinator
 id cos
 id counterclockwise
 id cradle
+id createButton
 id currentState
 id custom
 id customPanel
 id cut
+id dataBinding
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -3240,6 +3245,8 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextText
+id editTextTextPassword
 id edit_query
 id elastic
 id embed
@@ -3307,6 +3314,8 @@ id line3
 id linear
 id listMode
 id list_item
+id loginButton
+id loginText
 id m3_side_sheet
 id marquee
 id masked
@@ -3387,6 +3396,8 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onAttachStateChangeListener
+id onDateChanged
 id onInterceptTouchReturnSwipe
 id open_search_bar_text_view
 id open_search_view_background
@@ -3411,6 +3422,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id password
 id password_toggle
 id path
 id pathRelative
@@ -3515,9 +3527,12 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textWatcher
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
+id text_welcome1
+id text_welcome2
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3545,6 +3560,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id username
 id vertical_only
 id view_offset_helper
 id view_transition
@@ -3678,6 +3694,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout activity_second
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
