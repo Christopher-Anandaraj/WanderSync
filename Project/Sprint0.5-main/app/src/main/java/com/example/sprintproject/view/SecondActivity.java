@@ -3,6 +3,7 @@ package com.example.sprintproject.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,18 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         Intent intent = getIntent();
+
+        Button loginButton = findViewById(R.id.loginButton);
+        Button createAccount = findViewById(R.id.createButton);
+
+        loginButton.setOnClickListener(v -> loginUser());
+        createAccount.setOnClickListener(v -> createAccount());
+    }
+
+    private void loginUser() {
+    }
+
+    private void createAccount() {
     }
 
     @Override
