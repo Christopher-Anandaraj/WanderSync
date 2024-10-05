@@ -25,12 +25,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate called");
 
         Button start = findViewById(R.id.button_start);
-
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button button_quit = findViewById(R.id.button_quit);
+        button_quit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
             }
         });
     }

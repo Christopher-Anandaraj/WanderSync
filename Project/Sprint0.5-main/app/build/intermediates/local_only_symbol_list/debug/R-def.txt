@@ -6,11 +6,13 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 id box
 id button_quit
+id button_quit_login
+id button_quit_register
 id button_start
-id createAccountText
 id createButton
 id editTextPassword
 id editTextUsername
+id loginBackButton
 id loginButton
 id loginText
 id password

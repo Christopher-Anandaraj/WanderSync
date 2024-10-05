@@ -50,6 +50,17 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        Button button_quit_login = findViewById(R.id.button_quit_login);
+        button_quit_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
     }
     private void loginUser(String username, String password) {
         if (username.isEmpty() || password.isEmpty()) {

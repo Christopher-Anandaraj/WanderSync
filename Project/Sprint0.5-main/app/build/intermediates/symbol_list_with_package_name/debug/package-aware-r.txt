@@ -3224,6 +3224,8 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id buttonPanel
 id button_quit
+id button_quit_login
+id button_quit_register
 id button_start
 id cache_measures
 id callMeasure
@@ -3259,7 +3261,6 @@ id coordinator
 id cos
 id counterclockwise
 id cradle
-id createAccountText
 id createButton
 id currentState
 id custom
@@ -3372,6 +3373,7 @@ id line3
 id linear
 id listMode
 id list_item
+id loginBackButton
 id loginButton
 id loginText
 id m3_side_sheet

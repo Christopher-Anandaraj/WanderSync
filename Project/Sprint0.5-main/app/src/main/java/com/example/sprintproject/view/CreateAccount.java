@@ -3,6 +3,7 @@ package com.example.sprintproject.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,12 +32,33 @@ public class CreateAccount extends AppCompatActivity {
         Button createAccountButton = findViewById(R.id.createButton);
         EditText usernameField = findViewById(R.id.editTextUsername);
         EditText passwordField = findViewById(R.id.editTextPassword);
+        Button loginBackButton = findViewById(R.id.loginBackButton);
+
+        loginBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CreateAccount.this, SecondActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Create Account Button Action
         createAccountButton.setOnClickListener(v -> {
             String username = usernameField.getText().toString().trim();
             String password = passwordField.getText().toString().trim();
             createAccount(username, password);
+        });
+
+        Button button_quit_register = findViewById(R.id.button_quit_register);
+        button_quit_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finishAffinity();
+            }
         });
     }
 

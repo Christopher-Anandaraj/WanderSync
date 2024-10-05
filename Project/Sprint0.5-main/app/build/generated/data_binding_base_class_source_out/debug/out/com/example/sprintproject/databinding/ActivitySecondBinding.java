@@ -21,6 +21,9 @@ public abstract class ActivitySecondBinding extends ViewDataBinding {
   public final LinearLayout box;
 
   @NonNull
+  public final Button buttonQuitLogin;
+
+  @NonNull
   public final Button createButton;
 
   @NonNull
@@ -42,10 +45,12 @@ public abstract class ActivitySecondBinding extends ViewDataBinding {
   public final TextView username;
 
   protected ActivitySecondBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      LinearLayout box, Button createButton, EditText editTextPassword, EditText editTextUsername,
-      Button loginButton, TextView loginText, TextView password, TextView username) {
+      LinearLayout box, Button buttonQuitLogin, Button createButton, EditText editTextPassword,
+      EditText editTextUsername, Button loginButton, TextView loginText, TextView password,
+      TextView username) {
     super(_bindingComponent, _root, _localFieldCount);
     this.box = box;
+    this.buttonQuitLogin = buttonQuitLogin;
     this.createButton = createButton;
     this.editTextPassword = editTextPassword;
     this.editTextUsername = editTextUsername;
