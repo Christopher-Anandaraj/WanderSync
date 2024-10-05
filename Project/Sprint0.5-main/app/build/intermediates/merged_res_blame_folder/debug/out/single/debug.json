@@ -24,12 +24,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\layout_activity_create.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\layout\\activity_create.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -60,12 +60,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\xml\\backup_rules.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-main-43:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.2\\com.example.sprintproject.app-merged_res-41:\\xml_data_extraction_rules.xml.flat",

@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import com.example.sprintproject.databinding.ActivityCreateBindingImpl;
 import com.example.sprintproject.databinding.ActivityMainBindingImpl;
 import com.example.sprintproject.databinding.ActivitySecondBindingImpl;
 import java.lang.IllegalArgumentException;
@@ -19,13 +20,16 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_ACTIVITYMAIN = 1;
+  private static final int LAYOUT_ACTIVITYCREATE = 1;
 
-  private static final int LAYOUT_ACTIVITYSECOND = 2;
+  private static final int LAYOUT_ACTIVITYMAIN = 2;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(2);
+  private static final int LAYOUT_ACTIVITYSECOND = 3;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(3);
 
   static {
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_create, LAYOUT_ACTIVITYCREATE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_second, LAYOUT_ACTIVITYSECOND);
   }
@@ -39,6 +43,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
+        case  LAYOUT_ACTIVITYCREATE: {
+          if ("layout/activity_create_0".equals(tag)) {
+            return new ActivityCreateBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_create is invalid. Received: " + tag);
+        }
         case  LAYOUT_ACTIVITYMAIN: {
           if ("layout/activity_main_0".equals(tag)) {
             return new ActivityMainBindingImpl(component, view);
@@ -104,9 +114,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(2);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(3);
 
     static {
+      sKeys.put("layout/activity_create_0", com.example.sprintproject.R.layout.activity_create);
       sKeys.put("layout/activity_main_0", com.example.sprintproject.R.layout.activity_main);
       sKeys.put("layout/activity_second_0", com.example.sprintproject.R.layout.activity_second);
     }

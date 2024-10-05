@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -31,8 +37,8 @@ public class SecondActivity extends AppCompatActivity {
 
         Button loginButton = findViewById(R.id.loginButton);
         Button createAccount = findViewById(R.id.createButton);
-        TextView username = findViewById(R.id.username);
-        TextView password = findViewById(R.id.password);
+        EditText username = findViewById(R.id.editTextUsername);
+        EditText password = findViewById(R.id.editTextPassword);
 
         loginButton.setOnClickListener(v -> loginUser(username.getText().toString(), password.getText().toString()));
 
@@ -50,21 +56,44 @@ public class SecondActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
-        mAuth.signInWithEmailAndPassword(username, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        // Sign-in success
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        Toast.makeText(this, "Login successful! Welcome, " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                        // Optionally, navigate to another activity
-                        // startActivity(new Intent(this, MainActivity.class));
-                    } else {
-                        // Sign-in failure
-                        Toast.makeText(this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
 
+        // First, check if the username exists in the Firebase Realtime Database
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
+        ref.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Username exists, proceed with Firebase Authentication
+                    mAuth.signInWithEmailAndPassword(username + "@wandersync.com", password)
+                            .addOnCompleteListener(SecondActivity.this, task -> {
+                                if (task.isSuccessful()) {
+                                    // Sign-in success
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    Toast.makeText(SecondActivity.this, "Login successful! Welcome, " + user.getEmail(), Toast.LENGTH_SHORT).show();
+
+                                    // Navigate to MainActivity
+                                    Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish(); // Close the login activity
+                                } else {
+                                    // Sign-in failure
+                                    Toast.makeText(SecondActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                } else {
+                    // Username does not exist
+                    Toast.makeText(SecondActivity.this, "Username not found in the database.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle potential errors
+                Log.w("LoginActivity", "Database error: ", databaseError.toException());
+                Toast.makeText(SecondActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
     @Override

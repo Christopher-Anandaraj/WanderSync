@@ -27,10 +27,10 @@ public abstract class ActivityCreateBinding extends ViewDataBinding {
   public final Button createButton;
 
   @NonNull
-  public final EditText editTextText;
+  public final EditText editTextPassword;
 
   @NonNull
-  public final EditText editTextTextPassword;
+  public final EditText editTextUsername;
 
   @NonNull
   public final Button loginButton;
@@ -42,14 +42,14 @@ public abstract class ActivityCreateBinding extends ViewDataBinding {
   public final TextView username;
 
   protected ActivityCreateBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      LinearLayout box, TextView createAccountText, Button createButton, EditText editTextText,
-      EditText editTextTextPassword, Button loginButton, TextView password, TextView username) {
+      LinearLayout box, TextView createAccountText, Button createButton, EditText editTextPassword,
+      EditText editTextUsername, Button loginButton, TextView password, TextView username) {
     super(_bindingComponent, _root, _localFieldCount);
     this.box = box;
     this.createAccountText = createAccountText;
     this.createButton = createButton;
-    this.editTextText = editTextText;
-    this.editTextTextPassword = editTextTextPassword;
+    this.editTextPassword = editTextPassword;
+    this.editTextUsername = editTextUsername;
     this.loginButton = loginButton;
     this.password = password;
     this.username = username;
