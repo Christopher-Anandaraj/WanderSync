@@ -7,6 +7,7 @@ drawable ic_launcher_foreground
 id box
 id button_quit
 id button_start
+id createAccountText
 id createButton
 id editTextText
 id editTextTextPassword
@@ -16,6 +17,7 @@ id password
 id text_welcome1
 id text_welcome2
 id username
+layout activity_create
 layout activity_main
 layout activity_second
 mipmap ic_launcher
