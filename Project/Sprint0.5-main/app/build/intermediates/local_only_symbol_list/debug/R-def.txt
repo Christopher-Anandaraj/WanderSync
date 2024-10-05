@@ -9,8 +9,8 @@ id button_quit
 id button_start
 id createAccountText
 id createButton
-id editTextText
-id editTextTextPassword
+id editTextPassword
+id editTextUsername
 id loginButton
 id loginText
 id password

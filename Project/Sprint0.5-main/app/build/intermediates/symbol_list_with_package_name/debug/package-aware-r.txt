@@ -3301,8 +3301,8 @@ id easeInOut
 id easeOut
 id east
 id edge
-id editTextText
-id editTextTextPassword
+id editTextPassword
+id editTextUsername
 id edit_query
 id elastic
 id embed

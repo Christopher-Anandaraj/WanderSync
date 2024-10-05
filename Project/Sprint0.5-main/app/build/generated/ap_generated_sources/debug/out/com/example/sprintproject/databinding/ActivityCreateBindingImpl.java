@@ -17,9 +17,9 @@ public class ActivityCreateBindingImpl extends ActivityCreateBinding  {
         sViewsWithIds.put(R.id.createAccountText, 1);
         sViewsWithIds.put(R.id.box, 2);
         sViewsWithIds.put(R.id.username, 3);
-        sViewsWithIds.put(R.id.editTextText, 4);
+        sViewsWithIds.put(R.id.editTextUsername, 4);
         sViewsWithIds.put(R.id.password, 5);
-        sViewsWithIds.put(R.id.editTextTextPassword, 6);
+        sViewsWithIds.put(R.id.editTextPassword, 6);
         sViewsWithIds.put(R.id.loginButton, 7);
         sViewsWithIds.put(R.id.createButton, 8);
     }
@@ -39,8 +39,8 @@ public class ActivityCreateBindingImpl extends ActivityCreateBinding  {
             , (android.widget.LinearLayout) bindings[2]
             , (android.widget.TextView) bindings[1]
             , (android.widget.Button) bindings[8]
-            , (android.widget.EditText) bindings[4]
             , (android.widget.EditText) bindings[6]
+            , (android.widget.EditText) bindings[4]
             , (android.widget.Button) bindings[7]
             , (android.widget.TextView) bindings[5]
             , (android.widget.TextView) bindings[3]
