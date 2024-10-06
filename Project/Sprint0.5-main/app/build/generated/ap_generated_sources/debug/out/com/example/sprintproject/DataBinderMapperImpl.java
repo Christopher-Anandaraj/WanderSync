@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
 import com.example.sprintproject.databinding.ActivityCreateBindingImpl;
 import com.example.sprintproject.databinding.ActivityMainBindingImpl;
+import com.example.sprintproject.databinding.ActivityNavigationBindingImpl;
 import com.example.sprintproject.databinding.ActivitySecondBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
@@ -24,13 +25,16 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_ACTIVITYMAIN = 2;
 
-  private static final int LAYOUT_ACTIVITYSECOND = 3;
+  private static final int LAYOUT_ACTIVITYNAVIGATION = 3;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(3);
+  private static final int LAYOUT_ACTIVITYSECOND = 4;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_create, LAYOUT_ACTIVITYCREATE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_navigation, LAYOUT_ACTIVITYNAVIGATION);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_second, LAYOUT_ACTIVITYSECOND);
   }
 
@@ -54,6 +58,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ActivityMainBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_main is invalid. Received: " + tag);
+        }
+        case  LAYOUT_ACTIVITYNAVIGATION: {
+          if ("layout/activity_navigation_0".equals(tag)) {
+            return new ActivityNavigationBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_navigation is invalid. Received: " + tag);
         }
         case  LAYOUT_ACTIVITYSECOND: {
           if ("layout/activity_second_0".equals(tag)) {
@@ -106,19 +116,21 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(1);
+    static final SparseArray<String> sKeys = new SparseArray<String>(2);
 
     static {
       sKeys.put(0, "_all");
+      sKeys.put(1, "viewModel");
     }
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(3);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
 
     static {
       sKeys.put("layout/activity_create_0", com.example.sprintproject.R.layout.activity_create);
       sKeys.put("layout/activity_main_0", com.example.sprintproject.R.layout.activity_main);
+      sKeys.put("layout/activity_navigation_0", com.example.sprintproject.R.layout.activity_navigation);
       sKeys.put("layout/activity_second_0", com.example.sprintproject.R.layout.activity_second);
     }
   }

@@ -6,14 +6,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sprintproject.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,8 +79,9 @@ public class SecondActivity extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     Toast.makeText(SecondActivity.this, "Login successful! Welcome, " + user.getEmail(), Toast.LENGTH_SHORT).show();
 
-                                    // Navigate to MainActivity
-                                    Intent intent = new Intent(SecondActivity.this, MainActivity.class);
+                                    // Navigate to Logistics Activity
+                                    Intent intent = new Intent(SecondActivity.this, NavigationActivity.class);
+                                    intent.putExtra("KEY", "Logistics Page");
                                     startActivity(intent);
                                     finish(); // Close the login activity
                                 } else {

@@ -1,7 +1,8 @@
 package com.example.sprintproject.view;
 
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.util.Log;
 
+import com.example.sprintproject.BR;
 import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.ActivityMainBinding;
+import com.example.sprintproject.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +22,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Log.d(TAG, "onCreate called");
+        //create viewmodel
+        MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        //bind viewmodel to layout
+        binding.setVariable(BR.viewModel, viewModel);
+        binding.setLifecycleOwner(this);
         Log.d(TAG, "onCreate called");
 
         Button start = findViewById(R.id.button_start);

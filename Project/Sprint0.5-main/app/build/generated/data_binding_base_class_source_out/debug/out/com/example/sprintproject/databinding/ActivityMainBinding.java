@@ -8,9 +8,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.Bindable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import com.example.sprintproject.R;
+import com.example.sprintproject.viewmodel.MainViewModel;
 import java.lang.Deprecated;
 import java.lang.Object;
 
@@ -27,6 +29,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
   public final TextView textWelcome2;
 
+  @Bindable
+  protected MainViewModel mViewModel;
+
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
       Button buttonQuit, Button buttonStart, TextView textWelcome1, TextView textWelcome2) {
     super(_bindingComponent, _root, _localFieldCount);
@@ -34,6 +39,13 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
     this.buttonStart = buttonStart;
     this.textWelcome1 = textWelcome1;
     this.textWelcome2 = textWelcome2;
+  }
+
+  public abstract void setViewModel(@Nullable MainViewModel viewModel);
+
+  @Nullable
+  public MainViewModel getViewModel() {
+    return mViewModel;
   }
 
   @NonNull

@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <string name="app_name">SprintProject</string>
     <string name="gcm_defaultSenderId" translatable="false">976976688417</string>
     <string name="google_api_key" translatable="false">AIzaSyDA3SxjEOePae2idaR4QXoUPL75lX0UBQQ</string>
@@ -9,7 +11,11 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDA3SxjEOePae2idaR4QXoUPL75lX0UBQQ</string>
     <string name="google_storage_bucket" translatable="false">cs2340d-team18.appspot.com</string>
     <string name="project_id" translatable="false">cs2340d-team18</string>
-    <style name="Base.Theme.SprintProject" parent="Theme.Material3.DayNight.NoActionBar">
+    <string name="title_activity_logistics">Logistics</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Notifications</string>
+    <style name="Base.Theme.SprintProject" parent="Theme.AppCompat.DayNight">
         
         
     </style>

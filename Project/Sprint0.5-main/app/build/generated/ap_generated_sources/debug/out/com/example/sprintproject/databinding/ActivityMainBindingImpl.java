@@ -47,7 +47,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @Override
     public void invalidateAll() {
         synchronized(this) {
-                mDirtyFlags = 0x1L;
+                mDirtyFlags = 0x2L;
         }
         requestRebind();
     }
@@ -65,7 +65,17 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     @Override
     public boolean setVariable(int variableId, @Nullable Object variable)  {
         boolean variableSet = true;
+        if (BR.viewModel == variableId) {
+            setViewModel((com.example.sprintproject.viewmodel.MainViewModel) variable);
+        }
+        else {
+            variableSet = false;
+        }
             return variableSet;
+    }
+
+    public void setViewModel(@Nullable com.example.sprintproject.viewmodel.MainViewModel ViewModel) {
+        this.mViewModel = ViewModel;
     }
 
     @Override
@@ -89,7 +99,8 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // dirty flag
     private  long mDirtyFlags = 0xffffffffffffffffL;
     /* flag mapping
-        flag 0 (0x1L): null
+        flag 0 (0x1L): viewModel
+        flag 1 (0x2L): null
     flag mapping end*/
     //end
 }
