@@ -26,5 +26,10 @@
         android:icon="@drawable/button_transport"
         android:title="Transportation" />
 
+    <item
+        android:id="@+id/navigation_community"
+        android:icon="@drawable/button_community"
+        android:title="Community" />
+
 
 </menu>

@@ -43,7 +43,7 @@
             android:layout_width="231dp"
             android:layout_height="57dp"
             android:layout_marginTop="56dp"
-            android:backgroundTint="#00BCD4"
+            android:backgroundTint="#3994BD"
             android:text="Start"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

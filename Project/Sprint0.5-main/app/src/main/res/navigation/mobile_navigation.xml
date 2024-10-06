@@ -35,6 +35,10 @@
         android:label="Transportation"
         tools:layout="@layout/fragment_transportation" />
 
-
+    <fragment
+        android:id="@+id/navigation_community"
+        android:name="com.example.sprintproject.view.ui.community.CommunityFragment"
+        android:label="Travel Community"
+        tools:layout="@layout/fragment_community" />
 
 </navigation>

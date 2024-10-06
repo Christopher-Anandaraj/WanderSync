@@ -1,4 +1,4 @@
-package com.example.sprintproject.view.ui.transportation;
+package com.example.sprintproject.view.ui.community;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,15 +6,15 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.sprintproject.viewmodel.MainViewModel;
 
-public class TransportationViewModel extends ViewModel {
+public class CommunityViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
     private MainViewModel mainViewModel;
 
-    public TransportationViewModel() {
+    public CommunityViewModel() {
         this.mainViewModel = new MainViewModel();
         mText = new MutableLiveData<>();
-        mText.setValue(mainViewModel.getTransportationMessage().getValue());
+        mText.setValue(mainViewModel.getCommunityMessage().getValue());
     }
 
     public LiveData<String> getText() {

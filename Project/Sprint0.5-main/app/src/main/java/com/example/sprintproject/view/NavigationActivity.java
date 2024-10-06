@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.ActivityNavigationBinding;
+import com.example.sprintproject.model.CustomBottomNavigationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,8 +27,8 @@ public class NavigationActivity extends AppCompatActivity {
         binding = ActivityNavigationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        CustomBottomNavigationView navView = findViewById(R.id.nav_view);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(

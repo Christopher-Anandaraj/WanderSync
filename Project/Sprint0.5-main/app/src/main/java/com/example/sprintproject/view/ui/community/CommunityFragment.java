@@ -1,4 +1,4 @@
-package com.example.sprintproject.view.ui.transportation;
+package com.example.sprintproject.view.ui.community;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.sprintproject.databinding.FragmentTransportationBinding;
+import com.example.sprintproject.databinding.FragmentCommunityBinding;
 
-public class TransportationFragment extends Fragment {
+public class CommunityFragment extends Fragment {
 
-    private FragmentTransportationBinding binding;
+    private FragmentCommunityBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        TransportationViewModel transportationViewModel =
-                new ViewModelProvider(this).get(TransportationViewModel.class);
+        CommunityViewModel communityViewModel =
+                new ViewModelProvider(this).get(CommunityViewModel.class);
 
-        binding = FragmentTransportationBinding.inflate(inflater, container, false);
+        binding = FragmentCommunityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTransportation;
-        transportationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textCommunity;
+        communityViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
