@@ -68,7 +68,8 @@ public class SecondActivity extends AppCompatActivity {
 
         // First, check if the username exists in the Firebase Realtime Database
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
-        ref.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.orderByChild("username").equalTo(username
+        ).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -83,19 +84,23 @@ public class SecondActivity extends AppCompatActivity {
                                                     + user.getEmail(), Toast.LENGTH_SHORT).show();
 
                                     // Navigate to Logistics Activity
-                                    Intent intent = new Intent(SecondActivity.this, NavigationActivity.class);
+                                    Intent intent = new Intent(
+                                            SecondActivity.this, NavigationActivity.class);
                                     intent.putExtra("KEY", "Logistics Page");
                                     startActivity(intent);
                                     finish(); // Close the login activity
                                 } else {
                                     // Sign-in failure
                                     Toast.makeText(SecondActivity.this,
-                                            "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                            "Authentication failed: "
+                                                    + task.getException().getMessage(),
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
                 } else {
                     // Username does not exist
-                    Toast.makeText(SecondActivity.this, "Username not found in the database.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SecondActivity.this,
+                            "Username not found in the database.", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -103,7 +108,8 @@ public class SecondActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 // Handle potential errors
                 Log.w("LoginActivity", "Database error: ", databaseError.toException());
-                Toast.makeText(SecondActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SecondActivity.this,
+                        "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

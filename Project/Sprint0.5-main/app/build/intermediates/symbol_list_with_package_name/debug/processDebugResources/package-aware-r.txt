@@ -3056,6 +3056,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable accom_selector
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -3067,11 +3068,17 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button_accom
+drawable button_accom_selected
 drawable button_community
+drawable button_community_selected
 drawable button_dining
+drawable button_dining_selected
 drawable button_locate
+drawable button_locate_selected
 drawable button_logistics
+drawable button_logistics_selected
 drawable button_transport
+drawable button_transport_selected
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3091,11 +3098,14 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable community_selector
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable destination_selector
+drawable dining_selector
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3125,6 +3135,7 @@ drawable ic_passkey
 drawable ic_password
 drawable ic_search_black_24
 drawable indeterminate_static
+drawable logistics_selector
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3200,6 +3211,7 @@ drawable notify_panel_notification_icon_bg
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable transport_selector
 id ALT
 id BOTTOM_END
 id BOTTOM_START
