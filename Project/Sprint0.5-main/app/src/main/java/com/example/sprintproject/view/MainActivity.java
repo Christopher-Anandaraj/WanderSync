@@ -17,20 +17,20 @@ import com.example.sprintproject.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String TAG = "MainActivity";
+    private final String tag = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Log.d(TAG, "onCreate called");
+        Log.d(tag, "onCreate called");
         //create viewmodel
         MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         //bind viewmodel to layout
         binding.setVariable(BR.viewModel, viewModel);
         binding.setLifecycleOwner(this);
-        Log.d(TAG, "onCreate called");
+        Log.d(tag, "onCreate called");
 
         Button start = findViewById(R.id.button_start);
         start.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button_quit = findViewById(R.id.button_quit);
-        button_quit.setOnClickListener(new View.OnClickListener() {
+        Button buttonQuit = findViewById(R.id.button_quit);
+        buttonQuit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -57,38 +57,36 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart called");
+        Log.d(tag, "onStart called");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG,"onResume called");
+        Log.d(tag, "onResume called");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG,"onPause called");
+        Log.d(tag, "onPause called");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG,"onStop called");
+        Log.d(tag, "onStop called");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy called");
+        Log.d(tag, "onDestroy called");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG,"onRestart called");
+        Log.d(tag, "onRestart called");
     }
-
-
 }
