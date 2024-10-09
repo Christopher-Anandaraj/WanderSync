@@ -1,18 +1,13 @@
 package com.example.sprintproject.viewmodel;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-public class
-MainViewModel extends ViewModel {
+import com.google.firebase.database.DatabaseReference;
+
+public class MainViewModel extends ViewModel {
     //We will use mutableLiveData to hold the data that can be observed by the view
     //Each message will hold the greeting text to welcome users to the activityalue
     private MutableLiveData<String> logisticsMessage;
@@ -42,27 +37,27 @@ MainViewModel extends ViewModel {
     }
 
     //Provide access to the liveData objects
-    public LiveData<String> getLogisticsMessage(){
+    public LiveData<String> getLogisticsMessage() {
         return logisticsMessage;
     }
 
-    public LiveData<String> getTransportationMessage(){
+    public LiveData<String> getTransportationMessage() {
         return transportationMessage;
     }
 
-    public LiveData<String> getAccommodationMessage(){
+    public LiveData<String> getAccommodationMessage() {
         return accommodationMessage;
     }
 
-    public LiveData<String> getDiningMessage(){
+    public LiveData<String> getDiningMessage() {
         return diningMessage;
     }
 
-    public LiveData<String> getDestinationMessage(){
+    public LiveData<String> getDestinationMessage() {
         return destinationMessage;
     }
 
-    public LiveData<String> getCommunityMessage(){
+    public LiveData<String> getCommunityMessage() {
         return communityMessage;
     }
 

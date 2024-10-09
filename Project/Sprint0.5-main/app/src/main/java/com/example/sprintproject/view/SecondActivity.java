@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private final String TAG = "SecondActivity";
+    private final String tag = "SecondActivity";
     private FirebaseAuth mAuth;
 
     @Override
@@ -37,7 +37,8 @@ public class SecondActivity extends AppCompatActivity {
         EditText username = findViewById(R.id.editTextUsername);
         EditText password = findViewById(R.id.editTextPassword);
 
-        loginButton.setOnClickListener(v -> loginUser(username.getText().toString(), password.getText().toString()));
+        loginButton.setOnClickListener(v ->
+                loginUser(username.getText().toString(), password.getText().toString()));
 
         createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,8 +48,8 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        Button button_quit_login = findViewById(R.id.button_quit_login);
-        button_quit_login.setOnClickListener(new View.OnClickListener() {
+        Button buttonQuitLogin = findViewById(R.id.button_quit_login);
+        buttonQuitLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -67,7 +68,8 @@ public class SecondActivity extends AppCompatActivity {
 
         // First, check if the username exists in the Firebase Realtime Database
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
-        ref.orderByChild("username").equalTo(username).addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.orderByChild("username").equalTo(username
+        ).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -77,21 +79,28 @@ public class SecondActivity extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // Sign-in success
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(SecondActivity.this, "Login successful! Welcome, " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SecondActivity.this,
+                                            "Login successful! Welcome, "
+                                                    + user.getEmail(), Toast.LENGTH_SHORT).show();
 
                                     // Navigate to Logistics Activity
-                                    Intent intent = new Intent(SecondActivity.this, NavigationActivity.class);
+                                    Intent intent = new Intent(
+                                            SecondActivity.this, NavigationActivity.class);
                                     intent.putExtra("KEY", "Logistics Page");
                                     startActivity(intent);
                                     finish(); // Close the login activity
                                 } else {
                                     // Sign-in failure
-                                    Toast.makeText(SecondActivity.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SecondActivity.this,
+                                            "Authentication failed: "
+                                                    + task.getException().getMessage(),
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
                 } else {
                     // Username does not exist
-                    Toast.makeText(SecondActivity.this, "Username not found in the database.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SecondActivity.this,
+                            "Username not found in the database.", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -99,7 +108,8 @@ public class SecondActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 // Handle potential errors
                 Log.w("LoginActivity", "Database error: ", databaseError.toException());
-                Toast.makeText(SecondActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SecondActivity.this,
+                        "Database error: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -108,36 +118,36 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart called");
+        Log.d(tag, "onStart called");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG,"onResume called");
+        Log.d(tag, "onResume called");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG,"onPause called");
+        Log.d(tag, "onPause called");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG,"onStop called");
+        Log.d(tag, "onStop called");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG,"onDestroy called");
+        Log.d(tag, "onDestroy called");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG,"onRestart called");
+        Log.d(tag, "onRestart called");
     }
 }

@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class CreateAccount extends AppCompatActivity {
 
-    private final String TAG = "CreateAccount";
+    private final String tag = "CreateAccount";
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,8 @@ public class CreateAccount extends AppCompatActivity {
             createAccount(username, password);
         });
 
-        Button button_quit_register = findViewById(R.id.button_quit_register);
-        button_quit_register.setOnClickListener(new View.OnClickListener() {
+        Button buttonQuitRegister = findViewById(R.id.button_quit_register);
+        buttonQuitRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -63,8 +63,10 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     private void createAccount(String username, String password) {
-        if (username.isEmpty() || password.isEmpty() || username.contains(" ") || password.contains(" ")) {
-            Toast.makeText(this, "Invalid input. Please ensure fields are not empty and contain no spaces.", Toast.LENGTH_SHORT).show();
+        if (username.isEmpty() || password.isEmpty() || username.contains(" ")
+                || password.contains(" ")) {
+            Toast.makeText(this, "Invalid input. Please ensure "
+                    + "fields are not empty and contain no spaces.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -74,11 +76,13 @@ public class CreateAccount extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         saveUserToDatabase(user.getUid(), username);
-                        Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Account created successfully!",
+                                Toast.LENGTH_SHORT).show();
                         // Optionally navigate to login activity
                         startActivity(new Intent(CreateAccount.this, SecondActivity.class));
                     } else {
-                        Toast.makeText(this, "Account creation failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Account creation failed: "
+                                + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -94,36 +98,36 @@ public class CreateAccount extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart called");
+        Log.d(tag, "onStart called");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume called");
+        Log.d(tag, "onResume called");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause called");
+        Log.d(tag, "onPause called");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop called");
+        Log.d(tag, "onStop called");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy called");
+        Log.d(tag, "onDestroy called");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart called");
+        Log.d(tag, "onRestart called");
     }
 }
