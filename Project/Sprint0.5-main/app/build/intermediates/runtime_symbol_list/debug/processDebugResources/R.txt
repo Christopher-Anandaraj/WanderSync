@@ -3321,6 +3321,8 @@ int id browser_actions_menu_view 0x7f08006a
 int id buttonPanel 0x7f08006b
 int id button_calculate_vacation 0x7f08022c
 int id button_log_travel 0x7f08006c
+int id button_log_travel_cancel 0x7f080232
+int id button_log_travel_submit 0x7f080233
 int id button_quit 0x7f08006d
 int id button_quit_login 0x7f08006e
 int id button_quit_register 0x7f08006f
@@ -3714,11 +3716,14 @@ int id text_accommodation 0x7f0801ee
 int id text_community 0x7f0801ef
 int id text_destination 0x7f0801f0
 int id text_dining 0x7f0801f1
+int id text_end_date 0x7f080234
 int id text_input_end_icon 0x7f0801f2
 int id text_input_error_icon 0x7f0801f3
 int id text_input_start_icon 0x7f0801f4
 int id text_logistics 0x7f0801f5
+int id text_start_date 0x7f080235
 int id text_transportation 0x7f0801f6
+int id text_travel_location 0x7f080236
 int id text_welcome1 0x7f0801f7
 int id text_welcome2 0x7f0801f8
 int id textinput_counter 0x7f0801f9
@@ -3746,6 +3751,7 @@ int id transition_position 0x7f08020e
 int id transition_scene_layoutid_cache 0x7f08020f
 int id transition_transform 0x7f080210
 int id transportation_welcome 0x7f080211
+int id travel_location 0x7f080237
 int id triangle 0x7f080212
 int id unchecked 0x7f080213
 int id uniform 0x7f080214

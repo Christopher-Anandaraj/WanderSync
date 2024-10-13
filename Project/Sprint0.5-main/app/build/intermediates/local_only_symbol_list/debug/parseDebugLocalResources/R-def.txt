@@ -30,6 +30,8 @@ drawable transport_selector
 id box
 id button_calculate_vacation
 id button_log_travel
+id button_log_travel_cancel
+id button_log_travel_submit
 id button_quit
 id button_quit_login
 id button_quit_register
@@ -60,11 +62,15 @@ id text_accommodation
 id text_community
 id text_destination
 id text_dining
+id text_end_date
 id text_logistics
+id text_start_date
 id text_transportation
+id text_travel_location
 id text_welcome1
 id text_welcome2
 id transportation_welcome
+id travel_location
 id username
 id vacation_form
 layout activity_create

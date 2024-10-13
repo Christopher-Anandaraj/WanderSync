@@ -3322,6 +3322,8 @@ id browser_actions_menu_view
 id buttonPanel
 id button_calculate_vacation
 id button_log_travel
+id button_log_travel_cancel
+id button_log_travel_submit
 id button_quit
 id button_quit_login
 id button_quit_register
@@ -3715,11 +3717,14 @@ id text_accommodation
 id text_community
 id text_destination
 id text_dining
+id text_end_date
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
 id text_logistics
+id text_start_date
 id text_transportation
+id text_travel_location
 id text_welcome1
 id text_welcome2
 id textinput_counter
@@ -3747,6 +3752,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id transportation_welcome
+id travel_location
 id triangle
 id unchecked
 id uniform

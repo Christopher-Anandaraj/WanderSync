@@ -44,16 +44,16 @@
         "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_transport_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\transport_selector.xml"
+        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_community.xml.flat",
+        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_community.xml"
     },
     {
         "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_transport.png.flat",
         "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_transport.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_community.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_community.xml"
+        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_transport_selector.xml.flat",
+        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\transport_selector.xml"
     },
     {
         "merged": "com.example.sprintproject.app-debug-54:/layout_fragment_destination.xml.flat",
