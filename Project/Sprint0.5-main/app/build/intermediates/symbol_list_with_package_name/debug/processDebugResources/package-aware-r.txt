@@ -3320,6 +3320,8 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id buttonPanel
+id button_calculate_vacation
+id button_log_travel
 id button_quit
 id button_quit_login
 id button_quit_register
@@ -3377,6 +3379,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id destination_plan
 id dialog_button
 id dimensions
 id direct

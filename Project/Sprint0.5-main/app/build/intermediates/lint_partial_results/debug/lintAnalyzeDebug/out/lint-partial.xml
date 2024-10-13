@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.6.0" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.example.sprintproject.view.MainActivity"
+                    boolean="true"/>
+                <entry
+                    name="com.example.sprintproject.view.CreateAccount"
+                    boolean="true"/>
+                <entry
+                    name="com.example.sprintproject.view.SecondActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="android.intent.action.MAIN (used to start an activity)">
+                        <location id="0"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/sprintproject/view/CreateAccount.java"
+                            line="56"
+                            column="33"
+                            startOffset="2040"
+                            endLine="56"
+                            endColumn="63"
+                            endOffset="2070"/>
+                        <location id="1"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/sprintproject/view/MainActivity.java"
+                            line="48"
+                            column="33"
+                            startOffset="1754"
+                            endLine="48"
+                            endColumn="63"
+                            endOffset="1784"/>
+                        <location id="2"
+                            file="${:app*debug*MAIN*sourceProvider*0*javaDir*0}/com/example/sprintproject/view/SecondActivity.java"
+                            line="55"
+                            column="33"
+                            startOffset="1989"
+                            endLine="55"
+                            endColumn="63"
+                            endOffset="2019"/>
+                    </map>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.drawable.ic_home_black_24dp"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_home_black_24dp.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="9"
+            endColumn="10"
+            endOffset="317"/>
+        <location id="R.color.black"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="3"
+            column="12"
+            startOffset="64"
+            endLine="3"
+            endColumn="24"
+            endOffset="76"/>
+        <location id="R.color.white"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/colors.xml"
+            line="4"
+            column="12"
+            startOffset="107"
+            endLine="4"
+            endColumn="24"
+            endOffset="119"/>
+        <location id="R.string.title_home"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="4"
+            column="13"
+            startOffset="141"
+            endLine="4"
+            endColumn="30"
+            endOffset="158"/>
+        <location id="R.drawable.ic_notifications_black_24dp"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_notifications_black_24dp.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="9"
+            endColumn="10"
+            endOffset="471"/>
+        <location id="R.string.title_notifications"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="6"
+            column="13"
+            startOffset="241"
+            endLine="6"
+            endColumn="39"
+            endOffset="267"/>
+        <entry
+            name="model"
+            string="attr[actionBarSize(R)],color[black(D),white(D)],dimen[activity_horizontal_margin(D),activity_vertical_margin(D)],drawable[accom_selector(U),button_accom(U),button_accom_selected(U),button_community(U),button_community_selected(U),button_dining(U),button_dining_selected(U),button_locate(U),button_locate_selected(U),button_logistics(U),button_logistics_selected(U),button_transport(U),button_transport_selected(U),community_selector(U),destination_selector(U),dining_selector(U),ic_dashboard_black_24dp(D),ic_home_black_24dp(D),ic_launcher_background(U),ic_launcher_foreground(U),ic_launcher_foreground_1(R),ic_notifications_black_24dp(D),logistics_selector(U),transport_selector(U)],id[loginText(R),box(R),username(R),editTextUsername(R),password(R),editTextPassword(R),createButton(R),loginBackButton(R),button_quit_register(R),text_welcome1(U),text_welcome2(U),button_start(U),button_quit(R),container(R),nav_view(R),nav_host_fragment_activity_logistics(R),logistics_welcome(R),transportation_welcome(R),loginButton(R),button_quit_login(R),text_accommodation(D),text_community(D),text_destination(D),text_dining(D),text_logistics(D),text_transportation(D),navigation_home(U),navigation_notifications(U),navigation_dining(U),navigation_accommodation(U),navigation_dashboard(U),navigation_community(U),mobile_navigation(D)],layout[activity_create(U),activity_main(U),activity_navigation(U),activity_second(U),fragment_accommodation(U),fragment_community(U),fragment_destination(U),fragment_dining(U),fragment_logistics(U),fragment_transportation(U)],menu[bottom_nav_menu(U)],mipmap[ic_launcher(U),ic_launcher_round(U)],navigation[mobile_navigation(U)],string[app_name(U),title_activity_logistics(U),title_home(D),title_dashboard(D),title_notifications(D)],style[Theme_SprintProject(U),TextAppearance_AppCompat_Display3(R),TextAppearance_AppCompat_Display1(R),Base_Theme_SprintProject(U),Theme_AppCompat_DayNight(R),Theme_Material3_DayNight(R)],xml[data_extraction_rules(U),backup_rules(U)];5^6^7,12^8^9,13^c^d,14^a^b,18^19,1b^e^f,1c^10^11,3e^52^1d^20^21^1f^22^1e^23^24,3f^53^52^26^27^28,40^0^48^2b^4b,41^52^1d^20^21^1f^22^1e^2f^23,48^1b^4d^13^14^5^1c^12,49^17^18,4a^17^18,4b^37^4d^46^44^45^42^47^43,51^54,54^55^56;;;"/>
+        <location id="R.string.title_dashboard"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="5"
+            column="13"
+            startOffset="186"
+            endLine="5"
+            endColumn="35"
+            endOffset="208"/>
+        <location id="R.drawable.ic_dashboard_black_24dp"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/drawable/ic_dashboard_black_24dp.xml"
+            line="1"
+            column="1"
+            startOffset="0"
+            endLine="9"
+            endColumn="10"
+            endOffset="359"/>
+        <location id="R.dimen.activity_horizontal_margin"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/dimens.xml"
+            line="3"
+            column="12"
+            startOffset="97"
+            endLine="3"
+            endColumn="45"
+            endOffset="130"/>
+        <location id="R.dimen.activity_vertical_margin"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/dimens.xml"
+            line="4"
+            column="12"
+            startOffset="156"
+            endLine="4"
+            endColumn="43"
+            endOffset="187"/>
+    </map>
+
+</incidents>

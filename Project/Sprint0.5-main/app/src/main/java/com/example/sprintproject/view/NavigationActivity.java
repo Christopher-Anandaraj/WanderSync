@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.ActivityNavigationBinding;
-import com.example.sprintproject.model.CustomBottomNavigationView;
+import com.example.sprintproject.view.CustomBottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

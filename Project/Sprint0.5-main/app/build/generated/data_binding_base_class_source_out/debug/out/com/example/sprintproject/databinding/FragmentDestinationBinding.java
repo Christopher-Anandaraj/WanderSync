@@ -4,6 +4,8 @@ package com.example.sprintproject.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,11 +22,24 @@ public final class FragmentDestinationBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button buttonCalculateVacation;
+
+  @NonNull
+  public final Button buttonLogTravel;
+
+  @NonNull
+  public final FrameLayout destinationPlan;
+
+  @NonNull
   public final TextView textDestination;
 
   private FragmentDestinationBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textDestination) {
+      @NonNull Button buttonCalculateVacation, @NonNull Button buttonLogTravel,
+      @NonNull FrameLayout destinationPlan, @NonNull TextView textDestination) {
     this.rootView = rootView;
+    this.buttonCalculateVacation = buttonCalculateVacation;
+    this.buttonLogTravel = buttonLogTravel;
+    this.destinationPlan = destinationPlan;
     this.textDestination = textDestination;
   }
 
@@ -55,13 +70,32 @@ public final class FragmentDestinationBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.button_calculate_vacation;
+      Button buttonCalculateVacation = ViewBindings.findChildViewById(rootView, id);
+      if (buttonCalculateVacation == null) {
+        break missingId;
+      }
+
+      id = R.id.button_log_travel;
+      Button buttonLogTravel = ViewBindings.findChildViewById(rootView, id);
+      if (buttonLogTravel == null) {
+        break missingId;
+      }
+
+      id = R.id.destination_plan;
+      FrameLayout destinationPlan = ViewBindings.findChildViewById(rootView, id);
+      if (destinationPlan == null) {
+        break missingId;
+      }
+
       id = R.id.text_destination;
       TextView textDestination = ViewBindings.findChildViewById(rootView, id);
       if (textDestination == null) {
         break missingId;
       }
 
-      return new FragmentDestinationBinding((ConstraintLayout) rootView, textDestination);
+      return new FragmentDestinationBinding((ConstraintLayout) rootView, buttonCalculateVacation,
+          buttonLogTravel, destinationPlan, textDestination);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
