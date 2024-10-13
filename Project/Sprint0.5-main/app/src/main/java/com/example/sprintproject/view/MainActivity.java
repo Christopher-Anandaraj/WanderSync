@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //Creates a onClickListener for buttonQuit.
         Button buttonQuit = findViewById(R.id.button_quit);
         buttonQuit.setOnClickListener(new View.OnClickListener() {
             @Override
