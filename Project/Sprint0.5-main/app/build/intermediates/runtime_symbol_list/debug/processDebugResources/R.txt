@@ -3409,6 +3409,7 @@ int id elastic 0x7f0800c0
 int id embed 0x7f0800c1
 int id end 0x7f0800c2
 int id endToStart 0x7f0800c3
+int id end_date 0x7f08022e
 int id enterAlways 0x7f0800c4
 int id enterAlwaysCollapsed 0x7f0800c5
 int id escape 0x7f0800c6
@@ -3430,6 +3431,7 @@ int id flip 0x7f0800d5
 int id floating 0x7f0800d6
 int id forever 0x7f0800d7
 int id fragment_container_view_tag 0x7f0800d8
+int id fragment_destination 0x7f080231
 int id frost 0x7f0800d9
 int id fullscreen_header 0x7f0800da
 int id ghost_view 0x7f0800db
@@ -3678,6 +3680,7 @@ int id start 0x7f0801cd
 int id startHorizontal 0x7f0801ce
 int id startToEnd 0x7f0801cf
 int id startVertical 0x7f0801d0
+int id start_date 0x7f08022f
 int id staticLayout 0x7f0801d1
 int id staticPostLayout 0x7f0801d2
 int id stop 0x7f0801d3
@@ -3750,6 +3753,7 @@ int id unlabeled 0x7f080215
 int id up 0x7f080216
 int id useLogo 0x7f080217
 int id username 0x7f080218
+int id vacation_form 0x7f080230
 int id vertical_only 0x7f080219
 int id view_offset_helper 0x7f08021a
 int id view_transition 0x7f08021b

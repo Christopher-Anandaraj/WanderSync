@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,16 +33,34 @@ public final class FragmentDestinationBinding implements ViewBinding {
   public final FrameLayout destinationPlan;
 
   @NonNull
+  public final EditText endDate;
+
+  @NonNull
+  public final ConstraintLayout fragmentDestination;
+
+  @NonNull
+  public final EditText startDate;
+
+  @NonNull
   public final TextView textDestination;
+
+  @NonNull
+  public final LinearLayout vacationForm;
 
   private FragmentDestinationBinding(@NonNull ConstraintLayout rootView,
       @NonNull Button buttonCalculateVacation, @NonNull Button buttonLogTravel,
-      @NonNull FrameLayout destinationPlan, @NonNull TextView textDestination) {
+      @NonNull FrameLayout destinationPlan, @NonNull EditText endDate,
+      @NonNull ConstraintLayout fragmentDestination, @NonNull EditText startDate,
+      @NonNull TextView textDestination, @NonNull LinearLayout vacationForm) {
     this.rootView = rootView;
     this.buttonCalculateVacation = buttonCalculateVacation;
     this.buttonLogTravel = buttonLogTravel;
     this.destinationPlan = destinationPlan;
+    this.endDate = endDate;
+    this.fragmentDestination = fragmentDestination;
+    this.startDate = startDate;
     this.textDestination = textDestination;
+    this.vacationForm = vacationForm;
   }
 
   @Override
@@ -88,14 +108,35 @@ public final class FragmentDestinationBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.end_date;
+      EditText endDate = ViewBindings.findChildViewById(rootView, id);
+      if (endDate == null) {
+        break missingId;
+      }
+
+      ConstraintLayout fragmentDestination = (ConstraintLayout) rootView;
+
+      id = R.id.start_date;
+      EditText startDate = ViewBindings.findChildViewById(rootView, id);
+      if (startDate == null) {
+        break missingId;
+      }
+
       id = R.id.text_destination;
       TextView textDestination = ViewBindings.findChildViewById(rootView, id);
       if (textDestination == null) {
         break missingId;
       }
 
+      id = R.id.vacation_form;
+      LinearLayout vacationForm = ViewBindings.findChildViewById(rootView, id);
+      if (vacationForm == null) {
+        break missingId;
+      }
+
       return new FragmentDestinationBinding((ConstraintLayout) rootView, buttonCalculateVacation,
-          buttonLogTravel, destinationPlan, textDestination);
+          buttonLogTravel, destinationPlan, endDate, fragmentDestination, startDate,
+          textDestination, vacationForm);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
