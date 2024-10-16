@@ -1,4 +1,4 @@
-package com.example.sprintproject.model;
+package com.example.sprintproject.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
