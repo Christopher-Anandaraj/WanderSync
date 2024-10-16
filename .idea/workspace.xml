@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fb81767-5ccd-4edd-9c77-2f5209dc2ad4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.7/checksums/sha1-checksums.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SOLID_GRASP/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.7/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.7/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOLID_GRASP/GRASP_SOLID_Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/SOLID_GRASP/GRASP_SOLID_Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOLID_GRASP/GRASP_SOLID_Project.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;killerPawzz&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Christopher-Anandaraj/CS2340D_Team18.git&quot;,
+    &quot;accountId&quot;: &quot;e2dc5bd4-ac90-4daf-b6b5-d36e3d6e0f2a&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -62,23 +71,28 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2muP66RrWnqXJMhGkVmO0WGDgIA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Allyson-Martinez",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/littl/AndroidStudioProjects/CS2340D_Team18"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Allyson-Martinez&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/littl/AndroidStudioProjects/CS2340D_Team18&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Victor\OneDrive\Desktop\CS2340-Objects-Design\CS2340D_Team18\Project\Sprint0.5-main" />
@@ -97,9 +111,10 @@
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="specific_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -175,11 +190,21 @@
       <option name="project" value="LOCAL" />
       <updated>1728870183438</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Built up SOLID principles in tasks">
+      <option name="closed" value="true" />
+      <created>1728955154851</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1728955154851</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Adding new java file for project." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding new java file for project." />
+    <MESSAGE value="Built up SOLID principles in tasks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Built up SOLID principles in tasks" />
   </component>
 </project>
