@@ -26,7 +26,7 @@ public class addTask implements taskManagement {
     @Override
     public void performTask() {
         projectTasks.add(this); //project tasks arraylist should be named this
-        wantedTask.add(this) //added to wantedtask array?
+        wantedTask.add(this); //added to wantedtask array?
     }
 
 }
