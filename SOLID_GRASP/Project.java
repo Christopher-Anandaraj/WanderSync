@@ -8,19 +8,21 @@ public class Project {
     private ArrayList<Task> tasks;
     private ArrayList<TeamMember> teamMembers;
 
-    //Empty Constructor in case projects lacks any specific initial details
-    public Project() {
-        this.tasks = new ArrayList<Task>();
-        this.teamMembers = new ArrayList<TeamMember>();
-    }
-
     //Constructor with all parameters if project has all details
-    public Project(String name, String description, String startDate, String endDate) {
-        this(tasks, teamMembers);
+    public Project(String name, String description, String startDate, String endDate, ArrayList<Task> tasks, ArrayList<TeamMember> teamMembers) {
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+        tasks = tasks;
+        teamMembers = teamMembers;
+    }
+
+    //Empty Constructor in case projects lacks any specific initial details
+    public Project() {
+        this ("emptyName", "emptyDesc", "emptyStartDate", "emptyEndDate");
+        this.tasks = new ArrayList<Task>();
+        this.teamMembers = new ArrayList<TeamMember>();
     }
 
     public void setName(String name) {
@@ -33,10 +35,6 @@ public class Project {
 
     public void setStartDate(String startDate) {
         this.startDate = startDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
     }
 
     public void setEndDate(String endDate) {
