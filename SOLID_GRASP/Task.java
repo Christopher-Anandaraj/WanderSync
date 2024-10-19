@@ -1,72 +1,89 @@
 import java.util.ArrayList;
 
 //task interface
-public abstract class taskManagement { //make into an abstract class
-    protected String title;
-    protected String description;
-    protected String dueDate;
-    protected String status;
-    protected String priority;
-    protected String assignedTo;
+//public abstract class taskManagement { //make into an abstract class
+//    protected String title;
+//    protected String description;
+//    protected String dueDate;
+//    protected String status;
+//    protected String priority;
+//    protected String assignedTo;
+//
+//    //assign all vars via super to reduce repetition
+//    public taskManagement(String title, String description, String dueDate,
+//                   String status, String priority, String assignedTo) {
+//        this.title = title;
+//        this.description = description;
+//        this.dueDate = dueDate;
+//        this.status = status;
+//        this.priority = priority;
+//        this.assignedTo = assignedTo;
+//    }
+//
+//    protected abstract void performTask();
+//}
+//
+////add a task
+//public class addTask extends taskManagement {
+//
+//    //QUESTION: Are duplicates allowed??
+//
+//    //create the task
+//    public addTask(String title, String description, String dueDate,
+//                   String status, String priority, String assignedTo) {
+//        super(title, description, dueDate, status, priority, assignedTo); //create task
+//    }
+//
+//    //add task to project arrayList
+//    @Override
+//    public void performTask() {
+//        projectTasks.add(this); //project tasks arraylist should be named this
+//    }
+//
+//}
+//
+////complete the task
+//public class runTask extends taskManagement {
+//
+//    public runTask(String title, String description, String dueDate,
+//                   String status, String priority, String assignedTo) {
+//        super(title, description, dueDate, status, priority, assignedTo);
+//
+//    //mark task as complete
+//    @Override
+//    public void performTask() {
+//        this.status = "Complete";
+//        //should I remove from arrayList?
+//    }
+//}
+//
+////remove task
+//public class removeTask extends TaskManagement {
+//    public runTask(String title, String description, String dueDate,
+//                   String status, String priority, String assignedTo) {
+//        super(title, description, dueDate, status, priority, assignedTo);
+//    }
+//
+//    @Override
+//    public void performTask() {
+//        projectTasks.remove(this);
+//    }
+//}
+//_________________________________________________________________
 
-    //assign all vars via super to reduce repetition
-    public taskManagement(String title, String description, String dueDate,
-                   String status, String priority, String assignedTo) {
-        this.title = title;
-        this.description = description;
-        this.dueDate = dueDate;
-        this.status = status;
-        this.priority = priority;
-        this.assignedTo = assignedTo;
-    }
-
-    protected abstract void performTask();
+public interface TaskManagement {
+    void performTask();
 }
 
-//add a task
-public class addTask extends taskManagement {
-
-    //QUESTION: Are duplicates allowed??
-
-    //create the task
-    public addTask(String title, String description, String dueDate,
-                   String status, String priority, String assignedTo) {
-        super(title, description, dueDate, status, priority, assignedTo); //create task
-    }
-
-    //add task to project arrayList
-    @Override
-    public void performTask() {
-        projectTasks.add(this); //project tasks arraylist should be named this
-    }
-
-}
-
-//complete the task
-public class runTask extends taskManagement {
-
-    public runTask(String title, String description, String dueDate,
-                   String status, String priority, String assignedTo) {
-        super(title, description, dueDate, status, priority, assignedTo);
-
-    //mark task as complete
-    @Override
-    public void performTask() {
-        this.status = "Complete";
-        //should I remove from arrayList?
+public addTask implements TaskManagement {
+    public void performTask(task newTask){
+        projectTasks.add(newTask);
     }
 }
 
-//remove task
-public class removeTask extends TaskManagement {
-    public runTask(String title, String description, String dueDate,
-                   String status, String priority, String assignedTo) {
-        super(title, description, dueDate, status, priority, assignedTo);
-    }
-
-    @Override
-    public void performTask() {
-        projectTasks.remove(this);
+public removeTask implements TaskManagement {
+    public void performTask(task oldTask) {
+        projectTask.remove(oldTask);
     }
 }
 

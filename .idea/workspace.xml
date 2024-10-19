@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fb81767-5ccd-4edd-9c77-2f5209dc2ad4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.7/checksums/sha1-checksums.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SOLID_GRASP/Task.java" afterDir="false" />
+    <list default="true" id="1fb81767-5ccd-4edd-9c77-2f5209dc2ad4" name="Changes" comment="Finalized TaskManagement implementation for peer review.">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOLID_GRASP/GRASP_SOLID_Project.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOLID_GRASP/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/SOLID_GRASP/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,13 +197,22 @@
       <option name="project" value="LOCAL" />
       <updated>1728955154851</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finalized TaskManagement implementation for peer review.">
+      <option name="closed" value="true" />
+      <created>1729104889044</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729104889044</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Adding new java file for project." />
     <MESSAGE value="Built up SOLID principles in tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Built up SOLID principles in tasks" />
+    <MESSAGE value="Finalized TaskManagement implementation for peer review." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized TaskManagement implementation for peer review." />
   </component>
 </project>
