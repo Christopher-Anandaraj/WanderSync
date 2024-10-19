@@ -76,13 +76,13 @@ public interface TaskManagement {
 }
 
 public addTask implements TaskManagement {
-    public void performTask(task newTask){
+    public void performTask(Task newTask){
         projectTasks.add(newTask);
     }
 }
 
 public removeTask implements TaskManagement {
-    public void performTask(task oldTask) {
+    public void performTask(Task oldTask) {
         projectTask.remove(oldTask);
     }
 }
