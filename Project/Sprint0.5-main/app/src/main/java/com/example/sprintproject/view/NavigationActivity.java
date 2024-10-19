@@ -3,13 +3,20 @@ package com.example.sprintproject.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.ActivityNavigationBinding;
-import com.example.sprintproject.model.CustomBottomNavigationView;
+import com.example.sprintproject.view.CustomBottomNavigationView;
+import com.example.sprintproject.view.ui.destination.DestinationViewModel;
+import com.example.sprintproject.viewmodel.MainViewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -32,7 +39,7 @@ public class NavigationActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_accommodation, R.id.navigation_community, R.id.navigation_dining)
                 .build();
         NavController navController = Navigation.findNavController(this,
                 R.id.nav_host_fragment_activity_logistics);

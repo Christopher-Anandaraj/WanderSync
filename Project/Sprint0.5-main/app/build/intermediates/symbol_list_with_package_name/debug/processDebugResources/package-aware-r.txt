@@ -3320,6 +3320,10 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id buttonPanel
+id button_calculate_vacation
+id button_log_travel
+id button_log_travel_cancel
+id button_log_travel_submit
 id button_quit
 id button_quit_login
 id button_quit_register
@@ -3377,6 +3381,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id destination_plan
 id dialog_button
 id dimensions
 id direct
@@ -3407,6 +3412,7 @@ id elastic
 id embed
 id end
 id endToStart
+id end_date
 id enterAlways
 id enterAlwaysCollapsed
 id escape
@@ -3428,6 +3434,7 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id fragment_destination
 id frost
 id fullscreen_header
 id ghost_view
@@ -3676,6 +3683,7 @@ id start
 id startHorizontal
 id startToEnd
 id startVertical
+id start_date
 id staticLayout
 id staticPostLayout
 id stop
@@ -3709,11 +3717,14 @@ id text_accommodation
 id text_community
 id text_destination
 id text_dining
+id text_end_date
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
 id text_logistics
+id text_start_date
 id text_transportation
+id text_travel_location
 id text_welcome1
 id text_welcome2
 id textinput_counter
@@ -3741,6 +3752,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id transportation_welcome
+id travel_location
 id triangle
 id unchecked
 id uniform
@@ -3748,6 +3760,7 @@ id unlabeled
 id up
 id useLogo
 id username
+id vacation_form
 id vertical_only
 id view_offset_helper
 id view_transition
