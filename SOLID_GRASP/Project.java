@@ -19,7 +19,7 @@ public class Project {
 
     //Empty Constructor in case projects lacks any specific initial details
     public Project() {
-        this("emptyName", "emptyDesc", "emptyStartDate", "emptyEndDate");
+        this("None", "None", "None", "None");
         this.tasks = new ArrayList<>();
         this.teamMembers = new ArrayList<>();
     }
