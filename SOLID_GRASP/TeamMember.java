@@ -1,3 +1,5 @@
+import java.util.logging.Logger;
+
 interface TeamManagement {
     public void performTeamOperation(Project project, TeamMember member);
 }
@@ -19,6 +21,7 @@ class RemoveMember implements TeamManagement {
 public abstract class TeamMember {
     private String name;
     private String email;
+    static Logger log = Logger.getLogger(Task.class.getName());
 
     public abstract void carryOutResponsibility();
 
@@ -46,7 +49,7 @@ class TeamLeader extends TeamMember {
 
     @Override
     public void carryOutResponsibility() {
-        System.out.println("You led a meeting detailing and reviewing team assignments.");
+        log.info("You led a meeting detailing and reviewing team assignments.");
     }
 }
 
@@ -58,7 +61,7 @@ class TeamTester extends TeamMember {
 
     @Override
     public void carryOutResponsibility() {
-        System.out.println("You tested the code sent in by the developers for functionality and bugs.");
+        log.info("You tested the code sent in by the developers for functionality and bugs.");
     }
 }
 
@@ -70,7 +73,7 @@ class TeamReviewer extends TeamMember {
 
     @Override
     public void carryOutResponsibility() {
-        System.out.println("You reviewed the team's work on each responsibility, ensuring it was up to standard.");
+        log.info("You reviewed the team's work on each responsibility, ensuring it was up to standard.");
     }
 }
 
@@ -82,7 +85,7 @@ class TeamTaskManager extends TeamMember {
 
     @Override
     public void carryOutResponsibility() {
-        System.out.println("You made sure the tasks were being performed on time and efficiently.");
+        log.info("You made sure the tasks were being performed on time and efficiently.");
     }
 }
 
@@ -94,7 +97,7 @@ class TeamDesigner extends TeamMember {
 
     @Override
     public void carryOutResponsibility() {
-        System.out.println("You designed a User Interface compatible with the project.");
+        log.info("You designed a User Interface compatible with the project.");
     }
 }
 
@@ -106,6 +109,6 @@ class TeamDeveloper extends TeamMember {
 
     @Override
     public void carryOutResponsibility() {
-        System.out.println("You developed code necessary to complete your responsibilities.");
+        log.info("You developed code necessary to complete your responsibilities.");
     }
 }
