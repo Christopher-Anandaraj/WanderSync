@@ -8,19 +8,19 @@ public class Project {
     private ArrayList<Task> tasks;
     private ArrayList<TeamMember> teamMembers;
 
-    //Empty Constructor in case projects lacks any specific initial details
-    public Project() {
-        this.tasks = new ArrayList<Task>();
-        this.teamMembers = new ArrayList<TeamMember>();
-    }
-
     //Constructor with all parameters if project has all details
     public Project(String name, String description, String startDate, String endDate) {
-        this(tasks, teamMembers);
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    //Empty Constructor in case projects lacks any specific initial details
+    public Project() {
+        this("emptyName", "emptyDesc", "emptyStartDate", "emptyEndDate");
+        this.tasks = new ArrayList<Task>();
+        this.teamMembers = new ArrayList<TeamMember>();
     }
 
     public void setName(String name) {
@@ -39,10 +39,6 @@ public class Project {
         this.endDate = endDate;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
     public void setTasks(ArrayList<Task> tasks) {
         this.tasks = tasks;
     }
@@ -51,27 +47,27 @@ public class Project {
         this.teamMembers = teamMembers;
     }
 
-    public  int getName() {
+    public String getName() {
         return name;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public int getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public int getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public int getTaskList() {
+    public ArrayList<Task> getTaskList() {
         return tasks;
     }
 
-    public int getTeamList() {
+    public ArrayList<TeamMember> getTeamList() {
         return teamMembers;
     }
 
