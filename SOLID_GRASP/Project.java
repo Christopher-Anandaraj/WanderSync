@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Project {
     private String name;
     private String description;
     private String startDate;
     private String endDate;
-    private ArrayList<Task> tasks;
-    private ArrayList<TeamMember> teamMembers;
+    private List<Task> tasks;
+    private List<TeamMember> teamMembers;
 
     //Constructor with all parameters if project has all details
     public Project(String name, String description, String startDate, String endDate) {
@@ -19,8 +20,8 @@ public class Project {
     //Empty Constructor in case projects lacks any specific initial details
     public Project() {
         this("emptyName", "emptyDesc", "emptyStartDate", "emptyEndDate");
-        this.tasks = new ArrayList<Task>();
-        this.teamMembers = new ArrayList<TeamMember>();
+        this.tasks = new ArrayList<>();
+        this.teamMembers = new ArrayList<>();
     }
 
     public void setName(String name) {
@@ -39,7 +40,7 @@ public class Project {
         this.endDate = endDate;
     }
 
-    public void setTasks(ArrayList<Task> tasks) {
+    public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
 
@@ -63,19 +64,11 @@ public class Project {
         return endDate;
     }
 
-    public ArrayList<Task> getTaskList() {
+    public List<Task> getTaskList() {
         return tasks;
     }
 
-    public ArrayList<TeamMember> getTeamList() {
-        return teamMembers;
-    }
-
-    public ArrayList<Task> getTasks() {
-        return tasks;
-    }
-
-    public ArrayList<TeamMember> getTeamMembers() {
+    public List<TeamMember> getTeamList() {
         return teamMembers;
     }
 }

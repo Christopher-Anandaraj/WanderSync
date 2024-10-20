@@ -1,3 +1,5 @@
+import java.util.logging.Logger;
+
 interface TaskManagement {
     void performTask(Project project, Task task);
 }
@@ -22,6 +24,7 @@ public abstract class Task {
     protected String priority;
     protected String assignedTo;
     protected String message;
+    static Logger log = Logger.getLogger(Task.class.getName());
 
     public void setTitle(String title) {
         this.title = title;
@@ -88,7 +91,7 @@ class GenericTask extends Task {
     }
     @Override
         public void runTask() {
-            System.out.println("Generic task is running!");
+            log.info("Generic task is running!");
         }
 }
 
@@ -102,7 +105,7 @@ class PriorityTask extends Task {
     }
     @Override
         public void runTask() {
-            System.out.println("Priority task is running!");
+            log.info("Priority task is running!");
         }
 }
 
@@ -116,7 +119,7 @@ class DueDateTask extends Task {
     }
     @Override
         public void runTask() {
-            System.out.println("Due date task is running!");
+            log.info("Due date task is running!");
         }
 }
 
@@ -130,6 +133,6 @@ class AssignedTask extends Task {
     }
     @Override
         public void runTask() {
-            System.out.println("Assigned task is running!");
+            log.info("Assigned task is running!");
         }
 }
