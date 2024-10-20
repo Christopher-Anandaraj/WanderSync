@@ -21,7 +21,7 @@ class RemoveMember implements TeamManagement {
 public abstract class TeamMember {
     private String name;
     private String email;
-    static Logger log = Logger.getLogger(Task.class.getName());
+    static Logger log = Logger.getLogger(TeamMember.class.getName());
 
     public abstract void carryOutResponsibility();
 

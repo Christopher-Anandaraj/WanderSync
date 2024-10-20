@@ -44,7 +44,7 @@ public class Project {
         this.tasks = tasks;
     }
 
-    public void setTeamMembers(ArrayList<TeamMember> teamMembers) {
+    public void setTeamMembers(List<TeamMember> teamMembers) {
         this.teamMembers = teamMembers;
     }
 
