@@ -15,6 +15,12 @@ import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.ActivityMainBinding;
 import com.example.sprintproject.viewmodel.MainViewModel;
 
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.VideoView;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 public class MainActivity extends AppCompatActivity {
 
     private final String tag = "MainActivity";
@@ -25,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Log.d(tag, "onCreate called");
+
+        //Code for the video looping
+        VideoView videoView = findViewById(R.id.videoView);
+        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.intro);
+        videoView.setVideoURI(videoUri);
+        videoView.start();
+        videoView.setOnCompletionListener(mp -> videoView.start());
+
         //create viewmodel
         MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         //bind viewmodel to layout
