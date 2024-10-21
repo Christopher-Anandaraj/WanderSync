@@ -1,3 +1,5 @@
+package Week8GroupActivity;
+
 import java.util.logging.Logger;
 
 interface TaskManagement {
@@ -95,7 +97,7 @@ class GenericTask extends Task {
         }
 }
 
-//an example special task that uses parent Task
+//an example special task that uses parent Week8GroupActivity.Task
 class PriorityTask extends Task {
     public PriorityTask(String title, String description, String priority, String status) {
         setTitle(title);
