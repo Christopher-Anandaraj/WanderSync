@@ -1,4 +1,4 @@
-package Week8GroupActivity;
+package week_eight_group_activity;
 
 import java.util.ArrayList;
 import java.util.List;
