@@ -10,6 +10,7 @@ import com.example.sprintproject.databinding.ActivityCreateBindingImpl;
 import com.example.sprintproject.databinding.ActivityMainBindingImpl;
 import com.example.sprintproject.databinding.ActivityNavigationBindingImpl;
 import com.example.sprintproject.databinding.ActivitySecondBindingImpl;
+import com.example.sprintproject.databinding.TransitionLayoutBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -29,13 +30,16 @@ public class DataBinderMapperImpl extends DataBinderMapper {
 
   private static final int LAYOUT_ACTIVITYSECOND = 4;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
+  private static final int LAYOUT_TRANSITIONLAYOUT = 5;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(5);
 
   static {
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_create, LAYOUT_ACTIVITYCREATE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_navigation, LAYOUT_ACTIVITYNAVIGATION);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.activity_second, LAYOUT_ACTIVITYSECOND);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.sprintproject.R.layout.transition_layout, LAYOUT_TRANSITIONLAYOUT);
   }
 
   @Override
@@ -70,6 +74,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
             return new ActivitySecondBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_second is invalid. Received: " + tag);
+        }
+        case  LAYOUT_TRANSITIONLAYOUT: {
+          if ("layout/transition_layout_0".equals(tag)) {
+            return new TransitionLayoutBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for transition_layout is invalid. Received: " + tag);
         }
       }
     }
@@ -125,13 +135,14 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(5);
 
     static {
       sKeys.put("layout/activity_create_0", com.example.sprintproject.R.layout.activity_create);
       sKeys.put("layout/activity_main_0", com.example.sprintproject.R.layout.activity_main);
       sKeys.put("layout/activity_navigation_0", com.example.sprintproject.R.layout.activity_navigation);
       sKeys.put("layout/activity_second_0", com.example.sprintproject.R.layout.activity_second);
+      sKeys.put("layout/transition_layout_0", com.example.sprintproject.R.layout.transition_layout);
     }
   }
 }

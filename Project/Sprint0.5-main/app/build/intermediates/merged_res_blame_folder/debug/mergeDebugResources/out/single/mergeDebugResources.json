@@ -1,202 +1,214 @@
 [
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_notifications_black_24dp.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_notifications_black_24dp.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_transport_selector.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\transport_selector.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_main.xml"
+        "merged": "com.example.sprintproject.app-debug-54:/raw_takeoff.mp4.flat",
+        "source": "com.example.sprintproject.app-main-56:/raw/takeoff.mp4"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\xml\\data_extraction_rules.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_locate.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_locate.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_dining_selected.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_dining_selected.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\menu_bottom_nav_menu.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\menu\\bottom_nav_menu.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_transport.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_transport.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-mdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_community.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_community.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_community_selected.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_community_selected.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_logistics_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\logistics_selector.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_home_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_dining_selected.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_dining_selected.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_accom_selected.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_accom_selected.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_community.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_community.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_accom_selector.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\accom_selector.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_transport.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_transport.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_community_selected.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_community_selected.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_transport_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\transport_selector.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\raw_intro.mp4.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\raw\\intro.mp4"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-54:/layout_fragment_destination.xml.flat",
-        "source": "com.example.sprintproject.app-main-56:/layout/fragment_destination.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_dining_selector.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\dining_selector.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_community.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_community.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_second.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_second.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_dashboard_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_accommodation.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_accommodation.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_logistics_selector.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\logistics_selector.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_accom_selected.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_accom_selected.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_accommodation.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_accommodation.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_accom_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\accom_selector.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_dining.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_dining.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_create.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_create.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_destination.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_destination.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\navigation\\mobile_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_dining_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\dining_selector.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_logistics.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_logistics.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_locate_selected.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_locate_selected.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_dining.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_dining.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_locate_selected.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_locate_selected.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\xml\\backup_rules.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_transportation.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_transportation.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_logistics.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_logistics.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_transition_layout.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\transition_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_dashboard_black_24dp.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_dashboard_black_24dp.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_navigation.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_logistics_selected.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_logistics_selected.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\raw_takeoff.mp4.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\raw\\takeoff.mp4"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_transport_selected.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_transport_selected.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_notifications_black_24dp.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-hdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_locate.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_locate.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_second.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_second.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_logistics.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_logistics.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_dining.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_dining.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_accom.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_accom.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_community_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\community_selector.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_transportation.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_transportation.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_navigation.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_navigation.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_home_black_24dp.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_home_black_24dp.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_accom.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_accom.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_transport_selected.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_transport_selected.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xxxhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_dining.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_dining.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_community.png.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_community.png"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_logistics.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_logistics.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\mipmap-hdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_fragment_destination.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\fragment_destination.xml"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_destination_selector.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\destination_selector.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_logistics_selected.png.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_logistics_selected.png"
     },
     {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\navigation_mobile_navigation.xml.flat",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\navigation\\mobile_navigation.xml"
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_create.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_create.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_destination_selector.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\destination_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_community_selector.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\community_selector.xml"
     }
 ]

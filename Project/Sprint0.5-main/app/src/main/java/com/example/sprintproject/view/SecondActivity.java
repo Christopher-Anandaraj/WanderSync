@@ -85,7 +85,7 @@ public class SecondActivity extends AppCompatActivity {
 
                                     // Navigate to Logistics Activity
                                     Intent intent = new Intent(
-                                            SecondActivity.this, NavigationActivity.class);
+                                            SecondActivity.this, TransitionActivity.class);
                                     intent.putExtra("KEY", "Logistics Page");
                                     startActivity(intent);
                                     finish(); // Close the login activity

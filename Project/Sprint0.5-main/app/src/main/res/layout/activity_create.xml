@@ -12,10 +12,8 @@
             android:id="@+id/loginText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleX="1"
-            android:scaleY="1"
-            android:text="Create an Account"
             android:gravity="center"
+            android:text="Create an Account"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,11 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:scaleX="1.15"
-            android:scaleY="1.15"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/loginText"
             app:layout_constraintVertical_bias="0.245">
@@ -41,44 +36,28 @@
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username:"
-                app:layout_constraintBottom_toTopOf="@id/editTextUsername"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Username:" />
 
             <EditText
                 android:id="@+id/editTextUsername"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="15"
                 android:inputType="text"
-                app:layout_constraintBottom_toTopOf="@id/password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/username" />
-
+                android:hint="Enter your username" />
 
             <TextView
                 android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password:"
-                app:layout_constraintBottom_toTopOf="@id/editTextPassword"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/editTextUsername" />
+                android:text="Password:" />
 
             <EditText
                 android:id="@+id/editTextPassword"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="15"
                 android:inputType="textPassword"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/password" />
+                android:hint="Enter your password" />
+
         </LinearLayout>
 
         <Button
@@ -102,7 +81,6 @@
             android:text="Back to Login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/createButton"
             app:layout_constraintVertical_bias="0.088" />
