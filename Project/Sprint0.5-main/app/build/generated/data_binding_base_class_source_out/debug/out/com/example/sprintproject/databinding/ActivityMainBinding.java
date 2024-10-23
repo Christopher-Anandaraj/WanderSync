@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.VideoView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.Bindable;
@@ -29,16 +30,21 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
   public final TextView textWelcome2;
 
+  @NonNull
+  public final VideoView videoView;
+
   @Bindable
   protected MainViewModel mViewModel;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button buttonQuit, Button buttonStart, TextView textWelcome1, TextView textWelcome2) {
+      Button buttonQuit, Button buttonStart, TextView textWelcome1, TextView textWelcome2,
+      VideoView videoView) {
     super(_bindingComponent, _root, _localFieldCount);
     this.buttonQuit = buttonQuit;
     this.buttonStart = buttonStart;
     this.textWelcome1 = textWelcome1;
     this.textWelcome2 = textWelcome2;
+    this.videoView = videoView;
   }
 
   public abstract void setViewModel(@Nullable MainViewModel viewModel);
