@@ -16,10 +16,6 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\transition_layout.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-mergeDebugResources-53:/layout/transition_layout.xml",
-        "source": "com.example.sprintproject.app-main-56:/layout/transition_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-mergeDebugResources-53:\\layout\\activity_navigation.xml",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_navigation.xml"
     },
@@ -46,5 +42,9 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-mergeDebugResources-53:\\layout\\activity_second.xml",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\layout\\activity_second.xml"
+    },
+    {
+        "merged": "com.example.sprintproject.app-mergeDebugResources-53:/layout/fragment_destination.xml",
+        "source": "com.example.sprintproject.app-main-56:/layout/fragment_destination.xml"
     }
 ]

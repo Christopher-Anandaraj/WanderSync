@@ -8,10 +8,6 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\transport_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-54:/raw_takeoff.mp4.flat",
-        "source": "com.example.sprintproject.app-main-56:/raw/takeoff.mp4"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_button_locate.png.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\button_locate.png"
     },
@@ -66,6 +62,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_ic_dashboard_black_24dp.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-56:\\drawable\\ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "com.example.sprintproject.app-debug-54:/layout_fragment_destination.xml.flat",
+        "source": "com.example.sprintproject.app-main-56:/layout/fragment_destination.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-54:\\drawable_logistics_selector.xml.flat",
