@@ -14,10 +14,11 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.text_welcome1, 1);
-        sViewsWithIds.put(R.id.text_welcome2, 2);
-        sViewsWithIds.put(R.id.button_start, 3);
-        sViewsWithIds.put(R.id.button_quit, 4);
+        sViewsWithIds.put(R.id.videoView, 1);
+        sViewsWithIds.put(R.id.text_welcome1, 2);
+        sViewsWithIds.put(R.id.text_welcome2, 3);
+        sViewsWithIds.put(R.id.button_start, 4);
+        sViewsWithIds.put(R.id.button_quit, 5);
     }
     // views
     @NonNull
@@ -28,14 +29,15 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 5, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 6, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
+            , (android.widget.Button) bindings[5]
             , (android.widget.Button) bindings[4]
-            , (android.widget.Button) bindings[3]
-            , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[2]
+            , (android.widget.TextView) bindings[3]
+            , (android.widget.VideoView) bindings[1]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);

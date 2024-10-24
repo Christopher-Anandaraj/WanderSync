@@ -43,6 +43,7 @@ id editTextPassword
 id editTextUsername
 id end_date
 id fragment_destination
+id listView_travel_logs
 id loginBackButton
 id loginButton
 id loginText
@@ -73,6 +74,8 @@ id transportation_welcome
 id travel_location
 id username
 id vacation_form
+id vacation_time_form
+id videoView
 layout activity_create
 layout activity_main
 layout activity_navigation
@@ -87,6 +90,7 @@ menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw intro
 string app_name
 string gcm_defaultSenderId
 string google_api_key

@@ -66,6 +66,13 @@ public class DestinationFragment extends Fragment {
         EditText editText_start_date = binding.startDate;
         EditText editText_end_date = binding.endDate;
         TableLayout form_vacation = binding.vacationForm;
+
+        //-------------------------------------------------------
+        Button button_calculate_vacation = binding.buttonCalculateVacation;
+        TableLayout vacation_time_form = binding.vacationTimeForm;
+        //_____________________________________________________________
+
+
         //Creates a onClickListener for button_log_travel.
         button_travel_log.setOnClickListener(view -> {
             if (form_vacation.getVisibility() == View.VISIBLE)
@@ -79,6 +86,14 @@ public class DestinationFragment extends Fragment {
                 editText_start_date.setText("");
                 editText_end_date.setText("");}
         });
+
+        //---------------------------------------------------------------------
+        button_calculate_vacation.setOnClickListener(view -> {
+            if (vacation_time_form.getVisibility() == View.VISIBLE)
+                vacation_time_form.setVisibility(View.GONE);
+            else
+                vacation_time_form.setVisibility(View.VISIBLE);});
+        //---------------------------------------------------------------------
 
         button_travel_log_submit.setOnClickListener(v -> {
             String travelLocation = editText_travel_location.getText().toString().trim();

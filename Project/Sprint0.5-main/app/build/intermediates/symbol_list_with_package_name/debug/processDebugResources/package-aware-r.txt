@@ -3479,6 +3479,7 @@ id line1
 id line3
 id linear
 id listMode
+id listView_travel_logs
 id list_item
 id locale
 id loginBackButton
@@ -3761,7 +3762,9 @@ id up
 id useLogo
 id username
 id vacation_form
+id vacation_time_form
 id vertical_only
+id videoView
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3993,6 +3996,7 @@ mipmap ic_launcher_round
 navigation mobile_navigation
 plurals mtrl_badge_content_description
 raw firebase_common_keep
+raw intro
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
