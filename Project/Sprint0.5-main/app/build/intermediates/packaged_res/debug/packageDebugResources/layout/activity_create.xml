@@ -8,13 +8,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:tag="layout/activity_create_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" tools:context=".view.SecondActivity">
 
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            tools:layout_editor_absoluteX="-16dp"
+            tools:layout_editor_absoluteY="0dp" />
+
         <TextView
             android:id="@+id/loginText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:gravity="center"
             android:text="Create an Account"
             android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,7 +33,7 @@
             app:layout_constraintHorizontal_bias="0.481"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintVertical_bias="0.319" />
 
         <LinearLayout
             android:id="@+id/box"
@@ -33,13 +44,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/loginText"
-            app:layout_constraintVertical_bias="0.062">
+            app:layout_constraintVertical_bias="0.126">
 
             <TextView
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="Username:"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toTopOf="@id/editTextUsername"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +65,7 @@
                 android:background="@drawable/edit_text_background"
                 android:backgroundTint="#D3D3D3"
                 android:ems="15"
+                android:fontFamily="sans-serif"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textColor="@android:color/black"
@@ -64,7 +78,9 @@
                 android:id="@+id/password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="casual"
                 android:text="Password:"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toTopOf="@id/editTextPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

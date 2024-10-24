@@ -98,6 +98,8 @@ public class DestinationFragment extends Fragment {
             createTravelLog(travelLocation, startDate, endDate);
         });
 
+        //Allyson
+
         destinationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         loadTravelLogs(listView);
         return root;
