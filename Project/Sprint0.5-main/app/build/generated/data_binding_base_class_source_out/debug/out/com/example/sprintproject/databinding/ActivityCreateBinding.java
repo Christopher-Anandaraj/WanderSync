@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -33,6 +34,9 @@ public abstract class ActivityCreateBinding extends ViewDataBinding {
   public final EditText editTextUsername;
 
   @NonNull
+  public final ImageView imageView;
+
+  @NonNull
   public final Button loginBackButton;
 
   @NonNull
@@ -46,14 +50,15 @@ public abstract class ActivityCreateBinding extends ViewDataBinding {
 
   protected ActivityCreateBinding(Object _bindingComponent, View _root, int _localFieldCount,
       LinearLayout box, Button buttonQuitRegister, Button createButton, EditText editTextPassword,
-      EditText editTextUsername, Button loginBackButton, TextView loginText, TextView password,
-      TextView username) {
+      EditText editTextUsername, ImageView imageView, Button loginBackButton, TextView loginText,
+      TextView password, TextView username) {
     super(_bindingComponent, _root, _localFieldCount);
     this.box = box;
     this.buttonQuitRegister = buttonQuitRegister;
     this.createButton = createButton;
     this.editTextPassword = editTextPassword;
     this.editTextUsername = editTextUsername;
+    this.imageView = imageView;
     this.loginBackButton = loginBackButton;
     this.loginText = loginText;
     this.password = password;
