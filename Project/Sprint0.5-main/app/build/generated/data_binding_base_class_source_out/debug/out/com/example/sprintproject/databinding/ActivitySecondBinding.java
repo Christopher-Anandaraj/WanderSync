@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -48,10 +49,13 @@ public abstract class ActivitySecondBinding extends ViewDataBinding {
   @NonNull
   public final TextView username;
 
+  @NonNull
+  public final VideoView videoView;
+
   protected ActivitySecondBinding(Object _bindingComponent, View _root, int _localFieldCount,
       LinearLayout box, Button buttonQuitLogin, Button createButton, EditText editTextPassword,
       EditText editTextUsername, ImageView imageView, Button loginButton, TextView loginText,
-      TextView password, TextView username) {
+      TextView password, TextView username, VideoView videoView) {
     super(_bindingComponent, _root, _localFieldCount);
     this.box = box;
     this.buttonQuitLogin = buttonQuitLogin;
@@ -63,6 +67,7 @@ public abstract class ActivitySecondBinding extends ViewDataBinding {
     this.loginText = loginText;
     this.password = password;
     this.username = username;
+    this.videoView = videoView;
   }
 
   @NonNull

@@ -1,12 +1,14 @@
 package com.example.sprintproject.view;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -33,6 +35,12 @@ public class CreateAccount extends AppCompatActivity {
         EditText usernameField = findViewById(R.id.editTextUsername);
         EditText passwordField = findViewById(R.id.editTextPassword);
         Button loginBackButton = findViewById(R.id.loginBackButton);
+
+        VideoView videoView = findViewById(R.id.videoView);
+        Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.intro);
+        videoView.setVideoURI(videoUri);
+        videoView.start();
+        videoView.setOnCompletionListener(mp -> videoView.start());
 
         loginBackButton.setOnClickListener(new View.OnClickListener() {
             @Override

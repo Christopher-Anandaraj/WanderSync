@@ -3,5 +3,5 @@
     <corners android:radius="100dp"/> <!-- Makes the button elliptical/oval -->
     <stroke
         android:width="2dp"
-        android:color="#000000"/> <!-- Optional border outline -->
+        android:color="#ffffff"/> <!-- Optional border outline -->
 </shape>
