@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.viewmodel.CreationExtras;
 
 import com.example.sprintproject.databinding.FragmentDestinationBinding;
+import com.example.sprintproject.model.FirebaseManager;
 import com.example.sprintproject.view.CreateAccount;
 import com.example.sprintproject.view.SecondActivity;
 import com.google.firebase.auth.FirebaseUser;
@@ -103,23 +104,23 @@ public class DestinationFragment extends Fragment {
     }
 
     private void createTravelLog(String travelLocation, String startDate, String endDate) {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); // Get the current logged-in user
+        // Get the current logged-in user using the FirebaseManager Singleton
+        FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
+
         if (user != null) {
-            String uid = user.getUid(); // Get the user's UID
+            String uid = user.getUid();
 
-            // Reference to the user's travel logs in the database
-            DatabaseReference travelLogRef = FirebaseDatabase.getInstance().getReference("travelLogs").child(uid);
 
-            // Create a unique ID for each travel log
+            DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                    .child("travelLogs").child(uid);
+
             String logId = travelLogRef.push().getKey();
 
-            // Create a travel log map
             Map<String, Object> travelLogMap = new HashMap<>();
             travelLogMap.put("location", travelLocation);
             travelLogMap.put("startDate", startDate);
             travelLogMap.put("endDate", endDate);
 
-            // Save the travel log under the user's UID
             if (logId != null) {
                 travelLogRef.child(logId).setValue(travelLogMap)
                         .addOnCompleteListener(task -> {
@@ -131,15 +132,18 @@ public class DestinationFragment extends Fragment {
                                 Toast.makeText(getContext(), "Failed to add travel log.", Toast.LENGTH_SHORT).show();
                             }
                         });
+            } else {
+                Toast.makeText(getContext(), "Failed to generate log ID.", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(getContext(), "No user is logged in.", Toast.LENGTH_SHORT).show();
         }
     }
 
+
     private void loadTravelLogs(ListView listViewTravelLogs) {
-        // Get the current user ID from FirebaseAuth
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        //This thing follows the Singleton pattern
+        FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
         if (currentUser == null) {
             Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
             return;
@@ -148,7 +152,8 @@ public class DestinationFragment extends Fragment {
         String userId = currentUser.getUid();
 
         // Reference to the user's travel logs in Firebase
-        DatabaseReference travelLogRef = FirebaseDatabase.getInstance().getReference("travelLogs").child(userId);
+        DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                .child("travelLogs").child(userId);
 
         // List to store the travel logs
         List<String> travelLogs = new ArrayList<>();
@@ -164,7 +169,7 @@ public class DestinationFragment extends Fragment {
                     String startDate = snapshot.child("startDate").getValue(String.class);
                     String endDate = snapshot.child("endDate").getValue(String.class);
 
-                    // Calculate days between startDate and endDate (you can use your own method here)
+                    // Calculate days between startDate and endDate sorry Allyson lol
                     long days = calculateDaysBetween(startDate, endDate);
 
                     // Format the string and add it to the travelLogs list

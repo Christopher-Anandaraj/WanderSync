@@ -62,8 +62,9 @@
             android:layout_width="231dp"
             android:layout_height="57dp"
             android:layout_marginTop="56dp"
-            android:backgroundTint="#3994BD"
             android:text="Start"
+            android:background="@drawable/button_eclipse"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_welcome1" />
@@ -73,8 +74,9 @@
             android:layout_width="231dp"
             android:layout_height="57dp"
             android:layout_marginTop="36dp"
-            android:backgroundTint="#427C44"
             android:text="Quit"
+            android:background="@drawable/button_eclipse"
+            android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button_start" />

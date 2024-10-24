@@ -3073,6 +3073,7 @@ drawable button_community
 drawable button_community_selected
 drawable button_dining
 drawable button_dining_selected
+drawable button_eclipse
 drawable button_locate
 drawable button_locate_selected
 drawable button_logistics
@@ -3106,6 +3107,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable destination_selector
 drawable dining_selector
+drawable edit_text_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3212,6 +3214,7 @@ drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable transport_selector
+drawable wandersynclogo
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3459,6 +3462,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id indeterminate

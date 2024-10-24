@@ -23,6 +23,7 @@ public class ActivitySecondBindingImpl extends ActivitySecondBinding  {
         sViewsWithIds.put(R.id.loginButton, 7);
         sViewsWithIds.put(R.id.createButton, 8);
         sViewsWithIds.put(R.id.button_quit_login, 9);
+        sViewsWithIds.put(R.id.imageView, 10);
     }
     // views
     @NonNull
@@ -33,7 +34,7 @@ public class ActivitySecondBindingImpl extends ActivitySecondBinding  {
     // Inverse Binding Event Handlers
 
     public ActivitySecondBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
     }
     private ActivitySecondBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -42,6 +43,7 @@ public class ActivitySecondBindingImpl extends ActivitySecondBinding  {
             , (android.widget.Button) bindings[8]
             , (android.widget.EditText) bindings[6]
             , (android.widget.EditText) bindings[4]
+            , (android.widget.ImageView) bindings[10]
             , (android.widget.Button) bindings[7]
             , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[5]

@@ -23,6 +23,7 @@ public class ActivityCreateBindingImpl extends ActivityCreateBinding  {
         sViewsWithIds.put(R.id.createButton, 7);
         sViewsWithIds.put(R.id.loginBackButton, 8);
         sViewsWithIds.put(R.id.button_quit_register, 9);
+        sViewsWithIds.put(R.id.imageView, 10);
     }
     // views
     @NonNull
@@ -33,7 +34,7 @@ public class ActivityCreateBindingImpl extends ActivityCreateBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityCreateBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
     }
     private ActivityCreateBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
@@ -42,6 +43,7 @@ public class ActivityCreateBindingImpl extends ActivityCreateBinding  {
             , (android.widget.Button) bindings[7]
             , (android.widget.EditText) bindings[6]
             , (android.widget.EditText) bindings[4]
+            , (android.widget.ImageView) bindings[10]
             , (android.widget.Button) bindings[8]
             , (android.widget.TextView) bindings[1]
             , (android.widget.TextView) bindings[5]
