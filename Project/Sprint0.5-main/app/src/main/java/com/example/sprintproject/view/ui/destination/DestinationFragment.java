@@ -67,7 +67,7 @@ public class DestinationFragment extends Fragment {
         EditText editText_end_date = binding.endDate;
         TableLayout form_vacation = binding.vacationForm;
 
-        //-------------------------------------------------------
+        //--------------------------------------------------------------
         Button button_calculate_vacation = binding.buttonCalculateVacation;
         TableLayout vacation_time_form = binding.vacationTimeForm;
         //_____________________________________________________________

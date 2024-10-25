@@ -3716,14 +3716,16 @@ id textTop
 id textWatcher
 id text_accommodation
 id text_community
-id text_destination
 id text_dining
+id text_duration_time_form
 id text_end_date
+id text_end_date_time_form
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
 id text_logistics
 id text_start_date
+id text_start_date_time_form
 id text_transportation
 id text_travel_location
 id text_welcome1

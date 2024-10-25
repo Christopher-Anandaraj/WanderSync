@@ -52,13 +52,19 @@ public final class FragmentDestinationBinding implements ViewBinding {
   public final EditText startDate;
 
   @NonNull
-  public final TextView textDestination;
+  public final TextView textDurationTimeForm;
 
   @NonNull
   public final TextView textEndDate;
 
   @NonNull
+  public final TextView textEndDateTimeForm;
+
+  @NonNull
   public final TextView textStartDate;
+
+  @NonNull
+  public final TextView textStartDateTimeForm;
 
   @NonNull
   public final TextView textTravelLocation;
@@ -77,10 +83,11 @@ public final class FragmentDestinationBinding implements ViewBinding {
       @NonNull Button buttonLogTravelCancel, @NonNull Button buttonLogTravelSubmit,
       @NonNull FrameLayout destinationPlan, @NonNull EditText endDate,
       @NonNull ConstraintLayout fragmentDestination, @NonNull ListView listViewTravelLogs,
-      @NonNull EditText startDate, @NonNull TextView textDestination, @NonNull TextView textEndDate,
-      @NonNull TextView textStartDate, @NonNull TextView textTravelLocation,
-      @NonNull EditText travelLocation, @NonNull TableLayout vacationForm,
-      @NonNull TableLayout vacationTimeForm) {
+      @NonNull EditText startDate, @NonNull TextView textDurationTimeForm,
+      @NonNull TextView textEndDate, @NonNull TextView textEndDateTimeForm,
+      @NonNull TextView textStartDate, @NonNull TextView textStartDateTimeForm,
+      @NonNull TextView textTravelLocation, @NonNull EditText travelLocation,
+      @NonNull TableLayout vacationForm, @NonNull TableLayout vacationTimeForm) {
     this.rootView = rootView;
     this.buttonCalculateVacation = buttonCalculateVacation;
     this.buttonLogTravel = buttonLogTravel;
@@ -91,9 +98,11 @@ public final class FragmentDestinationBinding implements ViewBinding {
     this.fragmentDestination = fragmentDestination;
     this.listViewTravelLogs = listViewTravelLogs;
     this.startDate = startDate;
-    this.textDestination = textDestination;
+    this.textDurationTimeForm = textDurationTimeForm;
     this.textEndDate = textEndDate;
+    this.textEndDateTimeForm = textEndDateTimeForm;
     this.textStartDate = textStartDate;
+    this.textStartDateTimeForm = textStartDateTimeForm;
     this.textTravelLocation = textTravelLocation;
     this.travelLocation = travelLocation;
     this.vacationForm = vacationForm;
@@ -177,9 +186,9 @@ public final class FragmentDestinationBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.text_destination;
-      TextView textDestination = ViewBindings.findChildViewById(rootView, id);
-      if (textDestination == null) {
+      id = R.id.text_duration_time_form;
+      TextView textDurationTimeForm = ViewBindings.findChildViewById(rootView, id);
+      if (textDurationTimeForm == null) {
         break missingId;
       }
 
@@ -189,9 +198,21 @@ public final class FragmentDestinationBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.text_end_date_time_form;
+      TextView textEndDateTimeForm = ViewBindings.findChildViewById(rootView, id);
+      if (textEndDateTimeForm == null) {
+        break missingId;
+      }
+
       id = R.id.text_start_date;
       TextView textStartDate = ViewBindings.findChildViewById(rootView, id);
       if (textStartDate == null) {
+        break missingId;
+      }
+
+      id = R.id.text_start_date_time_form;
+      TextView textStartDateTimeForm = ViewBindings.findChildViewById(rootView, id);
+      if (textStartDateTimeForm == null) {
         break missingId;
       }
 
@@ -221,8 +242,9 @@ public final class FragmentDestinationBinding implements ViewBinding {
 
       return new FragmentDestinationBinding((ConstraintLayout) rootView, buttonCalculateVacation,
           buttonLogTravel, buttonLogTravelCancel, buttonLogTravelSubmit, destinationPlan, endDate,
-          fragmentDestination, listViewTravelLogs, startDate, textDestination, textEndDate,
-          textStartDate, textTravelLocation, travelLocation, vacationForm, vacationTimeForm);
+          fragmentDestination, listViewTravelLogs, startDate, textDurationTimeForm, textEndDate,
+          textEndDateTimeForm, textStartDate, textStartDateTimeForm, textTravelLocation,
+          travelLocation, vacationForm, vacationTimeForm);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
