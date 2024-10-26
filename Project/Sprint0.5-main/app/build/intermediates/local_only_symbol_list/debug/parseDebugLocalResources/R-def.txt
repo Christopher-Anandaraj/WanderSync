@@ -39,6 +39,8 @@ id button_quit
 id button_quit_login
 id button_quit_register
 id button_start
+id button_vacation_time_cancel
+id button_vacation_time_submit
 id container
 id createButton
 id destination_plan
@@ -67,9 +69,12 @@ id text_accommodation
 id text_community
 id text_destination
 id text_dining
+id text_duration_time_form
 id text_end_date
+id text_end_date_time_form
 id text_logistics
 id text_start_date
+id text_start_date_time_form
 id text_transportation
 id text_travel_location
 id text_welcome1
@@ -78,6 +83,10 @@ id transportation_welcome
 id travel_location
 id username
 id vacation_form
+id vacation_time_duration_data_info
+id vacation_time_end_data_info
+id vacation_time_form
+id vacation_time_start_data_info
 id videoView
 id videoViewTransition
 layout activity_create

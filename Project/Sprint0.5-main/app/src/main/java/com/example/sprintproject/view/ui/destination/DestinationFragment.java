@@ -22,6 +22,7 @@ import com.example.sprintproject.view.CreateAccount;
 import com.example.sprintproject.view.SecondActivity;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.ArrayList;
 import android.widget.ArrayAdapter;  // To populate the ListView with travel logs
@@ -99,6 +100,60 @@ public class DestinationFragment extends Fragment {
         });
 
         //Allyson
+        //----------------------------------------------------------------
+
+        //Added vacation_time form
+        TableLayout vacation_time_form = binding.vacationTimeForm;
+
+        //Added Buttons for Calculate Vacation time
+        Button button_calculate_vacation = binding.buttonCalculateVacation;
+        Button button_vacation_time_cancel = binding.buttonVacationTimeCancel;
+        Button button_vacation_time_submit = binding.buttonVacationTimeSubmit;
+
+        //"edit text" user input
+        EditText vacation_time_start_data_info = binding.vacationTimeStartDataInfo;
+        EditText vacation_time_end_data_info = binding.vacationTimeEndDataInfo;
+        EditText vacation_time_duration_data_info = binding.vacationTimeDurationDataInfo;
+
+        button_calculate_vacation.setOnClickListener(view -> {
+            if (vacation_time_form.getVisibility() == View.VISIBLE)
+                vacation_time_form.setVisibility(View.GONE);
+            else
+                vacation_time_form.setVisibility(View.VISIBLE);});
+
+        button_vacation_time_cancel.setOnClickListener(view -> {
+            if (vacation_time_form.getVisibility() == View.VISIBLE) {
+                vacation_time_form.setVisibility(View.GONE);
+                vacation_time_start_data_info.setText("");
+                vacation_time_end_data_info.setText("");
+                vacation_time_duration_data_info.setText("");}
+        });
+
+        button_vacation_time_submit.setOnClickListener(v -> {
+            String vacationStartData = vacation_time_start_data_info.getText().toString().trim();
+            String vacationEndData = vacation_time_end_data_info.getText().toString().trim();
+            String vacationDuration = vacation_time_duration_data_info.getText().toString().trim();
+
+            if ((vacationStartData.isEmpty() && vacationEndData.isEmpty() && vacationDuration.isEmpty())) {
+                Toast.makeText(getContext(), "Please fill in at least two fields and try again.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!isValidDate(vacationStartData) || !isValidDate(vacationEndData)) {
+                Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                long duration = calculateDaysBetween(vacationStartData, vacationEndData);
+
+                //HERE -> add to database
+            } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
+                String endDate = calculateEndDate(vacationStartData, vacationDuration);
+                //HERE -> add to database
+            } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
+                String startDate = calculateStartDate(vacationEndData, vacationDuration);
+                //HERE -> add to database
+            }
+        });
 
         destinationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         loadTravelLogs(listView);
@@ -204,6 +259,18 @@ public class DestinationFragment extends Fragment {
         }
     }
 
+    private boolean isValidDuration(String duration) {
+        try {
+            if (duration == null || duration.trim().isEmpty()) {
+                return false;
+            }
+            long number = Long.parseLong(duration);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
     private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         try {
@@ -236,6 +303,67 @@ public class DestinationFragment extends Fragment {
 
         // If there's a parsing error or invalid input, return 0 days by default
         return 0;
+    }
+
+    //new methods to find gives days using duration instead of start/end data
+    private String calculateEndDate(String startDate, String duration) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+        try {
+            // Parse the dates from strings
+            Date start = dateFormat.parse(startDate);
+
+            if (start != null && duration != null) {
+
+                //convert duration to int
+                int daysToAdd = Integer.parseInt(duration);
+
+                // Set calendar to be at given start date
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(start);
+
+                calendar.add(Calendar.DAY_OF_YEAR, daysToAdd);
+
+                //Return end date
+                return dateFormat.format(calendar.getTime());
+            }
+            //What is this?? (ASK)
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        // If there's a parsing error or invalid input
+        return "ERROR";
+    }
+
+    private String calculateStartDate(String endDate, String duration) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+
+        try {
+            // Parse the dates from strings
+            Date end = dateFormat.parse(endDate);
+
+            if (end != null && duration != null) {
+
+                //convert duration to int
+                int daysToAdd = Integer.parseInt(duration);
+
+                // Set calendar to be at given start date
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(end);
+
+                calendar.add(Calendar.DAY_OF_YEAR, -daysToAdd);
+
+                //Return end date
+                return dateFormat.format(calendar.getTime());
+            }
+            //What is this?? (ASK)
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        // If there's a parsing error or invalid input
+        return "ERROR";
     }
 
 

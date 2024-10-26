@@ -3330,6 +3330,8 @@ int id button_quit 0x7f080070
 int id button_quit_login 0x7f080071
 int id button_quit_register 0x7f080072
 int id button_start 0x7f080073
+int id button_vacation_time_cancel 0x7f080243
+int id button_vacation_time_submit 0x7f080244
 int id cache_measures 0x7f080074
 int id callMeasure 0x7f080075
 int id cancel_button 0x7f080076
@@ -3721,12 +3723,15 @@ int id text_accommodation 0x7f0801f7
 int id text_community 0x7f0801f8
 int id text_destination 0x7f0801f9
 int id text_dining 0x7f0801fa
+int id text_duration_time_form 0x7f08023c
 int id text_end_date 0x7f0801fb
+int id text_end_date_time_form 0x7f08023d
 int id text_input_end_icon 0x7f0801fc
 int id text_input_error_icon 0x7f0801fd
 int id text_input_start_icon 0x7f0801fe
 int id text_logistics 0x7f0801ff
 int id text_start_date 0x7f080200
+int id text_start_date_time_form 0x7f08023e
 int id text_transportation 0x7f080201
 int id text_travel_location 0x7f080202
 int id text_welcome1 0x7f080203
@@ -3765,6 +3770,10 @@ int id up 0x7f080223
 int id useLogo 0x7f080224
 int id username 0x7f080225
 int id vacation_form 0x7f080226
+int id vacation_time_duration_data_info 0x7f080240
+int id vacation_time_end_data_info 0x7f080241
+int id vacation_time_form 0x7f08023f
+int id vacation_time_start_data_info 0x7f080242
 int id vertical_only 0x7f080227
 int id videoView 0x7f080228
 int id videoViewTransition 0x7f080229

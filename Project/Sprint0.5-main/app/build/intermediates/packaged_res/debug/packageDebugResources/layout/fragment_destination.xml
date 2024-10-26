@@ -94,7 +94,7 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/white"
                 android:layout_marginStart="-20dp"
-                android:layout_marginEnd="10dp"      />
+                android:layout_marginEnd="10dp"/>
         </TableRow>
 
         <TableRow>
@@ -130,6 +130,107 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vacation_form"
         />
+
+    <!--Allyson Implementation-->
+    <TableLayout
+        android:id="@+id/vacation_time_form"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#3994BD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_calculate_vacation">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/text_start_date_time_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="Start Date:"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/vacation_time_start_data_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="40dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/text_end_date_time_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="End Date:"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/vacation_time_end_data_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="40dp"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/text_duration_time_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="Duration:"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/vacation_time_duration_data_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="1dp"
+                android:layout_marginEnd="40dp"/>
+        </TableRow>
+
+        <TableRow>
+            <Button
+                android:id="@+id/button_vacation_time_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Cancel"
+                android:textAlignment="center"
+                />
+
+            <Button
+                android:id="@+id/button_vacation_time_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingLeft="10dp"
+                android:text="Submit"
+                android:textAlignment="center"
+                />
+        </TableRow>
+
+    </TableLayout>
 
     <FrameLayout
         android:id="@+id/destination_plan"
