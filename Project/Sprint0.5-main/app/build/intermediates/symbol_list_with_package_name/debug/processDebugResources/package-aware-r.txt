@@ -3073,6 +3073,7 @@ drawable button_community
 drawable button_community_selected
 drawable button_dining
 drawable button_dining_selected
+drawable button_eclipse
 drawable button_locate
 drawable button_locate_selected
 drawable button_logistics
@@ -3106,6 +3107,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable destination_selector
 drawable dining_selector
+drawable edit_text_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3212,6 +3214,7 @@ drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable transport_selector
+drawable wandersynclogo
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3459,6 +3462,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageView
 id immediateStop
 id included
 id indeterminate
@@ -3479,6 +3483,7 @@ id line1
 id line3
 id linear
 id listMode
+id listView_travel_logs
 id list_item
 id locale
 id loginBackButton
@@ -3762,6 +3767,8 @@ id useLogo
 id username
 id vacation_form
 id vertical_only
+id videoView
+id videoViewTransition
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3987,12 +3994,15 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout transition_layout
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
 plurals mtrl_badge_content_description
 raw firebase_common_keep
+raw intro
+raw takeoff
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

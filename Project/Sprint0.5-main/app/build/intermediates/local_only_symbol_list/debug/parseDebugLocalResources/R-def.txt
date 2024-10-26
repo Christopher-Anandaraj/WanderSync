@@ -11,6 +11,7 @@ drawable button_community
 drawable button_community_selected
 drawable button_dining
 drawable button_dining_selected
+drawable button_eclipse
 drawable button_locate
 drawable button_locate_selected
 drawable button_logistics
@@ -20,6 +21,7 @@ drawable button_transport_selected
 drawable community_selector
 drawable destination_selector
 drawable dining_selector
+drawable edit_text_background
 drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
@@ -27,6 +29,7 @@ drawable ic_launcher_foreground
 drawable ic_notifications_black_24dp
 drawable logistics_selector
 drawable transport_selector
+drawable wandersynclogo
 id box
 id button_calculate_vacation
 id button_log_travel
@@ -43,6 +46,8 @@ id editTextPassword
 id editTextUsername
 id end_date
 id fragment_destination
+id imageView
+id listView_travel_logs
 id loginBackButton
 id loginButton
 id loginText
@@ -73,6 +78,8 @@ id transportation_welcome
 id travel_location
 id username
 id vacation_form
+id videoView
+id videoViewTransition
 layout activity_create
 layout activity_main
 layout activity_navigation
@@ -83,10 +90,13 @@ layout fragment_destination
 layout fragment_dining
 layout fragment_logistics
 layout fragment_transportation
+layout transition_layout
 menu bottom_nav_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
+raw intro
+raw takeoff
 string app_name
 string gcm_defaultSenderId
 string google_api_key

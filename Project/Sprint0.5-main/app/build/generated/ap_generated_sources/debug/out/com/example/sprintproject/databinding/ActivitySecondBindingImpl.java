@@ -14,15 +14,17 @@ public class ActivitySecondBindingImpl extends ActivitySecondBinding  {
     static {
         sIncludes = null;
         sViewsWithIds = new android.util.SparseIntArray();
-        sViewsWithIds.put(R.id.loginText, 1);
-        sViewsWithIds.put(R.id.box, 2);
-        sViewsWithIds.put(R.id.username, 3);
-        sViewsWithIds.put(R.id.editTextUsername, 4);
-        sViewsWithIds.put(R.id.password, 5);
-        sViewsWithIds.put(R.id.editTextPassword, 6);
-        sViewsWithIds.put(R.id.loginButton, 7);
-        sViewsWithIds.put(R.id.createButton, 8);
-        sViewsWithIds.put(R.id.button_quit_login, 9);
+        sViewsWithIds.put(R.id.videoView, 1);
+        sViewsWithIds.put(R.id.loginText, 2);
+        sViewsWithIds.put(R.id.box, 3);
+        sViewsWithIds.put(R.id.username, 4);
+        sViewsWithIds.put(R.id.editTextUsername, 5);
+        sViewsWithIds.put(R.id.password, 6);
+        sViewsWithIds.put(R.id.editTextPassword, 7);
+        sViewsWithIds.put(R.id.loginButton, 8);
+        sViewsWithIds.put(R.id.createButton, 9);
+        sViewsWithIds.put(R.id.button_quit_login, 10);
+        sViewsWithIds.put(R.id.imageView, 11);
     }
     // views
     @NonNull
@@ -33,19 +35,21 @@ public class ActivitySecondBindingImpl extends ActivitySecondBinding  {
     // Inverse Binding Event Handlers
 
     public ActivitySecondBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 12, sIncludes, sViewsWithIds));
     }
     private ActivitySecondBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 0
-            , (android.widget.LinearLayout) bindings[2]
+            , (android.widget.LinearLayout) bindings[3]
+            , (android.widget.Button) bindings[10]
             , (android.widget.Button) bindings[9]
+            , (android.widget.EditText) bindings[7]
+            , (android.widget.EditText) bindings[5]
+            , (android.widget.ImageView) bindings[11]
             , (android.widget.Button) bindings[8]
-            , (android.widget.EditText) bindings[6]
-            , (android.widget.EditText) bindings[4]
-            , (android.widget.Button) bindings[7]
-            , (android.widget.TextView) bindings[1]
-            , (android.widget.TextView) bindings[5]
-            , (android.widget.TextView) bindings[3]
+            , (android.widget.TextView) bindings[2]
+            , (android.widget.TextView) bindings[6]
+            , (android.widget.TextView) bindings[4]
+            , (android.widget.VideoView) bindings[1]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
