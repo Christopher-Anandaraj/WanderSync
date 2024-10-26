@@ -7,6 +7,7 @@ dimen activity_vertical_margin
 drawable accom_selector
 drawable button_accom
 drawable button_accom_selected
+drawable button_add_contributors
 drawable button_community
 drawable button_community_selected
 drawable button_dining
@@ -31,7 +32,10 @@ drawable logistics_selector
 drawable transport_selector
 drawable wandersynclogo
 id box
+id button_add
+id button_add_contributors
 id button_calculate_vacation
+id button_cancel
 id button_log_travel
 id button_log_travel_cancel
 id button_log_travel_submit
@@ -43,6 +47,7 @@ id container
 id createButton
 id destination_plan
 id editTextPassword
+id editTextTextEmailAddress
 id editTextUsername
 id end_date
 id fragment_destination
@@ -64,7 +69,9 @@ id navigation_notifications
 id password
 id start_date
 id text_accommodation
+id text_add_contributors
 id text_community
+id text_contributors
 id text_destination
 id text_dining
 id text_end_date
@@ -80,6 +87,7 @@ id username
 id vacation_form
 id videoView
 id videoViewTransition
+layout activity_add_contributor
 layout activity_create
 layout activity_main
 layout activity_navigation

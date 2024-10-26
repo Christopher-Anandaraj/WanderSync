@@ -3069,6 +3069,7 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button_accom
 drawable button_accom_selected
+drawable button_add_contributors
 drawable button_community
 drawable button_community_selected
 drawable button_dining
@@ -3323,7 +3324,10 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id buttonPanel
+id button_add
+id button_add_contributors
 id button_calculate_vacation
+id button_cancel
 id button_log_travel
 id button_log_travel_cancel
 id button_log_travel_submit
@@ -3408,6 +3412,7 @@ id easeOut
 id east
 id edge
 id editTextPassword
+id editTextTextEmailAddress
 id editTextUsername
 id edit_query
 id edit_text_id
@@ -3719,7 +3724,9 @@ id textStart
 id textTop
 id textWatcher
 id text_accommodation
+id text_add_contributors
 id text_community
+id text_contributors
 id text_destination
 id text_dining
 id text_end_date
@@ -3903,6 +3910,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_contributor
 layout activity_create
 layout activity_main
 layout activity_navigation
