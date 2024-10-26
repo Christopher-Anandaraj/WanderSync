@@ -3384,7 +3384,6 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
-id destination_plan
 id dialog_button
 id dimensions
 id direct
@@ -3771,6 +3770,7 @@ id videoView
 id videoViewTransition
 id view_offset_helper
 id view_transition
+id view_travel_logs
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner

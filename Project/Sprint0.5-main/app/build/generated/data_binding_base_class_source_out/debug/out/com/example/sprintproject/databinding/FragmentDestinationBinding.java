@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -35,9 +34,6 @@ public final class FragmentDestinationBinding implements ViewBinding {
 
   @NonNull
   public final Button buttonLogTravelSubmit;
-
-  @NonNull
-  public final FrameLayout destinationPlan;
 
   @NonNull
   public final EditText endDate;
@@ -69,20 +65,23 @@ public final class FragmentDestinationBinding implements ViewBinding {
   @NonNull
   public final TableLayout vacationForm;
 
+  @NonNull
+  public final TableLayout viewTravelLogs;
+
   private FragmentDestinationBinding(@NonNull ConstraintLayout rootView,
       @NonNull Button buttonCalculateVacation, @NonNull Button buttonLogTravel,
       @NonNull Button buttonLogTravelCancel, @NonNull Button buttonLogTravelSubmit,
-      @NonNull FrameLayout destinationPlan, @NonNull EditText endDate,
-      @NonNull ConstraintLayout fragmentDestination, @NonNull ListView listViewTravelLogs,
-      @NonNull EditText startDate, @NonNull TextView textDestination, @NonNull TextView textEndDate,
+      @NonNull EditText endDate, @NonNull ConstraintLayout fragmentDestination,
+      @NonNull ListView listViewTravelLogs, @NonNull EditText startDate,
+      @NonNull TextView textDestination, @NonNull TextView textEndDate,
       @NonNull TextView textStartDate, @NonNull TextView textTravelLocation,
-      @NonNull EditText travelLocation, @NonNull TableLayout vacationForm) {
+      @NonNull EditText travelLocation, @NonNull TableLayout vacationForm,
+      @NonNull TableLayout viewTravelLogs) {
     this.rootView = rootView;
     this.buttonCalculateVacation = buttonCalculateVacation;
     this.buttonLogTravel = buttonLogTravel;
     this.buttonLogTravelCancel = buttonLogTravelCancel;
     this.buttonLogTravelSubmit = buttonLogTravelSubmit;
-    this.destinationPlan = destinationPlan;
     this.endDate = endDate;
     this.fragmentDestination = fragmentDestination;
     this.listViewTravelLogs = listViewTravelLogs;
@@ -93,6 +92,7 @@ public final class FragmentDestinationBinding implements ViewBinding {
     this.textTravelLocation = textTravelLocation;
     this.travelLocation = travelLocation;
     this.vacationForm = vacationForm;
+    this.viewTravelLogs = viewTravelLogs;
   }
 
   @Override
@@ -143,12 +143,6 @@ public final class FragmentDestinationBinding implements ViewBinding {
       id = R.id.button_log_travel_submit;
       Button buttonLogTravelSubmit = ViewBindings.findChildViewById(rootView, id);
       if (buttonLogTravelSubmit == null) {
-        break missingId;
-      }
-
-      id = R.id.destination_plan;
-      FrameLayout destinationPlan = ViewBindings.findChildViewById(rootView, id);
-      if (destinationPlan == null) {
         break missingId;
       }
 
@@ -208,10 +202,16 @@ public final class FragmentDestinationBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.view_travel_logs;
+      TableLayout viewTravelLogs = ViewBindings.findChildViewById(rootView, id);
+      if (viewTravelLogs == null) {
+        break missingId;
+      }
+
       return new FragmentDestinationBinding((ConstraintLayout) rootView, buttonCalculateVacation,
-          buttonLogTravel, buttonLogTravelCancel, buttonLogTravelSubmit, destinationPlan, endDate,
+          buttonLogTravel, buttonLogTravelCancel, buttonLogTravelSubmit, endDate,
           fragmentDestination, listViewTravelLogs, startDate, textDestination, textEndDate,
-          textStartDate, textTravelLocation, travelLocation, vacationForm);
+          textStartDate, textTravelLocation, travelLocation, vacationForm, viewTravelLogs);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

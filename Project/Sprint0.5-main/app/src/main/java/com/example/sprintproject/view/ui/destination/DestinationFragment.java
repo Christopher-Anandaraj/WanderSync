@@ -96,6 +96,9 @@ public class DestinationFragment extends Fragment {
             }
 
             createTravelLog(travelLocation, startDate, endDate);
+            editText_travel_location.setText("");
+            editText_start_date.setText("");
+            editText_end_date.setText("");
         });
 
         //Allyson
@@ -142,6 +145,9 @@ public class DestinationFragment extends Fragment {
         }
     }
 
+    private void clearTravelLogFields() {
+
+    }
 
     private void loadTravelLogs(ListView listViewTravelLogs) {
         //This thing follows the Singleton pattern
@@ -174,8 +180,13 @@ public class DestinationFragment extends Fragment {
                     // Calculate days between startDate and endDate sorry Allyson lol
                     long days = calculateDaysBetween(startDate, endDate);
 
+                    // Create formatted string using String.format
+                    String formattedEntry = String.format("%-30s%10s",
+                            travelLocation,
+                            days + " days planned");
+
                     // Format the string and add it to the travelLogs list
-                    travelLogs.add(travelLocation + "          " + days + " days planned");
+                    travelLogs.add(formattedEntry);
                 }
 
                 // Update the ListView with the new data
@@ -237,6 +248,7 @@ public class DestinationFragment extends Fragment {
         // If there's a parsing error or invalid input, return 0 days by default
         return 0;
     }
+
 
 
     @Override
