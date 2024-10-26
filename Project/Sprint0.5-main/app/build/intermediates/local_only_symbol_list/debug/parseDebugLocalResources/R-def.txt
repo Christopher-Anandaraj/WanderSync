@@ -41,7 +41,6 @@ id button_quit_register
 id button_start
 id container
 id createButton
-id destination_plan
 id editTextPassword
 id editTextUsername
 id end_date
@@ -80,6 +79,7 @@ id username
 id vacation_form
 id videoView
 id videoViewTransition
+id view_travel_logs
 layout activity_create
 layout activity_main
 layout activity_navigation
