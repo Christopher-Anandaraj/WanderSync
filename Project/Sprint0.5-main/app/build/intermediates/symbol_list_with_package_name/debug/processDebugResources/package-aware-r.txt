@@ -3337,6 +3337,8 @@ id button_quit
 id button_quit_login
 id button_quit_register
 id button_start
+id button_vacation_time_cancel
+id button_vacation_time_submit
 id button_x
 id cache_measures
 id callMeasure
@@ -3442,8 +3444,13 @@ id fixed
 id flip
 id floating
 id forever
+id fragment_accommodation
+id fragment_community
 id fragment_container_view_tag
 id fragment_destination
+id fragment_dining
+id fragment_logistics
+id fragment_transportation
 id frost
 id fullscreen_header
 id ghost_view
@@ -3731,7 +3738,9 @@ id text_community
 id text_contributors
 id text_destination
 id text_dining
+id text_duration_time_form
 id text_end_date
+id text_end_date_time_form
 id text_enter_username
 id text_input_end_icon
 id text_input_error_icon
@@ -3739,8 +3748,10 @@ id text_input_start_icon
 id text_logistics
 id text_notes
 id text_start_date
+id text_start_date_time_form
 id text_transportation
 id text_travel_location
+id text_vacation_time_result_title
 id text_welcome1
 id text_welcome2
 id textinput_counter
@@ -3778,6 +3789,12 @@ id useLogo
 id username
 id usernameEntry
 id vacation_form
+id vacation_time_duration_data_info
+id vacation_time_end_data_info
+id vacation_time_form
+id vacation_time_form_results
+id vacation_time_result
+id vacation_time_start_data_info
 id vertical_only
 id videoView
 id videoViewTransition

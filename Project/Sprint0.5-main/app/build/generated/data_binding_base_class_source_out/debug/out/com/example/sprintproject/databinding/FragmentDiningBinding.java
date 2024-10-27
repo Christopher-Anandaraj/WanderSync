@@ -20,10 +20,15 @@ public final class FragmentDiningBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout fragmentDining;
+
+  @NonNull
   public final TextView textDining;
 
-  private FragmentDiningBinding(@NonNull ConstraintLayout rootView, @NonNull TextView textDining) {
+  private FragmentDiningBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ConstraintLayout fragmentDining, @NonNull TextView textDining) {
     this.rootView = rootView;
+    this.fragmentDining = fragmentDining;
     this.textDining = textDining;
   }
 
@@ -54,13 +59,15 @@ public final class FragmentDiningBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout fragmentDining = (ConstraintLayout) rootView;
+
       id = R.id.text_dining;
       TextView textDining = ViewBindings.findChildViewById(rootView, id);
       if (textDining == null) {
         break missingId;
       }
 
-      return new FragmentDiningBinding((ConstraintLayout) rootView, textDining);
+      return new FragmentDiningBinding((ConstraintLayout) rootView, fragmentDining, textDining);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

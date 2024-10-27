@@ -85,7 +85,7 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!isValidDate(startDate) || !isValidDate(endDate) || !isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!DestinationUtils.isValidDate(startDate) || !DestinationUtils.isValidDate(endDate) || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
                 Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -144,20 +144,20 @@ public class DestinationFragment extends Fragment {
                 vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                 vacation_time_form_results.setVisibility(View.VISIBLE);
                 vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", Double.parseDouble(vacationDuration)));
-            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && DestinationUtils.isValidDate(vacationStartData) && DestinationUtils.isValidDate(vacationEndData) && DestinationUtils.isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
                 loadTravelLogsDuration(totalDuration -> {
                     vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
-            } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
+            } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && DestinationUtils.isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
                 String endDate = calculateEndDate(vacationStartData, vacationDuration);
                 loadTravelLogsDuration(totalDuration -> {
                     vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
-            } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
+            } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && DestinationUtils.isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 String startDate = calculateStartDate(vacationEndData, vacationDuration);
                 loadTravelLogsDuration(totalDuration -> {
                     vacationDatalog.put("calculatedVacationDuration", vacationDuration);
@@ -258,7 +258,7 @@ public class DestinationFragment extends Fragment {
                     String endDate = snapshot.child("endDate").getValue(String.class);
 
                     // Calculate days between startDate and endDate sorry Allyson lol
-                    long days = calculateDaysBetween(startDate, endDate);
+                    long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
 
                     // Format the string and add it to the travelLogs list
                     travelLogs.add(travelLocation + "          " + days + " days planned");
@@ -300,7 +300,7 @@ public class DestinationFragment extends Fragment {
                     String startDate = snapshot.child("startDate").getValue(String.class);
                     String endDate = snapshot.child("endDate").getValue(String.class);
 
-                    double days = (double) calculateDaysBetween(startDate, endDate);
+                    double days = (double) DestinationUtils.calculateDaysBetween(startDate, endDate);
                     travelLogsDuration.add(days);
                 }
 
@@ -333,18 +333,6 @@ public class DestinationFragment extends Fragment {
         return total;
     }
 
-    private boolean isValidDate(String date) {
-        // Assuming date format is "yyyy-MM-dd"
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        sdf.setLenient(false); // Strict parsing
-        try {
-            sdf.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
-
     private boolean isValidDuration(String duration) {
         try {
             if (duration == null || duration.trim().isEmpty()) {
@@ -355,40 +343,6 @@ public class DestinationFragment extends Fragment {
             return false;
         }
         return true;
-    }
-
-    private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        try {
-            Date start = sdf.parse(startDate);
-            Date end = sdf.parse(endDate);
-            return start != null && end != null && start.before(end);
-        } catch (ParseException e) {
-            return false;
-        }
-    }
-
-    private long calculateDaysBetween(String startDate, String endDate) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-
-        try {
-            // Parse the dates from strings
-            Date start = dateFormat.parse(startDate);
-            Date end = dateFormat.parse(endDate);
-
-            if (start != null && end != null) {
-                // Calculate the difference in milliseconds
-                long diffInMillies = end.getTime() - start.getTime();
-
-                // Convert the difference to days
-                return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        // If there's a parsing error or invalid input, return 0 days by default
-        return 0;
     }
 
     //new methods to find gives days using duration instead of start/end data
@@ -451,7 +405,6 @@ public class DestinationFragment extends Fragment {
         // If there's a parsing error or invalid input
         return "ERROR";
     }
-
 
     @Override
     public void onDestroyView() {
