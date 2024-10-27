@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.viewmodel.CreationExtras;
+import com.example.sprintproject.view.ui.destination.DestinationUtils;
 
 import com.example.sprintproject.databinding.FragmentDestinationBinding;
 import com.example.sprintproject.model.FirebaseManager;
@@ -90,7 +90,7 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!isValidDate(startDate) || !isValidDate(endDate) || !isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!DestinationUtils.isValidDate(startDate) || !DestinationUtils.isValidDate(endDate) || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
                 Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -178,7 +178,7 @@ public class DestinationFragment extends Fragment {
                     String endDate = snapshot.child("endDate").getValue(String.class);
 
                     // Calculate days between startDate and endDate sorry Allyson lol
-                    long days = calculateDaysBetween(startDate, endDate);
+                    long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
 
                     // Create formatted string using String.format
                     String formattedEntry = String.format("%-30s%10s",
@@ -200,30 +200,6 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-
-    private boolean isValidDate(String date) {
-        // Assuming date format is "yyyy-MM-dd"
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        sdf.setLenient(false); // Strict parsing
-        try {
-            sdf.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
-
-    private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        try {
-            Date start = sdf.parse(startDate);
-            Date end = sdf.parse(endDate);
-            return start != null && end != null && start.before(end);
-        } catch (ParseException e) {
-            return false;
-        }
     }
 
     private long calculateDaysBetween(String startDate, String endDate) {

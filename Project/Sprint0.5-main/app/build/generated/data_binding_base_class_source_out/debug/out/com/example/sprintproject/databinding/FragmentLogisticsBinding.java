@@ -20,11 +20,15 @@ public final class FragmentLogisticsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout fragmentLogistics;
+
+  @NonNull
   public final TextView textLogistics;
 
   private FragmentLogisticsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textLogistics) {
+      @NonNull ConstraintLayout fragmentLogistics, @NonNull TextView textLogistics) {
     this.rootView = rootView;
+    this.fragmentLogistics = fragmentLogistics;
     this.textLogistics = textLogistics;
   }
 
@@ -55,13 +59,16 @@ public final class FragmentLogisticsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout fragmentLogistics = (ConstraintLayout) rootView;
+
       id = R.id.text_logistics;
       TextView textLogistics = ViewBindings.findChildViewById(rootView, id);
       if (textLogistics == null) {
         break missingId;
       }
 
-      return new FragmentLogisticsBinding((ConstraintLayout) rootView, textLogistics);
+      return new FragmentLogisticsBinding((ConstraintLayout) rootView, fragmentLogistics,
+          textLogistics);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

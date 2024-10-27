@@ -3435,8 +3435,13 @@ id fixed
 id flip
 id floating
 id forever
+id fragment_accommodation
+id fragment_community
 id fragment_container_view_tag
 id fragment_destination
+id fragment_dining
+id fragment_logistics
+id fragment_transportation
 id frost
 id fullscreen_header
 id ghost_view

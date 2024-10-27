@@ -20,11 +20,15 @@ public final class FragmentAccommodationBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout fragmentAccommodation;
+
+  @NonNull
   public final TextView textAccommodation;
 
   private FragmentAccommodationBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textAccommodation) {
+      @NonNull ConstraintLayout fragmentAccommodation, @NonNull TextView textAccommodation) {
     this.rootView = rootView;
+    this.fragmentAccommodation = fragmentAccommodation;
     this.textAccommodation = textAccommodation;
   }
 
@@ -55,13 +59,16 @@ public final class FragmentAccommodationBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout fragmentAccommodation = (ConstraintLayout) rootView;
+
       id = R.id.text_accommodation;
       TextView textAccommodation = ViewBindings.findChildViewById(rootView, id);
       if (textAccommodation == null) {
         break missingId;
       }
 
-      return new FragmentAccommodationBinding((ConstraintLayout) rootView, textAccommodation);
+      return new FragmentAccommodationBinding((ConstraintLayout) rootView, fragmentAccommodation,
+          textAccommodation);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

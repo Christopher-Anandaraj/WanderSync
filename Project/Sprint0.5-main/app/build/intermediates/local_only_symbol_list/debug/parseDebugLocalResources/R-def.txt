@@ -44,7 +44,12 @@ id createButton
 id editTextPassword
 id editTextUsername
 id end_date
+id fragment_accommodation
+id fragment_community
 id fragment_destination
+id fragment_dining
+id fragment_logistics
+id fragment_transportation
 id imageView
 id listView_travel_logs
 id loginBackButton
