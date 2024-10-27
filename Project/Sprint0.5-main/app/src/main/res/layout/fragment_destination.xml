@@ -252,6 +252,14 @@
                 android:text="Results:"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/vacation_time_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </TableRow>
 
     </TableLayout>

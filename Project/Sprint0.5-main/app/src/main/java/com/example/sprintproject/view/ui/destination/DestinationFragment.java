@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.viewmodel.CreationExtras;
 
+import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.FragmentDestinationBinding;
 import com.example.sprintproject.model.FirebaseManager;
 import com.example.sprintproject.view.CreateAccount;
@@ -68,6 +69,7 @@ public class DestinationFragment extends Fragment {
         EditText editText_start_date = binding.startDate;
         EditText editText_end_date = binding.endDate;
         TableLayout form_vacation = binding.vacationForm;
+
         //Creates a onClickListener for button_log_travel.
         button_travel_log.setOnClickListener(view -> {
             if (form_vacation.getVisibility() == View.VISIBLE)
@@ -115,6 +117,9 @@ public class DestinationFragment extends Fragment {
         EditText vacation_time_end_data_info = binding.vacationTimeEndDataInfo;
         EditText vacation_time_duration_data_info = binding.vacationTimeDurationDataInfo;
 
+        //altered text views
+        TextView vacation_time_result = binding.vacationTimeResult;
+
         button_calculate_vacation.setOnClickListener(view -> {
             if (vacation_time_form.getVisibility() == View.VISIBLE)
                 vacation_time_form.setVisibility(View.GONE);
@@ -143,9 +148,9 @@ public class DestinationFragment extends Fragment {
                 return;
             }
             if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
-                long duration = calculateDaysBetween(vacationStartData, vacationEndData);
-
+                double duration = (double) calculateDaysBetween(vacationStartData, vacationEndData);
                 //HERE -> add to database
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
             } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
                 String endDate = calculateEndDate(vacationStartData, vacationDuration);
                 //HERE -> add to database

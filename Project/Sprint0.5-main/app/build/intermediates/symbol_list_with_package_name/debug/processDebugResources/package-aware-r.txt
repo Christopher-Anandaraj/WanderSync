@@ -3735,6 +3735,7 @@ id text_start_date
 id text_start_date_time_form
 id text_transportation
 id text_travel_location
+id text_vacation_time_result_title
 id text_welcome1
 id text_welcome2
 id textinput_counter
@@ -3774,6 +3775,7 @@ id vacation_form
 id vacation_time_duration_data_info
 id vacation_time_end_data_info
 id vacation_time_form
+id vacation_time_form_results
 id vacation_time_start_data_info
 id vertical_only
 id videoView

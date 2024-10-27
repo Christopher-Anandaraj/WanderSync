@@ -3734,6 +3734,7 @@ int id text_start_date 0x7f080200
 int id text_start_date_time_form 0x7f08023e
 int id text_transportation 0x7f080201
 int id text_travel_location 0x7f080202
+int id text_vacation_time_result_title 0x7f080245
 int id text_welcome1 0x7f080203
 int id text_welcome2 0x7f080204
 int id textinput_counter 0x7f080205
@@ -3773,6 +3774,7 @@ int id vacation_form 0x7f080226
 int id vacation_time_duration_data_info 0x7f080240
 int id vacation_time_end_data_info 0x7f080241
 int id vacation_time_form 0x7f08023f
+int id vacation_time_form_results 0x7f080246
 int id vacation_time_start_data_info 0x7f080242
 int id vertical_only 0x7f080227
 int id videoView 0x7f080228
