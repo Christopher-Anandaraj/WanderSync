@@ -111,6 +111,10 @@ public class DestinationFragment extends Fragment {
         //altered text views
         TextView vacation_time_result = binding.vacationTimeResult;
 
+        //make new log to store data
+        Map<String, Object> vacationDatalog = createVacationDays();
+
+
         button_calculate_vacation.setOnClickListener(view -> {
             if (vacation_time_form.getVisibility() == View.VISIBLE)
                 vacation_time_form.setVisibility(View.GONE);
@@ -137,22 +141,26 @@ public class DestinationFragment extends Fragment {
             }
 
             if (!vacationDuration.isEmpty() && isValidDuration(vacationDuration)) {
+                vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                 vacation_time_form_results.setVisibility(View.VISIBLE);
                 vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", Double.parseDouble(vacationDuration)));
             } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
                 loadTravelLogsDuration(totalDuration -> {
+                    vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
             } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
                 String endDate = calculateEndDate(vacationStartData, vacationDuration);
                 loadTravelLogsDuration(totalDuration -> {
+                    vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
             } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 String startDate = calculateStartDate(vacationEndData, vacationDuration);
                 loadTravelLogsDuration(totalDuration -> {
+                    vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
@@ -162,6 +170,25 @@ public class DestinationFragment extends Fragment {
         destinationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         loadTravelLogs(listView);
         return root;
+    }
+
+    //add to firebase
+    private Map<String, Object> createVacationDays() {
+        FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+        String uid = currentUser.getUid();
+        DatabaseReference vacationLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                .child("users").child(uid).child("vacationLogs");
+
+        String logId = vacationLogRef.push().getKey();
+
+        // Map to store only the vacation duration
+        Map<String, Object> vacationData = new HashMap<>();
+
+        return vacationData;
     }
 
     private void createTravelLog(String travelLocation, String startDate, String endDate) {
