@@ -16,11 +16,11 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import com.example.sprintproject.view.NavigationActivity;
 
 @RunWith(AndroidJUnit4.class)
-public class CustomBottomNavigationViewTest {
+public class CustomBottomNavigationBarTest {
 
     @Before
     public void setUp() {
-        // Launch the MainActivity that contains your BottomNavigationView
+        // Launch the NavigationActivity that contains your BottomNavigationView
         ActivityScenario.launch(NavigationActivity.class);
     }
 
