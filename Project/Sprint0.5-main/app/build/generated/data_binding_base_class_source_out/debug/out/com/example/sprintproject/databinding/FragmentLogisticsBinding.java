@@ -27,6 +27,9 @@ public final class FragmentLogisticsBinding implements ViewBinding {
   public final ImageButton buttonNotes;
 
   @NonNull
+  public final ConstraintLayout fragmentLogistics;
+
+  @NonNull
   public final TextView textContributors;
 
   @NonNull
@@ -34,10 +37,12 @@ public final class FragmentLogisticsBinding implements ViewBinding {
 
   private FragmentLogisticsBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageButton buttonAddContributors, @NonNull ImageButton buttonNotes,
-      @NonNull TextView textContributors, @NonNull TextView textLogistics) {
+      @NonNull ConstraintLayout fragmentLogistics, @NonNull TextView textContributors,
+      @NonNull TextView textLogistics) {
     this.rootView = rootView;
     this.buttonAddContributors = buttonAddContributors;
     this.buttonNotes = buttonNotes;
+    this.fragmentLogistics = fragmentLogistics;
     this.textContributors = textContributors;
     this.textLogistics = textLogistics;
   }
@@ -81,6 +86,8 @@ public final class FragmentLogisticsBinding implements ViewBinding {
         break missingId;
       }
 
+      ConstraintLayout fragmentLogistics = (ConstraintLayout) rootView;
+
       id = R.id.text_contributors;
       TextView textContributors = ViewBindings.findChildViewById(rootView, id);
       if (textContributors == null) {
@@ -94,7 +101,7 @@ public final class FragmentLogisticsBinding implements ViewBinding {
       }
 
       return new FragmentLogisticsBinding((ConstraintLayout) rootView, buttonAddContributors,
-          buttonNotes, textContributors, textLogistics);
+          buttonNotes, fragmentLogistics, textContributors, textLogistics);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
