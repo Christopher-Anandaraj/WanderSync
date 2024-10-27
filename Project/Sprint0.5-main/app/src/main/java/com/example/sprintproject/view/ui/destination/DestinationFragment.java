@@ -129,37 +129,33 @@ public class DestinationFragment extends Fragment {
             String vacationStartData = vacation_time_start_data_info.getText().toString().trim();
             String vacationEndData = vacation_time_end_data_info.getText().toString().trim();
             String vacationDuration = vacation_time_duration_data_info.getText().toString().trim();
+            vacation_time_form.setVisibility(View.GONE);
 
-            if ((vacationStartData.isEmpty() && vacationEndData.isEmpty() && vacationDuration.isEmpty())) {
+            if (vacationStartData.isEmpty() && vacationEndData.isEmpty() && vacationDuration.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in at least two fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!vacationDuration.isEmpty() && isValidDuration(vacationDuration)) {
-                vacation_time_form.setVisibility(View.GONE);
-                vacation_time_form_results.setVisibility(View.VISIBLE);
-                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", vacationDuration));
-            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
-                loadTravelLogsDuration();
-                Double duration = countDurationTotal();
-                vacation_time_form.setVisibility(View.GONE);
-                vacation_time_form_results.setVisibility(View.VISIBLE);
-                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
 
+            if (!vacationDuration.isEmpty() && isValidDuration(vacationDuration)) {
+                vacation_time_form_results.setVisibility(View.VISIBLE);
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", Double.parseDouble(vacationDuration)));
+            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                loadTravelLogsDuration(totalDuration -> {
+                    vacation_time_form_results.setVisibility(View.VISIBLE);
+                    vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
+                });
             } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
                 String endDate = calculateEndDate(vacationStartData, vacationDuration);
-                loadTravelLogsDuration();
-                Double duration = countDurationTotal();
-                vacation_time_form.setVisibility(View.GONE);
-                vacation_time_form_results.setVisibility(View.VISIBLE);
-                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
-
+                loadTravelLogsDuration(totalDuration -> {
+                    vacation_time_form_results.setVisibility(View.VISIBLE);
+                    vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
+                });
             } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 String startDate = calculateStartDate(vacationEndData, vacationDuration);
-                loadTravelLogsDuration();
-                Double duration = countDurationTotal();
-                vacation_time_form.setVisibility(View.GONE);
-                vacation_time_form_results.setVisibility(View.VISIBLE);
-                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
+                loadTravelLogsDuration(totalDuration -> {
+                    vacation_time_form_results.setVisibility(View.VISIBLE);
+                    vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
+                });
             }
         });
 
@@ -257,8 +253,7 @@ public class DestinationFragment extends Fragment {
     //Allyson ____________________________________________________________________________________________
     private List<Double> travelLogsDuration = new ArrayList<>();
 
-    private void loadTravelLogsDuration() {
-        //This thing follows the Singleton pattern
+    private void loadTravelLogsDuration(OnDurationLoadedListener listener) {
         FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
         if (currentUser == null) {
             Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
@@ -266,15 +261,9 @@ public class DestinationFragment extends Fragment {
         }
 
         String userId = currentUser.getUid();
-
-        // Reference to the user's travel logs in Firebase
         DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
                 .child("travelLogs").child(userId);
 
-        // List to store the travel logs
-        List<Double> travelLogsDuration = new ArrayList<>();
-
-        // Firebase event listener to retrieve the travel logs
         travelLogRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -284,11 +273,13 @@ public class DestinationFragment extends Fragment {
                     String startDate = snapshot.child("startDate").getValue(String.class);
                     String endDate = snapshot.child("endDate").getValue(String.class);
 
-                    // Calculate days between startDate and endDate sorry Allyson lol
                     double days = (double) calculateDaysBetween(startDate, endDate);
-
-                    // Format the string and add it to the travelLogs list
                     travelLogsDuration.add(days);
+                }
+
+                // Callback to notify that the duration is loaded
+                if (listener != null) {
+                    listener.onDurationLoaded(countDurationTotal());
                 }
             }
 
@@ -297,6 +288,10 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public interface OnDurationLoadedListener {
+        void onDurationLoaded(double totalDuration);
     }
 
     private Double countDurationTotal() {
