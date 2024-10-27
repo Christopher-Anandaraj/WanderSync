@@ -100,6 +100,9 @@ public final class FragmentDestinationBinding implements ViewBinding {
   public final TableLayout vacationTimeFormResults;
 
   @NonNull
+  public final TextView vacationTimeResult;
+
+  @NonNull
   public final EditText vacationTimeStartDataInfo;
 
   private FragmentDestinationBinding(@NonNull ConstraintLayout rootView,
@@ -115,7 +118,8 @@ public final class FragmentDestinationBinding implements ViewBinding {
       @NonNull TextView textVacationTimeResultTitle, @NonNull EditText travelLocation,
       @NonNull TableLayout vacationForm, @NonNull EditText vacationTimeDurationDataInfo,
       @NonNull EditText vacationTimeEndDataInfo, @NonNull TableLayout vacationTimeForm,
-      @NonNull TableLayout vacationTimeFormResults, @NonNull EditText vacationTimeStartDataInfo) {
+      @NonNull TableLayout vacationTimeFormResults, @NonNull TextView vacationTimeResult,
+      @NonNull EditText vacationTimeStartDataInfo) {
     this.rootView = rootView;
     this.buttonCalculateVacation = buttonCalculateVacation;
     this.buttonLogTravel = buttonLogTravel;
@@ -142,6 +146,7 @@ public final class FragmentDestinationBinding implements ViewBinding {
     this.vacationTimeEndDataInfo = vacationTimeEndDataInfo;
     this.vacationTimeForm = vacationTimeForm;
     this.vacationTimeFormResults = vacationTimeFormResults;
+    this.vacationTimeResult = vacationTimeResult;
     this.vacationTimeStartDataInfo = vacationTimeStartDataInfo;
   }
 
@@ -318,6 +323,12 @@ public final class FragmentDestinationBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.vacation_time_result;
+      TextView vacationTimeResult = ViewBindings.findChildViewById(rootView, id);
+      if (vacationTimeResult == null) {
+        break missingId;
+      }
+
       id = R.id.vacation_time_start_data_info;
       EditText vacationTimeStartDataInfo = ViewBindings.findChildViewById(rootView, id);
       if (vacationTimeStartDataInfo == null) {
@@ -330,7 +341,7 @@ public final class FragmentDestinationBinding implements ViewBinding {
           listViewTravelLogs, startDate, textDestination, textDurationTimeForm, textEndDate,
           textEndDateTimeForm, textStartDate, textStartDateTimeForm, textTravelLocation,
           textVacationTimeResultTitle, travelLocation, vacationForm, vacationTimeDurationDataInfo,
-          vacationTimeEndDataInfo, vacationTimeForm, vacationTimeFormResults,
+          vacationTimeEndDataInfo, vacationTimeForm, vacationTimeFormResults, vacationTimeResult,
           vacationTimeStartDataInfo);
     }
     String missingId = rootView.getResources().getResourceName(id);

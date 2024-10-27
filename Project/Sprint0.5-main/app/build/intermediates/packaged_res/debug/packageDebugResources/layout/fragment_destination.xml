@@ -141,7 +141,8 @@
         android:background="#3994BD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_calculate_vacation">
+        app:layout_constraintTop_toBottomOf="@id/button_calculate_vacation"
+        app:layout_constraintBottom_toTopOf="@id/text_destination">
 
         <TableRow>
             <TextView
@@ -152,8 +153,6 @@
                 android:text="Start Date:"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
-        </TableRow>
-        <TableRow>
             <EditText
                 android:id="@+id/vacation_time_start_data_info"
                 android:layout_width="0dp"
@@ -174,8 +173,6 @@
                 android:text="End Date:"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
-        </TableRow>
-        <TableRow>
             <EditText
                 android:id="@+id/vacation_time_end_data_info"
                 android:layout_width="0dp"
@@ -196,8 +193,6 @@
                 android:text="Duration:"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
-        </TableRow>
-        <TableRow>
             <EditText
                 android:id="@+id/vacation_time_duration_data_info"
                 android:layout_width="0dp"
@@ -252,6 +247,14 @@
                 android:text="Results:"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/vacation_time_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </TableRow>
 
     </TableLayout>
@@ -278,7 +281,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="@id/vacation_time_form"
+        app:layout_constraintTop_toBottomOf="parent"/>
 
     <ListView
         android:id="@+id/listView_travel_logs"

@@ -1,6 +1,5 @@
 package com.example.sprintproject.view.ui.destination;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.viewmodel.CreationExtras;
 
-import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.FragmentDestinationBinding;
 import com.example.sprintproject.model.FirebaseManager;
-import com.example.sprintproject.view.CreateAccount;
-import com.example.sprintproject.view.SecondActivity;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Calendar;
@@ -32,10 +27,7 @@ import android.widget.ListView;  // For displaying travel logs in a list
 import com.google.firebase.database.DataSnapshot;  // For reading data from Firebase
 import com.google.firebase.database.DatabaseError;  // For Firebase database error handling
 import com.google.firebase.database.DatabaseReference;  // To reference a specific part of Firebase
-import com.google.firebase.database.FirebaseDatabase;  // To get a Firebase database instance
 import com.google.firebase.database.ValueEventListener;  // For listening to Firebase data changes
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.text.ParseException;  // For handling date parsing exceptions
 import java.text.SimpleDateFormat;  // To format and parse dates in "yyyy-MM-dd" format
@@ -101,11 +93,10 @@ public class DestinationFragment extends Fragment {
             createTravelLog(travelLocation, startDate, endDate);
         });
 
-        //Allyson
-        //----------------------------------------------------------------
-
+        //Allyson ---------------------------------------------------------------------------------
         //Added vacation_time form
         TableLayout vacation_time_form = binding.vacationTimeForm;
+        TableLayout vacation_time_form_results = binding.vacationTimeFormResults;
 
         //Added Buttons for Calculate Vacation time
         Button button_calculate_vacation = binding.buttonCalculateVacation;
@@ -143,20 +134,32 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Please fill in at least two fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!isValidDate(vacationStartData) || !isValidDate(vacationEndData)) {
-                Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
-                double duration = (double) calculateDaysBetween(vacationStartData, vacationEndData);
-                //HERE -> add to database
+            if (!vacationDuration.isEmpty() && isValidDuration(vacationDuration)) {
+                vacation_time_form.setVisibility(View.GONE);
+                vacation_time_form_results.setVisibility(View.VISIBLE);
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", vacationDuration));
+            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                loadTravelLogsDuration();
+                Double duration = countDurationTotal();
+                vacation_time_form.setVisibility(View.GONE);
+                vacation_time_form_results.setVisibility(View.VISIBLE);
                 vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
+
             } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
                 String endDate = calculateEndDate(vacationStartData, vacationDuration);
-                //HERE -> add to database
+                loadTravelLogsDuration();
+                Double duration = countDurationTotal();
+                vacation_time_form.setVisibility(View.GONE);
+                vacation_time_form_results.setVisibility(View.VISIBLE);
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
+
             } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 String startDate = calculateStartDate(vacationEndData, vacationDuration);
-                //HERE -> add to database
+                loadTravelLogsDuration();
+                Double duration = countDurationTotal();
+                vacation_time_form.setVisibility(View.GONE);
+                vacation_time_form_results.setVisibility(View.VISIBLE);
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
             }
         });
 
@@ -251,6 +254,62 @@ public class DestinationFragment extends Fragment {
         });
     }
 
+    //Allyson ____________________________________________________________________________________________
+    private List<Double> travelLogsDuration = new ArrayList<>();
+
+    private void loadTravelLogsDuration() {
+        //This thing follows the Singleton pattern
+        FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String userId = currentUser.getUid();
+
+        // Reference to the user's travel logs in Firebase
+        DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                .child("travelLogs").child(userId);
+
+        // List to store the travel logs
+        List<Double> travelLogsDuration = new ArrayList<>();
+
+        // Firebase event listener to retrieve the travel logs
+        travelLogRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                travelLogsDuration.clear();  // Clear the list to avoid duplicates
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String startDate = snapshot.child("startDate").getValue(String.class);
+                    String endDate = snapshot.child("endDate").getValue(String.class);
+
+                    // Calculate days between startDate and endDate sorry Allyson lol
+                    double days = (double) calculateDaysBetween(startDate, endDate);
+
+                    // Format the string and add it to the travelLogs list
+                    travelLogsDuration.add(days);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private Double countDurationTotal() {
+        double total = 0;
+        if (travelLogsDuration.isEmpty()) {
+            return 0.0;
+        }else{
+            for (Double day: travelLogsDuration) {
+                total += day;
+            }
+        }
+        return total;
+    }
 
     private boolean isValidDate(String date) {
         // Assuming date format is "yyyy-MM-dd"
