@@ -291,7 +291,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vacation_time_form">
+        app:layout_constraintTop_toBottomOf="@id/vacation_time_form_results">
 
         <TextView
             android:id="@+id/text_destination"
@@ -319,3 +319,4 @@
 
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
