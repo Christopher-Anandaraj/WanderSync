@@ -34,7 +34,7 @@ public class CustomBottomNavigationBarTest {
 
         // Logistics
         Espresso.onView(withId(R.id.navigation_home)).perform(click());
-        Espresso.onView(withId(R.id.fragment_logistics))
+        Espresso.onView(withId(R.id.nav_host_fragment_activity_logistics))
                 .check(matches(isDisplayed()));
 
         // Destination
