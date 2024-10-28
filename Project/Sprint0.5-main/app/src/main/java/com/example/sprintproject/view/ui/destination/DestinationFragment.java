@@ -308,24 +308,16 @@ public class DestinationFragment extends Fragment {
                                     String endDate = destinationSnapshot.child("endDate").getValue(String.class);
 
                                     // Calculate days between startDate and endDate
-                                    long days = calculateDaysBetween(startDate, endDate);
+                                    long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
 
                                     String formattedEntry = String.format("%s - %d days planned", travelLocation, days);
                                     travelLogs.add(formattedEntry);
                                 }
+                                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, travelLogs);
+                                listViewTravelLogs.setAdapter(adapter);
+                                adapter.notifyDataSetChanged();
                             }
                         }
-                    // Calculate days between startDate and endDate sorry Allyson lol
-                    long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
-                    plannedDays = (int) days;
-
-                    // Format the string and add it to the travelLogs list
-                    travelLogs.add(travelLocation + "          " + days + " days planned");
-                }
-
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, travelLogs);
-                    listViewTravelLogs.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -333,8 +325,57 @@ public class DestinationFragment extends Fragment {
                         Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+            @Override
+            public void onCancelled (@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //Allyson ____________________________________________________________________________________________
+    private List<Double> travelLogsDuration = new ArrayList<>();
+
+    private void loadTravelLogsDuration(OnDurationLoadedListener listener) {
+        FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
+            return;
         }
 
+        String userId = currentUser.getUid();
+        DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                .child("travelLogs").child(userId);
+
+        travelLogRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                travelLogsDuration.clear();  // Clear the list to avoid duplicates
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String startDate = snapshot.child("startDate").getValue(String.class);
+                    String endDate = snapshot.child("endDate").getValue(String.class);
+
+                    double days = (double) DestinationUtils.calculateDaysBetween(startDate, endDate);
+                    travelLogsDuration.add(days);
+                }
+
+                // Callback to notify that the duration is loaded
+                if (listener != null) {
+                    listener.onDurationLoaded(countDurationTotal());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public interface OnDurationLoadedListener {
+        void onDurationLoaded(double totalDuration);
+    }
 
     private Double countDurationTotal() {
         double total = 0;
@@ -348,7 +389,10 @@ public class DestinationFragment extends Fragment {
         return total;
     }
 
-    private boolean isValidDuration(String duration) {
+    private boolean isValidDate(String date) {
+        // Assuming date format is "yyyy-MM-dd"
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        sdf.setLenient(false); // Strict parsing
         try {
             sdf.parse(date);
             return true;
@@ -356,6 +400,7 @@ public class DestinationFragment extends Fragment {
             return false;
         }
     }
+
 
     private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -366,7 +411,6 @@ public class DestinationFragment extends Fragment {
         } catch (ParseException e) {
             return false;
         }
-        return true;
     }
 
     //new methods to find gives days using duration instead of start/end data
