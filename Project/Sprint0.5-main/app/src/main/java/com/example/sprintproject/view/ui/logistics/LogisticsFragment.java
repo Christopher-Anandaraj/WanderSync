@@ -1,5 +1,6 @@
 package com.example.sprintproject.view.ui.logistics;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +15,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.FragmentLogisticsBinding;
+import com.example.sprintproject.view.ui.destination.DestinationFragment;
+
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 
 public class LogisticsFragment extends Fragment {
 
     private FragmentLogisticsBinding binding;
+    PieChart pieChart;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -26,9 +32,8 @@ public class LogisticsFragment extends Fragment {
 
         binding = FragmentLogisticsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView textView = binding.textLogistics;
-        logisticsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        pieChart = (PieChart) root.findViewById(R.id.piechart);
+        setData();
 
         ImageButton addContributor = binding.buttonAddContributors;
         ImageButton notes = binding.buttonNotes;
@@ -50,6 +55,23 @@ public class LogisticsFragment extends Fragment {
             }
         });
         return root;
+
+
+    }
+
+
+    private void setData() {
+        pieChart.addPieSlice(
+                new PieModel(
+                        "Allocated days",
+                        DestinationFragment.allocatedDays,
+                        Color.parseColor("#FFC0CB")));
+        pieChart.addPieSlice(
+                new PieModel(
+                        "Planned days",
+                        DestinationFragment.plannedDays,
+                        Color.parseColor("#FFA500")));
+        pieChart.startAnimation();
     }
 
     @Override
