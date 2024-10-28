@@ -20,11 +20,15 @@ public final class FragmentCommunityBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ConstraintLayout fragmentCommunity;
+
+  @NonNull
   public final TextView textCommunity;
 
   private FragmentCommunityBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView textCommunity) {
+      @NonNull ConstraintLayout fragmentCommunity, @NonNull TextView textCommunity) {
     this.rootView = rootView;
+    this.fragmentCommunity = fragmentCommunity;
     this.textCommunity = textCommunity;
   }
 
@@ -55,13 +59,16 @@ public final class FragmentCommunityBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      ConstraintLayout fragmentCommunity = (ConstraintLayout) rootView;
+
       id = R.id.text_community;
       TextView textCommunity = ViewBindings.findChildViewById(rootView, id);
       if (textCommunity == null) {
         break missingId;
       }
 
-      return new FragmentCommunityBinding((ConstraintLayout) rootView, textCommunity);
+      return new FragmentCommunityBinding((ConstraintLayout) rootView, fragmentCommunity,
+          textCommunity);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

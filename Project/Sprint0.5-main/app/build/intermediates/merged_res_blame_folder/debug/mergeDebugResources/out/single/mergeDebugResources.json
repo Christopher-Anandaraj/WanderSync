@@ -200,6 +200,10 @@
         "source": "com.example.sprintproject.app-main-56:/drawable/community_selector.xml"
     },
     {
+        "merged": "com.example.sprintproject.app-debug-54:/layout_fragment_add_contributor.xml.flat",
+        "source": "com.example.sprintproject.app-main-56:/layout/fragment_add_contributor.xml"
+    },
+    {
         "merged": "com.example.sprintproject.app-debug-54:/layout_fragment_transportation.xml.flat",
         "source": "com.example.sprintproject.app-main-56:/layout/fragment_transportation.xml"
     },
