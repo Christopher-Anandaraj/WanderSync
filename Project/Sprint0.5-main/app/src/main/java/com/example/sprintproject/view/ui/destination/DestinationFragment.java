@@ -419,6 +419,17 @@ public class DestinationFragment extends Fragment {
         return true;
     }
 
+     private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        try {
+            Date start = sdf.parse(startDate);
+            Date end = sdf.parse(endDate);
+            return start != null && end != null && start.before(end);
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
     private String calculateStartDate(String endDate, String duration) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
