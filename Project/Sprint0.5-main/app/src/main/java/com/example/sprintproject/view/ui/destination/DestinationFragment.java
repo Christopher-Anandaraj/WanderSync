@@ -1,5 +1,8 @@
 package com.example.sprintproject.view.ui.destination;
 
+import static com.example.sprintproject.view.ui.destination.DestinationUtils.isStartDateBeforeEndDate;
+import static com.example.sprintproject.view.ui.destination.DestinationUtils.isValidDate;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +44,8 @@ import java.util.concurrent.TimeUnit;  // For calculating the difference between
 public class DestinationFragment extends Fragment {
 
     private FragmentDestinationBinding binding;
+    public static int plannedDays = 0;
+    public static int allocatedDays = 0;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -85,7 +90,7 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!DestinationUtils.isValidDate(startDate) || !DestinationUtils.isValidDate(endDate) || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!isValidDate(startDate) || !isValidDate(endDate) || !isStartDateBeforeEndDate(startDate, endDate)) {
                 Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -162,6 +167,7 @@ public class DestinationFragment extends Fragment {
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
             }
+            allocatedDays = Integer.parseInt(vacationDuration);
         });
 
         destinationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -270,6 +276,7 @@ public class DestinationFragment extends Fragment {
 
                     // Calculate days between startDate and endDate sorry Allyson lol
                     long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
+                    plannedDays = (int) days;
 
                     // Format the string and add it to the travelLogs list
                     travelLogs.add(travelLocation + "          " + days + " days planned");
