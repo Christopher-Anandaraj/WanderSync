@@ -162,8 +162,8 @@
         android:background="#3994BD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_calculate_vacation"
-        app:layout_constraintBottom_toTopOf="@id/text_destination">
+        app:layout_constraintTop_toBottomOf="@id/button_calculate_vacation">
+        <!--app:layout_constraintBottom_toTopOf="@id/text_destination"-->
 
         <TableRow>
             <TextView
@@ -290,7 +290,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_calculate_vacation">
+        app:layout_constraintTop_toBottomOf="@id/vacation_time_form">
 
         <TextView
             android:id="@+id/text_destination"
@@ -314,7 +314,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@id/text_destination"/>
+            app:layout_constraintTop_toBottomOf="@id/vacation_time_form"/>
 
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
