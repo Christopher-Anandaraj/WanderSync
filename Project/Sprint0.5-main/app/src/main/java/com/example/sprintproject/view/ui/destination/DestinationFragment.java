@@ -1,5 +1,8 @@
 package com.example.sprintproject.view.ui.destination;
 
+import static com.example.sprintproject.view.ui.destination.DestinationUtils.isStartDateBeforeEndDate;
+import static com.example.sprintproject.view.ui.destination.DestinationUtils.isValidDate;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +90,7 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!DestinationUtils.isValidDate(startDate) || !DestinationUtils.isValidDate(endDate) || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!isValidDate(startDate) || !isValidDate(endDate) || !isStartDateBeforeEndDate(startDate, endDate)) {
                 Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
                 return;
             }

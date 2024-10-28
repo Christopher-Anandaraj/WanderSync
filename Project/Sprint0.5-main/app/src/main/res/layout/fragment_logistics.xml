@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.logistics.LogisticsFragment">
 
+    <Button
+        android:id="@+id/buttonDataVis"
+        android:layout_width="231dp"
+        android:layout_height="57dp"
+        android:text="@string/allocated_vs_planned_days"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:background="@drawable/button_eclipse"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewGraph"
         android:layout_width="match_parent"
@@ -17,7 +31,7 @@
         android:layout_marginBottom="10dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/buttonDataVis">
 
 
         <!--Linear layout to display pie chart -->
