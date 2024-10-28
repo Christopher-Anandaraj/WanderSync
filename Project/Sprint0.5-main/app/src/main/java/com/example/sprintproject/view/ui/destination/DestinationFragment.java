@@ -395,17 +395,6 @@ public class DestinationFragment extends Fragment {
     }
 
      //Readd
-    private boolean isValidDate(String date) {
-        // Assuming date format is "yyyy-MM-dd"
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        sdf.setLenient(false); // Strict parsing
-        try {
-            sdf.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
 
     private boolean isValidDuration(String duration) {
         try {
@@ -417,17 +406,6 @@ public class DestinationFragment extends Fragment {
             return false;
         }
         return true;
-    }
-
-     private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        try {
-            Date start = sdf.parse(startDate);
-            Date end = sdf.parse(endDate);
-            return start != null && end != null && start.before(end);
-        } catch (ParseException e) {
-            return false;
-        }
     }
 
     private String calculateStartDate(String endDate, String duration) {
