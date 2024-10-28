@@ -309,6 +309,7 @@ public class DestinationFragment extends Fragment {
 
                                     // Calculate days between startDate and endDate
                                     long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
+                                    plannedDays = (int) days;
 
                                     String formattedEntry = String.format("%s - %d days planned", travelLocation, days);
                                     travelLogs.add(formattedEntry);
