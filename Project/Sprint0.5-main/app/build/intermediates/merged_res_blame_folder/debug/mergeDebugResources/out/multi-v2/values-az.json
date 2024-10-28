@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sprintproject.app-mergeDebugResources-53:/values-az/values-az.xml",
+            "outputFile": "com.example.sprintproject.app-mergeDebugResources-56:/values-az/values-az.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chris\\.gradle\\caches\\transforms-4\\8997692eaa35dcb4893f4cb4ae4b7f12\\transformed\\browser-1.4.0\\res\\values-az\\values-az.xml",

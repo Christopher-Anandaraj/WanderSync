@@ -72,9 +72,6 @@ public final class FragmentLogisticsBinding implements ViewBinding {
   public final TextView textContributors;
 
   @NonNull
-  public final TextView textLogistics;
-
-  @NonNull
   public final TextView titleAddContributor;
 
   private FragmentLogisticsBinding(@NonNull ConstraintLayout rootView,
@@ -85,7 +82,7 @@ public final class FragmentLogisticsBinding implements ViewBinding {
       @NonNull EditText editTextNewNote, @NonNull ListView listViewNotes, @NonNull TextView notes,
       @NonNull PieChart piechart, @NonNull TableLayout tableLayoutAddContributor,
       @NonNull TableLayout tableLayoutNotes, @NonNull TextView textContributors,
-      @NonNull TextView textLogistics, @NonNull TextView titleAddContributor) {
+      @NonNull TextView titleAddContributor) {
     this.rootView = rootView;
     this.buttonAddContributor = buttonAddContributor;
     this.buttonAddContributors = buttonAddContributors;
@@ -102,7 +99,6 @@ public final class FragmentLogisticsBinding implements ViewBinding {
     this.tableLayoutAddContributor = tableLayoutAddContributor;
     this.tableLayoutNotes = tableLayoutNotes;
     this.textContributors = textContributors;
-    this.textLogistics = textLogistics;
     this.titleAddContributor = titleAddContributor;
   }
 
@@ -223,12 +219,6 @@ public final class FragmentLogisticsBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.text_logistics;
-      TextView textLogistics = ViewBindings.findChildViewById(rootView, id);
-      if (textLogistics == null) {
-        break missingId;
-      }
-
       id = R.id.title_add_contributor;
       TextView titleAddContributor = ViewBindings.findChildViewById(rootView, id);
       if (titleAddContributor == null) {
@@ -238,7 +228,7 @@ public final class FragmentLogisticsBinding implements ViewBinding {
       return new FragmentLogisticsBinding((ConstraintLayout) rootView, buttonAddContributor,
           buttonAddContributors, buttonAddNote, buttonDataVis, buttonNotes, cardViewGraph,
           contributorsList, editTextContributorName, editTextNewNote, listViewNotes, notes,
-          piechart, tableLayoutAddContributor, tableLayoutNotes, textContributors, textLogistics,
+          piechart, tableLayoutAddContributor, tableLayoutNotes, textContributors,
           titleAddContributor);
     }
     String missingId = rootView.getResources().getResourceName(id);

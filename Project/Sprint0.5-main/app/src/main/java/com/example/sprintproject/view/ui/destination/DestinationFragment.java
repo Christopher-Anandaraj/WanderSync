@@ -142,36 +142,43 @@ public class DestinationFragment extends Fragment {
             String vacationDuration = vacation_time_duration_data_info.getText().toString().trim();
             vacation_time_form.setVisibility(View.GONE);
 
+            // Ensure at least two fields are filled
             if (vacationStartData.isEmpty() && vacationEndData.isEmpty() && vacationDuration.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in at least two fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (!vacationDuration.isEmpty() && isValidDuration(vacationDuration)) {
+                double duration = Double.parseDouble(vacationDuration);
                 vacation_time_form_results.setVisibility(View.VISIBLE);
-                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", Double.parseDouble(vacationDuration)));
-                createVacationDays(Double.valueOf(vacationDuration));
-            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", duration));
+                createVacationDays(duration); // Save the duration directly
+                allocatedDays = (int) duration;
+            }
+
+            else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty()
+                    && isValidDate(vacationStartData) && isValidDate(vacationEndData)
+                    && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                double daysBetween = DestinationUtils.calculateDaysBetween(vacationStartData, vacationEndData);
+                vacation_time_form_results.setVisibility(View.VISIBLE);
+                vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", daysBetween));
+                createVacationDays(daysBetween); // Save the calculated duration
+                allocatedDays = (int) daysBetween;
+            }
+
+            else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty()
+                    && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 loadTravelLogsDuration(totalDuration -> {
+                    double duration = Double.parseDouble(vacationDuration);
+                    createVacationDays(duration); // Save the new duration
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
-                });
-            } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
-                //String endDate = calculateEndDate(vacationStartData, vacationDuration);
-                loadTravelLogsDuration(totalDuration -> {
-                    createVacationDays(Double.valueOf(vacationDuration));
-                    vacation_time_form_results.setVisibility(View.VISIBLE);
-                    vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
-                });
-            } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
-                //String startDate = calculateStartDate(vacationEndData, vacationDuration);
-                loadTravelLogsDuration(totalDuration -> {
-                    createVacationDays(Double.valueOf(vacationDuration));
-                    vacation_time_form_results.setVisibility(View.VISIBLE);
-                    vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
+                    allocatedDays = (int) duration;
                 });
             }
-            allocatedDays = Integer.parseInt(vacationDuration);
+            else {
+                Toast.makeText(getContext(), "Please enter valid data.", Toast.LENGTH_SHORT).show();
+            }
         });
 
         destinationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -190,7 +197,7 @@ public class DestinationFragment extends Fragment {
 
             // Reference to the specific user's duration log
             DatabaseReference durationLogRef = FirebaseManager.getInstance().getDatabaseReference()
-                    .child("durationLogs").child(uid).child("VacationDays");
+                    .child("users").child(uid).child("VacationDays");
 
             // Validate the duration before attempting to update
             if (duration == null || duration <= 0) {
@@ -294,7 +301,7 @@ public class DestinationFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         travelLogs.clear();
-
+                        long dayTotal = 0;
                         // Loop through each user's travel log
                         for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                             String userId = userSnapshot.getKey();
@@ -309,7 +316,8 @@ public class DestinationFragment extends Fragment {
 
                                     // Calculate days between startDate and endDate
                                     long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
-                                    plannedDays = (int) days;
+                                    dayTotal += days;
+
 
                                     String formattedEntry = String.format("%s - %d days planned", travelLocation, days);
                                     travelLogs.add(formattedEntry);
@@ -319,6 +327,7 @@ public class DestinationFragment extends Fragment {
                                 adapter.notifyDataSetChanged();
                             }
                         }
+                        plannedDays = (int) dayTotal;
                     }
 
                     @Override
@@ -345,20 +354,20 @@ public class DestinationFragment extends Fragment {
         }
 
         String userId = currentUser.getUid();
-        DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
-                .child("travelLogs").child(userId);
+        DatabaseReference durationRef = FirebaseManager.getInstance().getDatabaseReference()
+                .child("users").child(userId).child("VacationDays");
 
-        travelLogRef.addValueEventListener(new ValueEventListener() {
+        durationRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 travelLogsDuration.clear();  // Clear the list to avoid duplicates
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String startDate = snapshot.child("startDate").getValue(String.class);
-                    String endDate = snapshot.child("endDate").getValue(String.class);
-
-                    double days = (double) DestinationUtils.calculateDaysBetween(startDate, endDate);
-                    travelLogsDuration.add(days);
+                // Retrieve the duration value directly
+                Double duration = dataSnapshot.getValue(Double.class);
+                if (duration != null) {
+                    travelLogsDuration.add(duration);
+                } else {
+                    Toast.makeText(getContext(), "No vacation duration found.", Toast.LENGTH_SHORT).show();
                 }
 
                 // Callback to notify that the duration is loaded
@@ -369,7 +378,7 @@ public class DestinationFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Failed to load vacation duration.", Toast.LENGTH_SHORT).show();
             }
         });
     }

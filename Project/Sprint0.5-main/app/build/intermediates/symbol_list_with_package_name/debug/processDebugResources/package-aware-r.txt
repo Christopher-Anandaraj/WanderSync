@@ -3809,7 +3809,6 @@ id text_end_date_time_form
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_logistics
 id text_notes
 id text_start_date
 id text_start_date_time_form
@@ -4598,6 +4597,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style FragmentScenarioEmptyFragmentActivityTheme
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
@@ -5052,6 +5052,8 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display_TextInputEditText
 style ThemeOverlay_MaterialComponents_Toolbar_Popup_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar
