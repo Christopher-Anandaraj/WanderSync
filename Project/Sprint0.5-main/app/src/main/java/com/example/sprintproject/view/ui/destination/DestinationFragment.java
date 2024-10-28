@@ -112,16 +112,14 @@ public class DestinationFragment extends Fragment {
 
         //altered text views
         TextView vacation_time_result = binding.vacationTimeResult;
-
-        //make new log to store data
-        Map<String, Object> vacationDatalog = createVacationDays();
-
+        TextView text_vacation_time_result_title = binding.textVacationTimeResultTitle;
 
         button_calculate_vacation.setOnClickListener(view -> {
-            if (vacation_time_form.getVisibility() == View.VISIBLE)
+            if (vacation_time_form.getVisibility() == View.VISIBLE) {
                 vacation_time_form.setVisibility(View.GONE);
-            else
-                vacation_time_form.setVisibility(View.VISIBLE);});
+            } else {
+                vacation_time_form.setVisibility(View.VISIBLE);
+            }});
 
         button_vacation_time_cancel.setOnClickListener(view -> {
             if (vacation_time_form.getVisibility() == View.VISIBLE) {
@@ -143,26 +141,25 @@ public class DestinationFragment extends Fragment {
             }
 
             if (!vacationDuration.isEmpty() && isValidDuration(vacationDuration)) {
-                vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                 vacation_time_form_results.setVisibility(View.VISIBLE);
                 vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", Double.parseDouble(vacationDuration)));
-            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && DestinationUtils.isValidDate(vacationStartData) && DestinationUtils.isValidDate(vacationEndData) && DestinationUtils.isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                createVacationDays(Double.valueOf(vacationDuration));
+            } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty() && isValidDate(vacationStartData) && isValidDate(vacationEndData) && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
                 loadTravelLogsDuration(totalDuration -> {
-                    vacationDatalog.put("calculatedVacationDuration", vacationDuration);
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
-            } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && DestinationUtils.isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
-                String endDate = calculateEndDate(vacationStartData, vacationDuration);
+            } else if (!vacationStartData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationStartData) && isValidDuration(vacationDuration)) {
+                //String endDate = calculateEndDate(vacationStartData, vacationDuration);
                 loadTravelLogsDuration(totalDuration -> {
-                    vacationDatalog.put("calculatedVacationDuration", vacationDuration);
+                    createVacationDays(Double.valueOf(vacationDuration));
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
-            } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && DestinationUtils.isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
-                String startDate = calculateStartDate(vacationEndData, vacationDuration);
+            } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty() && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
+                //String startDate = calculateStartDate(vacationEndData, vacationDuration);
                 loadTravelLogsDuration(totalDuration -> {
-                    vacationDatalog.put("calculatedVacationDuration", vacationDuration);
+                    createVacationDays(Double.valueOf(vacationDuration));
                     vacation_time_form_results.setVisibility(View.VISIBLE);
                     vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
                 });
@@ -175,23 +172,37 @@ public class DestinationFragment extends Fragment {
         return root;
     }
 
+    //Allyson ------------------------
     //add to firebase
-    private Map<String, Object> createVacationDays() {
-        FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
-        if (currentUser == null) {
-            Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
-            return null;
+    private void createVacationDays(Double duration) {
+        // Get the current logged-in user using the FirebaseManager Singleton
+        FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
+
+        if (user != null) {
+            String uid = user.getUid();
+
+            // Reference to the specific user's duration log
+            DatabaseReference durationLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                    .child("durationLogs").child(uid).child("VacationDays");
+
+            // Validate the duration before attempting to update
+            if (duration == null || duration <= 0) {
+                Toast.makeText(getContext(), "Invalid vacation duration.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Update the value at this path (replaces existing value)
+            durationLogRef.setValue(duration)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getContext(), "Vacation duration updated!", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), "Failed to update vacation duration.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } else {
+            Toast.makeText(getContext(), "No user is logged in.", Toast.LENGTH_SHORT).show();
         }
-        String uid = currentUser.getUid();
-        DatabaseReference vacationLogRef = FirebaseManager.getInstance().getDatabaseReference()
-                .child("users").child(uid).child("vacationLogs");
-
-        String logId = vacationLogRef.push().getKey();
-
-        // Map to store only the vacation duration
-        Map<String, Object> vacationData = new HashMap<>();
-
-        return vacationData;
     }
 
     private void createTravelLog(String travelLocation, String startDate, String endDate) {
