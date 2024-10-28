@@ -25,7 +25,7 @@ import org.eazegraph.lib.models.PieModel;
 public class LogisticsFragment extends Fragment {
 
     private FragmentLogisticsBinding binding;
-    PieChart pieChart;
+    public PieChart pieChart;
     CardView cardView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
