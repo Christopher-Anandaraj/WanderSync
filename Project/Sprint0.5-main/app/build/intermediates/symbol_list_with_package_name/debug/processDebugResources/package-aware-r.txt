@@ -3324,11 +3324,11 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id buttonAddNote
 id buttonPanel
-id button_add
+id button_add_contributor
 id button_add_contributors
 id button_calculate_vacation
-id button_cancel
 id button_log_travel
 id button_log_travel_cancel
 id button_log_travel_submit
@@ -3368,6 +3368,7 @@ id content
 id contentPanel
 id contiguous
 id continuousVelocity
+id contributors_list
 id coordinator
 id cos
 id counterclockwise
@@ -3413,8 +3414,10 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextNewNote
 id editTextPassword
 id editTextUsername
+id editText_contributor_name
 id edit_query
 id edit_text_id
 id elastic
@@ -3489,6 +3492,7 @@ id line1
 id line3
 id linear
 id listMode
+id listViewNotes
 id listView_notes
 id listView_travel_logs
 id list_item
@@ -3584,6 +3588,7 @@ id noState
 id none
 id normal
 id north
+id notes
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -3704,6 +3709,8 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tableLayoutNotes
+id tableLayout_add_contributor
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3726,13 +3733,11 @@ id textStart
 id textTop
 id textWatcher
 id text_accommodation
-id text_add_contributors
 id text_community
 id text_contributors
 id text_destination
 id text_dining
 id text_end_date
-id text_enter_username
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3752,6 +3757,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id title_add_contributor
 id title_template
 id toggle
 id top
@@ -3776,7 +3782,6 @@ id unlabeled
 id up
 id useLogo
 id username
-id usernameEntry
 id vacation_form
 id vertical_only
 id videoView
@@ -3939,7 +3944,6 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_accommodation
-layout fragment_add_contributor
 layout fragment_community
 layout fragment_destination
 layout fragment_dining

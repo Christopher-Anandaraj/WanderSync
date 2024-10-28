@@ -69,10 +69,13 @@ public class DestinationFragment extends Fragment {
         TableLayout form_vacation = binding.vacationForm;
         //Creates a onClickListener for button_log_travel.
         button_travel_log.setOnClickListener(view -> {
-            if (form_vacation.getVisibility() == View.VISIBLE)
-              form_vacation.setVisibility(View.GONE);
-            else
-               form_vacation.setVisibility(View.VISIBLE);});
+            if (form_vacation.getVisibility() == View.VISIBLE) {
+                form_vacation.setVisibility(View.GONE);
+            } else {
+                form_vacation.setVisibility(View.VISIBLE);
+            }
+        });
+
         button_travel_log_cancel.setOnClickListener(view -> {
             if (form_vacation.getVisibility() == View.VISIBLE) {
                 form_vacation.setVisibility(View.GONE);
@@ -109,98 +112,127 @@ public class DestinationFragment extends Fragment {
     }
 
     private void createTravelLog(String travelLocation, String startDate, String endDate) {
-        // Get the current logged-in user using the FirebaseManager Singleton
         FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
         if (user != null) {
-            String uid = user.getUid();
-
-
+            String uid = user.getUid(); // Get the user ID
             DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
-                    .child("travelLogs").child(uid);
+                    .child("travelLogs").child(uid); // Reference to the user's travel log
 
-            String logId = travelLogRef.push().getKey();
+            // Generate a unique ID for the destination
+            String destinationId = travelLogRef.child("destinations").push().getKey();
 
-            Map<String, Object> travelLogMap = new HashMap<>();
-            travelLogMap.put("location", travelLocation);
-            travelLogMap.put("startDate", startDate);
-            travelLogMap.put("endDate", endDate);
+            // Create a map for the destination data
+            Map<String, Object> destinationMap = new HashMap<>();
+            destinationMap.put("location", travelLocation);
+            destinationMap.put("startDate", startDate);
+            destinationMap.put("endDate", endDate);
 
-            if (logId != null) {
-                travelLogRef.child(logId).setValue(travelLogMap)
+            // Include contributor IDs if applicable
+            List<String> contributorIds = getContributors(); // This fetches contributor IDs
+            if (!contributorIds.isEmpty()) {
+                destinationMap.put("contributors", contributorIds);
+            }
+
+            if (destinationId != null) {
+                // Add destination to the user's travel log
+                travelLogRef.child("destinations").child(destinationId).setValue(destinationMap)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-                                Toast.makeText(getContext(), "Travel log added!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Destination added to travel log!", Toast.LENGTH_SHORT).show();
                                 ListView listView = binding.listViewTravelLogs;
-                                loadTravelLogs(listView); // Refresh the displayed list
+                                loadTravelLogs(listView);
                             } else {
-                                Toast.makeText(getContext(), "Failed to add travel log.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Failed to add destination.", Toast.LENGTH_SHORT).show();
                             }
                         });
             } else {
-                Toast.makeText(getContext(), "Failed to generate log ID.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Failed to generate destination ID.", Toast.LENGTH_SHORT).show();
             }
         } else {
             Toast.makeText(getContext(), "No user is logged in.", Toast.LENGTH_SHORT).show();
         }
     }
 
+    // Placeholder method to get contributor IDs
+    private List<String> getContributors() {
+        // Logic to fetch contributor IDs (e.g., from UI input or stored list)
+        return new ArrayList<>(); // Return an empty list or actual IDs
+    }
+
+
+
     private void clearTravelLogFields() {
 
     }
 
     private void loadTravelLogs(ListView listViewTravelLogs) {
-        //This thing follows the Singleton pattern
         FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
         if (currentUser == null) {
             Toast.makeText(getContext(), "User not logged in.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String userId = currentUser.getUid();
+        String currentUserId = currentUser.getUid();
+        DatabaseReference usersRef = FirebaseManager.getInstance().getDatabaseReference().child("users").child(currentUserId).child("username");
 
-        // Reference to the user's travel logs in Firebase
-        DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
-                .child("travelLogs").child(userId);
-
-        // List to store the travel logs
-        List<String> travelLogs = new ArrayList<>();
-
-        // Firebase event listener to retrieve the travel logs
-        travelLogRef.addValueEventListener(new ValueEventListener() {
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                travelLogs.clear();  // Clear the list to avoid duplicates
-
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String travelLocation = snapshot.child("location").getValue(String.class);
-                    String startDate = snapshot.child("startDate").getValue(String.class);
-                    String endDate = snapshot.child("endDate").getValue(String.class);
-
-                    // Calculate days between startDate and endDate sorry Allyson lol
-                    long days = calculateDaysBetween(startDate, endDate);
-
-                    // Create formatted string using String.format
-                    String formattedEntry = String.format("%-30s%10s",
-                            travelLocation,
-                            days + " days planned");
-
-                    // Format the string and add it to the travelLogs list
-                    travelLogs.add(formattedEntry);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String currentUsername = snapshot.getValue(String.class);
+                if (currentUsername == null) {
+                    Toast.makeText(getContext(), "Failed to get username.", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                // Update the ListView with the new data
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                        android.R.layout.simple_list_item_1, travelLogs);
-                listViewTravelLogs.setAdapter(adapter);
+                DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference().child("travelLogs");
+                List<String> travelLogs = new ArrayList<>();
+
+                travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        travelLogs.clear();
+
+                        // Loop through each user's travel log
+                        for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                            String userId = userSnapshot.getKey();
+
+                            // Check if the current user is the owner or a contributor by username
+                            if (userId.equals(currentUserId) || userSnapshot.child("contributors").hasChild(currentUsername)) {
+                                // Load all destinations for this user
+                                for (DataSnapshot destinationSnapshot : userSnapshot.child("destinations").getChildren()) {
+                                    String travelLocation = destinationSnapshot.child("location").getValue(String.class);
+                                    String startDate = destinationSnapshot.child("startDate").getValue(String.class);
+                                    String endDate = destinationSnapshot.child("endDate").getValue(String.class);
+
+                                    // Calculate days between startDate and endDate
+                                    long days = calculateDaysBetween(startDate, endDate);
+
+                                    String formattedEntry = String.format("%s - %d days planned", travelLocation, days);
+                                    travelLogs.add(formattedEntry);
+                                }
+                            }
+                        }
+
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, travelLogs);
+                        listViewTravelLogs.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Failed to get current user's username.", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
 
 
     private boolean isValidDate(String date) {

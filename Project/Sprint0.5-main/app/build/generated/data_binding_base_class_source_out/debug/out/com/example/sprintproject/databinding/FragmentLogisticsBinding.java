@@ -4,7 +4,11 @@ package com.example.sprintproject.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,10 +25,37 @@ public final class FragmentLogisticsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final Button buttonAddContributor;
+
+  @NonNull
   public final ImageButton buttonAddContributors;
 
   @NonNull
+  public final Button buttonAddNote;
+
+  @NonNull
   public final ImageButton buttonNotes;
+
+  @NonNull
+  public final ListView contributorsList;
+
+  @NonNull
+  public final EditText editTextContributorName;
+
+  @NonNull
+  public final EditText editTextNewNote;
+
+  @NonNull
+  public final ListView listViewNotes;
+
+  @NonNull
+  public final TextView notes;
+
+  @NonNull
+  public final TableLayout tableLayoutAddContributor;
+
+  @NonNull
+  public final TableLayout tableLayoutNotes;
 
   @NonNull
   public final TextView textContributors;
@@ -32,14 +63,32 @@ public final class FragmentLogisticsBinding implements ViewBinding {
   @NonNull
   public final TextView textLogistics;
 
+  @NonNull
+  public final TextView titleAddContributor;
+
   private FragmentLogisticsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton buttonAddContributors, @NonNull ImageButton buttonNotes,
-      @NonNull TextView textContributors, @NonNull TextView textLogistics) {
+      @NonNull Button buttonAddContributor, @NonNull ImageButton buttonAddContributors,
+      @NonNull Button buttonAddNote, @NonNull ImageButton buttonNotes,
+      @NonNull ListView contributorsList, @NonNull EditText editTextContributorName,
+      @NonNull EditText editTextNewNote, @NonNull ListView listViewNotes, @NonNull TextView notes,
+      @NonNull TableLayout tableLayoutAddContributor, @NonNull TableLayout tableLayoutNotes,
+      @NonNull TextView textContributors, @NonNull TextView textLogistics,
+      @NonNull TextView titleAddContributor) {
     this.rootView = rootView;
+    this.buttonAddContributor = buttonAddContributor;
     this.buttonAddContributors = buttonAddContributors;
+    this.buttonAddNote = buttonAddNote;
     this.buttonNotes = buttonNotes;
+    this.contributorsList = contributorsList;
+    this.editTextContributorName = editTextContributorName;
+    this.editTextNewNote = editTextNewNote;
+    this.listViewNotes = listViewNotes;
+    this.notes = notes;
+    this.tableLayoutAddContributor = tableLayoutAddContributor;
+    this.tableLayoutNotes = tableLayoutNotes;
     this.textContributors = textContributors;
     this.textLogistics = textLogistics;
+    this.titleAddContributor = titleAddContributor;
   }
 
   @Override
@@ -69,15 +118,69 @@ public final class FragmentLogisticsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.button_add_contributor;
+      Button buttonAddContributor = ViewBindings.findChildViewById(rootView, id);
+      if (buttonAddContributor == null) {
+        break missingId;
+      }
+
       id = R.id.button_add_contributors;
       ImageButton buttonAddContributors = ViewBindings.findChildViewById(rootView, id);
       if (buttonAddContributors == null) {
         break missingId;
       }
 
+      id = R.id.buttonAddNote;
+      Button buttonAddNote = ViewBindings.findChildViewById(rootView, id);
+      if (buttonAddNote == null) {
+        break missingId;
+      }
+
       id = R.id.button_notes;
       ImageButton buttonNotes = ViewBindings.findChildViewById(rootView, id);
       if (buttonNotes == null) {
+        break missingId;
+      }
+
+      id = R.id.contributors_list;
+      ListView contributorsList = ViewBindings.findChildViewById(rootView, id);
+      if (contributorsList == null) {
+        break missingId;
+      }
+
+      id = R.id.editText_contributor_name;
+      EditText editTextContributorName = ViewBindings.findChildViewById(rootView, id);
+      if (editTextContributorName == null) {
+        break missingId;
+      }
+
+      id = R.id.editTextNewNote;
+      EditText editTextNewNote = ViewBindings.findChildViewById(rootView, id);
+      if (editTextNewNote == null) {
+        break missingId;
+      }
+
+      id = R.id.listViewNotes;
+      ListView listViewNotes = ViewBindings.findChildViewById(rootView, id);
+      if (listViewNotes == null) {
+        break missingId;
+      }
+
+      id = R.id.notes;
+      TextView notes = ViewBindings.findChildViewById(rootView, id);
+      if (notes == null) {
+        break missingId;
+      }
+
+      id = R.id.tableLayout_add_contributor;
+      TableLayout tableLayoutAddContributor = ViewBindings.findChildViewById(rootView, id);
+      if (tableLayoutAddContributor == null) {
+        break missingId;
+      }
+
+      id = R.id.tableLayoutNotes;
+      TableLayout tableLayoutNotes = ViewBindings.findChildViewById(rootView, id);
+      if (tableLayoutNotes == null) {
         break missingId;
       }
 
@@ -93,8 +196,16 @@ public final class FragmentLogisticsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentLogisticsBinding((ConstraintLayout) rootView, buttonAddContributors,
-          buttonNotes, textContributors, textLogistics);
+      id = R.id.title_add_contributor;
+      TextView titleAddContributor = ViewBindings.findChildViewById(rootView, id);
+      if (titleAddContributor == null) {
+        break missingId;
+      }
+
+      return new FragmentLogisticsBinding((ConstraintLayout) rootView, buttonAddContributor,
+          buttonAddContributors, buttonAddNote, buttonNotes, contributorsList,
+          editTextContributorName, editTextNewNote, listViewNotes, notes, tableLayoutAddContributor,
+          tableLayoutNotes, textContributors, textLogistics, titleAddContributor);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
