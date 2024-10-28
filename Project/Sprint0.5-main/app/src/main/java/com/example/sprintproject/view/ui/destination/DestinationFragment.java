@@ -394,6 +394,31 @@ public class DestinationFragment extends Fragment {
         return "ERROR";
     }
 
+     //Readd
+    private boolean isValidDate(String date) {
+        // Assuming date format is "yyyy-MM-dd"
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        sdf.setLenient(false); // Strict parsing
+        try {
+            sdf.parse(date);
+            return true;
+        } catch (ParseException e) {
+            return false;
+        }
+    }
+
+    private boolean isValidDuration(String duration) {
+        try {
+            if (duration == null || duration.trim().isEmpty()) {
+                return false;
+            }
+            long number = Long.parseLong(duration);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
     private String calculateStartDate(String endDate, String duration) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
