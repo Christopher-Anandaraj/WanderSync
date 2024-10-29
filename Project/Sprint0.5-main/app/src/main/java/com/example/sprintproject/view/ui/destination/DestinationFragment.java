@@ -91,7 +91,7 @@ public class DestinationFragment extends Fragment {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!isValidDate(startDate) || !isValidDate(endDate) || !isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!DestinationUtils.isValidDate(startDate) || !DestinationUtils.isValidDate(endDate) || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
                 Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -157,8 +157,8 @@ public class DestinationFragment extends Fragment {
             }
 
             else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty()
-                    && isValidDate(vacationStartData) && isValidDate(vacationEndData)
-                    && isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                    && DestinationUtils.isValidDate(vacationStartData) && DestinationUtils.isValidDate(vacationEndData)
+                    && DestinationUtils.isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
                 double daysBetween = DestinationUtils.calculateDaysBetween(vacationStartData, vacationEndData);
                 vacation_time_form_results.setVisibility(View.VISIBLE);
                 vacation_time_result.setText(String.format(Locale.getDefault(), "%.2f", daysBetween));
@@ -167,7 +167,7 @@ public class DestinationFragment extends Fragment {
             }
 
             else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty()
-                    && isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
+                    && DestinationUtils.isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 loadTravelLogsDuration(totalDuration -> {
                     double duration = Double.parseDouble(vacationDuration);
                     createVacationDays(duration); // Save the new duration
@@ -397,30 +397,6 @@ public class DestinationFragment extends Fragment {
             }
         }
         return total;
-    }
-
-    private boolean isValidDate(String date) {
-        // Assuming date format is "yyyy-MM-dd"
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        sdf.setLenient(false); // Strict parsing
-        try {
-            sdf.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
-    }
-
-
-    private boolean isStartDateBeforeEndDate(String startDate, String endDate) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-        try {
-            Date start = sdf.parse(startDate);
-            Date end = sdf.parse(endDate);
-            return start != null && end != null && start.before(end);
-        } catch (ParseException e) {
-            return false;
-        }
     }
 
     //new methods to find gives days using duration instead of start/end data
