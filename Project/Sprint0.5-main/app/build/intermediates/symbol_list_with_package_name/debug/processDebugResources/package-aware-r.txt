@@ -510,6 +510,61 @@ attr dynamicColorThemeOverlay
 attr editTextBackground
 attr editTextColor
 attr editTextStyle
+attr egActivateIndicatorShadow
+attr egAnimationTime
+attr egAutoCenter
+attr egBarLabelColor
+attr egBarMargin
+attr egBarTextSize
+attr egBarWidth
+attr egCurveSmoothness
+attr egDrawValueInPie
+attr egEmptyDataText
+attr egEnableScroll
+attr egFixedBarWidth
+attr egHighlightStrength
+attr egIndicatorLeftPadding
+attr egIndicatorLineColor
+attr egIndicatorShadowColor
+attr egIndicatorShadowStrength
+attr egIndicatorTextColor
+attr egIndicatorTextSize
+attr egIndicatorTextUnit
+attr egIndicatorTopPadding
+attr egIndicatorWidth
+attr egInnerPadding
+attr egInnerPaddingColor
+attr egInnerPaddingOutline
+attr egInnerValueUnit
+attr egLegendColor
+attr egLegendHeight
+attr egLegendTextSize
+attr egLineStroke
+attr egMaxXZoom
+attr egMaxYZoom
+attr egMaximumValue
+attr egOpenClockwise
+attr egScalingFactor
+attr egSeparatorWidth
+attr egShowBarLabel
+attr egShowDecimal
+attr egShowLegendBeneathIndicator
+attr egShowSeparators
+attr egShowStandardValue
+attr egShowValueIndicator
+attr egShowValues
+attr egUseCubic
+attr egUseCustomInnerValue
+attr egUseDynamicScaling
+attr egUseInnerPadding
+attr egUseMaximumValue
+attr egUseOverlapFill
+attr egUsePieRotation
+attr egValueTextColor
+attr egValueTextSize
+attr egValueUnit
+attr egVisibleBars
+attr egXAxisStroke
 attr elevation
 attr elevationOverlayAccentColor
 attr elevationOverlayColor
@@ -1406,6 +1461,7 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
+color allocatedDays
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
 color background_floating_material_dark
@@ -2146,6 +2202,7 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color plannedDays
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -3324,11 +3381,12 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id buttonAddNote
+id buttonDataVis
 id buttonPanel
-id button_add
+id button_add_contributor
 id button_add_contributors
 id button_calculate_vacation
-id button_cancel
 id button_log_travel
 id button_log_travel_cancel
 id button_log_travel_submit
@@ -3343,6 +3401,7 @@ id button_x
 id cache_measures
 id callMeasure
 id cancel_button
+id cardViewGraph
 id carryVelocity
 id center
 id centerCrop
@@ -3370,6 +3429,7 @@ id content
 id contentPanel
 id contiguous
 id continuousVelocity
+id contributors_list
 id coordinator
 id cos
 id counterclockwise
@@ -3415,8 +3475,10 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextNewNote
 id editTextPassword
 id editTextUsername
+id editText_contributor_name
 id edit_query
 id edit_text_id
 id elastic
@@ -3449,7 +3511,6 @@ id fragment_community
 id fragment_container_view_tag
 id fragment_destination
 id fragment_dining
-id fragment_logistics
 id fragment_transportation
 id frost
 id fullscreen_header
@@ -3496,6 +3557,7 @@ id line1
 id line3
 id linear
 id listMode
+id listViewNotes
 id listView_notes
 id listView_travel_logs
 id list_item
@@ -3591,6 +3653,7 @@ id noState
 id none
 id normal
 id north
+id notes
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -3628,6 +3691,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id piechart
 id pin
 id position
 id postLayout
@@ -3711,6 +3775,8 @@ id submenuarrow
 id submit_area
 id supportScrollUp
 id tabMode
+id tableLayoutNotes
+id tableLayout_add_contributor
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3733,7 +3799,6 @@ id textStart
 id textTop
 id textWatcher
 id text_accommodation
-id text_add_contributors
 id text_community
 id text_contributors
 id text_destination
@@ -3741,11 +3806,9 @@ id text_dining
 id text_duration_time_form
 id text_end_date
 id text_end_date_time_form
-id text_enter_username
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
-id text_logistics
 id text_notes
 id text_start_date
 id text_start_date_time_form
@@ -3763,6 +3826,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id title_add_contributor
 id title_template
 id toggle
 id top
@@ -3787,7 +3851,6 @@ id unlabeled
 id up
 id useLogo
 id username
-id usernameEntry
 id vacation_form
 id vacation_time_duration_data_info
 id vacation_time_end_data_info
@@ -3956,7 +4019,6 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_accommodation
-layout fragment_add_contributor
 layout fragment_community
 layout fragment_destination
 layout fragment_dining
@@ -4062,6 +4124,9 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string add_contributors
+string allocated_days
+string allocated_vs_planned_days
 string android_credentials_TYPE_PASSWORD_CREDENTIAL
 string androidx_credentials_TYPE_PUBLIC_KEY_CREDENTIAL
 string androidx_startup
@@ -4102,6 +4167,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string contributors
 string copy_toast_msg
 string dest_title
 string error_a11y_label
@@ -4227,6 +4293,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string planned_days
 string project_id
 string search_menu_title
 string searchbar_scrolling_view_behavior
@@ -4530,6 +4597,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style FragmentScenarioEmptyFragmentActivityTheme
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
@@ -4984,6 +5052,8 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display_TextInputEditText
 style ThemeOverlay_MaterialComponents_Toolbar_Popup_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar
@@ -5391,6 +5461,9 @@ styleable AppCompatTextHelper android_textAppearance android_drawableTop android
 styleable AppCompatTextView android_textAppearance autoSizeMaxTextSize autoSizeMinTextSize autoSizePresetSizes autoSizeStepGranularity autoSizeTextType drawableBottomCompat drawableEndCompat drawableLeftCompat drawableRightCompat drawableStartCompat drawableTint drawableTintMode drawableTopCompat emojiCompatEnabled firstBaselineToTopHeight fontFamily fontVariationSettings lastBaselineToBottomHeight lineHeight textAllCaps textLocale
 styleable AppCompatTheme android_windowIsFloating android_windowAnimationStyle actionBarDivider actionBarItemBackground actionBarPopupTheme actionBarSize actionBarSplitStyle actionBarStyle actionBarTabBarStyle actionBarTabStyle actionBarTabTextStyle actionBarTheme actionBarWidgetTheme actionButtonStyle actionDropDownStyle actionMenuTextAppearance actionMenuTextColor actionModeBackground actionModeCloseButtonStyle actionModeCloseContentDescription actionModeCloseDrawable actionModeCopyDrawable actionModeCutDrawable actionModeFindDrawable actionModePasteDrawable actionModePopupWindowStyle actionModeSelectAllDrawable actionModeShareDrawable actionModeSplitBackground actionModeStyle actionModeTheme actionModeWebSearchDrawable actionOverflowButtonStyle actionOverflowMenuStyle activityChooserViewStyle alertDialogButtonGroupStyle alertDialogCenterButtons alertDialogStyle alertDialogTheme autoCompleteTextViewStyle borderlessButtonStyle buttonBarButtonStyle buttonBarNegativeButtonStyle buttonBarNeutralButtonStyle buttonBarPositiveButtonStyle buttonBarStyle buttonStyle buttonStyleSmall checkboxStyle checkedTextViewStyle colorAccent colorBackgroundFloating colorButtonNormal colorControlActivated colorControlHighlight colorControlNormal colorError colorPrimary colorPrimaryDark colorSwitchThumbNormal controlBackground dialogCornerRadius dialogPreferredPadding dialogTheme dividerHorizontal dividerVertical dropDownListViewStyle dropdownListPreferredItemHeight editTextBackground editTextColor editTextStyle homeAsUpIndicator imageButtonStyle listChoiceBackgroundIndicator listChoiceIndicatorMultipleAnimated listChoiceIndicatorSingleAnimated listDividerAlertDialog listMenuViewStyle listPopupWindowStyle listPreferredItemHeight listPreferredItemHeightLarge listPreferredItemHeightSmall listPreferredItemPaddingEnd listPreferredItemPaddingLeft listPreferredItemPaddingRight listPreferredItemPaddingStart panelBackground panelMenuListTheme panelMenuListWidth popupMenuStyle popupWindowStyle radioButtonStyle ratingBarStyle ratingBarStyleIndicator ratingBarStyleSmall searchViewStyle seekBarStyle selectableItemBackground selectableItemBackgroundBorderless spinnerDropDownItemStyle spinnerStyle switchStyle textAppearanceLargePopupMenu textAppearanceListItem textAppearanceListItemSecondary textAppearanceListItemSmall textAppearancePopupMenuHeader textAppearanceSearchResultSubtitle textAppearanceSearchResultTitle textAppearanceSmallPopupMenu textColorAlertDialogListItem textColorSearchUrl toolbarNavigationButtonStyle toolbarStyle tooltipForegroundColor tooltipFrameBackground viewInflaterClass windowActionBar windowActionBarOverlay windowActionModeOverlay windowFixedHeightMajor windowFixedHeightMinor windowFixedWidthMajor windowFixedWidthMinor windowMinWidthMajor windowMinWidthMinor windowNoTitle
 styleable Badge autoAdjustToWithinGrandparentBounds backgroundColor badgeGravity badgeHeight badgeRadius badgeShapeAppearance badgeShapeAppearanceOverlay badgeText badgeTextAppearance badgeTextColor badgeVerticalPadding badgeWidePadding badgeWidth badgeWithTextHeight badgeWithTextRadius badgeWithTextShapeAppearance badgeWithTextShapeAppearanceOverlay badgeWithTextWidth horizontalOffset horizontalOffsetWithText largeFontVerticalOffsetAdjustment maxCharacterCount maxNumber number offsetAlignmentMode verticalOffset verticalOffsetWithText
+styleable BarChart
+styleable BaseBarChart egBarMargin egBarWidth egEnableScroll egFixedBarWidth egShowValues egVisibleBars
+styleable BaseChart egAnimationTime egEmptyDataText egLegendColor egLegendHeight egLegendTextSize egShowDecimal
 styleable BaseProgressIndicator android_indeterminate hideAnimationBehavior indicatorColor indicatorTrackGapSize minHideDelay showAnimationBehavior showDelay trackColor trackCornerRadius trackThickness
 styleable BottomAppBar addElevationShadow backgroundTint elevation fabAlignmentMode fabAlignmentModeEndMargin fabAnchorMode fabAnimationMode fabCradleMargin fabCradleRoundedCornerRadius fabCradleVerticalOffset hideOnScroll menuAlignmentMode navigationIconTint paddingBottomSystemWindowInsets paddingLeftSystemWindowInsets paddingRightSystemWindowInsets removeEmbeddedFabElevation
 styleable BottomNavigationView android_minHeight compatShadowEnabled itemHorizontalTranslationEnabled shapeAppearance shapeAppearanceOverlay
@@ -5493,6 +5566,7 @@ styleable NavigationView android_layout_gravity android_background android_fitsS
 styleable Navigator android_label android_id route
 styleable OnClick clickAction targetId
 styleable OnSwipe autoCompleteMode dragDirection dragScale dragThreshold limitBoundsTo maxAcceleration maxVelocity moveWhenScrollAtTop nestedScrollFlags onTouchUp rotationCenterId springBoundary springDamping springMass springStiffness springStopThreshold touchAnchorId touchAnchorSide touchRegionId
+styleable PieChart egAutoCenter egDrawValueInPie egHighlightStrength egInnerPadding egInnerPaddingColor egInnerPaddingOutline egInnerValueUnit egOpenClockwise egUseCustomInnerValue egUseInnerPadding egUsePieRotation egValueTextColor egValueTextSize
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
@@ -5515,6 +5589,7 @@ styleable Spinner android_entries android_popupBackground android_prompt android
 styleable SplitPairFilter primaryActivityName secondaryActivityAction secondaryActivityName
 styleable SplitPairRule clearTop finishPrimaryWithSecondary finishSecondaryWithPrimary splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
 styleable SplitPlaceholderRule placeholderActivityName splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
+styleable StackedBarChart egBarTextSize egSeparatorWidth egShowSeparators
 styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable
@@ -5532,7 +5607,9 @@ styleable Toolbar android_gravity android_minHeight buttonGravity collapseConten
 styleable Tooltip android_textAppearance android_textColor android_padding android_layout_margin android_minWidth android_minHeight android_text backgroundTint showMarker
 styleable Transform android_transformPivotX android_transformPivotY android_translationX android_translationY android_scaleX android_scaleY android_rotation android_rotationX android_rotationY android_translationZ android_elevation transformPivotTarget
 styleable Transition android_id autoTransition constraintSetEnd constraintSetStart duration layoutDuringTransition motionInterpolator pathMotionArc staggered transitionDisable transitionFlags
+styleable ValueLineChart egActivateIndicatorShadow egCurveSmoothness egIndicatorLeftPadding egIndicatorLineColor egIndicatorShadowColor egIndicatorShadowStrength egIndicatorTextColor egIndicatorTextSize egIndicatorTextUnit egIndicatorTopPadding egIndicatorWidth egLineStroke egMaxXZoom egMaxYZoom egScalingFactor egShowLegendBeneathIndicator egShowStandardValue egShowValueIndicator egUseCubic egUseDynamicScaling egUseOverlapFill egXAxisStroke
 styleable Variant constraints region_heightLessThan region_heightMoreThan region_widthLessThan region_widthMoreThan
+styleable VerticalBarChart egBarLabelColor egMaximumValue egShowBarLabel egUseMaximumValue egValueUnit
 styleable View android_theme android_focusable paddingEnd paddingStart theme
 styleable ViewBackgroundHelper android_background backgroundTint backgroundTintMode
 styleable ViewPager2 android_orientation
