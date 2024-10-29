@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.sprintproject.databinding.FragmentLogisticsBinding;
 import com.example.sprintproject.databinding.FragmentNotesBinding;
 
 public class NotesFragment extends Fragment {
@@ -18,7 +17,9 @@ public class NotesFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         binding = FragmentNotesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
