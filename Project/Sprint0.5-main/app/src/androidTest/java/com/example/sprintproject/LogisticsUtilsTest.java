@@ -46,4 +46,5 @@ public class LogisticsUtilsTest {
             assertEquals(2, fragment.getPieChart().getData().size());
         });
     }
+
 }
