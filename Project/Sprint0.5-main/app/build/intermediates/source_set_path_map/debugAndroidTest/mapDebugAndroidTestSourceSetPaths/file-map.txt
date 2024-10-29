@@ -1,6 +1,6 @@
-com.example.sprintproject.test.app-annotation-experimental-1.4.0-0 C:\Users\Hirok\.gradle\caches\transforms-4\396a4ebb982c1bd76d8135e804aa035a\transformed\annotation-experimental-1.4.0\res
-com.example.sprintproject.test.app-core-1.5.0-1 C:\Users\Hirok\.gradle\caches\transforms-4\a1f06235db58bdf2f2d5ab019f836bfe\transformed\core-1.5.0\res
-com.example.sprintproject.test.app-androidTest-2 C:\Users\Hirok\OneDrive\Desktop\School-Project\CS2340D_Team18\Project\Sprint0.5-main\app\build\generated\res\resValues\androidTest\debug
-com.example.sprintproject.test.app-mergeDebugAndroidTestResources-3 C:\Users\Hirok\OneDrive\Desktop\School-Project\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.example.sprintproject.test.app-mergeDebugAndroidTestResources-4 C:\Users\Hirok\OneDrive\Desktop\School-Project\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.example.sprintproject.test.app-debugAndroidTest-5 C:\Users\Hirok\OneDrive\Desktop\School-Project\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+com.example.sprintproject.test.app-annotation-experimental-1.4.0-0 C:\Users\Chris\.gradle\caches\transforms-4\61627fa3d45371f6b28b31a2997b714c\transformed\annotation-experimental-1.4.0\res
+com.example.sprintproject.test.app-core-1.5.0-1 C:\Users\Chris\.gradle\caches\transforms-4\8614334f3d1e114d30d1d4820ee1143c\transformed\core-1.5.0\res
+com.example.sprintproject.test.app-androidTest-2 C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\generated\res\resValues\androidTest\debug
+com.example.sprintproject.test.app-mergeDebugAndroidTestResources-3 C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.example.sprintproject.test.app-mergeDebugAndroidTestResources-4 C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.example.sprintproject.test.app-debugAndroidTest-5 C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

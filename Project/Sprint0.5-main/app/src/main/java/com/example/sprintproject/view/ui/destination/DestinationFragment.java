@@ -45,9 +45,12 @@ public class DestinationFragment extends Fragment {
     /**Contains functionality for buttons, and EditText Fields for Travel Logs and Calculator.
      * Called to have the fragment instantiate its user interface view.
      *
-     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
-     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
-     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     * @param inflater The LayoutInflater object that
+     *                 can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent
+     *                  view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment
+     *                           is being re-constructed from a previous saved state.
      * @return The View for the fragment's UI, or null.
      */
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -57,10 +60,7 @@ public class DestinationFragment extends Fragment {
 
         binding = FragmentDestinationBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         ListView listView = binding.listViewTravelLogs;
-
-
         TextView textView = binding.textDestination;
         Button buttonTravelLog = binding.buttonLogTravel;
         Button buttonTravelLogSubmit = binding.buttonLogTravelSubmit;
@@ -95,13 +95,15 @@ public class DestinationFragment extends Fragment {
             String endDate = editTextEndDate.getText().toString().trim();
 
             if (travelLocation.isEmpty() || startDate.isEmpty() || endDate.isEmpty()) {
-                Toast.makeText(getContext(), "Please fill in all fields and try again.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please fill in all fields and try again.",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
             if (!DestinationUtils.isValidDate(startDate)
                     || !DestinationUtils.isValidDate(endDate)
                     || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
-                Toast.makeText(getContext(), "Please enter valid dates.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please enter valid dates.",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -128,7 +130,8 @@ public class DestinationFragment extends Fragment {
 
         //altered text views
         TextView vacationTimeResult = binding.vacationTimeResult;
-        TextView textVacationTimeResultTitle = binding.textVacationTimeResultTitle; //Where is this being used??
+        TextView textVacationTimeResultTitle = binding.textVacationTimeResultTitle;
+        //Where is this being used??
 
         buttonCalculateVacation.setOnClickListener(view -> {
             if (vacationTimeForm.getVisibility() == View.VISIBLE) {
@@ -171,20 +174,25 @@ public class DestinationFragment extends Fragment {
                 createVacationDays(duration); // Save the duration directly
                 allocatedDays = (int) duration;
             } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty()
-                    && DestinationUtils.isValidDate(vacationStartData) && DestinationUtils.isValidDate(vacationEndData)
-                    && DestinationUtils.isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
-                double daysBetween = DestinationUtils.calculateDaysBetween(vacationStartData, vacationEndData);
+                    && DestinationUtils.isValidDate(vacationStartData)
+                    && DestinationUtils.isValidDate(vacationEndData)
+                    && DestinationUtils
+                    .isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
+                double daysBetween = DestinationUtils
+                        .calculateDaysBetween(vacationStartData, vacationEndData);
                 vacationTimeFormResults.setVisibility(View.VISIBLE);
                 vacationTimeResult.setText(String.format(Locale.getDefault(), "%.2f", daysBetween));
                 createVacationDays(daysBetween); // Save the calculated duration
                 allocatedDays = (int) daysBetween;
             } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty()
-                    && DestinationUtils.isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
+                    && DestinationUtils
+                    .isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 loadTravelLogsDuration(totalDuration -> {
                     double duration = Double.parseDouble(vacationDuration);
                     createVacationDays(duration); // Save the new duration
                     vacationTimeFormResults.setVisibility(View.VISIBLE);
-                    vacationTimeResult.setText(String.format(Locale.getDefault(), "%.2f", totalDuration));
+                    vacationTimeResult.setText(String
+                            .format(Locale.getDefault(), "%.2f", totalDuration));
                     allocatedDays = (int) duration;
                 });
             } else {
@@ -251,7 +259,8 @@ public class DestinationFragment extends Fragment {
 
             // Validate the duration before attempting to update
             if (duration == null || duration <= 0) {
-                Toast.makeText(getContext(), "Invalid vacation duration.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),
+                        "Invalid vacation duration.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -338,7 +347,8 @@ public class DestinationFragment extends Fragment {
         }
 
         String currentUserId = currentUser.getUid();
-        DatabaseReference usersRef = FirebaseManager.getInstance().getDatabaseReference().child("users")
+        DatabaseReference usersRef = FirebaseManager.getInstance()
+                .getDatabaseReference().child("users")
                 .child(currentUserId).child("username");
 
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -346,11 +356,13 @@ public class DestinationFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String currentUsername = snapshot.getValue(String.class);
                 if (currentUsername == null) {
-                    Toast.makeText(getContext(), "Failed to get username.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Failed to get username.",
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                DatabaseReference travelLogRef = FirebaseManager
+                        .getInstance().getDatabaseReference()
                         .child("travelLogs");
                 List<String> travelLogs = new ArrayList<>();
 
@@ -366,9 +378,11 @@ public class DestinationFragment extends Fragment {
 
                             // Check if the current user is the owner or a contributor by username
                             if (userId.equals(currentUserId)
-                                    || userSnapshot.child("contributors").hasChild(currentUsername)) {
+                                    || userSnapshot.child("contributors")
+                                    .hasChild(currentUsername)) {
                                 // Load all destinations for this user
-                                for (DataSnapshot destinationSnapshot : userSnapshot.child("destinations")
+                                for (DataSnapshot destinationSnapshot : userSnapshot
+                                        .child("destinations")
                                         .getChildren()) {
                                     String travelLocation = destinationSnapshot.child("location")
                                             .getValue(String.class);
@@ -378,11 +392,13 @@ public class DestinationFragment extends Fragment {
                                             .getValue(String.class);
 
                                     // Calculate days between startDate and endDate
-                                    long days = DestinationUtils.calculateDaysBetween(startDate, endDate);
+                                    long days = DestinationUtils
+                                            .calculateDaysBetween(startDate, endDate);
                                     dayTotal += days;
 
 
-                                    String formattedEntry = String.format("%s - %d days planned", travelLocation, days);
+                                    String formattedEntry = String.format("%s - %d days planned",
+                                            travelLocation, days);
                                     travelLogs.add(formattedEntry);
                                 }
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
@@ -396,19 +412,21 @@ public class DestinationFragment extends Fragment {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Failed to load travel logs.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
             }
             @Override
             public void onCancelled(
                     @NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Failed to load travel logs.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Failed to load travel logs.",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    //Allyson ____________________________________________________________________________________________
+    //Allyson ___________________________________
     private List<Double> travelLogsDuration = new ArrayList<>();
 
     /**Logic to load Travel Duration
@@ -434,7 +452,8 @@ public class DestinationFragment extends Fragment {
                 if (duration != null) {
                     travelLogsDuration.add(duration);
                 } else {
-                    Toast.makeText(getContext(), "No vacation duration found.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "No vacation duration found.",
+                            Toast.LENGTH_SHORT).show();
                 }
 
                 // Callback to notify that the duration is loaded
@@ -445,7 +464,8 @@ public class DestinationFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Failed to load vacation duration.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Failed to load vacation duration.",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
