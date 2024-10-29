@@ -13,8 +13,6 @@
         android:label="Tests for com.example.sprintproject"
         android:targetPackage="com.example.sprintproject" />
 
-    <uses-permission android:name="android.permission.REORDER_TASKS" />
-
     <queries>
         <package android:name="androidx.test.orchestrator" />
         <package android:name="androidx.test.services" />
@@ -25,31 +23,6 @@
         android:debuggable="true"
         android:extractNativeLibs="false" >
         <uses-library android:name="android.test.runner" />
-
-        <activity
-            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
-            android:exported="true"
-            android:theme="@style/WhiteBackgroundTheme" >
-            <intent-filter android:priority="-100" >
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
-            android:exported="true"
-            android:theme="@style/WhiteBackgroundTheme" >
-            <intent-filter android:priority="-100" >
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
-            android:exported="true"
-            android:theme="@style/WhiteBackgroundDialogTheme" >
-            <intent-filter android:priority="-100" >
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
