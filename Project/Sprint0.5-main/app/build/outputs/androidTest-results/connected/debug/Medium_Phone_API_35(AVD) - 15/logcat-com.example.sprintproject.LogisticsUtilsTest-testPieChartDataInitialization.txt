@@ -1,0 +1,46 @@
+10-28 23:58:33.675 20098 20113 I TestRunner: started: testPieChartDataInitialization(com.example.sprintproject.LogisticsUtilsTest)
+10-28 23:58:33.677 20098 20113 W Settings: Setting always_finish_activities has moved from android.provider.Settings.System to android.provider.Settings.Global, returning read-only value.
+10-28 23:58:33.680   614  1503 V GrammaticalInflectionUtils: AttributionSource: android.content.AttributionSource@9d8a3c5 does not have READ_SYSTEM_GRAMMATICAL_GENDER permission.
+10-28 23:58:33.684  1126  1126 W SplitSelectStateCtor: Missing session instanceIds
+10-28 23:58:33.684  1126  1126 D StatsLog: LAUNCHER_SPLIT_SELECTION_EXIT_INTERRUPTED
+10-28 23:58:33.687  1126  1126 I TopTaskTracker: onTaskMovedToFront: (moved taskInfo to front) taskId=176, baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10008000 cmp=com.example.sprintproject/androidx.fragment.app.testing.EmptyFragmentActivity }
+10-28 23:58:33.690 20098 20098 D LifecycleMonitor: Lifecycle status change: androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb in: PRE_ON_CREATE
+10-28 23:58:33.690 20098 20098 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was DESTROYED
+10-28 23:58:33.690 20098 20098 V ActivityScenario: Activity lifecycle changed event received but ignored because the reported transition was not ON_CREATE while the last known transition was PRE_ON_CREATE
+10-28 23:58:33.693 20098 20098 D LifecycleMonitor: Lifecycle status change: androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb in: CREATED
+10-28 23:58:33.694 20098 20098 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb
+10-28 23:58:33.694 20098 20098 V ActivityScenario: Update currentActivityStage to CREATED, currentActivity=androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb
+10-28 23:58:33.694 20098 20098 D LifecycleMonitor: Lifecycle status change: androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb in: STARTED
+10-28 23:58:33.695 20098 20098 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb
+10-28 23:58:33.696   448   448 I BpBinder: onLastStrongRef automatically unlinking death recipients:
+10-28 23:58:33.696 20098 20098 V ActivityScenario: Update currentActivityStage to STARTED, currentActivity=androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb
+10-28 23:58:33.697 20098 20098 D LifecycleMonitor: Lifecycle status change: androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb in: RESUMED
+10-28 23:58:33.697 20098 20098 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb
+10-28 23:58:33.697 20098 20098 V ActivityScenario: Update currentActivityStage to RESUMED, currentActivity=androidx.fragment.app.testing.EmptyFragmentActivity@d7d9ffb
+10-28 23:58:33.874   614   647 W ziparchive: Unable to open '/data/app/~~L9Wu7Gu7NdCz7vambzE8PA==/com.example.sprintproject-uiRCOzViCW1R4KSScQ25sA==/base.dm': No such file or directory
+10-28 23:58:33.875   614   647 I ActivityTaskManager: Displayed com.example.sprintproject/androidx.fragment.app.testing.EmptyFragmentActivity for user 0: +194ms
+10-28 23:58:33.901   614   746 I ImeTracker: com.example.sprintproject:ac04e019: onRequestHide at ORIGIN_SERVER reason HIDE_UNSPECIFIED_WINDOW fromUser false
+10-28 23:58:33.901   614   746 I ImeTracker: com.example.sprintproject:ac04e019: onCancelled at PHASE_SERVER_SHOULD_HIDE
+10-28 23:58:33.902 10104 10104 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3086
+10-28 23:58:33.904 10104 10104 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2155 repeatCheckTimes = 0, locked = false
+10-28 23:58:33.904 10104 10104 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1899 onStartInput(EditorInfo{EditorInfo{packageName=com.example.sprintproject, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=0, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+10-28 23:58:33.904 10104 10104 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2155 repeatCheckTimes = 1, locked = false
+10-28 23:58:33.904 10104 10104 I AndroidIME: InputBundleManager.loadActiveInputBundleId():450 loadActiveInputBundleId: und-Latn-x-password, password
+10-28 23:58:34.132  1126  1126 D VRI[NexusLauncherActivity]: visibilityChanged oldVisibility=true newVisibility=false
+10-28 23:58:34.146  1126  1126 D NexusLauncherModelDelegate: notifySmartspaceEvent: SmartspaceTargetEvent{mSmartspaceTarget=null, mSmartspaceActionId='null', mEventType=7}
+10-28 23:58:34.147 20098 20113 W SurfaceComposerClient: Sync transaction timed out waiting for commit callback.
+10-28 23:58:34.150   874   947 W WindowOnBackDispatcher: sendCancelIfRunning: isInProgress=false callback=android.view.ViewRootImpl$$ExternalSyntheticLambda11@96814c0
+10-28 23:58:34.151   614   755 W InputManager-JNI: Input channel object '65bf5cf Splash Screen com.example.sprintproject (client)' was disposed without first being removed with the input manager!
+10-28 23:58:34.153  1126  1126 D BaseDepthController: setSurface:
+10-28 23:58:34.153  1126  1126 D BaseDepthController: 	mWaitingOnSurfaceValidity: false
+10-28 23:58:34.153  1126  1126 D BaseDepthController: 	mSurface: null
+10-28 23:58:34.153  1126  1126 D BaseDepthController: mSurface is null and mCurrentBlur is: 0
+10-28 23:58:34.154  1126  1126 D StateManager: goToState - fromState: Normal, toState: Normal, partial trace:
+10-28 23:58:34.154  1126  1126 D StateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 2855a437b73635ce9cad76b9289087e631bbb67fc90008a0da13d343a00e5041:4)
+10-28 23:58:34.154  1126  1126 D StateManager: 	at com.android.launcher3.statemanager.StateManager.moveToRestState(go/retraceme 2855a437b73635ce9cad76b9289087e631bbb67fc90008a0da13d343a00e5041:1)
+10-28 23:58:34.154  1126  1126 D StateManager: 	at com.android.launcher3.statemanager.StatefulActivity.onStop(go/retraceme 2855a437b73635ce9cad76b9289087e631bbb67fc90008a0da13d343a00e5041:34)
+10-28 23:58:34.154  1126  1126 D StatsLog: LAUNCHER_ONSTOP
+10-28 23:58:34.154  1126  1619 D OneSearchSuggestProvider: Shut down the binder channel
+10-28 23:58:34.154  1126  1126 D StatsLog: LAUNCHER_GOOGLE_SEARCH_RESTORE_LIST_SIZE_AFTER_ACTIVITY_RESTART
+10-28 23:58:34.155  1126  1143 I IPCThreadState: oneway function results for code 2 on binder at 0x7116ddc13370 will be dropped but finished with status UNKNOWN_TRANSACTION
+10-28 23:58:34.167 20098 20113 I TestRunner: finished: testPieChartDataInitialization(com.example.sprintproject.LogisticsUtilsTest)

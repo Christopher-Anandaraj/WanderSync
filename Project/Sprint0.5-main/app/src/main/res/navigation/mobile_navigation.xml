@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.sprintproject.view.ui.logistics.LogisticsFragment"
+        android:label="@string/title_activity_logistics"
+        tools:layout="@layout/fragment_logistics" />
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.sprintproject.view.ui.destination.DestinationFragment"
+        android:label="Destination"
+        tools:layout="@layout/fragment_destination" />
+
+    <fragment
+        android:id="@+id/navigation_dining"
+        android:name="com.example.sprintproject.view.ui.dining.DiningFragment"
+        android:label="Dining Establishment"
+        tools:layout="@layout/fragment_dining" />
+
+    <fragment
+        android:id="@+id/navigation_accommodation"
+        android:name="com.example.sprintproject.view.ui.accommodation.AccommodationFragment"
+        android:label="Accommodation"
+        tools:layout="@layout/fragment_accommodation" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.sprintproject.view.ui.transportation.TransportationFragment"
+        android:label="Transportation"
+        tools:layout="@layout/fragment_transportation" />
+
+    <fragment
+        android:id="@+id/navigation_community"
+        android:name="com.example.sprintproject.view.ui.community.CommunityFragment"
+        android:label="Travel Community"
+        tools:layout="@layout/fragment_community" />
+
+</navigation>

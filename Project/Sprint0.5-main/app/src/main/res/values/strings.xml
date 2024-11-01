@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SprintProject</string>
+    <string name="title_activity_logistics">Logistics</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_contributors">Add Contributors</string>
+    <string name="contributors">Contributors</string>
+    <string name="planned_days">Planned Days</string>
+    <string name="allocated_days">Allocated days</string>
+    <string name="allocated_vs_planned_days">Allocated vs Planned Days</string>
 </resources>
