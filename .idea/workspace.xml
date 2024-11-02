@@ -6,20 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1fb81767-5ccd-4edd-9c77-2f5209dc2ad4" name="Changes" comment="Finalized TaskManagement implementation for peer review.">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +59,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Christopher-Anandaraj/CS2340D_Team18.git",
-    "accountId": "a516e7e9-f631-4932-ae04-59c5ca964896"
+    "accountId": "e2dc5bd4-ac90-4daf-b6b5-d36e3d6e0f2a"
   }
 }]]></component>
   <component name="MarkdownSettingsMigration">
@@ -98,9 +85,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Victor-Hernandez",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Victor/OneDrive/Desktop/School-Project/CS2340D_Team18/Project/Sprint0.5-main",
+    "last_opened_file_path": "C:/gt_classes/CS2340/CS2340D_Team18/Code_Smells",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
@@ -122,6 +109,8 @@
       <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
       <option name="ACTIVITY_EXTRA_FLAGS" value="" />
       <option name="MODE" value="specific_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
