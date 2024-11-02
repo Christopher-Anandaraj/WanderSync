@@ -52,7 +52,6 @@ public class Order {
         EmailSender.sendEmail(customerEmail, "Order Confirmation", message);
     }
 
-
     public void addItem(Item item) {
         items.add(item);
     }
@@ -88,7 +87,7 @@ public class Order {
     public boolean hasGiftCard() {
         boolean has_gift_card = false;
         for (Item item : items) {
-            if (item instanceof GiftCardItem) {
+            if (item instanceof Item.GiftCardItem) {
                 has_gift_card = true;
                 break;
             }
