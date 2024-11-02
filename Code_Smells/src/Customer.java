@@ -1,22 +1,27 @@
 //added new clas due to bloater/large class smells violation in order
 
 public class Customer {
-    String customerName;
-    String customerEmail;
-}
+    private String name;
+    private String email;
 
-public String getCustomerName() {
-    return customerName;
-}
+    public Customer(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
 
-public void setCustomerName(String customerName) {
-    this.customerName = customerName;
-}
+    public String getCustomerName() {
+        return name;
+    }
 
-public String getCustomerEmail() {
-    return customerEmail;
-}
+    public void setCustomerName(String customerName) {
+        this.name = customerName;
+    }
 
-public void setCustomerEmail(String customerEmail) {
-    this.customerEmail = customerEmail;
+    public String getCustomerEmail() {
+        return email;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.email = customerEmail;
+    }
 }

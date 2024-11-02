@@ -2,13 +2,13 @@ import java.util.List;
 
 public class Order {
     private List<Item> items;
-    private String customerName;
-    private String customerEmail;
+    private Customer customer;
 
     public Order(List<Item> items, String customerName, String customerEmail) {
         this.items = items;
-        this.customerName = customerName;
-        this.customerEmail = customerEmail;
+        this.customer = new Customer(customerName, customerEmail);
+        customer.setCustomerName(customerName);
+        customer.setCustomerEmail(customerEmail);
     }
 
     public double calculateTotalPrice() {
@@ -43,13 +43,8 @@ public class Order {
     }
 
     public void sendConfirmationEmail() {
-        String message = "Thank you for your order, " + customerName + "!\n\n" +
-                "Your order details:\n";
-        for (Item item : items) {
-            message += item.getName() + " - " + item.getPrice() + "\n";
-        }
-        message += "Total: " + calculateTotalPrice();
-        EmailSender.sendEmail(customerEmail, "Order Confirmation", message);
+        double totalPrice = calculateTotalPrice();
+        EmailSender.sendOrderConfirmationEmail(customer, items, totalPrice);
     }
 
     public void addItem(Item item) {
@@ -68,21 +63,6 @@ public class Order {
         this.items = items;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
 
     public boolean hasGiftCard() {
         boolean has_gift_card = false;
