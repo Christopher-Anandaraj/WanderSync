@@ -54,9 +54,12 @@ public class LogisticsFragment extends Fragment {
      * certain UI elements, adding contributors, displaying notes, and updating data visualizations.
      * It also loads initial data for notes and contributors from the database.
      *
-     * @param inflater           The LayoutInflater object that can be used to inflate any views in the fragment.
-     * @param container          If non-null, this is the parent view that the fragment's UI should be attached to.
-     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state.
+     * @param inflater           The LayoutInflater object that can be
+     *                           used to inflate any views in the fragment.
+     * @param container          If non-null, this is the parent view
+     *                           that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being
+     *                           re-constructed from a previous saved state.
      * @return The root View for the fragment's UI.
      */
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -87,13 +90,16 @@ public class LogisticsFragment extends Fragment {
         EditText contributorUsername = binding.editTextContributorName;
         Button buttonAddContributor = binding.buttonAddContributor;
         ListView contributorsListView = binding.contributorsList; // Assuming you have this binding
-        contributorsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, contributorsList);
+        contributorsAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1,
+                contributorsList);
         contributorsListView.setAdapter(contributorsAdapter);
 
         TableLayout tableLayoutNotes = binding.tableLayoutNotes;
         ListView listViewNotes = binding.listViewNotes;
         listViewNotes.setVisibility(View.VISIBLE);
-        notesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, notesList);
+        notesAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1, notesList);
         notesAdapter.notifyDataSetChanged();
         listViewNotes.setAdapter(notesAdapter);
         EditText editTextNewNote = binding.editTextNewNote;
@@ -123,13 +129,15 @@ public class LogisticsFragment extends Fragment {
                 if (!username.isEmpty()) {
                     inviteContributor(username);
                 } else {
-                    Toast.makeText(getContext(), "Please enter a username.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please enter a username.",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         ArrayAdapter<String> notesAdapter;
-        notesAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, notesList);
+        notesAdapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_list_item_1, notesList);
         listViewNotes.setAdapter(notesAdapter);
 
         notes.setOnClickListener(new View.OnClickListener() {
@@ -166,10 +174,13 @@ public class LogisticsFragment extends Fragment {
     }
 
     /** Adds a new note to the current user's travel log in the Firebase database.
-     * <p>This method retrieves the currently authenticated user and checks if a note has been entered.
+     * <p>This method retrieves the currently authenticated user
+     * and checks if a note has been entered.
      * If a valid note is provided, it is stored under the user's travel log in Firebase.
-     * Upon successful addition, the input field is cleared, the notes list is reloaded, and the adapter is notified.
-     * If the user is not logged in, or if the note addition fails, an error message is displayed. */
+     * Upon successful addition, the input field is cleared,
+     * the notes list is reloaded, and the adapter is notified.
+     * If the user is not logged in, or if the note addition
+     * fails, an error message is displayed. */
     private void addNote() {
         FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
         if (currentUser == null) {
@@ -199,7 +210,8 @@ public class LogisticsFragment extends Fragment {
         }
     }
 
-    /** Loads all notes associated with the current user and their contributors from the Firebase database.
+    /** Loads all notes associated with the current user and
+     * their contributors from the Firebase database.
      * <p>This method retrieves the currently authenticated user, fetches their username,
      * and checks their travel logs in Firebase. If the user is the owner or a contributor
      * of a travel log, all associated notes are retrieved and added to the notes list.
@@ -213,7 +225,9 @@ public class LogisticsFragment extends Fragment {
         }
 
         String currentUserId = currentUser.getUid();
-        DatabaseReference usersRef = FirebaseManager.getInstance().getDatabaseReference().child("users")
+        DatabaseReference usersRef =
+                FirebaseManager.getInstance().
+                        getDatabaseReference().child("users")
                 .child(currentUserId).child("username");
 
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -226,7 +240,8 @@ public class LogisticsFragment extends Fragment {
                     return;
                 }
 
-                DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
+                DatabaseReference travelLogRef = FirebaseManager
+                        .getInstance().getDatabaseReference()
                         .child("travelLogs");
                 travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -252,32 +267,41 @@ public class LogisticsFragment extends Fragment {
                             }
                         }
                         // Notify the existing adapter of the changes
-                        notesAdapter.notifyDataSetChanged(); // This updates the ListView with new data
+                        notesAdapter.notifyDataSetChanged();
+                        // This updates the ListView with new data
                         Log.d("LoadNotes", "Notes retrieved: " + notesList.size());
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getContext(), "Failed to load notes.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Failed to load notes.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "Failed to get current user's username.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Failed to get current user's username.",
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
 
 
 
-    /** Invites a user with the specified username to become a contributor to the current user's travel log.
-     * <p>This method first checks if the current user is authenticated and retrieves their username.
-     * It then verifies that the invited username exists in the database. If the invited user exists,
-     * the method adds the invited user as a contributor to the current user's travel log in Firebase.
-     * If the current user is not already listed as a contributor, they are also added. The method
-     * updates the contributors list, notifies the adapter, and displays appropriate messages for
+    /** Invites a user with the specified username to
+     * become a contributor to the current user's travel log.
+     * <p>This method first checks if the current user
+     * is authenticated and retrieves their username.
+     * It then verifies that the invited username exists
+     * in the database. If the invited user exists,
+     * the method adds the invited user as a contributor
+     * to the current user's travel log in Firebase.
+     * If the current user is not already listed as a
+     * contributor, they are also added. The method
+     * updates the contributors list, notifies the
+     * adapter, and displays appropriate messages for
      * success or failure.
      * @param invitedUsername the username of the user to be invited as a contributor */
     private void inviteContributor(String invitedUsername) {
@@ -295,7 +319,8 @@ public class LogisticsFragment extends Fragment {
 
                     if (currentUsername != null) {
                         // Check if the invited username exists in the "users" database
-                        DatabaseReference allUsersRef = FirebaseManager.getInstance().getDatabaseReference()
+                        DatabaseReference allUsersRef = FirebaseManager
+                                .getInstance().getDatabaseReference()
                                 .child("users");
                         allUsersRef.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -304,8 +329,10 @@ public class LogisticsFragment extends Fragment {
 
                                 // Iterate through all users to check for the invited username
                                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                                    String savedUsername = userSnapshot.child("username").getValue(String.class);
-                                    if (savedUsername != null && savedUsername.equals(invitedUsername)) {
+                                    String savedUsername = userSnapshot.
+                                            child("username").getValue(String.class);
+                                    if (savedUsername != null && savedUsername
+                                            .equals(invitedUsername)) {
                                         userExists = true;
                                         break;
                                     }
@@ -313,26 +340,37 @@ public class LogisticsFragment extends Fragment {
 
                                 if (userExists) {
                                     // Username exists, proceed to invite the contributor
-                                    DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
-                                            .child("travelLogs").child(userId).child("contributors");
+                                    DatabaseReference tripRef = FirebaseManager
+                                            .getInstance().getDatabaseReference()
+                                            .child("travelLogs")
+                                            .child(userId).child("contributors");
 
                                     // Check if the current user is already a contributor
                                     tripRef.child(currentUsername).addListenerForSingleValueEvent(
                                             new ValueEventListener() {
                                                 @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                public void onDataChange(@NonNull
+                                                                         DataSnapshot snapshot) {
                                                     if (!snapshot.exists()) {
-                                                        // Current user is not a contributor yet, so add them
-                                                        tripRef.child(currentUsername).setValue(true)
+                                                        // Current user is not a
+                                                        // contributor yet, so add them
+                                                        tripRef.child(currentUsername)
+                                                                .setValue(true)
                                                                 .addOnCompleteListener(task -> {
                                                                     if (task.isSuccessful()) {
-                                                                        Toast.makeText(getContext(),
-                                                                                "You are now a contributor.",
-                                                                                Toast.LENGTH_SHORT).show();
+                                                                        Toast.makeText(
+                                                                                getContext(),
+                                                                                "You are now "
+                                                                                        +
+                                                                                "a contributor.",
+                                                                                Toast
+                                                                            .LENGTH_SHORT).show();
                                                                     } else {
                                                                         Toast.makeText(getContext(),
-                                                                        "Failed to add current user as contributor.",
-                                                                                Toast.LENGTH_SHORT).show();
+                                                                        "Failed to add current "
+                                                                                +
+                                                                            "user as contributor.",
+                                                                        Toast.LENGTH_SHORT).show();
                                                                     }
                                                                 });
                                                     }
@@ -341,16 +379,21 @@ public class LogisticsFragment extends Fragment {
                                                 tripRef.child(invitedUsername).setValue(true)
                                                         .addOnCompleteListener(inviteTask -> {
                                                             if (inviteTask.isSuccessful()) {
-                                                                contributorsList.add(invitedUsername);
-                                                                // Add the invited contributor to the list
-                                                                contributorsAdapter.notifyDataSetChanged();
+                                                                contributorsList
+                                                                        .add(invitedUsername);
+                                                                // Add the invited
+                                                                // contributor to the list
+                                                                contributorsAdapter
+                                                                        .notifyDataSetChanged();
                                                                 loadContributors();
-                                                                // Notify the adapter about the change
-                                                                Toast.makeText(getContext(), "Contributor invited!",
+                                                                // Notify the
+                                                                // adapter about the change
+                                                                Toast.makeText(getContext(),
+                                                                        "Contributor invited!",
                                                                         Toast.LENGTH_SHORT).show();
                                                             } else {
                                                                 Toast.makeText(getContext(),
-                                                                        "Failed to invite contributor.",
+                                                                "Failed to invite contributor.",
                                                                         Toast.LENGTH_SHORT).show();
                                                             }
                                                         });
@@ -359,8 +402,11 @@ public class LogisticsFragment extends Fragment {
                                             @Override
                                             public void onCancelled(@NonNull DatabaseError error) {
                                                 Toast.makeText(getContext(),
-                                                        "Error checking if current user is a contributor: "
-                                                                + error.getMessage(), Toast.LENGTH_SHORT).show();
+                                                        "Error checking if "
+                                                                +
+                                                                "current user is a contributor: "
+                                                                + error.getMessage(),
+                                                        Toast.LENGTH_SHORT).show();
                                             }
                                             });
                                 } else {
@@ -399,8 +445,10 @@ public class LogisticsFragment extends Fragment {
     }
 
 
-    /** Configures the data for the pie chart by adding slices representing allocated and planned days.
-     * <p>This method initializes the pie chart with two slices: "Allocated days" and "Planned days."
+    /** Configures the data for the pie chart by adding
+     *  slices representing allocated and planned days.
+     * <p>This method initializes the pie chart with two
+     * slices: "Allocated days" and "Planned days."
      * The "Allocated days" slice displays the difference between the allocated and planned days,
      * while the "Planned days" slice represents the total number of planned days. Each slice is
      * assigned a specific color. After adding the slices, the method starts the pie chart animation
@@ -415,7 +463,8 @@ public class LogisticsFragment extends Fragment {
         }
 
         String currentUserId = currentUser.getUid();
-        DatabaseReference usersRef = FirebaseManager.getInstance().getDatabaseReference().child("users")
+        DatabaseReference usersRef = FirebaseManager.getInstance()
+                .getDatabaseReference().child("users")
                 .child(currentUserId).child("username");
 
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -441,7 +490,8 @@ public class LogisticsFragment extends Fragment {
 
                             // Check if current user is the trip owner or a contributor
                             if (ownerId.equals(currentUserId)
-                                    || userSnapshot.child("contributors").hasChild(currentUsername)) {
+                                    || userSnapshot.child("contributors")
+                                    .hasChild(currentUsername)) {
                                 // Load all contributors under this owner's travel log
                                 for (DataSnapshot contributorSnapshot
                                         : userSnapshot.child("contributors").getChildren()) {
@@ -454,7 +504,8 @@ public class LogisticsFragment extends Fragment {
                             }
                         }
 
-                        contributorsAdapter.notifyDataSetChanged(); // Notify the adapter about the changes
+                        contributorsAdapter.notifyDataSetChanged();
+                        // Notify the adapter about the changes
                     }
 
                     @Override
@@ -480,13 +531,15 @@ public class LogisticsFragment extends Fragment {
      * username. It checks if the current user is the owner or a contributor to a travel log in the
      * database. If they are, it loads all contributors associated with that travel log and updates
      * the contributors list. After loading the contributors, the method notifies the adapter to
-     * refresh the displayed data. If the user is not logged in or if an error occurs during retrieval,
+     * refresh the displayed data. If the user is not
+     * logged in or if an error occurs during retrieval,
      * appropriate messages are displayed to the user. */
     private void setData() {
         pieChart.addPieSlice(
                 new PieModel(
                         "Allocated days",
-                        DestinationFragment.getAllocatedDays() - DestinationFragment.getPlannedDays(),
+                        DestinationFragment.getAllocatedDays() - DestinationFragment
+                                .getPlannedDays(),
                         Color.parseColor("#FFC0CB")));
         pieChart.addPieSlice(
                 new PieModel(
