@@ -6,28 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.logistics.LogisticsFragment">
 
-    <TextView
-        android:id="@+id/text_logistics"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
     <Button
         android:id="@+id/buttonDataVis"
         android:layout_width="231dp"
         android:layout_height="57dp"
         android:text="@string/allocated_vs_planned_days"
         android:textAlignment="center"
-        android:textSize="50sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/button_eclipse"
         android:textColor="@android:color/white"
@@ -141,7 +126,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_logistics"
+        app:layout_constraintTop_toBottomOf="@id/cardViewGraph"
         app:layout_constraintVertical_bias="0.196" />
 
     <ListView
@@ -163,29 +148,27 @@
         android:id="@+id/button_add_contributors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/button_eclipse"
         android:contentDescription="Add Contributors"
         android:src="@drawable/button_add_contributors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_logistics"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/button_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/button_eclipse"
         android:contentDescription="Add Contributors"
         android:src="@drawable/button_notes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_logistics"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TableLayout
         android:id="@+id/tableLayout_add_contributor"
@@ -252,7 +235,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_logistics"
+        app:layout_constraintTop_toBottomOf="@id/text_contributors"
         app:layout_constraintBottom_toTopOf="@id/button_notes"
         android:layout_marginBottom="5dp">
 
@@ -269,7 +252,7 @@
         <ListView
             android:id="@+id/listViewNotes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:visibility="visible"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp" />
@@ -286,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="Add a new note"
-                app:layout_constraintBottom_toTopOf="@id/text_logistics" />
+                app:layout_constraintBottom_toTopOf="parent" />
 
             <Button
                 android:id="@+id/buttonAddNote"

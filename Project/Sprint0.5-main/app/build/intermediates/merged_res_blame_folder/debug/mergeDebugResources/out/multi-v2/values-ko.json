@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sprintproject.app-mergeDebugResources-53:/values-ko/values-ko.xml",
+            "outputFile": "com.example.sprintproject.app-mergeDebugResources-56:/values-ko/values-ko.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chris\\.gradle\\caches\\transforms-4\\9358b1775f197dfabc160c0c9aef125c\\transformed\\navigation-ui-2.6.0\\res\\values-ko\\values-ko.xml",

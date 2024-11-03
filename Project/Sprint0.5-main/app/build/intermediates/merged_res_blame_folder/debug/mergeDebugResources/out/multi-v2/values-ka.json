@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.sprintproject.app-mergeDebugResources-53:/values-ka/values-ka.xml",
+            "outputFile": "com.example.sprintproject.app-mergeDebugResources-56:/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Chris\\.gradle\\caches\\transforms-4\\7d8533f17fa95f0f5788069e7664d905\\transformed\\credentials-1.2.0-rc01\\res\\values-ka\\values-ka.xml",

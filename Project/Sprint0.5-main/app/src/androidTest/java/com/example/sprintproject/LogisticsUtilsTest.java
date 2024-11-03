@@ -40,10 +40,10 @@ public class LogisticsUtilsTest {
                 FragmentScenario.launchInContainer(LogisticsFragment.class);
 
         scenario.onFragment(fragment -> {
-            assertNotNull(fragment.pieChart);
+            assertNotNull(fragment.getPieChart());
 
             // Verify that the pie chart has data (2 slices added)
-            assertEquals(2, fragment.pieChart.getData().size());
+            assertEquals(2, fragment.getPieChart().getData().size());
         });
     }
 
