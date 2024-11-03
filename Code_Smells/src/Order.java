@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 public class Order {
     private List<Item> items;
     private Customer customer;
-    static Logger logger = Logger.getLogger(EmailSender.class.getName());
+    static Logger logger = Logger.getLogger(Order.class.getName());
 
     public Order(List<Item> items, String customerName, String customerEmail) {
         this.items = items;
