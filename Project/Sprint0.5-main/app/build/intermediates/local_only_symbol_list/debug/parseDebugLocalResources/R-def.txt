@@ -34,6 +34,8 @@ drawable ic_notifications_black_24dp
 drawable logistics_selector
 drawable transport_selector
 drawable wandersynclogo
+id add_reservation_button
+id add_reservation_title
 id box
 id buttonAddNote
 id buttonDataVis
@@ -55,6 +57,9 @@ id cardViewGraph
 id container
 id contributors_list
 id createButton
+id dining_location_input
+id dining_time_input
+id dining_website_input
 id editTextNewNote
 id editTextPassword
 id editTextUsername
@@ -83,8 +88,10 @@ id navigation_dining
 id navigation_home
 id navigation_notifications
 id notes
+id open_reservation_cardview_button
 id password
 id piechart
+id reservation_cardview
 id start_date
 id tableLayoutNotes
 id tableLayout_add_contributor
