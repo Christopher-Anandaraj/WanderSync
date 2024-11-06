@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +30,31 @@ public class AccommodationFragment extends Fragment {
 
         final TextView textView = binding.textAccommodation;
         accommodationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        ImageButton buttonAddAccommodation = binding.buttonAddAccommodation;
+        Button buttonConfirmAccommodation = binding.buttonConfirmAccommodation;
+        Button buttonCancelAccommodation = binding.buttonCancelAccommodation;
+        TableLayout accommodationAdd = binding.accommodationAdd;
+        EditText checkInText = binding.accommodationCheckInDate;
+        EditText checkOutText = binding.accommodationCheckOutDate;
+
+        buttonAddAccommodation.setOnClickListener(view -> {
+            if (accommodationAdd.getVisibility() == View.VISIBLE) {
+                accommodationAdd.setVisibility(View.GONE);
+            } else {
+                accommodationAdd.setVisibility(View.VISIBLE);
+            }
+        });
+
+        buttonCancelAccommodation.setOnClickListener(view -> {
+                    if (accommodationAdd.getVisibility() == View.VISIBLE) {
+                        accommodationAdd.setVisibility(View.GONE);
+                         checkInText.setText("");
+                        checkOutText.setText("");
+                    }
+                }
+        );
+
         return root;
     }
 
