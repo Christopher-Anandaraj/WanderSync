@@ -366,6 +366,7 @@ public class DestinationFragment extends Fragment {
                         .child("travelLogs");
                 List<String> travelLogs = new ArrayList<>();
 
+
                 travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

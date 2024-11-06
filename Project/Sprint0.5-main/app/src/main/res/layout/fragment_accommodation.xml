@@ -53,7 +53,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
         android:background="#b89e13"
@@ -76,6 +76,32 @@
                 android:textStyle="bold"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="5dp"/>
+        </TableRow>
+
+        <TableRow>
+            <!--Accommodation Location Name-->
+            <TextView
+                android:id="@+id/accommodation_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:text="Location:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="-50dp"/>
+            <EditText
+                android:id="@+id/accommodation_location_name"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginEnd="45dp"/>
         </TableRow>
 
         <TableRow>
@@ -160,7 +186,34 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"/>
         </TableRow>
-
+        <TableRow>
+            <!--Accommodation Location Name-->
+            <TextView
+                android:id="@+id/accommodation_website"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:text="Website:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"/>
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/accommodation_website_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+        </TableRow>
         <TableRow>
             <!--Accommodation number of Rooms-->
             <TextView
@@ -173,6 +226,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
+                android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"/>
         </TableRow>
         <TableRow>
