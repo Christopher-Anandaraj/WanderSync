@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fb81767-5ccd-4edd-9c77-2f5209dc2ad4" name="Changes" comment="Finalized TaskManagement implementation for peer review.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.gradle/8.2/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project/Sprint0.5-main/.idea/gradle.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1fb81767-5ccd-4edd-9c77-2f5209dc2ad4" name="Changes" comment="Finalized TaskManagement implementation for peer review." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +42,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Victor-Hernandez" />
+        <entry key="$PROJECT_DIR$" value="AllysonSprint3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +56,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/Christopher-Anandaraj/CS2340D_Team18.git",
-    "accountId": "a516e7e9-f631-4932-ae04-59c5ca964896"
+    "accountId": "f4aeef61-ec69-4bc6-8f7c-5379d76366c8"
   }
 }]]></component>
   <component name="MarkdownSettingsMigration">
@@ -82,7 +66,7 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2muP66RrWnqXJMhGkVmO0WGDgIA" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -98,9 +82,9 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Victor-Hernandez",
+    "git-widget-placeholder": "AllysonSprint3",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Victor/OneDrive/Desktop/School-Project/CS2340D_Team18/Project/Sprint0.5-main",
+    "last_opened_file_path": "/home/killerpawz/AndroidStudioProjects/CS2340D_Team18/Project/Sprint0.5-main",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
