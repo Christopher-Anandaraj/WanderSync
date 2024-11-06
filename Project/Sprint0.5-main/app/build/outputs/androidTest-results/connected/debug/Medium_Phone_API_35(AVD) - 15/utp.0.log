@@ -12,7 +12,7 @@ INFO: Configuring Android Instrumentation driver: android_instrumentation_runtim
     }
     args_map {
       key: "class"
-      value: "com.example.sprintproject.LogisticsUtilsTest"
+      value: "com.example.sprintproject.CustomBottomNavigationBarTest"
     }
   }
 }
@@ -26,5 +26,4 @@ INFO: Running Android Instrumentation driver.
 INFO: Stop logcat streaming.
 INFO: Uninstalling com.example.sprintproject for device emulator-5554.
 INFO: Uninstalling com.example.sprintproject.test for device emulator-5554.
-INFO: Execute com.example.sprintproject.LogisticsUtilsTest.testCardViewVisibilityToggle: PASSED
-INFO: Execute com.example.sprintproject.LogisticsUtilsTest.testPieChartDataInitialization: PASSED
+INFO: Execute com.example.sprintproject.CustomBottomNavigationBarTest.testBottomNavigationViewSwitchesFragments: PASSED

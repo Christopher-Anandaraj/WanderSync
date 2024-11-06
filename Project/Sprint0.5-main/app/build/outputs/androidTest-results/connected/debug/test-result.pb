@@ -1,24 +1,10 @@
 
-”
-h
-LogisticsUtilsTestcom.example.sprintprojecttestCardViewVisibilityToggle2Í∫ÅπÄÒå':Í∫Åπ¿‘˝∫"á
+Ö
+Å
+CustomBottomNavigationBarTestcom.example.sprintproject)testBottomNavigationViewSwitchesFragments2≠ÆöπÄ◊ﬁŒ:µÆöπÄÅ¿™"ü
 
-logcatandroidÒ
-ÓC:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\logcat-com.example.sprintproject.LogisticsUtilsTest-testCardViewVisibilityToggle.txt"∆
-
-device-infoandroid´
-®C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\device-info.pb"«
-
-device-info.meminfoandroid§
-°C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\meminfo"«
-
-device-info.cpuinfoandroid§
-°C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\cpuinfo◊
-j
-LogisticsUtilsTestcom.example.sprintprojecttestPieChartDataInitialization2Î∫Åπ¿˝∞‡:Ï∫Åπ¿Ù§k"â
-
-logcatandroidÛ
-C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\logcat-com.example.sprintproject.LogisticsUtilsTest-testPieChartDataInitialization.txt"∆
+logcatandroidâ
+ÜC:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\logcat-com.example.sprintproject.CustomBottomNavigationBarTest-testBottomNavigationViewSwitchesFragments.txt"∆
 
 device-infoandroid´
 ®C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\device-info.pb"«
