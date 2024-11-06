@@ -19,7 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprintproject.databinding.FragmentAccommodationBinding;
 import com.example.sprintproject.model.FirebaseManager;
-import com.example.sprintproject.view.ui.destination.DestinationUtils;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,7 +46,6 @@ public class AccommodationFragment extends Fragment {
         accommodationViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         ImageButton buttonAddAccommodation = binding.buttonAddAccommodation;
-        ListView reservationList = binding.accommodationList;
         Button buttonConfirmAccommodation = binding.buttonConfirmAccommodation;
         Button buttonCancelAccommodation = binding.buttonCancelAccommodation;
         TableLayout accommodationAdd = binding.accommodationAdd;
@@ -195,13 +193,6 @@ public class AccommodationFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         accommodationReservation.clear();
 
-                        String locationName = "Location";
-                        int checkInDate = 0;
-                        int checkOutDate = 0;
-                        int numberOfRooms = 0;
-                        String website = "www.hotel.com";
-                        String roomType = "Room";
-
                         // Loop through each user's travel log
                         for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                             String userId = userSnapshot.getKey();
@@ -220,14 +211,16 @@ public class AccommodationFragment extends Fragment {
                                             .getValue(String.class);
                                     String checkOut = accommodationSnapshot.child("checkOutDate")
                                             .getValue(String.class);
+                                    String roomAmount = accommodationSnapshot.child("numberOfRooms")
+                                            .getValue(String.class);
                                     String webAddress = accommodationSnapshot.child("website")
                                             .getValue(String.class);
                                     String typeRoom = accommodationSnapshot.child("roomType")
                                             .getValue(String.class);
 
                                     String formattedAccommodation = String.format(
-                                            "%s\nCheck-in: %s Check-out: %s\nNumber of Rooms: %d\n%s\n%s",
-                                            locationName, checkIn, checkOut, numberOfRooms, webAddress, typeRoom);
+                                            "%s\nCheck-in: %s Check-out: %s\nNumber of Rooms: %s\n%s\n%s",
+                                            location, checkIn, checkOut, roomAmount, webAddress, typeRoom);
                                     accommodationReservation.add(formattedAccommodation);
                                 }
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
