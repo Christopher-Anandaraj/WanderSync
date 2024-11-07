@@ -3456,6 +3456,7 @@ int id design_menu_item_text 0x7f0800b3
 int id design_navigation_view 0x7f0800b4
 int id dialog_button 0x7f0800b5
 int id dimensions 0x7f0800b6
+int id dining_list 0x7f08026a
 int id dining_location_input 0x7f0800b7
 int id dining_time_input 0x7f0800b8
 int id dining_website_input 0x7f0800b9
@@ -3708,6 +3709,10 @@ int id ratio 0x7f0801af
 int id rectangles 0x7f0801b0
 int id report_drawn 0x7f0801b1
 int id reservation_cardview 0x7f0801b2
+int id reservation_entry_link 0x7f080266
+int id reservation_entry_location 0x7f080267
+int id reservation_entry_restaurant 0x7f080268
+int id reservation_entry_time 0x7f080269
 int id reverseSawtooth 0x7f0801b3
 int id right 0x7f0801b4
 int id rightToLeft 0x7f0801b5
@@ -4028,6 +4033,7 @@ int layout fragment_accommodation 0x7f0b0032
 int layout fragment_community 0x7f0b0033
 int layout fragment_destination 0x7f0b0034
 int layout fragment_dining 0x7f0b0035
+int layout fragment_dining_list_entries 0x7f0b0079
 int layout fragment_logistics 0x7f0b0036
 int layout fragment_notes 0x7f0b0037
 int layout fragment_transportation 0x7f0b0038
