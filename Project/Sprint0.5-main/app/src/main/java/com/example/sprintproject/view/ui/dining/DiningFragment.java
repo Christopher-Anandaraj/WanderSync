@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.databinding.FragmentDiningBinding;
 import com.example.sprintproject.model.FirebaseManager;
@@ -25,11 +27,16 @@ import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.ArrayList;
+
 public class DiningFragment extends Fragment {
 
     private FragmentDiningBinding binding;
 
     private final DatabaseReference diningDatabaseReference = FirebaseDatabase.getInstance().getReference("diningReservations");
+
+    //holds all entries for dining (Allyson)
+    ArrayList<DiningEntry> diningEntries = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +56,15 @@ public class DiningFragment extends Fragment {
 
         //Allyson Implementation ------------------------------------------------------------------------
 
+        //recycle view
+        RecyclerView recyclerView = binding.diningList;
+
+        //setup dining list
+        //setUpDiningEntriesArray();
+
+        //testing for recycle view and acts as setUpDiningEntriesArray method for testing
+        diningEntries.add(new DiningEntry("Tech Dr.", "Wingnuts", "2:00", "wingnuts.com"));
+
         //Buttons for Dining Screen
         Button open_reservation_cardview_button = binding.openReservationCardviewButton;
 
@@ -63,6 +79,14 @@ public class DiningFragment extends Fragment {
                 reservation_cardview.setVisibility(View.GONE);
             }
         });
+
+        //setup recycleview functionality (sending dining entries to adapter)
+        //call constructor
+        DiningRecycleViewAdapter adapter = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
+        recyclerView.setAdapter(adapter);
+
+        //layout is linear layout for the boxes
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         //End of Allyson Implementation ------------------------------------------------------------------
 
@@ -128,6 +152,14 @@ public class DiningFragment extends Fragment {
             }
         }
     }
+
+    //Allyson Implementation ------------------------------------------------------------------------
+    private void setUpDiningEntriesArray() {
+        //implementation for adding reservations from database(reach out to sophie) to dining arraylist
+    }
+
+
+    //End of Allyson Implementation ------------------------------------------------------------------
 
     @Override
     public void onDestroyView() {

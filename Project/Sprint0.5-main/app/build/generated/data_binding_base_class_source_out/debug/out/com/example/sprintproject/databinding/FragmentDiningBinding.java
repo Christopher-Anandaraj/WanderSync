@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.sprintproject.R;
@@ -27,6 +28,9 @@ public final class FragmentDiningBinding implements ViewBinding {
 
   @NonNull
   public final TextView addReservationTitle;
+
+  @NonNull
+  public final RecyclerView diningList;
 
   @NonNull
   public final EditText diningLocationInput;
@@ -51,13 +55,14 @@ public final class FragmentDiningBinding implements ViewBinding {
 
   private FragmentDiningBinding(@NonNull ConstraintLayout rootView,
       @NonNull Button addReservationButton, @NonNull TextView addReservationTitle,
-      @NonNull EditText diningLocationInput, @NonNull EditText diningTimeInput,
-      @NonNull EditText diningWebsiteInput, @NonNull ConstraintLayout fragmentDining,
-      @NonNull Button openReservationCardviewButton, @NonNull CardView reservationCardview,
-      @NonNull TextView textDining) {
+      @NonNull RecyclerView diningList, @NonNull EditText diningLocationInput,
+      @NonNull EditText diningTimeInput, @NonNull EditText diningWebsiteInput,
+      @NonNull ConstraintLayout fragmentDining, @NonNull Button openReservationCardviewButton,
+      @NonNull CardView reservationCardview, @NonNull TextView textDining) {
     this.rootView = rootView;
     this.addReservationButton = addReservationButton;
     this.addReservationTitle = addReservationTitle;
+    this.diningList = diningList;
     this.diningLocationInput = diningLocationInput;
     this.diningTimeInput = diningTimeInput;
     this.diningWebsiteInput = diningWebsiteInput;
@@ -106,6 +111,12 @@ public final class FragmentDiningBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.dining_list;
+      RecyclerView diningList = ViewBindings.findChildViewById(rootView, id);
+      if (diningList == null) {
+        break missingId;
+      }
+
       id = R.id.dining_location_input;
       EditText diningLocationInput = ViewBindings.findChildViewById(rootView, id);
       if (diningLocationInput == null) {
@@ -145,7 +156,7 @@ public final class FragmentDiningBinding implements ViewBinding {
       }
 
       return new FragmentDiningBinding((ConstraintLayout) rootView, addReservationButton,
-          addReservationTitle, diningLocationInput, diningTimeInput, diningWebsiteInput,
+          addReservationTitle, diningList, diningLocationInput, diningTimeInput, diningWebsiteInput,
           fragmentDining, openReservationCardviewButton, reservationCardview, textDining);
     }
     String missingId = rootView.getResources().getResourceName(id);
