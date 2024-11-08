@@ -57,6 +57,7 @@ id cardViewGraph
 id container
 id contributors_list
 id createButton
+id dining_list
 id dining_location_input
 id dining_time_input
 id dining_website_input
@@ -92,6 +93,10 @@ id open_reservation_cardview_button
 id password
 id piechart
 id reservation_cardview
+id reservation_entry_link
+id reservation_entry_location
+id reservation_entry_restaurant
+id reservation_entry_time
 id start_date
 id tableLayoutNotes
 id tableLayout_add_contributor
@@ -133,6 +138,7 @@ layout fragment_accommodation
 layout fragment_community
 layout fragment_destination
 layout fragment_dining
+layout fragment_dining_list_entries
 layout fragment_logistics
 layout fragment_notes
 layout fragment_transportation

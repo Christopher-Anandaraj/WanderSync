@@ -28,6 +28,10 @@
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
     },
     {
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_dining_list_entries.xml",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
+    },
+    {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_create.xml",
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_create.xml"
     },

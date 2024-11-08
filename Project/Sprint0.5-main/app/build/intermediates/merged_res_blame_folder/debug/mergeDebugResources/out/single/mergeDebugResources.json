@@ -216,6 +216,10 @@
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_dining_list_entries.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
+    },
+    {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_logistics.xml.flat",
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
     },

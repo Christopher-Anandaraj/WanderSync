@@ -22,14 +22,13 @@
         android:layout_marginEnd="16dp"
         app:cornerRadius = "20dp"/>
 
-    <!-- This is the reservations scroll screen background-->
+    <!-- This layout holds the reservation widgets and list -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
         android:background="@color/white">
-
 
         <!-- This is the cardView dimensions/setup (makes it round + adds boarders) -->
         <androidx.cardview.widget.CardView
@@ -111,6 +110,18 @@
                     app:cornerRadius = "20dp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <!-- This is the dining list scroll widget -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dining_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     </LinearLayout>
 
     <!-- End of Allyson Implementation-->
