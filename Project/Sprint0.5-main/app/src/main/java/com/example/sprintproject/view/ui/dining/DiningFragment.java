@@ -47,10 +47,10 @@ public class DiningFragment extends Fragment {
         View root = binding.getRoot();
 
         // sophie stuff
-        Button button_reservationSubmit;
+        Button button_reservationSubmit = binding.addReservationButton;
+        EditText editText_reservationName;
         EditText editText_reservationLocation = binding.diningLocationInput;
         EditText editText_reservationWebsite = binding.diningWebsiteInput;
-        EditText editText_reservationReview;
         EditText editText_reservationTime = binding.diningTimeInput;
         //added name
         EditText editText_reservationName = binding.diningNameInput;
@@ -93,8 +93,9 @@ public class DiningFragment extends Fragment {
 
         //End of Allyson Implementation ------------------------------------------------------------------
 
-        // sophie stuff (Added the button)
-        add_reservation_button.setOnClickListener(v -> {
+        // sophie stuff
+        button_reservationSubmit.setOnClickListener(v -> {
+            String resvName = editText_reservationName.getText().toString().trim();
             String resvLocation = editText_reservationLocation.getText().toString().trim();
             String resvTime = editText_reservationTime.getText().toString().trim();
             String resvWebsite = editText_reservationWebsite.getText().toString().trim();
@@ -105,6 +106,11 @@ public class DiningFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 return;
             }
+            createReservation(resvName,resvLocation,resvTime, resvWebsite);
+            editText_reservationName.setText("");
+            editText_reservationLocation.setText("");
+            editText_reservationTime.setText("");
+            editText_reservationWebsite.setText("");
         });
         // end of sophie stuff
 
@@ -112,25 +118,27 @@ public class DiningFragment extends Fragment {
         diningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
 
-
-
     }
 
-    private void createReservation(String location, String time, String website) {
+    private void createReservation(String restaurantName, String location, String time, String website) {
         FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
         if (user != null) {
             String uid = user.getUid();
 
-            String reservationId = diningDatabaseReference.push().getKey();
+            DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
+                    .child("diningReservations").child("users").child(uid);
 
-            Map<String, String> reservation = new HashMap<>();
-            reservation.put("location", location);
-            reservation.put("website", website);
-            reservation.put("reservation_time", time);
+            String reservationId = reservationRef.child("reservations").push().getKey();
+
+            Map<String, String> reservationMap = new HashMap<>();
+            reservationMap.put("name", restaurantName);
+            reservationMap.put("location", location);
+            reservationMap.put("website", website);
+            reservationMap.put("reservation_time", time);
 
             if (reservationId != null) {
-                diningDatabaseReference.child("diningReservations").child(reservationId).setValue(reservation)
+                reservationRef.child(reservationId).setValue(reservationMap)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getContext(), "Restaurant reservation added to log!",
