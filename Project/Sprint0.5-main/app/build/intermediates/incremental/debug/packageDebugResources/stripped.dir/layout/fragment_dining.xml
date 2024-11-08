@@ -99,6 +99,19 @@
                     android:textColorHighlight="@color/cardview_dark_background"
                     android:layout_marginTop="20dp"/>
 
+                <!-- This is the cardView resname edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dining_name_input"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Restauraunt Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
                 <!-- This is the cardView add reservation button -->
                 <Button
                     android:id="@+id/add_reservation_button"
