@@ -20,8 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sprintproject.databinding.FragmentDiningBinding;
 import com.example.sprintproject.model.FirebaseManager;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;
@@ -33,10 +36,11 @@ public class DiningFragment extends Fragment {
 
     private FragmentDiningBinding binding;
 
-    private final DatabaseReference diningDatabaseReference = FirebaseDatabase.getInstance().getReference("diningReservations");
-
     //holds all entries for dining (Allyson)
     ArrayList<DiningEntry> diningEntries = new ArrayList<>();
+
+    FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -103,7 +107,7 @@ public class DiningFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 return;
             }
-            createReservation(resvName,resvLocation,resvTime, resvWebsite);
+            createReservation(resvName, resvLocation, resvTime, resvWebsite);
             editText_reservationName.setText("");
             editText_reservationLocation.setText("");
             editText_reservationTime.setText("");
@@ -117,11 +121,10 @@ public class DiningFragment extends Fragment {
 
     }
 
+    // sophie stuff
     private void createReservation(String restaurantName, String location, String time, String website) {
-        FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
-
-        if (user != null) {
-            String uid = user.getUid();
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
 
             DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
                     .child("diningReservations").child(uid);
@@ -154,16 +157,42 @@ public class DiningFragment extends Fragment {
         }
     }
 
-    //Allyson Implementation ------------------------------------------------------------------------
-    private void setUpDiningEntriesArray() {
+    private void loadReservation(FirebaseUser currentUser) {
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+
+            DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
+                    .child("diningReservations").child(uid);
+
+            reservationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    // Loop through each child in the snapshot
+                    for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                        // Get the key and value of each child
+                        String loadedName = childSnapshot.child("name").getValue().toString();
+                        String loadedLoc = childSnapshot.child("location").getValue().toString();
+                        String loadedTime = childSnapshot.child("reservation_time").getValue().toString();
+                        String loadedWebsite = childSnapshot.child("website").getValue().toString();
+
+                        // put the reservation's name/loc/time/website on its own cardview
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getContext(), "Failed to load travel logs.",
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
+        //Allyson Implementation ------------------------------------------------------------------------
+        private void setUpDiningEntriesArray () {
+        }
 
-    //End of Allyson Implementation ------------------------------------------------------------------
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+        //End of Allyson Implementation ------------------------------------------------------------------
+
 }
