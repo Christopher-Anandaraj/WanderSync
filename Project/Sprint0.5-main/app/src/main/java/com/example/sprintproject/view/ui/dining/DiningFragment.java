@@ -47,13 +47,11 @@ public class DiningFragment extends Fragment {
         View root = binding.getRoot();
 
         // sophie stuff
+        EditText editText_reservationName = binding.diningNameInput;
         Button button_reservationSubmit = binding.addReservationButton;
-        EditText editText_reservationName;
         EditText editText_reservationLocation = binding.diningLocationInput;
         EditText editText_reservationWebsite = binding.diningWebsiteInput;
         EditText editText_reservationTime = binding.diningTimeInput;
-        //added name
-        EditText editText_reservationName = binding.diningNameInput;
         // end sophie stuff
 
         //Allyson Implementation ------------------------------------------------------------------------
@@ -99,7 +97,6 @@ public class DiningFragment extends Fragment {
             String resvLocation = editText_reservationLocation.getText().toString().trim();
             String resvTime = editText_reservationTime.getText().toString().trim();
             String resvWebsite = editText_reservationWebsite.getText().toString().trim();
-            String resvName = editText_reservationName.getText().toString().trim();
 
             if (resvLocation.isEmpty() || resvTime.isEmpty() || resvWebsite.isEmpty() || resvName.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
@@ -127,7 +124,7 @@ public class DiningFragment extends Fragment {
             String uid = user.getUid();
 
             DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
-                    .child("diningReservations").child("users").child(uid);
+                    .child("diningReservations").child(uid);
 
             String reservationId = reservationRef.child("reservations").push().getKey();
 
