@@ -366,6 +366,7 @@ public class DestinationFragment extends Fragment {
                         .child("travelLogs");
                 List<String> travelLogs = new ArrayList<>();
 
+
                 travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -427,7 +428,7 @@ public class DestinationFragment extends Fragment {
     }
 
     //Allyson ___________________________________
-    private List<Double> travelLogsDuration = new ArrayList<>();
+    private List<Integer> travelLogsDuration = new ArrayList<>();
 
     /**Logic to load Travel Duration
      * @param listener OnDurationLoadedListener for loading duration*/
@@ -448,7 +449,7 @@ public class DestinationFragment extends Fragment {
                 travelLogsDuration.clear();  // Clear the list to avoid duplicates
 
                 // Retrieve the duration value directly
-                Double duration = dataSnapshot.getValue(Double.class);
+                Integer duration = dataSnapshot.getValue(Integer.class);
                 if (duration != null) {
                     travelLogsDuration.add(duration);
                 } else {
@@ -474,12 +475,12 @@ public class DestinationFragment extends Fragment {
      *
      * @return the total duration as a {@code Double}; 0.0 if the list is empty.
      */
-    private Double countDurationTotal() {
-        double total = 0;
+    private Integer countDurationTotal() {
+        int total = 0;
         if (travelLogsDuration.isEmpty()) {
-            return 0.0;
+            return 0;
         } else {
-            for (Double day: travelLogsDuration) {
+            for (int day: travelLogsDuration) {
                 total += day;
             }
         }

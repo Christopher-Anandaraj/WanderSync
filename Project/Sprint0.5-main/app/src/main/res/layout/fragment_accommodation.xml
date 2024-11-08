@@ -14,10 +14,275 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="casual"
         android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/accommodation_table"/>
+
+    <!--Accommodation List-->
+    <TableLayout
+        android:id="@+id/accommodation_table"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#b89e13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_accommodation">
+
+        <ListView
+            android:id="@+id/accommodation_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:paddingLeft="5dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:divider="@color/white">
+        </ListView>
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/accommodation_add"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="#b89e13"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_accommodation">
+
+        <TableRow>
+            <!--Log Travel Location-->
+            <TextView
+                android:id="@+id/text_accommodation_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:text="New Accommodation"
+                android:layout_gravity="center"
+                android:paddingLeft="5dp"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"/>
+        </TableRow>
+
+        <TableRow>
+            <!--Accommodation Location Name-->
+            <TextView
+                android:id="@+id/accommodation_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:text="Location:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="-50dp"/>
+            <EditText
+                android:id="@+id/accommodation_location_name"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginEnd="45dp"/>
+        </TableRow>
+
+        <TableRow>
+            <!--Accommodation Checkin/Checkout-->
+            <TextView
+                android:id="@+id/accommodation_check_in"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:text="Check-in:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="-50dp"/>
+            <EditText
+                android:id="@+id/accommodation_check_in_date"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:hint="YYYY-MM-DD"
+                android:textColorHint="@color/white"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginEnd="45dp"/>
+        </TableRow>
+
+            <TableRow>
+            <TextView
+                android:id="@+id/accommodation_check_out"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:text="Check-out:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="-50dp"/>
+
+            <EditText
+                android:id="@+id/accommodation_check_out_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:hint="YYYY-MM-DD"
+                android:textColorHint="@color/white"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginEnd="45dp"/>
+        </TableRow>
+
+        <TableRow>
+            <!--Accommodation number of Rooms-->
+            <TextView
+                android:id="@+id/text_rooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:fontFamily="casual"
+                android:text="Number of rooms:"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"/>
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/rooms_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+        </TableRow>
+        <TableRow>
+            <!--Accommodation Location Name-->
+            <TextView
+                android:id="@+id/accommodation_website"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:text="Website:"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"/>
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/accommodation_website_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+        </TableRow>
+        <TableRow>
+            <!--Accommodation number of Rooms-->
+            <TextView
+                android:id="@+id/text_room_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:fontFamily="casual"
+                android:text="Room Type:"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"/>
+        </TableRow>
+        <TableRow>
+            <EditText
+                android:id="@+id/rooms_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"/>
+        </TableRow>
+
+        <Button
+            android:id="@+id/button_confirm_accommodation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Accommodation"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/button_eclipse"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            />
+        <Button
+            android:id="@+id/button_cancel_accommodation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:background="@drawable/button_eclipse"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            />
+    </TableLayout>
+
+
+    <ImageButton
+        android:id="@+id/button_add_accommodation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/button_eclipse"
+        android:contentDescription="Add Contributors"
+        android:src="@drawable/button_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.953"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
