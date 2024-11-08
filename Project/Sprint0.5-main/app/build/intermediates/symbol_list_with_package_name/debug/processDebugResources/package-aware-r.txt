@@ -3459,6 +3459,7 @@ id dialog_button
 id dimensions
 id dining_list
 id dining_location_input
+id dining_name_input
 id dining_time_input
 id dining_website_input
 id direct

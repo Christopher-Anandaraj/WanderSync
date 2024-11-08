@@ -52,6 +52,8 @@ public class DiningFragment extends Fragment {
         EditText editText_reservationLocation = binding.diningLocationInput;
         EditText editText_reservationWebsite = binding.diningWebsiteInput;
         EditText editText_reservationTime = binding.diningTimeInput;
+        //added name
+        EditText editText_reservationName = binding.diningNameInput;
         // end sophie stuff
 
         //Allyson Implementation ------------------------------------------------------------------------
@@ -67,6 +69,7 @@ public class DiningFragment extends Fragment {
 
         //Buttons for Dining Screen
         Button open_reservation_cardview_button = binding.openReservationCardviewButton;
+        Button add_reservation_button = binding.addReservationButton;
 
         //cardviews
         CardView reservation_cardview = binding.reservationCardview;
@@ -96,8 +99,9 @@ public class DiningFragment extends Fragment {
             String resvLocation = editText_reservationLocation.getText().toString().trim();
             String resvTime = editText_reservationTime.getText().toString().trim();
             String resvWebsite = editText_reservationWebsite.getText().toString().trim();
+            String resvName = editText_reservationName.getText().toString().trim();
 
-            if (resvLocation.isEmpty() || resvTime.isEmpty() || resvWebsite.isEmpty()) {
+            if (resvLocation.isEmpty() || resvTime.isEmpty() || resvWebsite.isEmpty() || resvName.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
@@ -155,7 +159,6 @@ public class DiningFragment extends Fragment {
 
     //Allyson Implementation ------------------------------------------------------------------------
     private void setUpDiningEntriesArray() {
-        //implementation for adding reservations from database(reach out to sophie) to dining arraylist
     }
 
 
