@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+<<<<<<< HEAD
 import android.widget.ImageButton;
+=======
+>>>>>>> main
 import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -66,7 +69,11 @@ public final class FragmentDiningBinding implements ViewBinding {
       @NonNull RecyclerView diningList, @NonNull EditText diningLocationInput,
       @NonNull EditText diningNameInput, @NonNull TableLayout diningReservation,
       @NonNull EditText diningTimeInput, @NonNull EditText diningWebsiteInput,
+<<<<<<< HEAD
       @NonNull ConstraintLayout fragmentDining, @NonNull ImageButton openReservationCardviewButton,
+=======
+      @NonNull ConstraintLayout fragmentDining, @NonNull Button openReservationCardviewButton,
+>>>>>>> main
       @NonNull CardView reservationCardview, @NonNull TextView textDining) {
     this.rootView = rootView;
     this.addReservationButton = addReservationButton;

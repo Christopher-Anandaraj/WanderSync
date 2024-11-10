@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -33,6 +32,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AccommodationFragment extends Fragment {
 
@@ -94,7 +98,8 @@ public class AccommodationFragment extends Fragment {
             String webAddress = website.getText().toString().trim();
             String type = roomType.getSelectedItem().toString().trim();
 
-            if (location.isEmpty() || checkIn.isEmpty() || checkOut.isEmpty() || room.isEmpty() || webAddress.isEmpty() || type.isEmpty())  {
+            if (location.isEmpty() || checkIn.isEmpty() || checkOut.isEmpty() || room.isEmpty()
+                    || webAddress.isEmpty() || type.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
@@ -128,7 +133,8 @@ public class AccommodationFragment extends Fragment {
             numbersList.add(String.valueOf(i));
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, numbersList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, numbersList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
@@ -146,19 +152,22 @@ public class AccommodationFragment extends Fragment {
         roomType.add("Single Room");
         roomType.add("Double Room");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, roomType);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                android.R.layout.simple_spinner_dropdown_item, roomType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
     }
 
-    private void createAccommodation(String locationName, String checkInDate, String checkOutDate, String numberOfRooms, String website, String roomType) {
+    private void createAccommodation(String locationName, String checkInDate, String checkOutDate,
+                                     String numberOfRooms, String website, String roomType) {
         FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
         /* Chris, you'll have to edit the area below and add the database reference */
         if (user != null) {
             String uid = user.getUid(); // Get the user ID
-            DatabaseReference accommodationRef = FirebaseManager.getInstance().getDatabaseReference()
+            DatabaseReference accommodationRef =
+                    FirebaseManager.getInstance().getDatabaseReference()
                     .child("accommodation").child(uid); // Reference to the user's travel log
 
             // Generate a unique ID for the destination
@@ -181,7 +190,8 @@ public class AccommodationFragment extends Fragment {
 
             if (accommodationId != null) {
                 // Add accommodation to the user's travel log
-                accommodationRef.child("accommodations").child(accommodationId).setValue(accommodationMap)
+                accommodationRef.child("accommodations")
+                        .child(accommodationId).setValue(accommodationMap)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getContext(), "Reservation added to accommodation!",
@@ -223,17 +233,15 @@ public class AccommodationFragment extends Fragment {
                 }
 
                 /*Chris, You'll have to edit the database here */
-                DatabaseReference accommodationRef = FirebaseManager
+                DatabaseReference travelLogRef = FirebaseManager
                         .getInstance().getDatabaseReference()
-                        .child("accommodation");
+                        .child("travelLogs");
 
-                List<String> accommodationReservation = new ArrayList<>();
-
-                accommodationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        accommodationReservation.clear();
-
+                        boolean hasAccess = false;
+                        String ownerID = null;
                         // Loop through each user's travel log
                         for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                             String userId = userSnapshot.getKey();
@@ -242,62 +250,111 @@ public class AccommodationFragment extends Fragment {
                             if (userId.equals(currentUserId)
                                     || userSnapshot.child("contributors")
                                     .hasChild(currentUsername)) {
-                                // Load all destinations for this user
-                                for (DataSnapshot accommodationSnapshot : userSnapshot
-                                        .child("accommodations")
-                                        .getChildren()) {
-                                    String location = accommodationSnapshot.child("locationName")
-                                            .getValue(String.class);
-                                    String checkIn = accommodationSnapshot.child("checkInDate")
-                                            .getValue(String.class);
-                                    String checkOut = accommodationSnapshot.child("checkOutDate")
-                                            .getValue(String.class);
-                                    String roomAmount = accommodationSnapshot.child("numberOfRooms")
-                                            .getValue(String.class);
-                                    String webAddress = accommodationSnapshot.child("website")
-                                            .getValue(String.class);
-                                    String typeRoom = accommodationSnapshot.child("roomType")
-                                            .getValue(String.class);
+                                ownerID = userSnapshot.getKey();
+                                hasAccess = true;
+                                break;
+                            }
+                        }
 
-                                    String checkInText = "Check-in: ";
-                                    String checkOutText = "Check-Out: ";
-                                    String numberRoomsText = "Number of rooms: ";
+                        if (hasAccess && ownerID != null) {
+                            DatabaseReference accommodationRef = FirebaseManager
+                                    .getInstance().getDatabaseReference()
+                                    .child("accommodation").child(ownerID)
+                                    .child("accommodations");
+                            List<String> accommodationReservation = new ArrayList<>();
 
-                                    String formattedAccommodation = String.format(
-                                            "%s\n%s %s %s %s\n%s %s\n%s\n%s",
-                                            location, checkInText, checkIn, checkOutText, checkOut,
-                                            numberRoomsText, roomAmount, webAddress, typeRoom);
-                                    accommodationReservation.add(formattedAccommodation);
+                            accommodationRef.addListenerForSingleValueEvent(new
+                                                                            ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot
+                                                                 accommodationSnapshot) {
+                                    accommodationReservation.clear();
+
+                                    for (DataSnapshot accommodationData : accommodationSnapshot
+                                            .getChildren()) {
+
+                                        String location = accommodationData.child("locationName")
+                                                .getValue(String.class);
+                                        String checkIn = accommodationData.child("checkInDate")
+                                                .getValue(String.class);
+                                        String checkOut = accommodationData.child("checkOutDate")
+                                                .getValue(String.class);
+                                        String roomAmount = accommodationData.child("numberOfRooms")
+                                                .getValue(String.class);
+                                        String webAddress = accommodationData.child("website")
+                                                .getValue(String.class);
+                                        String typeRoom = accommodationData.child("roomType")
+                                                .getValue(String.class);
+
+                                        String checkInText = "Check-in: ";
+                                        String checkOutText = "Check-Out: ";
+                                        String numberRoomsText = "Number of rooms: ";
+
+                                        //This is for checking if the checkout date
+                                        // is past the current date
+                                        boolean isExpired = false;
+                                        SimpleDateFormat dateFormat =
+                                                new SimpleDateFormat("yyyy-MM-dd"); // or
+                                        // the format of your dates
+                                        try {
+                                            Date checkOutDate = dateFormat.parse(checkOut);
+                                            Calendar today = Calendar.getInstance();
+                                            today.set(Calendar.HOUR_OF_DAY, 0);
+                                            today.set(Calendar.MINUTE, 0);
+                                            today.set(Calendar.SECOND, 0);
+                                            today.set(Calendar.MILLISECOND, 0);
+
+                                            if (checkOutDate.before(today.getTime())) {
+                                                isExpired = true;
+                                            }
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                        String formattedAccommodation = String.format(
+                                                "%s\n%s %s %s %s\n%s %s\n%s\n%s%s",
+                                                location,
+                                                checkInText, checkIn,
+                                                checkOutText, checkOut,
+                                                numberRoomsText, roomAmount,
+                                                webAddress, typeRoom,
+                                                isExpired ? "\nEXPIRED" : ""
+                                        );
+                                        accommodationReservation.add(formattedAccommodation);
+                                    }
+
+                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                                            R.layout.reservation_font, accommodationReservation);
+                                    accommodationList.setAdapter(adapter);
+                                    adapter.notifyDataSetChanged();
+
                                 }
 
-
-                                ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                                        R.layout.reservation_font, accommodationReservation);
-                                accommodationList.setAdapter(adapter);
-                                adapter.notifyDataSetChanged();
-                            }
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    Toast.makeText(getContext(), "Failed to load accommodation.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            Toast.makeText(getContext(), "Access denied.",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Toast.makeText(getContext(), "Failed to load accommodation.",
+                        Toast.makeText(getContext(), "Failed to load travel logs.",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
             }
+
             @Override
-            public void onCancelled(
-                    @NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Failed to load accommodation.",
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getContext(), "Failed to load user data.",
                         Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
     }
 }

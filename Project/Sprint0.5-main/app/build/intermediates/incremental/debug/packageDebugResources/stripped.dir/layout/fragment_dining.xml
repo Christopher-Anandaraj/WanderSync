@@ -113,6 +113,10 @@
                     android:layout_marginTop="30dp"
                     app:cornerRadius = "20dp"/>
             </TableLayout>
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
         </androidx.cardview.widget.CardView>
         <!-- This is the dining list scroll widget -->
         <androidx.recyclerview.widget.RecyclerView
