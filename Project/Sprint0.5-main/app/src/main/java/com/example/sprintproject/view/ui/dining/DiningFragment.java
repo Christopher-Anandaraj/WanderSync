@@ -126,6 +126,7 @@ public class DiningFragment extends Fragment {
             AddToDatabase add = new AddToDatabase();
             add.interactWithDatabase(currentUser, reservationRef, reservation, diningEntries, fragContext, adapter);
             reservation_cardview.setVisibility(View.GONE);
+
             context.setSortStrategy(new SortByTimeStrategy());
             context.sortReservations(diningEntries);
 
@@ -141,12 +142,8 @@ public class DiningFragment extends Fragment {
         // end of sophie stuff
 
         //Allyson Implementaion -----------------------------------------
-
-
         adapter.notifyDataSetChanged();
-
         return root;
-
     }
 
     public boolean isValidMilitaryTime(String time) {

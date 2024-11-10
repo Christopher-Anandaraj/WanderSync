@@ -110,4 +110,3 @@ public class LoadFromDatabase implements DatabaseInteraction {
         });
     }
 }
-
