@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_dining"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ui.dining.DiningFragment">
+
+    <!--Allyson Implementation-->
+
+    <!-- This is the cardView open button -->
+    <Button
+        android:id="@+id/open_reservation_cardview_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="16dp"
+        app:cornerRadius = "20dp"/>
+
+    <!-- This layout holds the reservation widgets and list -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <!-- This is the cardView dimensions/setup (makes it round + adds boarders) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/reservation_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            android:background="@color/black"
+            android:visibility="visible">
+
+            <!-- This is the cardView features -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp">
+
+                <!-- This is the cardView Title -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Reservation"
+                    android:id="@+id/add_reservation_title"
+                    android:textSize="36sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <!-- This is the cardView Time edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dining_time_input"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Time"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="40dp"/>
+
+                <!-- This is the cardView Location edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dining_location_input"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Location"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView website edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dining_website_input"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Website"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView resname edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/dining_name_input"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Restauraunt Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView add reservation button -->
+                <Button
+                    android:id="@+id/add_reservation_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Add Reservation"
+                    android:textSize="18sp"
+                    android:layout_marginTop="30dp"
+                    app:cornerRadius = "20dp"/>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- This is the dining list scroll widget -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dining_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="55dp"/>
+
+    </LinearLayout>
+
+    <!-- End of Allyson Implementation-->
+
+    <TextView
+        android:id="@+id/text_dining"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reservations"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
