@@ -33,6 +33,8 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_notifications_black_24dp
 drawable logistics_selector
+drawable table_pink
+drawable table_pink_inverted
 drawable transport_selector
 drawable wandersynclogo
 id accommodation_add

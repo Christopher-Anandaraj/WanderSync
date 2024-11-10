@@ -21,6 +21,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
+    <Button
+        android:id="@+id/button_calculate_vacation"
+        android:layout_width="340dp"
+        android:layout_height="57dp"
+        android:text="Calculate Vacation Time"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:background="@drawable/button_eclipse"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vacation_form" />
 
     <!--Log Travel Table-->
     <TableLayout
@@ -31,23 +44,25 @@
         android:visibility="gone"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
-        android:background="#b89e13"
+        android:background="@drawable/table_pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_calculate_vacation"
-        app:layout_constraintTop_toBottomOf="@id/button_log_travel">
+        app:layout_constraintTop_toBottomOf="@id/button_log_travel"
+        >
+    <!--Calculate Vacation Time Button-->
 
         <TableRow>
             <!--Log Travel Location-->
-        <TextView
-            android:id="@+id/text_travel_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:paddingLeft="5dp"
-            android:text="Travel Location:"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_travel_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="casual"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Travel Location:"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </TableRow>
         <TableRow>
             <!--Log Travel Location Text-->
@@ -61,7 +76,7 @@
                 android:textColorHint="@color/white"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/white"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="7dp"
                 android:layout_marginEnd="40dp"/>
         </TableRow>
 
@@ -71,7 +86,7 @@
                 android:id="@+id/text_start_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
+                android:layout_marginStart="7dp"
                 android:fontFamily="casual"
                 android:text="Estimated Start:"
                 android:textColor="@color/white"
@@ -81,6 +96,7 @@
                 android:id="@+id/text_end_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
                 android:paddingLeft="50dp"
                 android:paddingRight="40dp"
                 android:fontFamily="casual"
@@ -101,7 +117,7 @@
                 android:textColorHint="@color/white"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/white"
-                android:layout_marginStart="1dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginEnd="40dp"/>
             <!--Log Travel Estimated End Text-->
             <EditText
@@ -145,23 +161,6 @@
                 />
         </TableRow>
     </TableLayout>
-
-    <!--Calculate Vacation Time Button-->
-    <Button
-        android:id="@+id/button_calculate_vacation"
-        android:layout_width="340dp"
-        android:layout_height="57dp"
-        android:text="Calculate Vacation Time"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:background="@drawable/button_eclipse"
-        android:textColor="@android:color/white"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vacation_form"
-        />
-
      <!--Allyson Implementation-->
     <TableLayout
         android:id="@+id/vacation_time_form"
@@ -169,7 +168,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
-        android:background="#b89e13"
+        android:background="@drawable/table_pink"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -283,7 +282,7 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:visibility="gone"
-        android:background="#b89e13"
+        android:background="@drawable/table_pink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vacation_time_form">
@@ -293,10 +292,11 @@
                 android:id="@+id/text_vacation_time_result_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
                 android:fontFamily="casual"
                 android:text="Duration Total:"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
             <TextView
@@ -318,7 +318,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible"
-        android:background="#b89e13"
+        android:background="@drawable/table_pink"
         android:textColor="@color/white"
         android:fontFamily="casual"
         android:layout_marginTop="10dp"

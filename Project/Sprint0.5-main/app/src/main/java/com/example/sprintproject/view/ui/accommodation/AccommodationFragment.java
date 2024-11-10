@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,9 +56,12 @@ public class AccommodationFragment extends Fragment {
         EditText locationName = binding.accommodationLocationName;
         EditText checkInText = binding.accommodationCheckInDate;
         EditText checkOutText = binding.accommodationCheckOutDate;
-        EditText roomNumber = binding.roomsNumber;
+        Spinner roomNumber = binding.roomsNumber;
         EditText website = binding.accommodationWebsiteName;
-        EditText roomType = binding.roomsType;
+        Spinner roomType = binding.roomsType;
+
+        roomNumberSpinner(roomNumber);
+        roomTypeSpinner(roomType);
 
         buttonAddAccommodation.setOnClickListener(view -> {
             if (accommodationAdd.getVisibility() == View.VISIBLE) {
@@ -73,9 +77,9 @@ public class AccommodationFragment extends Fragment {
                     locationName.setText("");
                     checkInText.setText("");
                     checkOutText.setText("");
-                    roomNumber.setText("");
+                    roomNumber.setSelection(0);
                     website.setText("");
-                    roomType.setText("");
+                    roomType.setSelection(0);
                 }
             }
         );
@@ -84,9 +88,9 @@ public class AccommodationFragment extends Fragment {
             String location = locationName.getText().toString().trim();
             String checkIn = checkInText.getText().toString().trim();
             String checkOut = checkOutText.getText().toString().trim();
-            String room = roomNumber.getText().toString().trim();
+            String room = roomNumber.getSelectedItem().toString().trim();
             String webAddress = website.getText().toString().trim();
-            String type = roomType.getText().toString().trim();
+            String type = roomType.getSelectedItem().toString().trim();
 
             if (location.isEmpty() || checkIn.isEmpty() || checkOut.isEmpty() || room.isEmpty() || webAddress.isEmpty() || type.isEmpty())  {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
@@ -103,16 +107,47 @@ public class AccommodationFragment extends Fragment {
             }
 
             createAccommodation(location, checkIn, checkOut, room, webAddress, type);
+            accommodationAdd.setVisibility(View.GONE);
             locationName.setText("");
             checkInText.setText("");
             checkOutText.setText("");
-            roomNumber.setText("");
+            roomNumber.setSelection(0);
             website.setText("");
-            roomType.setText("");
+            roomType.setSelection(0);
         });
 
         loadAccommodation(reservationList);
         return root;
+    }
+
+    private void roomNumberSpinner(Spinner spinner) {
+        ArrayList<String> numbersList = new ArrayList<>();
+        for (int i = 0; i <= 10; i++) {
+            numbersList.add(String.valueOf(i));
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, numbersList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+    }
+
+    private List<String> getContributors() {
+        return new ArrayList<>(); //
+    }
+
+    private void roomTypeSpinner(Spinner spinner) {
+        ArrayList<String> roomType = new ArrayList<>();
+        roomType.add("Standard Room");
+        roomType.add("Deluxe Room");
+        roomType.add("Suite");
+        roomType.add("Single Room");
+        roomType.add("Double Room");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, roomType);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
     }
 
     private void createAccommodation(String locationName, String checkInDate, String checkOutDate, String numberOfRooms, String website, String roomType) {
@@ -137,6 +172,10 @@ public class AccommodationFragment extends Fragment {
             accommodationMap.put("roomType", roomType);
 
             // Include contributor IDs if applicable
+            List<String> contributorIds = getContributors(); // This fetches contributor IDs
+            if (!contributorIds.isEmpty()) {
+                accommodationMap.put("contributors", contributorIds);
+            }
 
             if (accommodationId != null) {
                 // Add accommodation to the user's travel log
