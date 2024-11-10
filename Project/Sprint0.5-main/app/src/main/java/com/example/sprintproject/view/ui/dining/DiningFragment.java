@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -110,6 +108,7 @@ public class DiningFragment extends Fragment {
             editText_reservationTime.setText("");
             editText_reservationWebsite.setText("");
 
+            //Ally
             // Update the list and notify the adapter
             adapter.notifyDataSetChanged(); // Notify adapter of data change
         });
@@ -159,7 +158,7 @@ public class DiningFragment extends Fragment {
             }
         }
 
-        //update list
+        //update list (Ally)
         DiningEntry newEntry = new DiningEntry(restaurantName,location,time,website);
         diningEntries.add(newEntry);
 
