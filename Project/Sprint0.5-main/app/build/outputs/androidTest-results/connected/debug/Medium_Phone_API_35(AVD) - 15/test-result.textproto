@@ -1,4 +1,4 @@
-# 2024-11-02T21:18:46.676939100Z:
+# 2024-11-09T05:36:01.793880400Z:
 test_suite_meta_data {
   scheduled_test_case_count: 1
 }
@@ -9,12 +9,12 @@ test_result {
     test_package: "com.example.sprintproject"
     test_method: "testBottomNavigationViewSwitchesFragments"
     start_time {
-      seconds: 1730582317
-      nanos: 702000000
+      seconds: 1731130551
+      nanos: 516000000
     }
     end_time {
-      seconds: 1730582325
-      nanos: 626000000
+      seconds: 1731130560
+      nanos: 363000000
     }
   }
   test_status: PASSED

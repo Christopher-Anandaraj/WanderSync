@@ -1,4 +1,4 @@
-package com.example.sprintproject.view.ui.destination;
+package com.example.sprintproject.view.ui;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class DestinationUtils {
+public class ReservationUtils {
 
 
     /** Validates whether the provided date string conforms to the "yyyy-MM-dd" date format.
