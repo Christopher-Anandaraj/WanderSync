@@ -108,6 +108,9 @@ public class DiningFragment extends Fragment {
             editText_reservationLocation.setText("");
             editText_reservationTime.setText("");
             editText_reservationWebsite.setText("");
+
+            // Update the list and notify the adapter
+            adapter.notifyDataSetChanged(); // Notify adapter of data change
         });
         // end of sophie stuff
 
@@ -154,6 +157,11 @@ public class DiningFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
             }
         }
+
+        //update list
+        DiningEntry newEntry = new DiningEntry(restaurantName,location,time,website);
+        diningEntries.add(newEntry);
+
     }
 
     private void loadReservation(FirebaseUser currentUser) {
