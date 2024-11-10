@@ -49,6 +49,8 @@ id accommodation_location_name
 id accommodation_table
 id accommodation_website
 id accommodation_website_name
+id add_reservation_button
+id add_reservation_title
 id box
 id buttonAddNote
 id buttonDataVis
@@ -73,6 +75,11 @@ id cardViewGraph
 id container
 id contributors_list
 id createButton
+id dining_list
+id dining_location_input
+id dining_name_input
+id dining_time_input
+id dining_website_input
 id editTextNewNote
 id editTextPassword
 id editTextUsername
@@ -101,8 +108,14 @@ id navigation_dining
 id navigation_home
 id navigation_notifications
 id notes
+id open_reservation_cardview_button
 id password
 id piechart
+id reservation_cardview
+id reservation_entry_link
+id reservation_entry_location
+id reservation_entry_restaurant
+id reservation_entry_time
 id rooms_number
 id rooms_type
 id start_date
@@ -149,6 +162,7 @@ layout fragment_accommodation
 layout fragment_community
 layout fragment_destination
 layout fragment_dining
+layout fragment_dining_list_entries
 layout fragment_logistics
 layout fragment_notes
 layout fragment_transportation
