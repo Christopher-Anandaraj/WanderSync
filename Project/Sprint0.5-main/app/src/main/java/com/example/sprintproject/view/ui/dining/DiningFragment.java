@@ -110,6 +110,12 @@ public class DiningFragment extends Fragment {
                 return;
             }
 
+            if (!isValidMilitaryTime(resvTime)) {
+                Toast.makeText(getContext(), "Please put a valid time input.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             DiningEntry reservation = new DiningEntry(resvLocation, resvName, resvTime, resvWebsite);
             AddToDatabase add = new AddToDatabase();
             add.interactWithDatabase(currentUser, reservationRef, reservation, diningEntries, fragContext);
@@ -135,6 +141,11 @@ public class DiningFragment extends Fragment {
         diningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
 
+    }
+
+    public boolean isValidMilitaryTime(String time) {
+        String regex = "^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
+        return time.matches(regex);
     }
 
 }
