@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -128,6 +127,7 @@ public class DiningFragment extends Fragment {
             editText_reservationTime.setText("");
             editText_reservationWebsite.setText("");
 
+            //Ally
             // Update the list and notify the adapter
             adapter.notifyDataSetChanged(); // Notify adapter of data change
         });
@@ -143,7 +143,7 @@ public class DiningFragment extends Fragment {
         return root;
 
     }
-
+  
     public boolean isValidMilitaryTime(String time) {
         String regex = "^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
         return time.matches(regex);

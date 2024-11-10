@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<testsuite name="com.example.sprintproject.CustomBottomNavigationBarTest" tests="1" failures="0" errors="0" skipped="0" time="8.946" timestamp="2024-11-02T21:18:46" hostname="localhost">
-  <properties>
-    <property name="device" value="Medium_Phone_API_35(AVD) - 15" />
-    <property name="flavor" value="" />
-    <property name="project" value=":app" />
-  </properties>
-  <testcase name="testBottomNavigationViewSwitchesFragments" classname="com.example.sprintproject.CustomBottomNavigationBarTest" time="7.925" />
-</testsuite>

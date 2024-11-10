@@ -13,7 +13,7 @@ import com.example.sprintproject.R;
 
 import java.util.ArrayList;
 
-//please note that some of these methods are automatic by androidstudios, not my personal implementation
+//Allyson Implementation ----------------------------------------------------------------------------------------------
 public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycleViewAdapter.MyViewHolder> {
 
     //variables for dining entries
