@@ -3,24 +3,24 @@
 3    package="com.example.sprintproject.test" >
 4
 5    <uses-sdk
-5-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:5:5-74
+5-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:5:5-74
 6        android:minSdkVersion="24"
-6-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:5:15-41
+6-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:5:15-41
 7        android:targetSdkVersion="34" />
-7-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:5:42-71
+7-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:5:42-71
 8
 9    <instrumentation
-9-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:11:5-15:75
+9-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:11:5-15:75
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:11:22-76
+10-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:11:22-76
 11        android:functionalTest="false"
-11-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:14:22-52
+11-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:14:22-52
 12        android:handleProfiling="false"
-12-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:13:22-53
+12-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:13:22-53
 13        android:label="Tests for com.example.sprintproject"
-13-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:15:22-73
+13-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:15:22-73
 14        android:targetPackage="com.example.sprintproject" />
-14-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:12:22-71
+14-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:12:22-71
 15
 16    <queries>
 16-->[androidx.test:runner:1.5.2] C:\Users\Victor\.gradle\caches\transforms-4\5d5261b8824b3825ea119fff4534c61b\transformed\runner-1.5.2\AndroidManifest.xml:24:5-28:15
@@ -36,12 +36,12 @@
 20    </queries>
 21
 22    <application
-22-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:7:5-9:19
+22-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:7:5-9:19
 23        android:debuggable="true"
 24        android:extractNativeLibs="false" >
 25        <uses-library android:name="android.test.runner" />
-25-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:8:9-60
-25-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest3232175881577231274.xml:8:23-57
+25-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:8:9-60
+25-->C:\Users\Victor\OneDrive\Desktop\School-Project-3\CS2340D_Team18\Project\Sprint0.5-main\app\build\intermediates\tmp\manifest\androidTest\debug\tempFile1ProcessTestManifest14914941995972561109.xml:8:23-57
 26    </application>
 27
 28</manifest>
