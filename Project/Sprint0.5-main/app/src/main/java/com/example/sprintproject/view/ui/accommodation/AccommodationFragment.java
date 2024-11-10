@@ -17,8 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.FragmentAccommodationBinding;
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.ui.ReservationUtils;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -49,6 +51,7 @@ public class AccommodationFragment extends Fragment {
         Button buttonConfirmAccommodation = binding.buttonConfirmAccommodation;
         Button buttonCancelAccommodation = binding.buttonCancelAccommodation;
         TableLayout accommodationAdd = binding.accommodationAdd;
+        ListView reservationList = binding.accommodationList;
         EditText locationName = binding.accommodationLocationName;
         EditText checkInText = binding.accommodationCheckInDate;
         EditText checkOutText = binding.accommodationCheckOutDate;
@@ -91,14 +94,13 @@ public class AccommodationFragment extends Fragment {
                 return;
             }
 
-            /* Need to create checks here
-            if (!DestinationUtils.isValidDate(startDate)
-                    || !DestinationUtils.isValidDate(endDate)
-                    || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!ReservationUtils.isValidDate(checkIn)
+                    || !ReservationUtils.isValidDate(checkOut)
+                    || !ReservationUtils.isStartDateBeforeEndDate(checkIn, checkOut)) {
                 Toast.makeText(getContext(), "Please enter valid dates.",
                         Toast.LENGTH_SHORT).show();
                 return;
-            }*/
+            }
 
             createAccommodation(location, checkIn, checkOut, room, webAddress, type);
             locationName.setText("");
@@ -109,6 +111,7 @@ public class AccommodationFragment extends Fragment {
             roomType.setText("");
         });
 
+        loadAccommodation(reservationList);
         return root;
     }
 
@@ -215,13 +218,20 @@ public class AccommodationFragment extends Fragment {
                                     String typeRoom = accommodationSnapshot.child("roomType")
                                             .getValue(String.class);
 
+                                    String checkInText = "Check-in: ";
+                                    String checkOutText = "Check-Out: ";
+                                    String numberRoomsText = "Number of rooms: ";
+
                                     String formattedAccommodation = String.format(
-                                            "%s\nCheck-in: %s Check-out: %s\nNumber of Rooms: %s\n%s\n%s",
-                                            location, checkIn, checkOut, roomAmount, webAddress, typeRoom);
+                                            "%s\n%s %s %s %s\n%s %s\n%s\n%s",
+                                            location, checkInText, checkIn, checkOutText, checkOut,
+                                            numberRoomsText, roomAmount, webAddress, typeRoom);
                                     accommodationReservation.add(formattedAccommodation);
                                 }
+
+
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                                        android.R.layout.simple_list_item_1, accommodationReservation);
+                                        R.layout.reservation_font, accommodationReservation);
                                 accommodationList.setAdapter(adapter);
                                 adapter.notifyDataSetChanged();
                             }

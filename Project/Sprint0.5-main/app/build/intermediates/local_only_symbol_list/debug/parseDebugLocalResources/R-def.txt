@@ -41,6 +41,7 @@ id accommodation_check_in_date
 id accommodation_check_out
 id accommodation_check_out_date
 id accommodation_list
+id accommodation_list_font
 id accommodation_location
 id accommodation_location_name
 id accommodation_table
@@ -138,6 +139,7 @@ id vacation_time_start_data_info
 id videoView
 id videoViewTransition
 id view_travel_logs
+layout accommodation_font
 layout activity_create
 layout activity_main
 layout activity_navigation

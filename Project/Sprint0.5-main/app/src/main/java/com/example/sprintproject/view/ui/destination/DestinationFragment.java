@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.sprintproject.R;
 import com.example.sprintproject.databinding.FragmentDestinationBinding;
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.ui.ReservationUtils;
 import com.google.firebase.auth.FirebaseUser;
 
 
@@ -99,9 +101,9 @@ public class DestinationFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 return;
             }
-            if (!DestinationUtils.isValidDate(startDate)
-                    || !DestinationUtils.isValidDate(endDate)
-                    || !DestinationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
+            if (!ReservationUtils.isValidDate(startDate)
+                    || !ReservationUtils.isValidDate(endDate)
+                    || !ReservationUtils.isStartDateBeforeEndDate(startDate, endDate)) {
                 Toast.makeText(getContext(), "Please enter valid dates.",
                         Toast.LENGTH_SHORT).show();
                 return;
@@ -174,18 +176,18 @@ public class DestinationFragment extends Fragment {
                 createVacationDays(duration); // Save the duration directly
                 allocatedDays = (int) duration;
             } else if (!vacationStartData.isEmpty() && !vacationEndData.isEmpty()
-                    && DestinationUtils.isValidDate(vacationStartData)
-                    && DestinationUtils.isValidDate(vacationEndData)
-                    && DestinationUtils
+                    && ReservationUtils.isValidDate(vacationStartData)
+                    && ReservationUtils.isValidDate(vacationEndData)
+                    && ReservationUtils
                     .isStartDateBeforeEndDate(vacationStartData, vacationEndData)) {
-                double daysBetween = DestinationUtils
+                double daysBetween = ReservationUtils
                         .calculateDaysBetween(vacationStartData, vacationEndData);
                 vacationTimeFormResults.setVisibility(View.VISIBLE);
                 vacationTimeResult.setText(String.format(Locale.getDefault(), "%.2f", daysBetween));
                 createVacationDays(daysBetween); // Save the calculated duration
                 allocatedDays = (int) daysBetween;
             } else if (!vacationEndData.isEmpty() && !vacationDuration.isEmpty()
-                    && DestinationUtils
+                    && ReservationUtils
                     .isValidDate(vacationEndData) && isValidDuration(vacationDuration)) {
                 loadTravelLogsDuration(totalDuration -> {
                     double duration = Double.parseDouble(vacationDuration);
@@ -393,7 +395,7 @@ public class DestinationFragment extends Fragment {
                                             .getValue(String.class);
 
                                     // Calculate days between startDate and endDate
-                                    long days = DestinationUtils
+                                    long days = ReservationUtils
                                             .calculateDaysBetween(startDate, endDate);
                                     dayTotal += days;
 
@@ -403,7 +405,7 @@ public class DestinationFragment extends Fragment {
                                     travelLogs.add(formattedEntry);
                                 }
                                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                                        android.R.layout.simple_list_item_1, travelLogs);
+                                        R.layout.reservation_font, travelLogs);
                                 listViewTravelLogs.setAdapter(adapter);
                                 adapter.notifyDataSetChanged();
                             }
