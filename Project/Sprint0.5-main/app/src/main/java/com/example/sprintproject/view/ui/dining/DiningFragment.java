@@ -39,6 +39,8 @@ public class DiningFragment extends Fragment {
     //holds all entries for dining (Allyson)
     ArrayList<DiningEntry> diningEntries = new ArrayList<>();
 
+    SortContext context = new SortContext();
+
     FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -145,8 +147,6 @@ public class DiningFragment extends Fragment {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getContext(), "Restaurant reservation added to log!",
                                         Toast.LENGTH_SHORT).show();
-//                                ListView listView = binding.listViewTravelLogs;
-//                                loadTravelLogs(listView);
                             } else {
                                 Toast.makeText(getContext(), "Failed to add reservation.",
                                         Toast.LENGTH_SHORT).show();
@@ -161,7 +161,8 @@ public class DiningFragment extends Fragment {
         //update list
         DiningEntry newEntry = new DiningEntry(restaurantName,location,time,website);
         diningEntries.add(newEntry);
-
+        context.setSortStrategy(new SortByTimeStrategy());
+        context.sortReservations(diningEntries);
     }
 
     private void loadReservation(FirebaseUser currentUser) {
