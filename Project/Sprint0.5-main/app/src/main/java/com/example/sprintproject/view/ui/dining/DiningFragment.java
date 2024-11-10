@@ -41,7 +41,6 @@ public class DiningFragment extends Fragment {
 
     FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DiningViewModel diningViewModel =
@@ -64,14 +63,16 @@ public class DiningFragment extends Fragment {
         RecyclerView recyclerView = binding.diningList;
 
         //setup dining list
-        //setUpDiningEntriesArray();
 
-        //testing for recycle view and acts as setUpDiningEntriesArray method for testing
-        diningEntries.add(new DiningEntry("Tech Dr.", "Wingnuts", "2:00", "wingnuts.com"));
+        //setup recycleview functionality (sending dining entries to adapter)+ call constructor
+        DiningRecycleViewAdapter adapter = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
+        recyclerView.setAdapter(adapter);
+
+        //layout is linear layout for the boxes
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         //Buttons for Dining Screen
         Button open_reservation_cardview_button = binding.openReservationCardviewButton;
-        Button add_reservation_button = binding.addReservationButton;
 
         //cardviews
         CardView reservation_cardview = binding.reservationCardview;
@@ -85,17 +86,10 @@ public class DiningFragment extends Fragment {
             }
         });
 
-        //setup recycleview functionality (sending dining entries to adapter)
-        //call constructor
-        DiningRecycleViewAdapter adapter = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
-        recyclerView.setAdapter(adapter);
-
-        //layout is linear layout for the boxes
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-
         //End of Allyson Implementation ------------------------------------------------------------------
 
         // sophie stuff
+        //add reservation button
         button_reservationSubmit.setOnClickListener(v -> {
             String resvName = editText_reservationName.getText().toString().trim();
             String resvLocation = editText_reservationLocation.getText().toString().trim();
@@ -107,6 +101,8 @@ public class DiningFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            //adds to database
             createReservation(resvName, resvLocation, resvTime, resvWebsite);
             editText_reservationName.setText("");
             editText_reservationLocation.setText("");
@@ -114,6 +110,9 @@ public class DiningFragment extends Fragment {
             editText_reservationWebsite.setText("");
         });
         // end of sophie stuff
+
+        //Allyson Implementaion -----------------------------------------
+        loadReservation(currentUser);
 
         final TextView textView = binding.textDining;
         diningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -158,6 +157,12 @@ public class DiningFragment extends Fragment {
     }
 
     private void loadReservation(FirebaseUser currentUser) {
+
+        //Allyson ________________________________
+        //Clear arraylist beforehand
+        diningEntries.clear();
+        //End of Allyson _________________________
+
         if (currentUser != null) {
             String uid = currentUser.getUid();
 
@@ -167,6 +172,7 @@ public class DiningFragment extends Fragment {
             reservationRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
+
                     // Loop through each child in the snapshot
                     for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                         // Get the key and value of each child
@@ -175,7 +181,10 @@ public class DiningFragment extends Fragment {
                         String loadedTime = childSnapshot.child("reservation_time").getValue().toString();
                         String loadedWebsite = childSnapshot.child("website").getValue().toString();
 
-                        // put the reservation's name/loc/time/website on its own cardview
+                        // put the reservation's name/loc/time/website into arrayList of entries
+
+                        //Allyson Implementation --------------------------------------
+                        diningEntries.add(new DiningEntry(loadedName, loadedLoc, loadedTime, loadedWebsite));
                     }
                 }
 
@@ -187,12 +196,5 @@ public class DiningFragment extends Fragment {
             });
         }
     }
-
-        //Allyson Implementation ------------------------------------------------------------------------
-        private void setUpDiningEntriesArray () {
-        }
-
-
-        //End of Allyson Implementation ------------------------------------------------------------------
 
 }

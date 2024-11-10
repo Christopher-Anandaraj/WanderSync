@@ -28,6 +28,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
+        android:visibility="gone"
         android:background="@color/white">
 
         <!-- This is the cardView dimensions/setup (makes it round + adds boarders) -->
@@ -122,6 +123,7 @@
                     android:layout_marginTop="30dp"
                     app:cornerRadius = "20dp"/>
             </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <!-- This is the dining list scroll widget -->
@@ -130,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical"
+            android:visibility="visible"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
