@@ -43,7 +43,19 @@ public final class FragmentAccommodationBinding implements ViewBinding {
   public final ListView accommodationList;
 
   @NonNull
+  public final TextView accommodationLocation;
+
+  @NonNull
+  public final EditText accommodationLocationName;
+
+  @NonNull
   public final TableLayout accommodationTable;
+
+  @NonNull
+  public final TextView accommodationWebsite;
+
+  @NonNull
+  public final EditText accommodationWebsiteName;
 
   @NonNull
   public final ImageButton buttonAddAccommodation;
@@ -79,7 +91,9 @@ public final class FragmentAccommodationBinding implements ViewBinding {
       @NonNull TableLayout accommodationAdd, @NonNull TextView accommodationCheckIn,
       @NonNull EditText accommodationCheckInDate, @NonNull TextView accommodationCheckOut,
       @NonNull EditText accommodationCheckOutDate, @NonNull ListView accommodationList,
-      @NonNull TableLayout accommodationTable, @NonNull ImageButton buttonAddAccommodation,
+      @NonNull TextView accommodationLocation, @NonNull EditText accommodationLocationName,
+      @NonNull TableLayout accommodationTable, @NonNull TextView accommodationWebsite,
+      @NonNull EditText accommodationWebsiteName, @NonNull ImageButton buttonAddAccommodation,
       @NonNull Button buttonCancelAccommodation, @NonNull Button buttonConfirmAccommodation,
       @NonNull ConstraintLayout fragmentAccommodation, @NonNull EditText roomsNumber,
       @NonNull EditText roomsType, @NonNull TextView textAccommodation,
@@ -92,7 +106,11 @@ public final class FragmentAccommodationBinding implements ViewBinding {
     this.accommodationCheckOut = accommodationCheckOut;
     this.accommodationCheckOutDate = accommodationCheckOutDate;
     this.accommodationList = accommodationList;
+    this.accommodationLocation = accommodationLocation;
+    this.accommodationLocationName = accommodationLocationName;
     this.accommodationTable = accommodationTable;
+    this.accommodationWebsite = accommodationWebsite;
+    this.accommodationWebsiteName = accommodationWebsiteName;
     this.buttonAddAccommodation = buttonAddAccommodation;
     this.buttonCancelAccommodation = buttonCancelAccommodation;
     this.buttonConfirmAccommodation = buttonConfirmAccommodation;
@@ -168,9 +186,33 @@ public final class FragmentAccommodationBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.accommodation_location;
+      TextView accommodationLocation = ViewBindings.findChildViewById(rootView, id);
+      if (accommodationLocation == null) {
+        break missingId;
+      }
+
+      id = R.id.accommodation_location_name;
+      EditText accommodationLocationName = ViewBindings.findChildViewById(rootView, id);
+      if (accommodationLocationName == null) {
+        break missingId;
+      }
+
       id = R.id.accommodation_table;
       TableLayout accommodationTable = ViewBindings.findChildViewById(rootView, id);
       if (accommodationTable == null) {
+        break missingId;
+      }
+
+      id = R.id.accommodation_website;
+      TextView accommodationWebsite = ViewBindings.findChildViewById(rootView, id);
+      if (accommodationWebsite == null) {
+        break missingId;
+      }
+
+      id = R.id.accommodation_website_name;
+      EditText accommodationWebsiteName = ViewBindings.findChildViewById(rootView, id);
+      if (accommodationWebsiteName == null) {
         break missingId;
       }
 
@@ -232,9 +274,11 @@ public final class FragmentAccommodationBinding implements ViewBinding {
 
       return new FragmentAccommodationBinding((ConstraintLayout) rootView, accommodationAdd,
           accommodationCheckIn, accommodationCheckInDate, accommodationCheckOut,
-          accommodationCheckOutDate, accommodationList, accommodationTable, buttonAddAccommodation,
-          buttonCancelAccommodation, buttonConfirmAccommodation, fragmentAccommodation, roomsNumber,
-          roomsType, textAccommodation, textAccommodationLocation, textRoomType, textRooms);
+          accommodationCheckOutDate, accommodationList, accommodationLocation,
+          accommodationLocationName, accommodationTable, accommodationWebsite,
+          accommodationWebsiteName, buttonAddAccommodation, buttonCancelAccommodation,
+          buttonConfirmAccommodation, fragmentAccommodation, roomsNumber, roomsType,
+          textAccommodation, textAccommodationLocation, textRoomType, textRooms);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
