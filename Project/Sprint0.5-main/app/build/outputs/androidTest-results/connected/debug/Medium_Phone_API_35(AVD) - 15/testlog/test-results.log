@@ -15,7 +15,7 @@ INSTRUMENTATION_STATUS: test=testBottomNavigationViewSwitchesFragments
 INSTRUMENTATION_STATUS_CODE: 0
 INSTRUMENTATION_RESULT: stream=
 
-Time: 8.507
+Time: 9.721
 
 OK (1 test)
 

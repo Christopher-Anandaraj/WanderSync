@@ -65,27 +65,27 @@ public class AccommodationFragment extends Fragment {
         });
 
         buttonCancelAccommodation.setOnClickListener(view -> {
-                    if (accommodationAdd.getVisibility() == View.VISIBLE) {
-                        accommodationAdd.setVisibility(View.GONE);
-                        locationName.setText("");
-                        checkInText.setText("");
-                        checkOutText.setText("");
-                        roomNumber.setText("");
-                        website.setText("");
-                        roomType.setText("");
-                    }
+                if (accommodationAdd.getVisibility() == View.VISIBLE) {
+                    accommodationAdd.setVisibility(View.GONE);
+                    locationName.setText("");
+                    checkInText.setText("");
+                    checkOutText.setText("");
+                    roomNumber.setText("");
+                    website.setText("");
+                    roomType.setText("");
                 }
+            }
         );
 
         buttonConfirmAccommodation.setOnClickListener(v -> {
             String location = locationName.getText().toString().trim();
-            int checkIn = Integer.parseInt(checkInText.getText().toString().trim());
-            int checkOut = Integer.parseInt(checkOutText.getText().toString().trim());
-            int room = Integer.parseInt(roomNumber.getText().toString().trim());
+            String checkIn = checkInText.getText().toString().trim();
+            String checkOut = checkOutText.getText().toString().trim();
+            String room = roomNumber.getText().toString().trim();
             String webAddress = website.getText().toString().trim();
             String type = roomType.getText().toString().trim();
 
-            if (location.isEmpty() || checkIn == 0 || checkOut == 0 || room == 0 || webAddress.isEmpty() || type.isEmpty())  {
+            if (location.isEmpty() || checkIn.isEmpty() || checkOut.isEmpty() || room.isEmpty() || webAddress.isEmpty() || type.isEmpty())  {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
@@ -112,7 +112,7 @@ public class AccommodationFragment extends Fragment {
         return root;
     }
 
-    private void createAccommodation(String locationName, int checkInDate, int checkOutDate, int numberOfRooms, String website, String roomType) {
+    private void createAccommodation(String locationName, String checkInDate, String checkOutDate, String numberOfRooms, String website, String roomType) {
         FirebaseUser user = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
         /* Chris, you'll have to edit the area below and add the database reference */
@@ -122,7 +122,7 @@ public class AccommodationFragment extends Fragment {
                     .child("accommodation").child(uid); // Reference to the user's travel log
 
             // Generate a unique ID for the destination
-            String destinationId = accommodationRef.child("accommodation").push().getKey();
+            String accommodationId = accommodationRef.child("accommodations").push().getKey();
 
             // Create a map for the destination data
             Map<String, Object> accommodationMap = new HashMap<>();
@@ -135,9 +135,9 @@ public class AccommodationFragment extends Fragment {
 
             // Include contributor IDs if applicable
 
-            if (destinationId != null) {
+            if (accommodationId != null) {
                 // Add accommodation to the user's travel log
-                accommodationRef.child("accommodation").child(destinationId).setValue(accommodationMap)
+                accommodationRef.child("accommodations").child(accommodationId).setValue(accommodationMap)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getContext(), "Reservation added to accommodation!",
@@ -150,12 +150,9 @@ public class AccommodationFragment extends Fragment {
                             }
                         });
             } else {
-                Toast.makeText(getContext(), "Failed to generate accommodation ID.",
+                Toast.makeText(getContext(), "No user is logged in.",
                         Toast.LENGTH_SHORT).show();
             }
-        } else {
-            Toast.makeText(getContext(), "No user is logged in.",
-                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -203,7 +200,7 @@ public class AccommodationFragment extends Fragment {
                                     .hasChild(currentUsername)) {
                                 // Load all destinations for this user
                                 for (DataSnapshot accommodationSnapshot : userSnapshot
-                                        .child("accommodation")
+                                        .child("accommodations")
                                         .getChildren()) {
                                     String location = accommodationSnapshot.child("locationName")
                                             .getValue(String.class);

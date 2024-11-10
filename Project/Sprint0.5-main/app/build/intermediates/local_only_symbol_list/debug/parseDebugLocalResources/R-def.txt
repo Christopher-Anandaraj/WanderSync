@@ -41,7 +41,11 @@ id accommodation_check_in_date
 id accommodation_check_out
 id accommodation_check_out_date
 id accommodation_list
+id accommodation_location
+id accommodation_location_name
 id accommodation_table
+id accommodation_website
+id accommodation_website_name
 id box
 id buttonAddNote
 id buttonDataVis
