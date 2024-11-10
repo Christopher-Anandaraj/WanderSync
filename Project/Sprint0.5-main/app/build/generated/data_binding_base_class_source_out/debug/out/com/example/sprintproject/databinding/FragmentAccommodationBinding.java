@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -70,10 +71,10 @@ public final class FragmentAccommodationBinding implements ViewBinding {
   public final ConstraintLayout fragmentAccommodation;
 
   @NonNull
-  public final EditText roomsNumber;
+  public final Spinner roomsNumber;
 
   @NonNull
-  public final EditText roomsType;
+  public final Spinner roomsType;
 
   @NonNull
   public final TextView textAccommodation;
@@ -95,8 +96,8 @@ public final class FragmentAccommodationBinding implements ViewBinding {
       @NonNull TableLayout accommodationTable, @NonNull TextView accommodationWebsite,
       @NonNull EditText accommodationWebsiteName, @NonNull ImageButton buttonAddAccommodation,
       @NonNull Button buttonCancelAccommodation, @NonNull Button buttonConfirmAccommodation,
-      @NonNull ConstraintLayout fragmentAccommodation, @NonNull EditText roomsNumber,
-      @NonNull EditText roomsType, @NonNull TextView textAccommodation,
+      @NonNull ConstraintLayout fragmentAccommodation, @NonNull Spinner roomsNumber,
+      @NonNull Spinner roomsType, @NonNull TextView textAccommodation,
       @NonNull TextView textAccommodationLocation, @NonNull TextView textRoomType,
       @NonNull TextView textRooms) {
     this.rootView = rootView;
@@ -237,13 +238,13 @@ public final class FragmentAccommodationBinding implements ViewBinding {
       ConstraintLayout fragmentAccommodation = (ConstraintLayout) rootView;
 
       id = R.id.rooms_number;
-      EditText roomsNumber = ViewBindings.findChildViewById(rootView, id);
+      Spinner roomsNumber = ViewBindings.findChildViewById(rootView, id);
       if (roomsNumber == null) {
         break missingId;
       }
 
       id = R.id.rooms_type;
-      EditText roomsType = ViewBindings.findChildViewById(rootView, id);
+      Spinner roomsType = ViewBindings.findChildViewById(rootView, id);
       if (roomsType == null) {
         break missingId;
       }
