@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -59,6 +60,7 @@ public class AccommodationFragment extends Fragment {
         Spinner roomNumber = binding.roomsNumber;
         EditText website = binding.accommodationWebsiteName;
         Spinner roomType = binding.roomsType;
+
 
         roomNumberSpinner(roomNumber);
         roomTypeSpinner(roomType);

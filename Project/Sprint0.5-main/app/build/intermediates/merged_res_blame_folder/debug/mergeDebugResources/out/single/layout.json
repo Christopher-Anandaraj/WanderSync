@@ -20,17 +20,12 @@
         "source": "com.example.sprintproject.app-main-60:/layout/activity_navigation.xml"
     },
     {
-<<<<<<< HEAD
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-mergeDebugResources-57:\\layout\\fragment_accommodation.xml",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\layout\\fragment_accommodation.xml"
-=======
         "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/reservation_font.xml",
         "source": "com.example.sprintproject.app-main-60:/layout/reservation_font.xml"
     },
     {
         "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/transition_layout.xml",
         "source": "com.example.sprintproject.app-main-60:/layout/transition_layout.xml"
->>>>>>> main
     },
     {
         "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_main.xml",
@@ -45,17 +40,8 @@
         "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining.xml"
     },
     {
-<<<<<<< HEAD
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-mergeDebugResources-57:\\layout\\reservation_font.xml",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\layout\\reservation_font.xml"
-    },
-    {
-        "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-mergeDebugResources-57:\\layout\\activity_second.xml",
-        "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\layout\\activity_second.xml"
-=======
         "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_notes.xml",
         "source": "com.example.sprintproject.app-main-60:/layout/fragment_notes.xml"
->>>>>>> main
     },
     {
         "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_destination.xml",
