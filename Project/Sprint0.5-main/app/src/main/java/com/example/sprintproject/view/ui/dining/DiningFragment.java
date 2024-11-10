@@ -136,6 +136,7 @@ public class DiningFragment extends Fragment {
         //Allyson Implementaion -----------------------------------------
         LoadFromDatabase load = new LoadFromDatabase();
         load.interactWithDatabase(currentUser, reservationRef, null, diningEntries, fragContext);
+        adapter.notifyDataSetChanged();
 
         final TextView textView = binding.textDining;
         diningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);

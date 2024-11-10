@@ -22,82 +22,94 @@ public class LoadFromDatabase implements DatabaseInteraction {
         diningEntries.clear();
         //End of Allyson _________________________
 
-        if (user != null) {
-            final String[] uid = {user.getUid()};
-            final String[] currentUsername = new String[1];
+        if (user == null) {
+            Toast.makeText(context, "User not logged in.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            DatabaseReference usersRef = FirebaseManager.getInstance()
-                    .getDatabaseReference().child("users")
-                    .child(uid[0]).child("username");
-            DatabaseReference travelLogRef = FirebaseManager.getInstance().getDatabaseReference()
-                    .child("travelLogs");
+        String currentUserId = user.getUid();
+        DatabaseReference usersRef = FirebaseManager.getInstance()
+                .getDatabaseReference().child("users")
+                .child(currentUserId).child("username");
 
-            usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    currentUsername[0] = snapshot.getValue(String.class);
-                    if (currentUsername[0] == null) {
-                        Toast.makeText(context, "Failed to get username.",
-                                Toast.LENGTH_SHORT).show();
-                    }
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String currentUsername = snapshot.getValue(String.class);
+                if (currentUsername == null) {
+                    Toast.makeText(context, "Failed to get username.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(context, "Access denied.", Toast.LENGTH_SHORT).show();
-                }
-            });
-            travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    // Loop through each user's travel log
-                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        String userId = userSnapshot.getKey();
+                /*Chris, You'll have to edit the database here */
+                DatabaseReference travelLogRef = FirebaseManager
+                        .getInstance().getDatabaseReference()
+                        .child("travelLogs");
 
-                        // Check if the current user is the owner or a contributor by username
-                        if (userId.equals(uid[0]) || userSnapshot.child("contributors")
-                                .hasChild(currentUsername[0])) {
-                            uid[0] = userSnapshot.getKey();
-                            break;
+                travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        boolean hasAccess = false;
+                        String ownerID = null;
+                        // Loop through each user's travel log
+                        for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                            String userId = userSnapshot.getKey();
+
+                            // Check if the current user is the owner or a contributor by username
+                            if (userId.equals(currentUserId) || userSnapshot.child("contributors").hasChild(currentUsername)) {
+                                ownerID = userSnapshot.getKey();
+                                hasAccess = true;
+                                break;
+                            }
+                        }
+
+                        if (hasAccess && ownerID != null) {
+                            DatabaseReference diningRef = database.child(ownerID);
+
+                            diningRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    diningEntries.clear();
+
+                                    for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+
+                                        String loadedName = childSnapshot.child("name").getValue().toString();
+                                        String loadedLoc = childSnapshot.child("location").getValue().toString();
+                                        String loadedTime = childSnapshot.child("reservation_time").getValue().toString();
+                                        String loadedWebsite = childSnapshot.child("website").getValue().toString();
+
+                                        diningEntries.add(new DiningEntry(loadedName, loadedLoc, loadedTime, loadedWebsite));
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    Toast.makeText(context, "Failed to load accommodation.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            Toast.makeText(context, "Access denied.", Toast.LENGTH_SHORT).show();
                         }
                     }
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(context, "Failed to load travel logs.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            DatabaseReference userReservations = database.child(uid[0]);
-
-            userReservations.addListenerForSingleValueEvent(new ValueEventListener() {
-
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                    // Loop through each child in the snapshot
-                    for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                        // Get the key and value of each child
-                        String loadedName = childSnapshot.child("name").getValue().toString();
-                        String loadedLoc = childSnapshot.child("location").getValue().toString();
-                        String loadedTime = childSnapshot.child("reservation_time").getValue().toString();
-                        String loadedWebsite = childSnapshot.child("website").getValue().toString();
-
-                        // put the reservation's name/loc/time/website into arrayList of entries
-
-                        //Allyson Implementation --------------------------------------
-                        diningEntries.add(new DiningEntry(loadedName, loadedLoc, loadedTime, loadedWebsite));
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(context, "Failed to load travel logs.",
+                                Toast.LENGTH_SHORT).show();
                     }
-                }
+                });
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(context, "Failed to load dining reservations.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(context, "Failed to load user data.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
+
+
