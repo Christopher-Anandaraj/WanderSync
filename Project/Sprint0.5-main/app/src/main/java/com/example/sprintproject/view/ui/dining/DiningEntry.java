@@ -4,10 +4,10 @@ package com.example.sprintproject.view.ui.dining;
 
 //Adding Dining Entry as a class
 public class DiningEntry {
-    String location;
-    String restaurant;
-    String time;
-    String link;
+    private final String location;
+    private final String restaurant;
+    private final String time;
+    private final String link;
 
     //dining entry constructor
     public DiningEntry(String location, String restaurant, String time, String link) {
