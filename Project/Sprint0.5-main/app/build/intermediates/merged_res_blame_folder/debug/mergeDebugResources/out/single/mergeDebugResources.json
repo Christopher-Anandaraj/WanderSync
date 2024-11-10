@@ -44,6 +44,10 @@
         "source": "com.example.sprintproject.app-main-60:/drawable/button_eclipse.xml"
     },
     {
+        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_add.png.flat",
+        "source": "com.example.sprintproject.app-main-60:/drawable/button_add.png"
+    },
+    {
         "merged": "com.example.sprintproject.app-debug-58:/mipmap-hdpi_ic_launcher.webp.flat",
         "source": "com.example.sprintproject.app-main-60:/mipmap-hdpi/ic_launcher.webp"
     },
@@ -124,6 +128,10 @@
         "source": "com.example.sprintproject.app-main-60:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_dining_list_entries.xml.flat",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
+    },
+    {
         "merged": "com.example.sprintproject.app-debug-58:/drawable_button_dining_selected.png.flat",
         "source": "com.example.sprintproject.app-main-60:/drawable/button_dining_selected.png"
     },
@@ -132,12 +140,20 @@
         "source": "com.example.sprintproject.app-main-60:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "com.example.sprintproject.app-debug-58:/layout_reservation_font.xml.flat",
+        "source": "com.example.sprintproject.app-main-60:/layout/reservation_font.xml"
+    },
+    {
         "merged": "com.example.sprintproject.app-debug-58:/layout_transition_layout.xml.flat",
         "source": "com.example.sprintproject.app-main-60:/layout/transition_layout.xml"
     },
     {
         "merged": "com.example.sprintproject.app-debug-58:/drawable_destination_selector.xml.flat",
         "source": "com.example.sprintproject.app-main-60:/drawable/destination_selector.xml"
+    },
+    {
+        "merged": "com.example.sprintproject.app-debug-58:/drawable_table_pink_inverted.xml.flat",
+        "source": "com.example.sprintproject.app-main-60:/drawable/table_pink_inverted.xml"
     },
     {
         "merged": "com.example.sprintproject.app-debug-58:/drawable_logistics_selector.xml.flat",
@@ -218,6 +234,10 @@
     {
         "merged": "com.example.sprintproject.app-debug-58:/drawable_ic_notifications_black_24dp.xml.flat",
         "source": "com.example.sprintproject.app-main-60:/drawable/ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "com.example.sprintproject.app-debug-58:/drawable_table_pink.xml.flat",
+        "source": "com.example.sprintproject.app-main-60:/drawable/table_pink.xml"
     },
     {
         "merged": "com.example.sprintproject.app-debug-58:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",

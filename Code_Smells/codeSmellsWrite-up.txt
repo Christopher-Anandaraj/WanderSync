@@ -1,0 +1,25 @@
+Contributing members: Victor, Allyson, Chris, Sophie
+EmailSender.java:
+- Code smells: “Replace this use of System.out or System.err by a logger.”
+- Solution:
+	1 Import the Logger class
+	2 Declare a static variable of the type Logger & specify it for the class it’s in
+	3 Call log.info instead of System.out.println() & use the print statement as the input
+- Code smells: “Add a private constructor to hide the implicit public one.”
+- Solution: Within EmailSender, a private empty constructor was added. 
+
+Item.java:
+- Code smells: Lazy class where no additional responsibilities are taken on
+- Solution: 
+	1 Applied a collapsed hierarchy by merging GiftCardItem into Item as a nested class since the classes were very similar
+	2 Within Item, DiscountType and discountAmount  were removed to focus on attributes unique to gift cards
+	3 Adjustments also made to Main to streamline the new structure
+	4 Adjustments made to Order to reflect changes
+
+Main.java:
+- Code smells: “Rename this class to match the regular expression '^][A-Z][a-z]*$'.”
+- Solution: Main was renamed from main to Main in order to comply with proper naming conventions
+
+Order.java:
+- Code smells: Bloater code smells where a class contained many lines of code making it unnecessarily large
+- Solution: customerName and customerEmail extracted to a new class Customer.java where we make an instance of Customer inside of Order.java. The getters and setters methods are also moved to Customer.java, and change customerEmail to email, customerName to name.This reduced the amount of code handled by Order class, which had too many responsibilities. 

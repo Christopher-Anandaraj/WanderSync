@@ -288,8 +288,6 @@ public class LogisticsFragment extends Fragment {
         });
     }
 
-
-
     /** Invites a user with the specified username to
      * become a contributor to the current user's travel log.
      * <p>This method first checks if the current user
@@ -344,7 +342,6 @@ public class LogisticsFragment extends Fragment {
                                             .getInstance().getDatabaseReference()
                                             .child("travelLogs")
                                             .child(userId).child("contributors");
-
                                     // Check if the current user is already a contributor
                                     tripRef.child(currentUsername).addListenerForSingleValueEvent(
                                             new ValueEventListener() {
@@ -477,7 +474,7 @@ public class LogisticsFragment extends Fragment {
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                //Here is where the pull from travelLog occurs for our database, our current primary issue
                 DatabaseReference travelLogRef = FirebaseManager.getInstance()
                         .getDatabaseReference().child("travelLogs");
                 travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
