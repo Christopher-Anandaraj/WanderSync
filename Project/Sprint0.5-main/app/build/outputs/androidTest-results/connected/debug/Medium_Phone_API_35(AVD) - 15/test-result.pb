@@ -1,7 +1,7 @@
 
 …
 
-CustomBottomNavigationBarTestcom.example.sprintproject)testBottomNavigationViewSwitchesFragments2­®š¹€×ŞÎ:µ®š¹€Àª"Ÿ
+CustomBottomNavigationBarTestcom.example.sprintproject)testBottomNavigationViewSwitchesFragments2·é»¹€’†ö:Àé»¹Àá‹­"Ÿ
 
 logcatandroid‰
 †C:\Users\Chris\Documents\CS2340\CS2340D_Team18\Project\Sprint0.5-main\app\build\outputs\androidTest-results\connected\debug\Medium_Phone_API_35(AVD) - 15\logcat-com.example.sprintproject.CustomBottomNavigationBarTest-testBottomNavigationViewSwitchesFragments.txt"Æ
