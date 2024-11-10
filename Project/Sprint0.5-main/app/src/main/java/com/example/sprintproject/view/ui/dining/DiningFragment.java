@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +46,7 @@ public class DiningFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         DiningViewModel diningViewModel =
                 new ViewModelProvider(this).get(DiningViewModel.class);
-
+        loadReservation(currentUser);
         binding = FragmentDiningBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -71,17 +73,17 @@ public class DiningFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         //Buttons for Dining Screen
-        Button open_reservation_cardview_button = binding.openReservationCardviewButton;
+        ImageButton open_reservation_cardview_button = binding.openReservationCardviewButton;
 
         //cardviews
-        CardView reservation_cardview = binding.reservationCardview;
+        TableLayout reservationAddDining= binding.diningReservation;
 
         //Opens and closes the Add reservation viewcard
         open_reservation_cardview_button.setOnClickListener(view -> {
-            if (reservation_cardview.getVisibility() == View.GONE) {
-                reservation_cardview.setVisibility(View.VISIBLE);
+            if (reservationAddDining.getVisibility() == View.GONE) {
+                reservationAddDining.setVisibility(View.VISIBLE);
             } else {
-                reservation_cardview.setVisibility(View.GONE);
+                reservationAddDining.setVisibility(View.GONE);
             }
         });
 
@@ -103,6 +105,7 @@ public class DiningFragment extends Fragment {
 
             //adds to database
             createReservation(resvName, resvLocation, resvTime, resvWebsite);
+            reservationAddDining.setVisibility(View.GONE);
             editText_reservationName.setText("");
             editText_reservationLocation.setText("");
             editText_reservationTime.setText("");
@@ -115,7 +118,7 @@ public class DiningFragment extends Fragment {
         // end of sophie stuff
 
         //Allyson Implementaion -----------------------------------------
-        loadReservation(currentUser);
+
 
         final TextView textView = binding.textDining;
         diningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -165,7 +168,6 @@ public class DiningFragment extends Fragment {
     }
 
     private void loadReservation(FirebaseUser currentUser) {
-
         //Allyson ________________________________
         //Clear arraylist beforehand
         diningEntries.clear();

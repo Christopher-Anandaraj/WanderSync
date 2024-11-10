@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:textSize="18sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
     <!-- Text for restaurant in dining entry -->
     <TextView
@@ -26,7 +26,7 @@
         android:text="McDonalds"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
     <!-- Text for time in dining entry -->
     <TextView
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:text="Time"
         android:textSize="18sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
     <!-- Text for link in dining entry -->
     <TextView
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="someplace.com"
         android:textSize="18sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
 
