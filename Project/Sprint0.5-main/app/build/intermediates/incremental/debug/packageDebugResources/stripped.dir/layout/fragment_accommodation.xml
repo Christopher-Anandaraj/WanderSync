@@ -25,7 +25,7 @@
     <!--Accommodation List-->
     <TableLayout
         android:id="@+id/accommodation_table"
-        android:layout_width="340dp"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="visible"
@@ -38,22 +38,23 @@
 
         <ListView
             android:id="@+id/accommodation_list"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="casual"
             android:paddingLeft="5dp"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:divider="@color/white">
+            android:textStyle="bold">
         </ListView>
     </TableLayout>
+
+
 
     <TableLayout
         android:id="@+id/accommodation_add"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
         android:background="#b89e13"

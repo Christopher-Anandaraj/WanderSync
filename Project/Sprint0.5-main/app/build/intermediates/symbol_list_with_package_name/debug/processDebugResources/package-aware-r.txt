@@ -3329,6 +3329,7 @@ id accommodation_check_in_date
 id accommodation_check_out
 id accommodation_check_out_date
 id accommodation_list
+id accommodation_list_font
 id accommodation_location
 id accommodation_location_name
 id accommodation_table
@@ -4016,6 +4017,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout accommodation_font
 layout activity_create
 layout activity_main
 layout activity_navigation
