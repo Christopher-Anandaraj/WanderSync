@@ -39,7 +39,7 @@
         <ListView
             android:id="@+id/accommodation_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:fontFamily="casual"
             android:paddingLeft="5dp"
             android:textColor="@color/white"
