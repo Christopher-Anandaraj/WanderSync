@@ -3358,6 +3358,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_reservation_button
+id add_reservation_title
 id adjust_height
 id adjust_width
 id alertTitle
@@ -3471,6 +3473,11 @@ id design_menu_item_text
 id design_navigation_view
 id dialog_button
 id dimensions
+id dining_list
+id dining_location_input
+id dining_name_input
+id dining_time_input
+id dining_website_input
 id direct
 id disableHome
 id disableIntraAutoTransition
@@ -3678,6 +3685,7 @@ id on
 id onAttachStateChangeListener
 id onDateChanged
 id onInterceptTouchReturnSwipe
+id open_reservation_cardview_button
 id open_search_bar_text_view
 id open_search_view_background
 id open_search_view_clear_button
@@ -3718,6 +3726,11 @@ id radio
 id ratio
 id rectangles
 id report_drawn
+id reservation_cardview
+id reservation_entry_link
+id reservation_entry_location
+id reservation_entry_restaurant
+id reservation_entry_time
 id reverseSawtooth
 id right
 id rightToLeft
@@ -4017,7 +4030,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout accommodation_font
 layout activity_create
 layout activity_main
 layout activity_navigation
@@ -4044,6 +4056,7 @@ layout fragment_accommodation
 layout fragment_community
 layout fragment_destination
 layout fragment_dining
+layout fragment_dining_list_entries
 layout fragment_logistics
 layout fragment_notes
 layout fragment_transportation
@@ -4106,6 +4119,7 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout reservation_font
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

@@ -47,8 +47,6 @@
         </ListView>
     </TableLayout>
 
-
-
     <TableLayout
         android:id="@+id/accommodation_add"
         android:layout_width="300dp"
