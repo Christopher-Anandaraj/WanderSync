@@ -4,10 +4,6 @@
         "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\layout\\fragment_community.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_dining_list_entries.xml",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
-    },
-    {
         "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-mergeDebugResources-57:\\layout\\fragment_notes.xml",
         "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\layout\\fragment_notes.xml"
     },

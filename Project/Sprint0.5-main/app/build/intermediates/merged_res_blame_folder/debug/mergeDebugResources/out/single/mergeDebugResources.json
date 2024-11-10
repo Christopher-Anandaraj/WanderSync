@@ -124,10 +124,6 @@
         "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\drawable\\button_community.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_dining_list_entries.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
-    },
-    {
         "merged": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-debug-58:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\Victor\\.gradle\\daemon\\8.7\\com.example.sprintproject.app-main-60:\\xml\\data_extraction_rules.xml"
     },

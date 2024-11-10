@@ -1,5 +1,6 @@
 package com.example.sprintproject.view.ui.dining;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,15 +41,26 @@ public class DiningFragment extends Fragment {
     //holds all entries for dining (Allyson)
     ArrayList<DiningEntry> diningEntries = new ArrayList<>();
 
+    SortContext context = new SortContext();
+
     FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+
+    DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
+            .child("diningReservations");
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         DiningViewModel diningViewModel =
                 new ViewModelProvider(this).get(DiningViewModel.class);
-        loadReservation(currentUser);
+
         binding = FragmentDiningBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        LoadFromDatabase load = new LoadFromDatabase();
+        RecyclerView recyclerView = binding.diningList;
+        DiningRecycleViewAdapter adapter = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         // sophie stuff
         EditText editText_reservationName = binding.diningNameInput;
@@ -56,18 +68,19 @@ public class DiningFragment extends Fragment {
         EditText editText_reservationLocation = binding.diningLocationInput;
         EditText editText_reservationWebsite = binding.diningWebsiteInput;
         EditText editText_reservationTime = binding.diningTimeInput;
+        Context fragContext = requireContext();
+
+        load.interactWithDatabase(currentUser, reservationRef, null, diningEntries, fragContext, adapter);
         // end sophie stuff
 
         //Allyson Implementation ------------------------------------------------------------------------
 
-        //recycle view
-        RecyclerView recyclerView = binding.diningList;
 
         //setup dining list
 
         //setup recycleview functionality (sending dining entries to adapter)+ call constructor
-        DiningRecycleViewAdapter adapter = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
-        recyclerView.setAdapter(adapter);
+        DiningRecycleViewAdapter adapterDining = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
+        recyclerView.setAdapter(adapterDining);
 
         //layout is linear layout for the boxes
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -76,14 +89,14 @@ public class DiningFragment extends Fragment {
         ImageButton open_reservation_cardview_button = binding.openReservationCardviewButton;
 
         //cardviews
-        TableLayout reservationAddDining= binding.diningReservation;
+        CardView reservation_cardview = binding.reservationCardview;
 
         //Opens and closes the Add reservation viewcard
         open_reservation_cardview_button.setOnClickListener(view -> {
-            if (reservationAddDining.getVisibility() == View.GONE) {
-                reservationAddDining.setVisibility(View.VISIBLE);
+            if (reservation_cardview.getVisibility() == View.GONE) {
+                reservation_cardview.setVisibility(View.VISIBLE);
             } else {
-                reservationAddDining.setVisibility(View.GONE);
+                reservation_cardview.setVisibility(View.GONE);
             }
         });
 
@@ -103,9 +116,19 @@ public class DiningFragment extends Fragment {
                 return;
             }
 
-            //adds to database
-            createReservation(resvName, resvLocation, resvTime, resvWebsite);
-            reservationAddDining.setVisibility(View.GONE);
+            if (!isValidMilitaryTime(resvTime)) {
+                Toast.makeText(getContext(), "Please put a valid time input.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            DiningEntry reservation = new DiningEntry(resvLocation, resvName, resvTime, resvWebsite);
+            AddToDatabase add = new AddToDatabase();
+            add.interactWithDatabase(currentUser, reservationRef, reservation, diningEntries, fragContext, adapter);
+            reservation_cardview.setVisibility(View.GONE);
+            context.setSortStrategy(new SortByTimeStrategy());
+            context.sortReservations(diningEntries);
+
             editText_reservationName.setText("");
             editText_reservationLocation.setText("");
             editText_reservationTime.setText("");
@@ -120,91 +143,15 @@ public class DiningFragment extends Fragment {
         //Allyson Implementaion -----------------------------------------
 
 
-        final TextView textView = binding.textDining;
-        diningViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        adapter.notifyDataSetChanged();
+
         return root;
 
     }
 
-    // sophie stuff
-    private void createReservation(String restaurantName, String location, String time, String website) {
-        if (currentUser != null) {
-            String uid = currentUser.getUid();
-
-            DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
-                    .child("diningReservations").child(uid);
-
-            String reservationId = reservationRef.child("reservations").push().getKey();
-
-            Map<String, String> reservationMap = new HashMap<>();
-            reservationMap.put("name", restaurantName);
-            reservationMap.put("location", location);
-            reservationMap.put("website", website);
-            reservationMap.put("reservation_time", time);
-
-            if (reservationId != null) {
-                reservationRef.child(reservationId).setValue(reservationMap)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getContext(), "Restaurant reservation added to log!",
-                                        Toast.LENGTH_SHORT).show();
-//                                ListView listView = binding.listViewTravelLogs;
-//                                loadTravelLogs(listView);
-                            } else {
-                                Toast.makeText(getContext(), "Failed to add reservation.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            } else {
-                Toast.makeText(getContext(), "Failed to generate reservation ID.",
-                        Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        //update list (Ally)
-        DiningEntry newEntry = new DiningEntry(restaurantName,location,time,website);
-        diningEntries.add(newEntry);
-
-    }
-
-    private void loadReservation(FirebaseUser currentUser) {
-        //Allyson ________________________________
-        //Clear arraylist beforehand
-        diningEntries.clear();
-        //End of Allyson _________________________
-
-        if (currentUser != null) {
-            String uid = currentUser.getUid();
-
-            DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
-                    .child("diningReservations").child(uid);
-
-            reservationRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot snapshot) {
-
-                    // Loop through each child in the snapshot
-                    for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                        // Get the key and value of each child
-                        String loadedName = childSnapshot.child("name").getValue().toString();
-                        String loadedLoc = childSnapshot.child("location").getValue().toString();
-                        String loadedTime = childSnapshot.child("reservation_time").getValue().toString();
-                        String loadedWebsite = childSnapshot.child("website").getValue().toString();
-
-                        // put the reservation's name/loc/time/website into arrayList of entries
-
-                        //Allyson Implementation --------------------------------------
-                        diningEntries.add(new DiningEntry(loadedName, loadedLoc, loadedTime, loadedWebsite));
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(getContext(), "Failed to load travel logs.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
+    public boolean isValidMilitaryTime(String time) {
+        String regex = "^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
+        return time.matches(regex);
     }
 
 }

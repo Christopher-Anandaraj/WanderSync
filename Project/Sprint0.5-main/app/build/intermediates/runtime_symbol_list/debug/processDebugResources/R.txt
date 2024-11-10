@@ -3836,7 +3836,6 @@ int id text_accommodation_location 0x7f08022c
 int id text_community 0x7f08022d
 int id text_contributors 0x7f08022e
 int id text_destination 0x7f08022f
-int id text_dining 0x7f080230
 int id text_duration_time_form 0x7f080231
 int id text_end_date 0x7f080232
 int id text_end_date_time_form 0x7f080233

@@ -232,7 +232,6 @@ public class AccommodationFragment extends Fragment {
                     return;
                 }
 
-                /*Chris, You'll have to edit the database here */
                 DatabaseReference travelLogRef = FirebaseManager
                         .getInstance().getDatabaseReference()
                         .child("travelLogs");
