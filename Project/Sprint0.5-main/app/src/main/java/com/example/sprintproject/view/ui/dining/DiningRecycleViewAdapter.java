@@ -42,9 +42,37 @@ public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycle
     public void onBindViewHolder(@NonNull DiningRecycleViewAdapter.MyViewHolder holder, int position) {
 
         //change textview text to values stored in diningEntries from arrayList
+
+        Calendar calendar = Calendar.getInstance();
+        int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+
+        String timeString = diningEntries.get(position).getTime();
+        int reservationHour = 0; // Default value
+
+        try {
+            // Try to parse the hour from timeString
+            if (timeString.contains(":")) {
+                // Extract hour if time format is "HH:mm"
+                reservationHour = Integer.parseInt(timeString.split(":")[0]);
+            } else {
+                // Directly parse if time format is just "HH"
+                reservationHour = Integer.parseInt(timeString);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            // You may want to handle the error here (e.g., log it or set a default value)
+        }
+
+        // Set text based on whether the reservation is in the past or future
+        if (currentHour < reservationHour) {
+            holder.time.setText(timeString);
+        } else {
+            holder.time.setText(timeString + " (Past)");
+            holder.time.setAlpha(0.5f); // Optional: make past times appear faded
+        }
+
         holder.location.setText(diningEntries.get(position).getLocation());
         holder.restaurant.setText(diningEntries.get(position).getRestaurant());
-        holder.time.setText(diningEntries.get(position).getTime());
         holder.link.setText(diningEntries.get(position).getLink());
 
     }
