@@ -9,10 +9,9 @@ import com.example.sprintproject.viewmodel.MainViewModel;
 public class DiningViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
-    private MainViewModel mainViewModel;
 
     public DiningViewModel() {
-        this.mainViewModel = new MainViewModel();
+        MainViewModel mainViewModel = new MainViewModel();
         mText = new MutableLiveData<>();
         mText.setValue(mainViewModel.getDiningMessage().getValue());
     }
