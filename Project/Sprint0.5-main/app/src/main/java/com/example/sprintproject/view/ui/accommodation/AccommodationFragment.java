@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -78,17 +80,16 @@ public class AccommodationFragment extends Fragment {
         });
 
         buttonCancelAccommodation.setOnClickListener(view -> {
-                if (accommodationAdd.getVisibility() == View.VISIBLE) {
-                    accommodationAdd.setVisibility(View.GONE);
-                    locationName.setText("");
-                    checkInText.setText("");
-                    checkOutText.setText("");
-                    roomNumber.setSelection(0);
-                    website.setText("");
-                    roomType.setSelection(0);
-                }
+            if (accommodationAdd.getVisibility() == View.VISIBLE) {
+                accommodationAdd.setVisibility(View.GONE);
+                locationName.setText("");
+                checkInText.setText("");
+                checkOutText.setText("");
+                roomNumber.setSelection(0);
+                website.setText("");
+                roomType.setSelection(0);
             }
-        );
+        });
 
         buttonConfirmAccommodation.setOnClickListener(v -> {
             String location = locationName.getText().toString().trim();
@@ -168,7 +169,8 @@ public class AccommodationFragment extends Fragment {
             String uid = user.getUid(); // Get the user ID
             DatabaseReference accommodationRef =
                     FirebaseManager.getInstance().getDatabaseReference()
-                    .child("accommodation").child(uid); // Reference to the user's travel log
+                            .child("accommodation").child(uid);
+            // Reference to the user's travel log
 
             // Generate a unique ID for the destination
             String accommodationId = accommodationRef.child("accommodations").push().getKey();
@@ -237,6 +239,8 @@ public class AccommodationFragment extends Fragment {
                         .getInstance().getDatabaseReference()
                         .child("travelLogs");
 
+                List<String> accommodationReservation = new ArrayList<>();
+
                 travelLogRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -261,81 +265,81 @@ public class AccommodationFragment extends Fragment {
                                     .getInstance().getDatabaseReference()
                                     .child("accommodation").child(ownerID)
                                     .child("accommodations");
-                            List<String> accommodationReservation = new ArrayList<>();
 
                             accommodationRef.addListenerForSingleValueEvent(new
-                                                                            ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot
-                                                                 accommodationSnapshot) {
-                                    accommodationReservation.clear();
+                                                                                    ValueEventListener() {
+                                                                                        @Override
+                                                                                        public void onDataChange(@NonNull DataSnapshot
+                                                                                                                         accommodationSnapshot) {
+                                                                                            accommodationReservation.clear();
 
-                                    for (DataSnapshot accommodationData : accommodationSnapshot
-                                            .getChildren()) {
+                                                                                            for (DataSnapshot accommodationData : accommodationSnapshot
+                                                                                                    .getChildren()) {
 
-                                        String location = accommodationData.child("locationName")
-                                                .getValue(String.class);
-                                        String checkIn = accommodationData.child("checkInDate")
-                                                .getValue(String.class);
-                                        String checkOut = accommodationData.child("checkOutDate")
-                                                .getValue(String.class);
-                                        String roomAmount = accommodationData.child("numberOfRooms")
-                                                .getValue(String.class);
-                                        String webAddress = accommodationData.child("website")
-                                                .getValue(String.class);
-                                        String typeRoom = accommodationData.child("roomType")
-                                                .getValue(String.class);
+                                                                                                String location = accommodationData.child("locationName")
+                                                                                                        .getValue(String.class);
+                                                                                                String checkIn = accommodationData.child("checkInDate")
+                                                                                                        .getValue(String.class);
+                                                                                                String checkOut = accommodationData.child("checkOutDate")
+                                                                                                        .getValue(String.class);
+                                                                                                String roomAmount = accommodationData.child("numberOfRooms")
+                                                                                                        .getValue(String.class);
+                                                                                                String webAddress = accommodationData.child("website")
+                                                                                                        .getValue(String.class);
+                                                                                                String typeRoom = accommodationData.child("roomType")
+                                                                                                        .getValue(String.class);
 
-                                        String checkInText = "Check-in: ";
-                                        String checkOutText = "Check-Out: ";
-                                        String numberRoomsText = "Number of rooms: ";
+                                                                                                String checkInText = "Check-in: ";
+                                                                                                String checkOutText = "Check-Out: ";
+                                                                                                String numberRoomsText = "Number of rooms: ";
 
-                                        //This is for checking if the checkout date
-                                        // is past the current date
-                                        boolean isExpired = false;
-                                        SimpleDateFormat dateFormat =
-                                                new SimpleDateFormat("yyyy-MM-dd"); // or
-                                        // the format of your dates
-                                        try {
-                                            Date checkOutDate = dateFormat.parse(checkOut);
-                                            Calendar today = Calendar.getInstance();
-                                            today.set(Calendar.HOUR_OF_DAY, 0);
-                                            today.set(Calendar.MINUTE, 0);
-                                            today.set(Calendar.SECOND, 0);
-                                            today.set(Calendar.MILLISECOND, 0);
+                                                                                                //This is for checking if the checkout date
+                                                                                                // is past the current date
+                                                                                                boolean isExpired = false;
+                                                                                                SimpleDateFormat dateFormat =
+                                                                                                        new SimpleDateFormat("yyyy-MM-dd"); // or
+                                                                                                // the format of your dates
+                                                                                                try {
+                                                                                                    Date checkOutDate = dateFormat.parse(checkOut);
+                                                                                                    Calendar today = Calendar.getInstance();
+                                                                                                    today.set(Calendar.HOUR_OF_DAY, 0);
+                                                                                                    today.set(Calendar.MINUTE, 0);
+                                                                                                    today.set(Calendar.SECOND, 0);
+                                                                                                    today.set(Calendar.MILLISECOND, 0);
 
-                                            if (checkOutDate.before(today.getTime())) {
-                                                isExpired = true;
-                                            }
-                                        } catch (ParseException e) {
-                                            e.printStackTrace();
-                                        }
+                                                                                                    if (checkOutDate.before(today.getTime())) {
+                                                                                                        isExpired = true;
+                                                                                                    }
+                                                                                                } catch (ParseException e) {
+                                                                                                    e.printStackTrace();
+                                                                                                }
 
-                                        String formattedAccommodation = String.format(
-                                                "%s\n%s %s %s %s\n%s %s\n%s\n%s%s",
-                                                location,
-                                                checkInText, checkIn,
-                                                checkOutText, checkOut,
-                                                numberRoomsText, roomAmount,
-                                                webAddress, typeRoom,
-                                                isExpired ? "\nEXPIRED" : ""
-                                        );
-                                        accommodationReservation.add(formattedAccommodation);
-                                    }
+                                                                                                String formattedAccommodation = String.format(
+                                                                                                        "%s\n%s%s %s%s\n%s %s\n%s\n%s%s",
+                                                                                                        location,
+                                                                                                        checkInText, checkIn,
+                                                                                                        checkOutText, checkOut,
+                                                                                                        numberRoomsText, roomAmount,
+                                                                                                        webAddress, typeRoom,
+                                                                                                        isExpired ? "\nEXPIRED" : ""
+                                                                                                );
+                                                                                                accommodationReservation.add(formattedAccommodation);
+                                                                                            }
 
-                                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                                            R.layout.reservation_font, accommodationReservation);
-                                    accommodationList.setAdapter(adapter);
-                                    adapter.notifyDataSetChanged();
+                                                                                            sortAccommodationsByCheckOutDate(accommodationReservation);
 
-                                }
+                                                                                            ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
+                                                                                                    R.layout.reservation_font, accommodationReservation);
+                                                                                            accommodationList.setAdapter(adapter);
+                                                                                            adapter.notifyDataSetChanged();
+                                                                                        }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-                                    Toast.makeText(getContext(), "Failed to load accommodation.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                                                                                        @Override
+                                                                                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                                                                                            Toast.makeText(getContext(), "Failed to load accommodation.",
+                                                                                                    Toast.LENGTH_SHORT).show();
+                                                                                        }
+                                                                                    });
                         } else {
                             Toast.makeText(getContext(), "Access denied.",
                                     Toast.LENGTH_SHORT).show();
@@ -356,5 +360,40 @@ public class AccommodationFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void sortAccommodationsByCheckOutDate(List<String> reservations) {
+        Collections.sort(reservations, new Comparator<String>() {
+            @Override
+            public int compare(String a1, String a2) {
+                Date date1 = getCheckOutDateFromString(a1);
+                Date date2 = getCheckOutDateFromString(a2);
+
+                if (date1 == null || date2 == null) {
+                    return 0;
+                }
+                return date1.compareTo(date2);
+            }
+        });
+    }
+
+    public Date getCheckOutDateFromString(String s) {
+        String[] lines = s.split("\n");
+        if (lines.length < 2) {
+            return null;
+        }
+        String secondLine = lines[1];
+
+        String[] parts = secondLine.split(" ");
+        if (parts.length >= 4) {
+            String checkOutDateString = parts[3];
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            try {
+                return sdf.parse(checkOutDateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 }
