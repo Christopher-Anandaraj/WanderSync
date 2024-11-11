@@ -29,6 +29,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -261,7 +263,7 @@ public class AccommodationFragment extends Fragment {
                                     .getInstance().getDatabaseReference()
                                     .child("accommodation").child(ownerID)
                                     .child("accommodations");
-                            List<String> accommodationReservation = new ArrayList<>();
+                            List<AccommodationReservation> accommodationReservation = new ArrayList<>();
 
                             accommodationRef.addListenerForSingleValueEvent(new
                                                                             ValueEventListener() {
@@ -311,20 +313,20 @@ public class AccommodationFragment extends Fragment {
                                             e.printStackTrace();
                                         }
 
-                                        String formattedAccommodation = String.format(
-                                                "%s\n%s %s %s %s\n%s %s\n%s\n%s%s",
-                                                location,
-                                                checkInText, checkIn,
-                                                checkOutText, checkOut,
-                                                numberRoomsText, roomAmount,
-                                                webAddress, typeRoom,
-                                                isExpired ? "\nEXPIRED" : ""
-                                        );
-                                        accommodationReservation.add(formattedAccommodation);
+                                        AccommodationReservation accommodation =
+                                                accommodationSnapshot
+                                                        .getValue(AccommodationReservation.class);
+
+                                        if (accommodation != null) {
+                                            accommodationReservation.add(accommodation);
+                                        }
                                     }
 
+                                    sortReservationsByCheckInDate(accommodationReservation);
+                                    List<String> formattedReservations = getFormattedReservations(accommodationReservation);
+
                                     ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(),
-                                            R.layout.reservation_font, accommodationReservation);
+                                            R.layout.reservation_font, formattedReservations);
                                     accommodationList.setAdapter(adapter);
                                     adapter.notifyDataSetChanged();
 
@@ -356,5 +358,35 @@ public class AccommodationFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void sortReservationsByCheckInDate(@NonNull List<AccommodationReservation> reservations) {
+        for (int i = 0; i < reservations.size(); i++) {
+            int j = i;
+            while (j > 0 && reservations.get(j - 1).getCheckInDate()
+                    .compareTo(reservations.get(j).getCheckInDate()) > 0) {
+                AccommodationReservation savedReservation = reservations.get(j);
+                reservations.set(j - 1, reservations.get(j));
+                reservations.set(j, savedReservation);
+                j--;
+            }
+        }
+    }
+
+    public List<String> getFormattedReservations(@NonNull List<AccommodationReservation> reservations) {
+        List<String> formattedAccoms = new ArrayList<>();
+        for (AccommodationReservation reservation : reservations) {
+            String formattedAccommodation = String.format(
+                    "%s\nCheck-In: %s Check-Out: %s\nNumber of rooms: %s\n%s\n%s",
+                    reservation.getLocationName(),
+                    reservation.getCheckInDate(),
+                    reservation.getCheckOutDate(),
+                    reservation.getNumberOfRooms(),
+                    reservation.getWebsite(),
+                    reservation.getRoomType()
+            );
+            formattedAccoms.add(formattedAccommodation);
+        }
+        return formattedAccoms;
     }
 }
