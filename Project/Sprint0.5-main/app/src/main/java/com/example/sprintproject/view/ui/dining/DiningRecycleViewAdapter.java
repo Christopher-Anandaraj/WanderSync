@@ -5,21 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import java.util.Calendar;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.R;
-import java.util.ArrayList;
-import java.util.Calendar;
 
-//Allyson Implementation ---------------------
-public class DiningRecycleViewAdapter extends
-        RecyclerView.Adapter<DiningRecycleViewAdapter.MyViewHolder> {
+import java.util.ArrayList;
+
+//Allyson Implementation ----------------------------------------------------------------------------------------------
+public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycleViewAdapter.MyViewHolder> {
 
     //variables for dining entries
-    private Context context; //for inflator
-    private ArrayList<DiningEntry> diningEntries;
+    Context context; //for inflator
+    ArrayList<DiningEntry> diningEntries;
 
     //constructor
     public DiningRecycleViewAdapter(Context context, ArrayList<DiningEntry> diningEntries) {
@@ -30,8 +29,7 @@ public class DiningRecycleViewAdapter extends
     //creates 'inflate' layout and gets our next box
     @NonNull
     @Override
-    public DiningRecycleViewAdapter.MyViewHolder
-        onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DiningRecycleViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflate layouts (giving a look to our rows)
         LayoutInflater inflator = LayoutInflater.from(context);
         //inflates based on fragment_dining_list_entries.xml
@@ -41,8 +39,7 @@ public class DiningRecycleViewAdapter extends
 
     //assigns values to each row as it comes back on screen
     @Override
-    public void
-        onBindViewHolder(@NonNull DiningRecycleViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DiningRecycleViewAdapter.MyViewHolder holder, int position) {
 
         //change textview text to values stored in diningEntries from arrayList
 
@@ -63,13 +60,14 @@ public class DiningRecycleViewAdapter extends
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
+            // You may want to handle the error here (e.g., log it or set a default value)
         }
 
         // Set text based on whether the reservation is in the past or future
         if (currentHour < reservationHour) {
             holder.time.setText(timeString);
         } else {
-            holder.time.setText(String.format("%s (Past)", timeString));
+            holder.time.setText(timeString + " (Past)");
             holder.time.setAlpha(0.5f); // Optional: make past times appear faded
         }
 
@@ -88,10 +86,10 @@ public class DiningRecycleViewAdapter extends
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         //assign textview vars
-        private TextView location;
-        private TextView restaurant;
-        private TextView time;
-        private TextView link;
+        TextView location;
+        TextView restaurant;
+        TextView time;
+        TextView link;
 
         //might have to change view import
         //kinda like an on create method for each little box
