@@ -31,17 +31,34 @@ public class CommunityFragment extends Fragment {
 
         //added UI buttons
         Button startDateButton = binding.startDateButtonCommunity;
+        Button endDateButton = binding.endDateButtonCommunity;
 
+        //calls a new date picker fragment when the button is clicked
         startDateButton.setOnClickListener(v -> {
             DatePickerFragment startDatePicker = DatePickerFragment.newInstance((year, month, day) -> {
                 int startYear = year;
                 int startMonth = month;
                 int startDay = day;
+                //call whatever method you need with these variables for start date :)
 
-                //TO VICTOR: call whatever method you need with these variables for start date :)
+                //note to self: java converts if for you!!!
+                String startDate = startYear + "/" + startMonth + "/" + startDay;
             });
             //make sure it updates properly (will need to test)
             startDatePicker.show(getChildFragmentManager(), "startDatePicker");
+
+        });
+
+        //calls a new date picker fragment when the button is clicked
+        endDateButton.setOnClickListener(v -> {
+            DatePickerFragment endDatePicker = DatePickerFragment.newInstance((year, month, day) -> {
+                int endYear = year;
+                int endMonth = month;
+                int endDay = day;
+
+
+            });
+            endDatePicker.show(getChildFragmentManager(), "endDatePicker");
         });
 
         final TextView textView = binding.textCommunity;

@@ -72,6 +72,7 @@ id button_vacation_time_cancel
 id button_vacation_time_submit
 id button_x
 id cardViewGraph
+id community_cardview
 id container
 id contributors_list
 id createButton
@@ -85,6 +86,8 @@ id editTextNewNote
 id editTextPassword
 id editTextUsername
 id editText_contributor_name
+id endDateButtonCommunity
+id endDateTextDisplay
 id end_date
 id fragment_accommodation
 id fragment_community
@@ -112,7 +115,7 @@ id notes
 id open_reservation_cardview_button
 id password
 id piechart
-id recyclerView
+id recyclerViewCommunity
 id reservation_cardview
 id reservation_entry_link
 id reservation_entry_location
@@ -121,6 +124,7 @@ id reservation_entry_time
 id rooms_number
 id rooms_type
 id startDateButtonCommunity
+id startDateTextDisplay
 id start_date
 id tableLayoutNotes
 id tableLayout_add_contributor

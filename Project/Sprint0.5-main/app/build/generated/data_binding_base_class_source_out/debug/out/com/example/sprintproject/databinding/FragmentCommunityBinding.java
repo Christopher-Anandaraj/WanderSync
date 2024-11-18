@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,50 +30,59 @@ public final class FragmentCommunityBinding implements ViewBinding {
   public final TextView addReservationTitle;
 
   @NonNull
+  public final CardView communityCardview;
+
+  @NonNull
   public final EditText diningLocationInput;
 
   @NonNull
   public final EditText diningNameInput;
 
   @NonNull
-  public final TableLayout diningReservation;
+  public final EditText diningWebsiteInput;
 
   @NonNull
-  public final EditText diningWebsiteInput;
+  public final Button endDateButtonCommunity;
+
+  @NonNull
+  public final TextView endDateTextDisplay;
 
   @NonNull
   public final ConstraintLayout fragmentCommunity;
 
   @NonNull
-  public final RecyclerView recyclerView;
-
-  @NonNull
-  public final CardView reservationCardview;
+  public final RecyclerView recyclerViewCommunity;
 
   @NonNull
   public final Button startDateButtonCommunity;
+
+  @NonNull
+  public final TextView startDateTextDisplay;
 
   @NonNull
   public final TextView textCommunity;
 
   private FragmentCommunityBinding(@NonNull ConstraintLayout rootView,
       @NonNull Button addReservationButton, @NonNull TextView addReservationTitle,
-      @NonNull EditText diningLocationInput, @NonNull EditText diningNameInput,
-      @NonNull TableLayout diningReservation, @NonNull EditText diningWebsiteInput,
-      @NonNull ConstraintLayout fragmentCommunity, @NonNull RecyclerView recyclerView,
-      @NonNull CardView reservationCardview, @NonNull Button startDateButtonCommunity,
+      @NonNull CardView communityCardview, @NonNull EditText diningLocationInput,
+      @NonNull EditText diningNameInput, @NonNull EditText diningWebsiteInput,
+      @NonNull Button endDateButtonCommunity, @NonNull TextView endDateTextDisplay,
+      @NonNull ConstraintLayout fragmentCommunity, @NonNull RecyclerView recyclerViewCommunity,
+      @NonNull Button startDateButtonCommunity, @NonNull TextView startDateTextDisplay,
       @NonNull TextView textCommunity) {
     this.rootView = rootView;
     this.addReservationButton = addReservationButton;
     this.addReservationTitle = addReservationTitle;
+    this.communityCardview = communityCardview;
     this.diningLocationInput = diningLocationInput;
     this.diningNameInput = diningNameInput;
-    this.diningReservation = diningReservation;
     this.diningWebsiteInput = diningWebsiteInput;
+    this.endDateButtonCommunity = endDateButtonCommunity;
+    this.endDateTextDisplay = endDateTextDisplay;
     this.fragmentCommunity = fragmentCommunity;
-    this.recyclerView = recyclerView;
-    this.reservationCardview = reservationCardview;
+    this.recyclerViewCommunity = recyclerViewCommunity;
     this.startDateButtonCommunity = startDateButtonCommunity;
+    this.startDateTextDisplay = startDateTextDisplay;
     this.textCommunity = textCommunity;
   }
 
@@ -117,6 +125,12 @@ public final class FragmentCommunityBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.community_cardview;
+      CardView communityCardview = ViewBindings.findChildViewById(rootView, id);
+      if (communityCardview == null) {
+        break missingId;
+      }
+
       id = R.id.dining_location_input;
       EditText diningLocationInput = ViewBindings.findChildViewById(rootView, id);
       if (diningLocationInput == null) {
@@ -129,35 +143,41 @@ public final class FragmentCommunityBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.dining_reservation;
-      TableLayout diningReservation = ViewBindings.findChildViewById(rootView, id);
-      if (diningReservation == null) {
-        break missingId;
-      }
-
       id = R.id.dining_website_input;
       EditText diningWebsiteInput = ViewBindings.findChildViewById(rootView, id);
       if (diningWebsiteInput == null) {
         break missingId;
       }
 
-      ConstraintLayout fragmentCommunity = (ConstraintLayout) rootView;
-
-      id = R.id.recyclerView;
-      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerView == null) {
+      id = R.id.endDateButtonCommunity;
+      Button endDateButtonCommunity = ViewBindings.findChildViewById(rootView, id);
+      if (endDateButtonCommunity == null) {
         break missingId;
       }
 
-      id = R.id.reservation_cardview;
-      CardView reservationCardview = ViewBindings.findChildViewById(rootView, id);
-      if (reservationCardview == null) {
+      id = R.id.endDateTextDisplay;
+      TextView endDateTextDisplay = ViewBindings.findChildViewById(rootView, id);
+      if (endDateTextDisplay == null) {
+        break missingId;
+      }
+
+      ConstraintLayout fragmentCommunity = (ConstraintLayout) rootView;
+
+      id = R.id.recyclerViewCommunity;
+      RecyclerView recyclerViewCommunity = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerViewCommunity == null) {
         break missingId;
       }
 
       id = R.id.startDateButtonCommunity;
       Button startDateButtonCommunity = ViewBindings.findChildViewById(rootView, id);
       if (startDateButtonCommunity == null) {
+        break missingId;
+      }
+
+      id = R.id.startDateTextDisplay;
+      TextView startDateTextDisplay = ViewBindings.findChildViewById(rootView, id);
+      if (startDateTextDisplay == null) {
         break missingId;
       }
 
@@ -168,9 +188,9 @@ public final class FragmentCommunityBinding implements ViewBinding {
       }
 
       return new FragmentCommunityBinding((ConstraintLayout) rootView, addReservationButton,
-          addReservationTitle, diningLocationInput, diningNameInput, diningReservation,
-          diningWebsiteInput, fragmentCommunity, recyclerView, reservationCardview,
-          startDateButtonCommunity, textCommunity);
+          addReservationTitle, communityCardview, diningLocationInput, diningNameInput,
+          diningWebsiteInput, endDateButtonCommunity, endDateTextDisplay, fragmentCommunity,
+          recyclerViewCommunity, startDateButtonCommunity, startDateTextDisplay, textCommunity);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

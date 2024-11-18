@@ -3441,6 +3441,7 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id community_cardview
 id compress
 id confirm_button
 id constraint
@@ -3510,6 +3511,8 @@ id edit_text_id
 id elastic
 id embed
 id end
+id endDateButtonCommunity
+id endDateTextDisplay
 id endToStart
 id end_date
 id enterAlways
@@ -3728,7 +3731,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
-id recyclerView
+id recyclerViewCommunity
 id report_drawn
 id reservation_cardview
 id reservation_entry_link
@@ -3799,6 +3802,7 @@ id src_over
 id standard
 id start
 id startDateButtonCommunity
+id startDateTextDisplay
 id startHorizontal
 id startToEnd
 id startVertical
