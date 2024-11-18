@@ -11,23 +11,15 @@
         android:id="@+id/text_community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="1sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="36dp">
+        android:gravity="center">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCommunity"
@@ -35,11 +27,11 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical" />
 
-
+        <!-- This is the cardView for new travel post -->
         <androidx.cardview.widget.CardView
             android:id="@+id/community_cardview"
-            android:layout_width="295dp"
-            android:layout_height="wrap_content"
+            android:layout_width="370dp"
+            android:layout_height="400dp"
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:background="@color/black"
@@ -47,6 +39,12 @@
             app:cardCornerRadius="10dp"
             app:contentPadding="10dp"
             app:cardElevation="10dp">
+
+            <!-- adds scroll for card widget elements-->
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <!-- This is the cardView features -->
             <TableLayout
@@ -216,14 +214,16 @@
 
                 <!-- This is the cardView add reservation button -->
                 <Button
-                    android:id="@+id/add_reservation_button"
+                    android:id="@+id/addTripPostbutton"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"
-                    android:text="Add Reservation"
+                    android:text="Add Trip Post"
                     android:textSize="18sp"
                     app:cornerRadius="20dp" />
             </TableLayout>
+
+            </ScrollView>
 
         </androidx.cardview.widget.CardView>
 

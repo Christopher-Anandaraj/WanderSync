@@ -27,6 +27,7 @@ drawable community_selector
 drawable destination_selector
 drawable dining_selector
 drawable edit_text_background
+drawable edittext_boarder
 drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
@@ -49,6 +50,8 @@ id accommodation_location_name
 id accommodation_table
 id accommodation_website
 id accommodation_website_name
+id accommodationsInput
+id addTripPostbutton
 id add_reservation_button
 id add_reservation_title
 id box
@@ -76,6 +79,7 @@ id community_cardview
 id container
 id contributors_list
 id createButton
+id diningInput
 id dining_list
 id dining_location_input
 id dining_name_input
@@ -111,7 +115,9 @@ id navigation_dashboard
 id navigation_dining
 id navigation_home
 id navigation_notifications
+id newTravelPost_title
 id notes
+id notesInput
 id open_reservation_cardview_button
 id password
 id piechart

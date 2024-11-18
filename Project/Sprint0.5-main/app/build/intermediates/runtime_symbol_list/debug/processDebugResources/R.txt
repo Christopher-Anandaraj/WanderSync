@@ -3167,6 +3167,7 @@ int drawable design_snackbar_background 0x7f0700ab
 int drawable destination_selector 0x7f0700ac
 int drawable dining_selector 0x7f0700ad
 int drawable edit_text_background 0x7f0700ae
+int drawable edittext_boarder 0x7f07011c
 int drawable googleg_disabled_color_18 0x7f0700af
 int drawable googleg_standard_color_18 0x7f0700b0
 int drawable ic_arrow_back_black_24 0x7f0700b1
@@ -3336,6 +3337,7 @@ int id accommodation_location_name 0x7f080038
 int id accommodation_table 0x7f080039
 int id accommodation_website 0x7f08003a
 int id accommodation_website_name 0x7f08003b
+int id accommodationsInput 0x7f080286
 int id actionDown 0x7f08003c
 int id actionDownUp 0x7f08003d
 int id actionUp 0x7f08003e
@@ -3359,6 +3361,7 @@ int id action_text 0x7f08004f
 int id actions 0x7f080050
 int id activity_chooser_view_content 0x7f080051
 int id add 0x7f080052
+int id addTripPostbutton 0x7f08028a
 int id add_reservation_button 0x7f080053
 int id add_reservation_title 0x7f080054
 int id adjust_height 0x7f080055
@@ -3475,6 +3478,7 @@ int id design_menu_item_text 0x7f0800c3
 int id design_navigation_view 0x7f0800c4
 int id dialog_button 0x7f0800c5
 int id dimensions 0x7f0800c6
+int id diningInput 0x7f080287
 int id dining_list 0x7f0800c7
 int id dining_location_input 0x7f0800c8
 int id dining_name_input 0x7f0800c9
@@ -3676,12 +3680,14 @@ int id navigation_notifications 0x7f08018c
 int id never 0x7f08018d
 int id neverCompleteToEnd 0x7f08018e
 int id neverCompleteToStart 0x7f08018f
+int id newTravelPost_title 0x7f080288
 int id noScroll 0x7f080190
 int id noState 0x7f080191
 int id none 0x7f080192
 int id normal 0x7f080193
 int id north 0x7f080194
 int id notes 0x7f080195
+int id notesInput 0x7f080289
 int id notification_background 0x7f080196
 int id notification_main_column 0x7f080197
 int id notification_main_column_container 0x7f080198

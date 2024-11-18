@@ -3168,6 +3168,7 @@ drawable design_snackbar_background
 drawable destination_selector
 drawable dining_selector
 drawable edit_text_background
+drawable edittext_boarder
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3337,6 +3338,7 @@ id accommodation_location_name
 id accommodation_table
 id accommodation_website
 id accommodation_website_name
+id accommodationsInput
 id actionDown
 id actionDownUp
 id actionUp
@@ -3360,6 +3362,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addTripPostbutton
 id add_reservation_button
 id add_reservation_title
 id adjust_height
@@ -3476,6 +3479,7 @@ id design_menu_item_text
 id design_navigation_view
 id dialog_button
 id dimensions
+id diningInput
 id dining_list
 id dining_location_input
 id dining_name_input
@@ -3677,12 +3681,14 @@ id navigation_notifications
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newTravelPost_title
 id noScroll
 id noState
 id none
 id normal
 id north
 id notes
+id notesInput
 id notification_background
 id notification_main_column
 id notification_main_column_container
