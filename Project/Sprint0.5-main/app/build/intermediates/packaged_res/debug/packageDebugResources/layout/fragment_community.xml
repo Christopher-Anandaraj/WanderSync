@@ -18,6 +18,115 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="36dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/reservation_cardview"
+            android:layout_width="295dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="@color/black"
+            android:visibility="visible"
+            app:cardCornerRadius="10dp"
+            app:contentPadding="10dp"
+            app:cardElevation="10dp">
+
+            <!-- This is the cardView features -->
+            <TableLayout
+                android:id="@+id/dining_reservation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <!-- This is the cardView Title -->
+                <TextView
+                    android:id="@+id/add_reservation_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Travel Post"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <!-- DatePicker Fragment Button -->
+                <Button
+                    android:id="@+id/startDateButtonCommunity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pick date"/>
+
+                <!-- This is the cardView Location edittext -->
+                <EditText
+                    android:id="@+id/dining_location_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Location"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <!-- This is the cardView website edittext -->
+                <EditText
+                    android:id="@+id/dining_website_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Website"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <!-- This is the cardView resname edittext -->
+                <EditText
+                    android:id="@+id/dining_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Restauraunt Name"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <!-- This is the cardView add reservation button -->
+                <Button
+                    android:id="@+id/add_reservation_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Add Reservation"
+                    android:textSize="18sp"
+                    app:cornerRadius="20dp" />
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

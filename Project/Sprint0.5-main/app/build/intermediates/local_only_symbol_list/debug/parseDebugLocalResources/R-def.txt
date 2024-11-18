@@ -112,6 +112,7 @@ id notes
 id open_reservation_cardview_button
 id password
 id piechart
+id recyclerView
 id reservation_cardview
 id reservation_entry_link
 id reservation_entry_location
@@ -119,6 +120,7 @@ id reservation_entry_restaurant
 id reservation_entry_time
 id rooms_number
 id rooms_type
+id startDateButtonCommunity
 id start_date
 id tableLayoutNotes
 id tableLayout_add_contributor
