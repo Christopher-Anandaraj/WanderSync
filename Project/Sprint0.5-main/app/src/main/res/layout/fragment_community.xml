@@ -58,7 +58,7 @@
 
                 <!-- This is the cardView Title -->
                 <TextView
-                    android:id="@+id/add_reservation_title"
+                    android:id="@+id/newTravelPost_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="New Travel Post"
@@ -88,7 +88,11 @@
                         android:drawablePadding="4dp"
                         android:padding="5dp"
                         android:paddingStart="8dp"
+                        android:hint="xx/xx/xxxx"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
                         android:textColor="@color/black"
+                        android:layout_gravity="center"
                         android:textColorHighlight="@color/cardview_dark_background" />
 
                 </TableRow>
@@ -114,47 +118,99 @@
                         android:drawablePadding="4dp"
                         android:padding="5dp"
                         android:paddingStart="8dp"
+                        android:hint="xx/xx/xxxx"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:layout_gravity="center"
                         android:textColor="@color/black"
                         android:textColorHighlight="@color/cardview_dark_background" />
 
                 </TableRow>
 
+                <!-- This is the destination input -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Destination"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
                 <!-- This is the cardView Location edittext -->
                 <EditText
                     android:id="@+id/dining_location_input"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:drawablePadding="8dp"
-                    android:hint="Location"
-                    android:padding="8dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edittext_boarder"
+                    android:hint="What are your thoughts on the destination?"
+                    android:textSize="14sp"
+                    android:padding="4dp"
                     android:textColor="@color/black"
                     android:textColorHighlight="@color/cardview_dark_background" />
 
-                <!-- This is the cardView website edittext -->
-                <EditText
-                    android:id="@+id/dining_website_input"
+                <!-- This is the accommodations input -->
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:drawablePadding="8dp"
-                    android:hint="Website"
-                    android:padding="8dp"
+                    android:layout_height="wrap_content"
+                    android:text="Accommodations"
+                    android:textAlignment="textStart"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/accommodationsInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edittext_boarder"
+                    android:hint="How was the service?"
+                    android:textSize="14sp"
+                    android:padding="4dp"
                     android:textColor="@color/black"
                     android:textColorHighlight="@color/cardview_dark_background" />
 
-                <!-- This is the cardView resname edittext -->
-                <EditText
-                    android:id="@+id/dining_name_input"
+                <!-- This is the reservation input -->
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@color/white"
-                    android:drawablePadding="8dp"
-                    android:hint="Restauraunt Name"
-                    android:padding="8dp"
+                    android:layout_height="wrap_content"
+                    android:text=" Dining Reservations"
+                    android:textAlignment="textStart"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/diningInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edittext_boarder"
+                    android:hint="Any Food reccomendations?"
+                    android:textSize="14sp"
+                    android:padding="4dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+
+                <!-- This is the notes input -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trip Notes"
+                    android:textAlignment="textStart"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/notesInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edittext_boarder"
+                    android:hint="Additional Thoughts?"
+                    android:textSize="14sp"
+                    android:padding="4dp"
                     android:textColor="@color/black"
                     android:textColorHighlight="@color/cardview_dark_background" />
 
