@@ -4,59 +4,55 @@
         "source": "com.example.sprintproject.app-main-60:/layout/fragment_community.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_dining.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_dining.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_dining_list_entries.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_destination.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_destination.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_accommodation.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_accommodation.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_notes.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_notes.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_create.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/activity_create.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_navigation.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_navigation.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_navigation.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/activity_navigation.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_transportation.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_transportation.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/reservation_font.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/reservation_font.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_second.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_second.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/transition_layout.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/transition_layout.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_logistics.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_main.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/activity_main.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_dining_list_entries.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_transportation.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_transportation.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_create.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_create.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_dining.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_community.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_community.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_notes.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_notes.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_accommodation.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_accommodation.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_destination.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_destination.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_main.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_main.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/activity_second.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/activity_second.xml"
     },
     {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/transition_layout.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/transition_layout.xml"
-    },
-    {
-        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/reservation_font.xml",
-        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/reservation_font.xml"
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_logistics.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
     }
 ]
