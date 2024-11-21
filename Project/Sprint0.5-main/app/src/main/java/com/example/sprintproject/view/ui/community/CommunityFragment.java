@@ -4,15 +4,34 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
+import com.example.sprintproject.model.FirebaseManager;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommunityFragment extends Fragment {
+
+    private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+    String uid = currentUser.getUid();
 
     private FragmentCommunityBinding binding;
 
@@ -24,8 +43,56 @@ public class CommunityFragment extends Fragment {
         binding = FragmentCommunityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textCommunity;
-        communityViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        EditText tripDuration = binding.communityPostDuration;
+        Spinner tripDestination = binding.communityPostDestination;
+        EditText accommodationReservations = binding.communityPostAccommodations;
+        EditText diningReservations = binding.communityPostDining;
+        EditText tripNotes = binding.communityPostNotes;
+        Button submitPostButton = binding.addCommunityPostButton;
+        Button openCreatePostButton = binding.createCommunityPostButton;
+
+        // create arraylist of all destinations the current user logged
+        List<String> destinationItems = new ArrayList<>();
+        destinationItems.add("Destinations");
+        DatabaseReference destinationRef = FirebaseDatabase.getInstance().getReference()
+                .child("travelLogs").child(uid).child("destinations");
+
+        destinationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Loop through all children of the branch
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Object value = childSnapshot.child("location").getValue();
+                    destinationItems.add((String) value);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                System.err.println("Error: " + databaseError.getMessage());
+            }
+        });
+
+        // Set up the ArrayAdapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getContext(),
+                android.R.layout.simple_spinner_dropdown_item, destinationItems);
+        tripDestination.setAdapter(adapter);
+
+        // Handle item selection
+        tripDestination.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    String selectedItem = parent.getItemAtPosition(position).toString();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
         return root;
     }
 

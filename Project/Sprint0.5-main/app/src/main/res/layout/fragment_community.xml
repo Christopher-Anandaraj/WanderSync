@@ -7,17 +7,148 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.community.CommunityFragment">
 
-    <TextView
-        android:id="@+id/text_community"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+    <!-- This is the cardView open button -->
+    <Button
+        android:id="@+id/createCommunityPostButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="16dp"
+        app:cornerRadius = "20dp"/>
+
+    <!-- This layout holds the reservation widgets and list -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <!-- This is the cardView dimensions/setup (makes it round + adds boarders) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/createCommunityPost_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp"
+            android:background="@color/black"
+            android:visibility="visible">
+
+            <!-- This is the cardView features -->
+            <TableLayout
+                android:id="@+id/communityPost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp">
+
+                <!-- This is the cardView Title -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Create Post"
+                    android:id="@+id/addCommunityPost"
+                    android:textSize="36sp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <!-- This is the cardView duration edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/communityPostDuration"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Duration"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="40dp"/>
+
+                <!-- This is the cardView destination edittext -->
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/communityPostDestination"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Destination"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView accommodations reservations edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/communityPostAccommodations"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Accommodations"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView dining reservations edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/communityPostDining"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Dining Reservations"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView notes edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/communityPostNotes"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Notes"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView add post button -->
+                <Button
+                    android:id="@+id/addCommunityPostButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="Add Post"
+                    android:textSize="18sp"
+                    android:layout_marginTop="30dp"
+                    app:cornerRadius = "20dp"/>
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- This is the dining list scroll widget -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/communityPostList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="55dp"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
