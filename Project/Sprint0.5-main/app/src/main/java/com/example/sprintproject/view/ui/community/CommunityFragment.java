@@ -172,9 +172,6 @@ public class CommunityFragment extends Fragment {
             }
         });
 
-        String formattedAccommodationsList = formatListToString(accommodationItems);
-        accommodationReservations.setText(formattedAccommodationsList);
-
         return root;
     }
 
@@ -182,10 +179,5 @@ public class CommunityFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    private String formatListToString(List<String> list) {
-        // Join the list items with newlines
-        return String.join("\n", list);
     }
 }
