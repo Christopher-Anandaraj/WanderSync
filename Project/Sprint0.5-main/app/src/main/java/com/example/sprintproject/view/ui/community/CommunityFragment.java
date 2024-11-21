@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.ui.destination.DestinationUtils;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -56,6 +57,8 @@ public class CommunityFragment extends Fragment {
         destinationItems.add("Destinations");
         DatabaseReference destinationRef = FirebaseDatabase.getInstance().getReference()
                 .child("travelLogs").child(uid).child("destinations");
+        DatabaseReference userTravelRef = FirebaseDatabase.getInstance().getReference()
+                .child("travelLogs").child(uid);
 
         destinationRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -85,6 +88,30 @@ public class CommunityFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 0) {
                     String selectedItem = parent.getItemAtPosition(position).toString();
+
+                    destinationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // Loop through all children of the branch
+                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                                Object value = childSnapshot.child("location").getValue();
+                                if (value.equals(selectedItem)) {
+                                    Object startDate = childSnapshot.child("startDate").getValue();
+                                    Object endDate = childSnapshot.child("endDate").getValue();
+
+                                    long duration = DestinationUtils.calculateDaysBetween((String) startDate,
+                                            (String) endDate);
+                                    tripDuration.setText(String.valueOf(duration));
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            // Handle possible errors
+                            System.err.println("Error: " + databaseError.getMessage());
+                        }
+                    });
                 }
             }
 
@@ -93,6 +120,62 @@ public class CommunityFragment extends Fragment {
                 // Do nothing
             }
         });
+
+
+        // create arraylist of all dining reservations the current user logged
+        List<String> diningItems = new ArrayList<>();
+        DatabaseReference diningRef = FirebaseDatabase.getInstance().getReference()
+                .child("diningReservations").child(uid);
+
+        diningRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Loop through all children of the branch
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Object value = childSnapshot.child("name").getValue();
+                    diningItems.add((String) value);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                System.err.println("Error: " + databaseError.getMessage());
+            }
+        });
+
+//        System.out.println(diningItems);
+        String formattedDiningList = formatListToString(diningItems);
+        System.out.println(formattedDiningList);
+        diningReservations.setText(formattedDiningList);
+
+
+        // create arraylist of all accommodations reservations the current user logged
+        List<String> accommodationItems = new ArrayList<>();
+        DatabaseReference accommodationRef = FirebaseDatabase.getInstance().getReference()
+                .child("accommodation").child(uid).child("accommodations");
+
+        accommodationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Loop through all children of the branch
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Object value = childSnapshot.child("locationName").getValue();
+                    System.out.println(value);
+                    accommodationItems.add((String) value);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                System.err.println("Error: " + databaseError.getMessage());
+            }
+        });
+
+        String formattedAccommodationsList = formatListToString(accommodationItems);
+        accommodationReservations.setText(formattedAccommodationsList);
+
         return root;
     }
 
@@ -100,5 +183,10 @@ public class CommunityFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    private String formatListToString(List<String> list) {
+        // Join the list items with newlines
+        return String.join("\n", list);
     }
 }
