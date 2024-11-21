@@ -1,13 +1,9 @@
 package com.example.sprintproject.view.ui.dining;
 
-import static androidx.test.InstrumentationRegistry.getContext;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
-import com.example.sprintproject.model.FirebaseManager;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 

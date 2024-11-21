@@ -16,7 +16,10 @@ import java.util.ArrayList;
 
 public class LoadFromDatabase implements DatabaseInteraction {
     @Override
-    public void interactWithDatabase(FirebaseUser user, DatabaseReference database, DiningEntry reservation, ArrayList<DiningEntry> diningEntries, Context context) {
+    public void interactWithDatabase(FirebaseUser user,
+                                     DatabaseReference database,
+                                     DiningEntry reservation, ArrayList<DiningEntry> diningEntries,
+                                     Context context) {
         //Allyson ________________________________
         //Clear arraylist beforehand
         diningEntries.clear();
@@ -55,9 +58,10 @@ public class LoadFromDatabase implements DatabaseInteraction {
                         // Loop through each user's travel log
                         for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                             String userId = userSnapshot.getKey();
-
                             // Check if the current user is the owner or a contributor by username
-                            if (userId.equals(currentUserId) || userSnapshot.child("contributors").hasChild(currentUsername)) {
+                            if (userId.equals(currentUserId)
+                                    || userSnapshot
+                                    .child("contributors").hasChild(currentUsername)) {
                                 ownerID = userSnapshot.getKey();
                                 hasAccess = true;
                                 break;
@@ -73,13 +77,23 @@ public class LoadFromDatabase implements DatabaseInteraction {
                                     diningEntries.clear();
 
                                     for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                                        String loadedName =
+                                                childSnapshot
+                                                        .child("name").getValue().toString();
+                                        String loadedLoc =
+                                                childSnapshot
+                                                        .child("location").getValue().toString();
+                                        String loadedTime =
+                                                childSnapshot
+                                                        .child("reservation_time").getValue()
+                                                        .toString();
+                                        String loadedWebsite =
+                                                childSnapshot
+                                                        .child("website").getValue().toString();
 
-                                        String loadedName = childSnapshot.child("name").getValue().toString();
-                                        String loadedLoc = childSnapshot.child("location").getValue().toString();
-                                        String loadedTime = childSnapshot.child("reservation_time").getValue().toString();
-                                        String loadedWebsite = childSnapshot.child("website").getValue().toString();
-
-                                        diningEntries.add(new DiningEntry(loadedName, loadedLoc, loadedTime, loadedWebsite));
+                                        diningEntries.
+                                                add(new DiningEntry(loadedName, loadedLoc,
+                                                        loadedTime, loadedWebsite));
                                     }
 
                                 }
