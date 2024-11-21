@@ -1,6 +1,7 @@
 package com.example.sprintproject.view.ui.dining;
 
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,7 +46,6 @@ public class LoadFromDatabase implements DatabaseInteraction {
                     return;
                 }
 
-                /*Chris, You'll have to edit the database here */
                 DatabaseReference travelLogRef = FirebaseManager
                         .getInstance().getDatabaseReference()
                         .child("travelLogs");
@@ -70,40 +70,8 @@ public class LoadFromDatabase implements DatabaseInteraction {
 
                         if (hasAccess && ownerID != null) {
                             DatabaseReference diningRef = database.child(ownerID);
+                            addToEntries(diningRef, diningEntries, context);
 
-                            diningRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    diningEntries.clear();
-
-                                    for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                                        String loadedName =
-                                                childSnapshot
-                                                        .child("name").getValue().toString();
-                                        String loadedLoc =
-                                                childSnapshot
-                                                        .child("location").getValue().toString();
-                                        String loadedTime =
-                                                childSnapshot
-                                                        .child("reservation_time").getValue()
-                                                        .toString();
-                                        String loadedWebsite =
-                                                childSnapshot
-                                                        .child("website").getValue().toString();
-
-                                        diningEntries.
-                                                add(new DiningEntry(loadedName, loadedLoc,
-                                                        loadedTime, loadedWebsite));
-                                    }
-
-                                }
-
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-                                    Toast.makeText(context, "Failed to load accommodation.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            });
                         } else {
                             Toast.makeText(context, "Access denied.", Toast.LENGTH_SHORT).show();
                         }
@@ -124,6 +92,41 @@ public class LoadFromDatabase implements DatabaseInteraction {
             }
         });
     }
-}
 
+    public void addToEntries(DatabaseReference databaseReference, ArrayList<DiningEntry> list, Context context) {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    String loadedName =
+                            childSnapshot
+                                    .child("name").getValue().toString();
+                    String loadedLoc =
+                            childSnapshot
+                                    .child("location").getValue().toString();
+                    String loadedTime =
+                            childSnapshot
+                                    .child("reservation_time").getValue()
+                                    .toString();
+                    String loadedWebsite =
+                            childSnapshot
+                                    .child("website").getValue().toString();
+
+                    list.
+                            add(new DiningEntry(loadedName, loadedLoc,
+                                    loadedTime, loadedWebsite));
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(context, "Failed to load accommodation.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
 
