@@ -48,6 +48,7 @@ public class CommunityFragment extends Fragment {
         Spinner tripDestination = binding.communityPostDestination;
         EditText accommodationReservations = binding.communityPostAccommodations;
         EditText diningReservations = binding.communityPostDining;
+        EditText transportation = binding.communityPostTransportation;
         EditText tripNotes = binding.communityPostNotes;
         Button submitPostButton = binding.addCommunityPostButton;
         Button openCreatePostButton = binding.createCommunityPostButton;
@@ -133,8 +134,10 @@ public class CommunityFragment extends Fragment {
                 // Loop through all children of the branch
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Object value = childSnapshot.child("name").getValue();
-                    diningItems.add((String) value);
+                    diningItems.add(String.valueOf(value));
                 }
+                String formattedDiningItems = String.join(", ", diningItems);
+                diningReservations.setText(formattedDiningItems);
             }
 
             @Override
@@ -143,11 +146,6 @@ public class CommunityFragment extends Fragment {
                 System.err.println("Error: " + databaseError.getMessage());
             }
         });
-
-//        System.out.println(diningItems);
-        String formattedDiningList = formatListToString(diningItems);
-        System.out.println(formattedDiningList);
-        diningReservations.setText(formattedDiningList);
 
 
         // create arraylist of all accommodations reservations the current user logged
@@ -161,9 +159,10 @@ public class CommunityFragment extends Fragment {
                 // Loop through all children of the branch
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Object value = childSnapshot.child("locationName").getValue();
-                    System.out.println(value);
                     accommodationItems.add((String) value);
                 }
+                String formattedAccommodationItems = String.join(", ", accommodationItems);
+                accommodationReservations.setText(formattedAccommodationItems);
             }
 
             @Override

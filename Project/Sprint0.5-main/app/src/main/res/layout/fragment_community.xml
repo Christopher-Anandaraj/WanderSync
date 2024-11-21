@@ -115,6 +115,19 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:id="@+id/communityPostTransportation"
+                    android:background="@color/white"
+                    android:drawablePadding="8dp"
+                    android:hint="Transportation"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background"
+                    android:layout_marginTop="20dp"/>
+
+                <!-- This is the cardView notes edittext -->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
                     android:id="@+id/communityPostNotes"
                     android:background="@color/white"
                     android:drawablePadding="8dp"
