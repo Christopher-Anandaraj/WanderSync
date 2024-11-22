@@ -21,11 +21,19 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
+        <Button
+            android:id="@+id/communityExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:layout_gravity="right"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCommunity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+            android:scrollbars="vertical"
+            android:visibility="visible"/>
 
         <!-- This is the cardView for new travel post -->
         <androidx.cardview.widget.CardView
@@ -35,7 +43,7 @@
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:background="@color/black"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:cardCornerRadius="10dp"
             app:contentPadding="10dp"
             app:cardElevation="10dp">
@@ -53,6 +61,7 @@
                 android:layout_gravity="center_horizontal"
                 android:orientation="vertical"
                 android:padding="5dp">
+
 
                 <!-- This is the cardView Title -->
                 <TextView
@@ -100,128 +109,128 @@
                     android:layout_width="match_parent"
                     android:layout_gravity="center">
 
-                    <!-- DatePicker Fragment Button (End) -->
-                    <Button
-                        android:id="@+id/endDateButtonCommunity"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="End Date" />
+                        <!-- DatePicker Fragment Button (End) -->
+                        <Button
+                            android:id="@+id/endDateButtonCommunity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="End Date" />
 
-                    <!-- Change to display inserted date -->
+                        <!-- Change to display inserted date -->
+                        <TextView
+                            android:id="@+id/endDateTextDisplay"
+                            android:layout_width="153dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:drawablePadding="4dp"
+                            android:padding="5dp"
+                            android:paddingStart="8dp"
+                            android:hint="xx/xx/xxxx"
+                            android:textStyle="bold"
+                            android:textSize="22sp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black"
+                            android:textColorHighlight="@color/cardview_dark_background" />
+
+                    </TableRow>
+
+                    <!-- This is the destination input -->
                     <TextView
-                        android:id="@+id/endDateTextDisplay"
-                        android:layout_width="153dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:drawablePadding="4dp"
-                        android:padding="5dp"
-                        android:paddingStart="8dp"
-                        android:hint="xx/xx/xxxx"
-                        android:textStyle="bold"
-                        android:textSize="22sp"
-                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Destination"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <!-- This is the cardView Location edittext -->
+                    <EditText
+                        android:id="@+id/communityDestinationInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="What are your thoughts on the destination?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
                         android:textColor="@color/black"
                         android:textColorHighlight="@color/cardview_dark_background" />
 
-                </TableRow>
+                    <!-- This is the accommodations input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Accommodations"
+                        android:textAlignment="textStart"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-                <!-- This is the destination input -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Destination"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-                <!-- This is the cardView Location edittext -->
-                <EditText
-                    android:id="@+id/dining_location_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@drawable/edittext_boarder"
-                    android:hint="What are your thoughts on the destination?"
-                    android:textSize="14sp"
-                    android:padding="4dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/accommodationsInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="How was the service?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
 
-                <!-- This is the accommodations input -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Accommodations"
-                    android:textAlignment="textStart"
-                    android:paddingTop="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    <!-- This is the reservation input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=" Dining Reservations"
+                        android:textAlignment="textStart"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/accommodationsInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@drawable/edittext_boarder"
-                    android:hint="How was the service?"
-                    android:textSize="14sp"
-                    android:padding="4dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/diningInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="Any Food reccomendations?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
 
-                <!-- This is the reservation input -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text=" Dining Reservations"
-                    android:textAlignment="textStart"
-                    android:paddingTop="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    <!-- This is the notes input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trip Notes"
+                        android:textAlignment="textStart"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/diningInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@drawable/edittext_boarder"
-                    android:hint="Any Food reccomendations?"
-                    android:textSize="14sp"
-                    android:padding="4dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
+                    <EditText
+                        android:id="@+id/notesInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="Additional Thoughts?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
 
-                <!-- This is the notes input -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Trip Notes"
-                    android:textAlignment="textStart"
-                    android:paddingTop="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/notesInput"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:background="@drawable/edittext_boarder"
-                    android:hint="Additional Thoughts?"
-                    android:textSize="14sp"
-                    android:padding="4dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background" />
-
-                <!-- This is the cardView add reservation button -->
-                <Button
-                    android:id="@+id/addTripPostbutton"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginTop="30dp"
-                    android:text="Add Trip Post"
-                    android:textSize="18sp"
-                    app:cornerRadius="20dp" />
-            </TableLayout>
+                    <!-- This is the cardView add reservation button -->
+                    <Button
+                        android:id="@+id/addTripPostbutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Add Trip Post"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp" />
+                </TableLayout>
 
             </ScrollView>
 

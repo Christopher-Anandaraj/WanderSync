@@ -75,7 +75,13 @@ id button_vacation_time_cancel
 id button_vacation_time_submit
 id button_x
 id cardViewGraph
+id communityDestinationInput
+id communityExit
 id community_cardview
+id community_endDate_entry
+id community_entry_accomodations
+id community_entry_location
+id community_startDate_entry
 id container
 id contributors_list
 id createButton
@@ -173,6 +179,7 @@ layout activity_navigation
 layout activity_second
 layout fragment_accommodation
 layout fragment_community
+layout fragment_community_entry
 layout fragment_destination
 layout fragment_dining
 layout fragment_dining_list_entries

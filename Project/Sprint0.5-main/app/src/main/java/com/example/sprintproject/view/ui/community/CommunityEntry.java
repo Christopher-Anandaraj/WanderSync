@@ -32,7 +32,7 @@ public class CommunityEntry {
         return diningReview;
     }
 
-    public String getAccomodationsReview() {
+    public String getAccommodationsReview() {
         return accomodationsReview;
     }
 

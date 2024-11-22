@@ -24,7 +24,7 @@ public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
             communityMap.put("Start date", post.getStartDate());
             communityMap.put("End Date", post.getEndDate());
             communityMap.put("Dining review", post.getDiningReview());
-            communityMap.put("Accommodation review", post.getAccomodationsReview());
+            communityMap.put("Accommodation review", post.getAccommodationsReview());
             communityMap.put("Destination", post.getDestination());
             communityMap.put("Trip notes", post.getTripNotes());
 

@@ -3444,7 +3444,13 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id communityDestinationInput
+id communityExit
 id community_cardview
+id community_endDate_entry
+id community_entry_accomodations
+id community_entry_location
+id community_startDate_entry
 id compress
 id confirm_button
 id constraint
@@ -4069,6 +4075,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_accommodation
 layout fragment_community
+layout fragment_community_entry
 layout fragment_destination
 layout fragment_dining
 layout fragment_dining_list_entries

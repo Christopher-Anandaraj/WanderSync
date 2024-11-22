@@ -1,29 +1,17 @@
 package com.example.sprintproject.view.ui.community;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-
-import com.example.sprintproject.databinding.FragmentCommunityBinding;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import java.util.Calendar;
-import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.R;
-import com.example.sprintproject.view.ui.dining.DiningEntry;
 
 import java.util.ArrayList;
 
@@ -31,8 +19,8 @@ import java.util.ArrayList;
 public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.example.sprintproject.view.ui.community.CommunityRecycleViewAdapter.MyViewHolder> {
 
     //variables for dining entries
-    Context context; //for inflator
-    ArrayList<CommunityEntry> communityEntries;
+    private Context context; //for inflator
+    private ArrayList<CommunityEntry> communityEntries;
 
     //constructor
     public CommunityRecycleViewAdapter(Context context, ArrayList<CommunityEntry> communityEntries) {
@@ -43,19 +31,20 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
     //creates 'inflate' layout and gets our next box
     @NonNull
     @Override
-    public com.example.sprintproject.view.ui.community.CommunityRecycleViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CommunityRecycleViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflate layouts (giving a look to our rows)
         LayoutInflater inflator = LayoutInflater.from(context);
         //inflates based on fragment_community_entries.xml
         View view = inflator.inflate(R.layout.fragment_community_entry, parent, false);
-        return new com.example.sprintproject.view.ui.community.CommunityRecycleViewAdapter.MyViewHolder(view);
+        return new CommunityRecycleViewAdapter.MyViewHolder(view);
     }
 
     //assigns values to each row as it comes back on screen
     @Override
-    public void onBindViewHolder(@NonNull com.example.sprintproject.view.ui.community.CommunityRecycleViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CommunityRecycleViewAdapter.MyViewHolder holder, int position) {
+        //CommunityEntry entry = communityEntries.get(position);
         holder.destination.setText(communityEntries.get(position).getDestination());
-        holder.accomodations.setText(communityEntries.get(position).getAccomodationsReview());
+        holder.accomodations.setText(communityEntries.get(position).getAccommodationsReview());
         holder.startDate.setText(communityEntries.get(position).getStartDate());
         holder.endDate.setText(communityEntries.get(position).getEndDate());
 

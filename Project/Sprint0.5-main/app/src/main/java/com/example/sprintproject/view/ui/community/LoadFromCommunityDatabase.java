@@ -1,4 +1,4 @@
-package com.example.sprintproject.view.ui.dining;
+package com.example.sprintproject.view.ui.community;
 
 import android.content.Context;
 import android.widget.Toast;
