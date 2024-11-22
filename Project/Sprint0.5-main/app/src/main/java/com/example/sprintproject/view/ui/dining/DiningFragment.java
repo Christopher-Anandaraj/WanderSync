@@ -20,30 +20,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sprintproject.databinding.FragmentDiningBinding;
 import com.example.sprintproject.model.FirebaseManager;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+/*import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;*/
 import com.google.firebase.database.DatabaseReference;
+/*
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+*/
 
-import java.util.ArrayDeque;
+/*import java.util.ArrayDeque;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.Map;*/
 
 import java.util.ArrayList;
 
 public class DiningFragment extends Fragment {
 
-    private FragmentDiningBinding binding;
-
     //holds all entries for dining (Allyson)
-    ArrayList<DiningEntry> diningEntries = new ArrayList<>();
+    private ArrayList<DiningEntry> diningEntries = new ArrayList<>();
 
-    SortContext context = new SortContext();
+    private SortContext context = new SortContext();
 
-    FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+    private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
-    DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
+    private DatabaseReference reservationRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("diningReservations");
 
 
@@ -52,19 +52,19 @@ public class DiningFragment extends Fragment {
         DiningViewModel diningViewModel =
                 new ViewModelProvider(this).get(DiningViewModel.class);
 
-        binding = FragmentDiningBinding.inflate(inflater, container, false);
+        com.example.sprintproject.databinding.FragmentDiningBinding binding =
+                FragmentDiningBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         // sophie stuff
-        EditText editText_reservationName = binding.diningNameInput;
-        Button button_reservationSubmit = binding.addReservationButton;
-        EditText editText_reservationLocation = binding.diningLocationInput;
-        EditText editText_reservationWebsite = binding.diningWebsiteInput;
-        EditText editText_reservationTime = binding.diningTimeInput;
+        EditText editTextReservationName = binding.diningNameInput;
+        Button buttonReservationSubmit = binding.addReservationButton;
+        EditText editTextReservationLocation = binding.diningLocationInput;
+        EditText editTextReservationWebsite = binding.diningWebsiteInput;
+        EditText editTextReservationTime = binding.diningTimeInput;
         Context fragContext = requireContext();
         // end sophie stuff
-
-        //Allyson Implementation ------------------------------------------------------------------------
+        //Allyson Implementation ---------------------
 
         //recycle view
         RecyclerView recyclerView = binding.diningList;
@@ -72,38 +72,39 @@ public class DiningFragment extends Fragment {
         //setup dining list
 
         //setup recycleview functionality (sending dining entries to adapter)+ call constructor
-        DiningRecycleViewAdapter adapter = new DiningRecycleViewAdapter(this.getContext(), diningEntries);
+        DiningRecycleViewAdapter adapter = new
+                DiningRecycleViewAdapter(this.getContext(), diningEntries);
         recyclerView.setAdapter(adapter);
 
         //layout is linear layout for the boxes
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         //Buttons for Dining Screen
-        Button open_reservation_cardview_button = binding.openReservationCardviewButton;
+        Button openReservationCardviewButton = binding.openReservationCardviewButton;
 
         //cardviews
-        CardView reservation_cardview = binding.reservationCardview;
+        CardView reservationCardview = binding.reservationCardview;
 
         //Opens and closes the Add reservation viewcard
-        open_reservation_cardview_button.setOnClickListener(view -> {
-            if (reservation_cardview.getVisibility() == View.GONE) {
-                reservation_cardview.setVisibility(View.VISIBLE);
+        openReservationCardviewButton.setOnClickListener(view -> {
+            if (reservationCardview.getVisibility() == View.GONE) {
+                reservationCardview.setVisibility(View.VISIBLE);
             } else {
-                reservation_cardview.setVisibility(View.GONE);
+                reservationCardview.setVisibility(View.GONE);
             }
         });
-
-        //End of Allyson Implementation ------------------------------------------------------------------
+        //End of Allyson Implementation --------------------------------------------------
 
         // sophie stuff
         //add reservation button
-        button_reservationSubmit.setOnClickListener(v -> {
-            String resvName = editText_reservationName.getText().toString().trim();
-            String resvLocation = editText_reservationLocation.getText().toString().trim();
-            String resvTime = editText_reservationTime.getText().toString().trim();
-            String resvWebsite = editText_reservationWebsite.getText().toString().trim();
+        buttonReservationSubmit.setOnClickListener(v -> {
+            String resvName = editTextReservationName.getText().toString().trim();
+            String resvLocation = editTextReservationLocation.getText().toString().trim();
+            String resvTime = editTextReservationTime.getText().toString().trim();
+            String resvWebsite = editTextReservationWebsite.getText().toString().trim();
 
-            if (resvLocation.isEmpty() || resvTime.isEmpty() || resvWebsite.isEmpty() || resvName.isEmpty()) {
+            if (resvLocation.isEmpty() || resvTime.isEmpty() || resvWebsite.isEmpty()
+                    || resvName.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
@@ -115,17 +116,19 @@ public class DiningFragment extends Fragment {
                 return;
             }
 
-            DiningEntry reservation = new DiningEntry(resvLocation, resvName, resvTime, resvWebsite);
+            DiningEntry reservation =
+                    new DiningEntry(resvLocation, resvName, resvTime, resvWebsite);
             AddToDatabase add = new AddToDatabase();
-            add.interactWithDatabase(currentUser, reservationRef, reservation, diningEntries, fragContext);
+            add.interactWithDatabase(currentUser, reservationRef, reservation, diningEntries,
+                    fragContext);
 
             context.setSortStrategy(new SortByTimeStrategy());
             context.sortReservations(diningEntries);
 
-            editText_reservationName.setText("");
-            editText_reservationLocation.setText("");
-            editText_reservationTime.setText("");
-            editText_reservationWebsite.setText("");
+            editTextReservationName.setText("");
+            editTextReservationLocation.setText("");
+            editTextReservationTime.setText("");
+            editTextReservationWebsite.setText("");
 
             //Ally
             // Update the list and notify the adapter

@@ -6,13 +6,14 @@
     <copyLibs>true</copyLibs>
     <option name="thirdPartyClasspath" />
     <option name="activeLocationIds">
-      <option value="dc8eabab-93ca-4fb0-80d6-66f95ed943aa" />
+      <option value="6453ee6e-8d75-4fac-b1e4-6ac5cdbc9b53" />
     </option>
     <option name="locations">
       <list>
         <ConfigurationLocation id="bundled-sun-checks" type="BUNDLED" scope="All" description="Sun Checks">(bundled)</ConfigurationLocation>
         <ConfigurationLocation id="bundled-google-checks" type="BUNDLED" scope="All" description="Google Checks">(bundled)</ConfigurationLocation>
-        <ConfigurationLocation id="dc8eabab-93ca-4fb0-80d6-66f95ed943aa" type="LOCAL_FILE" scope="All" description="2340checkstyle">$PROJECT_DIR$/../../../checktyle.xml</ConfigurationLocation>
+        <ConfigurationLocation id="dc8eabab-93ca-4fb0-80d6-66f95ed943aa" type="LOCAL_FILE" scope="All" description="2340checkstyle">$USER_HOME$/checktyle.xml</ConfigurationLocation>
+        <ConfigurationLocation id="6453ee6e-8d75-4fac-b1e4-6ac5cdbc9b53" type="LOCAL_FILE" scope="All" description="Checkstyle">$USER_HOME$/Downloads/checktyle.xml</ConfigurationLocation>
         <ConfigurationLocation id="f7ce7f6f-951a-4de0-ac9f-e4a9ec16fe5b" type="LOCAL_FILE" scope="All" description="New Checkstyle">$PROJECT_DIR$/../../../../../Documents/CS1332-checkstyle.xml</ConfigurationLocation>
         <ConfigurationLocation id="0c7fc319-e42c-4cda-9c80-5968708b74f8" type="LOCAL_FILE" scope="All" description="checkstyle">$USER_HOME$/CS1332/CS1332-checkstyle.xml</ConfigurationLocation>
       </list>

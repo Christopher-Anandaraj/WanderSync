@@ -13,12 +13,13 @@ import com.example.sprintproject.R;
 
 import java.util.ArrayList;
 
-//Allyson Implementation ----------------------------------------------------------------------------------------------
-public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycleViewAdapter.MyViewHolder> {
+//Allyson Implementation ---------------------------------------------
+public class DiningRecycleViewAdapter
+        extends RecyclerView.Adapter<DiningRecycleViewAdapter.MyViewHolder> {
 
     //variables for dining entries
-    Context context; //for inflator
-    ArrayList<DiningEntry> diningEntries;
+    private Context context; //for inflator
+    private ArrayList<DiningEntry> diningEntries;
 
     //constructor
     public DiningRecycleViewAdapter(Context context, ArrayList<DiningEntry> diningEntries) {
@@ -29,7 +30,8 @@ public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycle
     //creates 'inflate' layout and gets our next box
     @NonNull
     @Override
-    public DiningRecycleViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DiningRecycleViewAdapter.MyViewHolder
+        onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //inflate layouts (giving a look to our rows)
         LayoutInflater inflator = LayoutInflater.from(context);
         //inflates based on fragment_dining_list_entries.xml
@@ -39,7 +41,8 @@ public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycle
 
     //assigns values to each row as it comes back on screen
     @Override
-    public void onBindViewHolder(@NonNull DiningRecycleViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DiningRecycleViewAdapter.MyViewHolder holder,
+                                 int position) {
 
         //change textview text to values stored in diningEntries from arrayList
 
@@ -86,10 +89,10 @@ public class DiningRecycleViewAdapter extends RecyclerView.Adapter<DiningRecycle
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         //assign textview vars
-        TextView location;
-        TextView restaurant;
-        TextView time;
-        TextView link;
+        private TextView location;
+        private TextView restaurant;
+        private TextView time;
+        private TextView link;
 
         //might have to change view import
         //kinda like an on create method for each little box
