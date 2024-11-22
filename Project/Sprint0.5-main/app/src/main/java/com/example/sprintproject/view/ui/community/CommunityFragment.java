@@ -12,12 +12,18 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
+import com.example.sprintproject.view.ui.dining.DiningEntry;
+
+import java.util.ArrayList;
 
 public class CommunityFragment extends Fragment {
 
 
 
     private FragmentCommunityBinding binding;
+
+    //Added arrayList (Allyson)
+    ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
