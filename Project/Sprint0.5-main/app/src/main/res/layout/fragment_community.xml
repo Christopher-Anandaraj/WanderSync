@@ -136,7 +136,7 @@
                     android:textStyle="bold" />
                 <!-- This is the cardView Location edittext -->
                 <EditText
-                    android:id="@+id/dining_location_input"
+                    android:id="@+id/communityDestinationInput"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:background="@drawable/edittext_boarder"

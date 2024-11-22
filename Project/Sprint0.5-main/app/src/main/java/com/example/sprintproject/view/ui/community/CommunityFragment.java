@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
 import com.example.sprintproject.view.ui.dining.DiningEntry;
+import com.example.sprintproject.view.ui.dining.SortContext;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,12 @@ public class CommunityFragment extends Fragment {
 
     //Added arrayList (Allyson)
     ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
+
+    private SortContext context = new SortContext();
+
+    //Too  public??
+    String startDate;
+    String endDate;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,10 +46,17 @@ public class CommunityFragment extends Fragment {
         //added UI buttons
         Button startDateButton = binding.startDateButtonCommunity;
         Button endDateButton = binding.endDateButtonCommunity;
+        Button addTripReviewButton = binding.addTripPostbutton;
 
         //textViews
         TextView startDateTextDisplay = binding.startDateTextDisplay;
         TextView endDateTextDisplay = binding.endDateTextDisplay;
+
+        //editText
+        EditText communityDestinationInput = binding.communityDestinationInput;
+        EditText communityAccommodationsInput = binding.accommodationsInput;
+        EditText communityDiningInput = binding.diningInput;
+        EditText communityNotesInput = binding.notesInput;
 
 
         //calls a new date picker fragment when the button is clicked
@@ -50,7 +65,7 @@ public class CommunityFragment extends Fragment {
                 //call whatever method you need with these variables for start date :)
 
                 //note to self: java converts if for you!!!
-                String startDate = year + "/" + month + "/" + day;
+                startDate = year + "/" + month + "/" + day;
                 startDateTextDisplay.setText(startDate);
             });
             //make sure it updates properly (will need to test)
@@ -63,11 +78,21 @@ public class CommunityFragment extends Fragment {
             DatePickerFragment endDatePicker = DatePickerFragment.newInstance((year, month, day) -> {
 
                 //add method call for firebase upload
-                String endDate = year + "/" + month + "/" + day;
+                endDate = year + "/" + month + "/" + day;
                 endDateTextDisplay.setText(endDate);
             });
             endDatePicker.show(getChildFragmentManager(), "endDatePicker");
         });
+
+        //press submit button
+        addTripReviewButton.setOnClickListener(v -> {
+            //get review info
+            String destinationReview = communityDestinationInput.getText().toString().trim();
+            String accommodationsReview = communityAccommodationsInput.getText().toString().trim();
+            String diningReview = communityDiningInput.getText().toString().trim();
+            String tripNotes = communityNotesInput.getText().toString().trim();
+        });
+
 
         final TextView textView = binding.textCommunity;
         communityViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
