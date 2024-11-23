@@ -3168,6 +3168,7 @@ drawable design_snackbar_background
 drawable destination_selector
 drawable dining_selector
 drawable edit_text_background
+drawable edittext_boarder
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3337,6 +3338,7 @@ id accommodation_location_name
 id accommodation_table
 id accommodation_website
 id accommodation_website_name
+id accommodationsInput
 id actionDown
 id actionDownUp
 id actionUp
@@ -3360,6 +3362,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addTripPostbutton
 id add_reservation_button
 id add_reservation_title
 id adjust_height
@@ -3441,6 +3444,15 @@ id clip_vertical
 id clockwise
 id closest
 id collapseActionView
+id communityDestinationInput
+id communityExit
+id community_cardview
+id community_endDate_entry
+id community_entry_accomodations
+id community_entry_dining
+id community_entry_location
+id community_entry_notes
+id community_startDate_entry
 id compress
 id confirm_button
 id constraint
@@ -3475,6 +3487,7 @@ id design_menu_item_text
 id design_navigation_view
 id dialog_button
 id dimensions
+id diningInput
 id dining_list
 id dining_location_input
 id dining_name_input
@@ -3510,6 +3523,8 @@ id edit_text_id
 id elastic
 id embed
 id end
+id endDateButtonCommunity
+id endDateTextDisplay
 id endToStart
 id end_date
 id enterAlways
@@ -3674,12 +3689,14 @@ id navigation_notifications
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id newTravelPost_title
 id noScroll
 id noState
 id none
 id normal
 id north
 id notes
+id notesInput
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -3728,6 +3745,7 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerViewCommunity
 id report_drawn
 id reservation_cardview
 id reservation_entry_link
@@ -3797,6 +3815,8 @@ id src_in
 id src_over
 id standard
 id start
+id startDateButtonCommunity
+id startDateTextDisplay
 id startHorizontal
 id startToEnd
 id startVertical
@@ -4057,6 +4077,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_accommodation
 layout fragment_community
+layout fragment_community_entry
 layout fragment_destination
 layout fragment_dining
 layout fragment_dining_list_entries

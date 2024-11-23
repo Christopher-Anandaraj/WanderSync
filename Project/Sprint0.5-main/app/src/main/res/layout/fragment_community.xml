@@ -11,13 +11,241 @@
         android:id="@+id/text_community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="1sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="55dp"/>
+
+
+        <!-- This is the cardView for new travel post -->
+
+        <Button
+            android:id="@+id/communityExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/community_cardview"
+            android:layout_width="370dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="@color/black"
+            android:visibility="visible"
+            app:cardCornerRadius="10dp"
+            app:contentPadding="10dp"
+            app:cardElevation="10dp">
+
+            <!-- adds scroll for card widget elements-->
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <!-- This is the cardView features -->
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+                <!-- This is the cardView Title -->
+                <TextView
+                    android:id="@+id/newTravelPost_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="New Travel Post"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center">
+
+                    <!-- DatePicker Fragment Button (Start) -->
+                    <Button
+                        android:id="@+id/startDateButtonCommunity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Start Date" />
+
+                    <!-- Change to display inserted date -->
+                    <TextView
+                        android:id="@+id/startDateTextDisplay"
+                        android:layout_width="153dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:drawablePadding="4dp"
+                        android:padding="5dp"
+                        android:paddingStart="8dp"
+                        android:hint="xx/xx/xxxx"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center">
+
+                        <!-- DatePicker Fragment Button (End) -->
+                        <Button
+                            android:id="@+id/endDateButtonCommunity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="End Date" />
+
+                        <!-- Change to display inserted date -->
+                        <TextView
+                            android:id="@+id/endDateTextDisplay"
+                            android:layout_width="153dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:drawablePadding="4dp"
+                            android:padding="5dp"
+                            android:paddingStart="8dp"
+                            android:hint="xx/xx/xxxx"
+                            android:textStyle="bold"
+                            android:textSize="22sp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black"
+                            android:textColorHighlight="@color/cardview_dark_background" />
+
+                    </TableRow>
+
+                    <!-- This is the destination input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Destination"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                    <!-- This is the cardView Location edittext -->
+                    <EditText
+                        android:id="@+id/communityDestinationInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="What are your thoughts on the destination?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <!-- This is the accommodations input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Accommodations"
+                        android:textAlignment="textStart"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/accommodationsInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="How was the service?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <!-- This is the reservation input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=" Dining Reservations"
+                        android:textAlignment="textStart"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/diningInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="Any Food reccomendations?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <!-- This is the notes input -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trip Notes"
+                        android:textAlignment="textStart"
+                        android:paddingTop="8dp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/notesInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:background="@drawable/edittext_boarder"
+                        android:hint="Additional Thoughts?"
+                        android:textSize="14sp"
+                        android:padding="4dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                    <!-- This is the cardView add reservation button -->
+                    <Button
+                        android:id="@+id/addTripPostbutton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="30dp"
+                        android:text="Add Trip Post"
+                        android:textSize="18sp"
+                        app:cornerRadius="20dp" />
+                </TableLayout>
+
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
