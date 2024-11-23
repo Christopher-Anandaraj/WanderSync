@@ -10,7 +10,8 @@ public class CommunityEntry {
 
 
     //dining entry constructor
-    public CommunityEntry(String startDate, String endDate, String diningReview, String accomodationsReview, String destination, String tripNotes) {
+    public CommunityEntry(String startDate, String endDate, String diningReview,
+                          String accomodationsReview, String destination, String tripNotes) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.diningReview = diningReview;

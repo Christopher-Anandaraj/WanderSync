@@ -12,7 +12,10 @@ import java.util.Map;
 
 public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
     @Override
-    public void interactWithCommunityDatabase(FirebaseUser user, DatabaseReference database, CommunityEntry post, ArrayList<CommunityEntry> communityEntries, Context context) {
+    public void interactWithCommunityDatabase(FirebaseUser user, DatabaseReference database,
+                                              CommunityEntry post,
+                                              ArrayList<CommunityEntry> communityEntries,
+                                              Context context) {
         if (user != null) {
             String uid = user.getUid();
 

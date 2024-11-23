@@ -16,7 +16,10 @@ import com.example.sprintproject.R;
 import java.util.ArrayList;
 
 //Allyson Implementation ----------------------------------------------
-public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.example.sprintproject.view.ui.community.CommunityRecycleViewAdapter.MyViewHolder> {
+public class CommunityRecycleViewAdapter extends
+        RecyclerView.Adapter
+                <com.example.sprintproject.view.ui.community.
+                        CommunityRecycleViewAdapter.MyViewHolder> {
 
     private final RecycleViewInterface recycleViewInterface;
     //variables for dining entries
@@ -24,7 +27,9 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
     private ArrayList<CommunityEntry> communityEntries;
 
     //constructor
-    public CommunityRecycleViewAdapter(Context context, ArrayList<CommunityEntry> communityEntries, RecycleViewInterface recycleViewInterface) {
+    public CommunityRecycleViewAdapter(Context context,
+                                       ArrayList<CommunityEntry> communityEntries,
+                                       RecycleViewInterface recycleViewInterface) {
         this.context = context;
         this.communityEntries = communityEntries;
         this.recycleViewInterface = recycleViewInterface;
@@ -33,7 +38,8 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
     //creates 'inflate' layout and gets our next box
     @NonNull
     @Override
-    public CommunityRecycleViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CommunityRecycleViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent,
+                                                                       int viewType) {
         //inflate layouts (giving a look to our rows)
         LayoutInflater inflator = LayoutInflater.from(context);
         //inflates based on fragment_community_entries.xml
@@ -43,7 +49,8 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
 
     //assigns values to each row as it comes back on screen
     @Override
-    public void onBindViewHolder(@NonNull CommunityRecycleViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CommunityRecycleViewAdapter.MyViewHolder holder,
+                                 int position) {
         //CommunityEntry entry = communityEntries.get(position);
         holder.destination.setText(communityEntries.get(position).getDestination());
         holder.accomodations.setText(communityEntries.get(position).getAccommodationsReview());

@@ -1,7 +1,6 @@
 package com.example.sprintproject.view.ui.community;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
 import com.example.sprintproject.model.FirebaseManager;
-import com.example.sprintproject.view.MainActivity;
-import com.example.sprintproject.view.ui.dining.SortContext;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
@@ -32,9 +29,9 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
     private FragmentCommunityBinding binding;
 
     //Added arrayList (Allyson)
-    ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
+    private ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
 
-    private SortContext context = new SortContext();
+    //private SortContext context = new SortContext();
 
     private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
 
@@ -43,8 +40,8 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
 
 
     //Too  public??
-    String startDate;
-    String endDate;
+    private String startDate;
+    private String endDate;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -80,7 +77,8 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
 
         RecyclerView recyclerView = binding.recyclerViewCommunity;
 
-        CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(), communityEntries, this);
+        CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(),
+                communityEntries, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(adapter);
 
@@ -96,13 +94,14 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
 
         //calls a new date picker fragment when the button is clicked
         startDateButton.setOnClickListener(v -> {
-            DatePickerFragment startDatePicker = DatePickerFragment.newInstance((year, month, day) -> {
-                //call whatever method you need with these variables for start date :)
+            DatePickerFragment startDatePicker =
+                    DatePickerFragment.newInstance((year, month, day) -> {
+                        //call whatever method you need with these variables for start date :)
 
-                //note to self: java converts if for you!!!
-                startDate = year + "/" + month + "/" + day;
-                startDateTextDisplay.setText(startDate);
-            });
+                        //note to self: java converts if for you!!!
+                        startDate = year + "/" + month + "/" + day;
+                        startDateTextDisplay.setText(startDate);
+                    });
             //make sure it updates properly (will need to test)
             startDatePicker.show(getChildFragmentManager(), "startDatePicker");
 
@@ -110,12 +109,13 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
 
         //calls a new date picker fragment when the button is clicked
         endDateButton.setOnClickListener(v -> {
-            DatePickerFragment endDatePicker = DatePickerFragment.newInstance((year, month, day) -> {
+            DatePickerFragment endDatePicker =
+                    DatePickerFragment.newInstance((year, month, day) -> {
 
-                //add method call for firebase upload
-                endDate = year + "/" + month + "/" + day;
-                endDateTextDisplay.setText(endDate);
-            });
+                        //add method call for firebase upload
+                        endDate = year + "/" + month + "/" + day;
+                        endDateTextDisplay.setText(endDate);
+                    });
             endDatePicker.show(getChildFragmentManager(), "endDatePicker");
         });
 
@@ -127,20 +127,22 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
             String diningReview = communityDiningInput.getText().toString();
             String tripNotes = communityNotesInput.getText().toString();
 
-            if (destinationReview.isEmpty() || accommodationsReview.isEmpty() || diningReview.isEmpty()
-                    || tripNotes.isEmpty()) {
+            if (destinationReview.isEmpty() || accommodationsReview.isEmpty()
+                    || diningReview.isEmpty() || tripNotes.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
             }
 
             //make new community entry
-            CommunityEntry post = new CommunityEntry(startDate, endDate, diningReview, accommodationsReview, destinationReview, tripNotes);
+            CommunityEntry post = new CommunityEntry(startDate, endDate,
+                    diningReview, accommodationsReview, destinationReview, tripNotes);
             //communityEntries.add(post);
 
             //Please check firefox implementation
             AddToCommunityDatabase add = new AddToCommunityDatabase();
-            add.interactWithCommunityDatabase(currentUser, tripRef, post, communityEntries, fragContext);
+            add.interactWithCommunityDatabase(currentUser, tripRef, post,
+                    communityEntries, fragContext);
 
             communityDestinationInput.setText("");
             communityAccommodationsInput.setText("");
@@ -151,7 +153,8 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
         });
 
         LoadFromCommunityDatabase load = new LoadFromCommunityDatabase();
-        load.interactWithCommunityDatabase(currentUser, tripRef, null, communityEntries, fragContext);
+        load.interactWithCommunityDatabase(currentUser, tripRef, null,
+                communityEntries, fragContext);
         adapter.notifyDataSetChanged();
 
         final TextView textView = binding.textCommunity;
@@ -165,12 +168,6 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
         int month;
         int day;
     }
-
-//    @Override
-//    public void onDestroyView() {
-//        super.onDestroyView();
-//        binding = null;
-//    }
 
     //onclick for recycleview
     @Override
