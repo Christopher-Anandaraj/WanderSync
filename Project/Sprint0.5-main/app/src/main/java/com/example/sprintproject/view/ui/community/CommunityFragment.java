@@ -175,6 +175,6 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
     //onclick for recycleview
     @Override
     public void onItemClick(int position) {
-        //implementation for after recycle view glitch
+        //potential implementation
     }
 }

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_community.xml",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_community.xml"
+    },
+    {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_community_entry_inner.xml",
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_community_entry_inner.xml"
     },
@@ -30,10 +34,6 @@
     {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_logistics.xml",
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
-    },
-    {
-        "merged": "com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_community_entry.xml",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_community_entry.xml"
     },
     {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-mergeDebugResources-57:/layout/fragment_community_entry.xml",

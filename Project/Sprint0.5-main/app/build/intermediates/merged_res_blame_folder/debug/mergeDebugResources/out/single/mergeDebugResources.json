@@ -8,6 +8,10 @@
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_transport.png"
     },
     {
+        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_community.xml.flat",
+        "source": "com.example.sprintproject.app-main-60:/layout/fragment_community.xml"
+    },
+    {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_community_selected.png.flat",
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_community_selected.png"
     },
@@ -26,10 +30,6 @@
     {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/navigation_mobile_navigation.xml.flat",
         "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/navigation/mobile_navigation.xml"
-    },
-    {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_community_entry.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_community_entry.xml"
     },
     {
         "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_activity_second.xml.flat",

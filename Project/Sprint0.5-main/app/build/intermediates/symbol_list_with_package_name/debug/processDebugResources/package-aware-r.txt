@@ -3449,7 +3449,9 @@ id communityExit
 id community_cardview
 id community_endDate_entry
 id community_entry_accomodations
+id community_entry_dining
 id community_entry_location
+id community_entry_notes
 id community_startDate_entry
 id compress
 id confirm_button

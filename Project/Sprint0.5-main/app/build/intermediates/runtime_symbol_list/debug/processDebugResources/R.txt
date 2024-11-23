@@ -3448,7 +3448,9 @@ int id communityExit 0x7f080290
 int id community_cardview 0x7f0800a7
 int id community_endDate_entry 0x7f0800a8
 int id community_entry_accomodations 0x7f0800a9
+int id community_entry_dining 0x7f080297
 int id community_entry_location 0x7f0800aa
+int id community_entry_notes 0x7f080298
 int id community_startDate_entry 0x7f0800ab
 int id compress 0x7f0800ac
 int id confirm_button 0x7f0800ad

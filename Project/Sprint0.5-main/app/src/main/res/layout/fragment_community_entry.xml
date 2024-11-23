@@ -27,6 +27,22 @@
         android:textColor="@android:color/black" />
 
     <TextView
+        android:id="@+id/community_entry_dining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dining"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/community_entry_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+
+    <TextView
         android:id="@+id/community_startDate_entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

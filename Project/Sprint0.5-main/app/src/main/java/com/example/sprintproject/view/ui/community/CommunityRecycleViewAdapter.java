@@ -49,6 +49,8 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
         holder.accomodations.setText(communityEntries.get(position).getAccommodationsReview());
         holder.startDate.setText(communityEntries.get(position).getStartDate());
         holder.endDate.setText(communityEntries.get(position).getEndDate());
+        holder.diningReview.setText(communityEntries.get(position).getDiningReview());
+        holder.tripNotes.setText(communityEntries.get(position).getTripNotes());
 
     }
 
@@ -78,6 +80,8 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
             accomodations = itemView.findViewById(R.id.community_entry_accomodations);
             startDate = itemView.findViewById(R.id.community_startDate_entry);
             endDate = itemView.findViewById(R.id.community_endDate_entry);
+            diningReview = itemView.findViewById(R.id.community_entry_dining);
+            tripNotes = itemView.findViewById(R.id.community_entry_notes);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

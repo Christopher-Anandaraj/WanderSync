@@ -37,14 +37,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="55dp"/>
 
+
+        <!-- This is the cardView for new travel post -->
+
         <Button
             android:id="@+id/communityExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"/>
+            android:text="+" />
 
-
-        <!-- This is the cardView for new travel post -->
         <androidx.cardview.widget.CardView
             android:id="@+id/community_cardview"
             android:layout_width="370dp"
