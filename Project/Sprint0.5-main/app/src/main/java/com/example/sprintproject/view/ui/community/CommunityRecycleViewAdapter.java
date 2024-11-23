@@ -18,14 +18,16 @@ import java.util.ArrayList;
 //Allyson Implementation ----------------------------------------------
 public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.example.sprintproject.view.ui.community.CommunityRecycleViewAdapter.MyViewHolder> {
 
+    private final RecycleViewInterface recycleViewInterface;
     //variables for dining entries
     private Context context; //for inflator
     private ArrayList<CommunityEntry> communityEntries;
 
     //constructor
-    public CommunityRecycleViewAdapter(Context context, ArrayList<CommunityEntry> communityEntries) {
+    public CommunityRecycleViewAdapter(Context context, ArrayList<CommunityEntry> communityEntries, RecycleViewInterface recycleViewInterface) {
         this.context = context;
         this.communityEntries = communityEntries;
+        this.recycleViewInterface = recycleViewInterface;
     }
 
     //creates 'inflate' layout and gets our next box
@@ -36,7 +38,7 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
         LayoutInflater inflator = LayoutInflater.from(context);
         //inflates based on fragment_community_entries.xml
         View view = inflator.inflate(R.layout.fragment_community_entry, parent, false);
-        return new CommunityRecycleViewAdapter.MyViewHolder(view);
+        return new CommunityRecycleViewAdapter.MyViewHolder(view, recycleViewInterface);
     }
 
     //assigns values to each row as it comes back on screen
@@ -68,15 +70,27 @@ public class CommunityRecycleViewAdapter extends RecyclerView.Adapter<com.exampl
 
         //might have to change view import
         //kinda like an on create method for each little box
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface) {
             super(itemView);
 
-            //check import method for R
             //update textViews to correct values
             destination = itemView.findViewById(R.id.community_entry_location);
             accomodations = itemView.findViewById(R.id.community_entry_accomodations);
             startDate = itemView.findViewById(R.id.community_startDate_entry);
             endDate = itemView.findViewById(R.id.community_endDate_entry);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recycleViewInterface != null) {
+                        int pos = getAdapterPosition();
+
+                        if (pos != RecyclerView.NO_POSITION) {
+                            recycleViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

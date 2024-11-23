@@ -1,6 +1,7 @@
 package com.example.sprintproject.view.ui.community;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,13 +20,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.MainActivity;
 import com.example.sprintproject.view.ui.dining.SortContext;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
-public class CommunityFragment extends Fragment {
+public class CommunityFragment extends Fragment implements RecycleViewInterface {
 
     private FragmentCommunityBinding binding;
 
@@ -78,10 +80,10 @@ public class CommunityFragment extends Fragment {
 
         RecyclerView recyclerView = binding.recyclerViewCommunity;
 
-        CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(), communityEntries);
+        CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(), communityEntries, this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(adapter);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         //opens and closes fragments
         openCardButton.setOnClickListener(v -> {
@@ -134,7 +136,7 @@ public class CommunityFragment extends Fragment {
 
             //make new community entry
             CommunityEntry post = new CommunityEntry(startDate, endDate, diningReview, accommodationsReview, destinationReview, tripNotes);
-            communityEntries.add(post);
+            //communityEntries.add(post);
 
             //Please check firefox implementation
             AddToCommunityDatabase add = new AddToCommunityDatabase();
@@ -147,18 +149,6 @@ public class CommunityFragment extends Fragment {
 
             adapter.notifyDataSetChanged();
         });
-
-        //test
-        //test implementation
-        String filler1 = "dhuasidhauis";
-        String filler2 = "dhuasidhauis";
-        String filler3 = "dhuasidhauis";
-        String filler4 = "dhuasidhauis";
-        String fakedate1 = "1/10/12";
-        String fakedate2 = "1/11/12";
-
-        CommunityEntry test = new CommunityEntry(fakedate1, fakedate2, filler1, filler2, filler3, filler4);
-        communityEntries.add(test);
 
         LoadFromCommunityDatabase load = new LoadFromCommunityDatabase();
         load.interactWithCommunityDatabase(currentUser, tripRef, null, communityEntries, fragContext);
@@ -176,9 +166,15 @@ public class CommunityFragment extends Fragment {
         int day;
     }
 
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        binding = null;
+//    }
+
+    //onclick for recycleview
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onItemClick(int position) {
+        //implementation for after recycle view glitch
     }
 }
