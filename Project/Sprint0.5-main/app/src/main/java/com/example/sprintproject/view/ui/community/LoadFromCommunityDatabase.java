@@ -6,6 +6,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.ui.community.CommunityDatabaseInteraction;
+import com.example.sprintproject.view.ui.community.CommunityEntry;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

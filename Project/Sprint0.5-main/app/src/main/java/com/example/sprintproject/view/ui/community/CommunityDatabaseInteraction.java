@@ -12,3 +12,4 @@ public interface CommunityDatabaseInteraction {
                                        ArrayList<CommunityEntry> communityEntries, Context context,
                                        CommunityRecycleViewAdapter adapter);
 }
+

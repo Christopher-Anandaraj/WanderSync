@@ -20,8 +20,7 @@ public class CommunityRecycleViewAdapter extends
         RecyclerView.Adapter
                 <com.example.sprintproject.view.ui.community.
                         CommunityRecycleViewAdapter.MyViewHolder> {
-
-//    private final RecycleViewInterface recycleViewInterface;
+  
     //variables for dining entries
     private Context context; //for inflator
     private ArrayList<CommunityEntry> communityEntries;
@@ -31,7 +30,6 @@ public class CommunityRecycleViewAdapter extends
                                        ArrayList<CommunityEntry> communityEntries) {
         this.context = context;
         this.communityEntries = communityEntries;
-//        this.recycleViewInterface = recycleViewInterface;
     }
 
     //creates 'inflate' layout and gets our next box
@@ -50,8 +48,6 @@ public class CommunityRecycleViewAdapter extends
     @Override
     public void onBindViewHolder(@NonNull CommunityRecycleViewAdapter.MyViewHolder holder,
                                  int position) {
-        //CommunityEntry entry = communityEntries.get(position);
-
         holder.destination.setText(communityEntries.get(position).getDestination());
         holder.duration.setText(communityEntries.get(position).getDuration() + " days");
         holder.dining.setText(communityEntries.get(position).getDiningReview());

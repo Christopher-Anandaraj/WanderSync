@@ -1,254 +1,270 @@
 [
     {
-        "merged": "com.example.sprintproject.app-debug-58:/menu_bottom_nav_menu.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/menu/bottom_nav_menu.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_community.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_community.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_locate.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_locate.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_transport.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_transport.png"
     },
     {
         "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_community.xml.flat",
         "source": "com.example.sprintproject.app-main-60:/layout/fragment_community.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_transport.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_transport.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_community_selected.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_community_selected.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/raw_takeoff.mp4.flat",
-        "source": "com.example.sprintproject.app-main-60:/raw/takeoff.mp4"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_activity_main.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/navigation_mobile_navigation.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/navigation/mobile_navigation.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_notes.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_notes.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_locate_selected.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_locate_selected.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_table_pink.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/table_pink.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/xml_data_extraction_rules.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/xml/data_extraction_rules.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/navigation_mobile_navigation.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/navigation/mobile_navigation.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/ic_launcher_background.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_activity_second.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_second.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/ic_launcher_foreground.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/xml/data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_eclipse.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_eclipse.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_transportation.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_transportation.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_add.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_add.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/menu_bottom_nav_menu.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/menu/bottom_nav_menu.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_dining.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_transport_selector.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/transport_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_wandersynclogo.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/wandersynclogo.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_community_selected.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_community_selected.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/ic_dashboard_black_24dp.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_dining.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_dining.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_activity_navigation.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_navigation.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_notes.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_notes.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_add.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_add.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_logistics_selected.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_logistics_selected.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_destination.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_destination.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_accom_selected.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_accom_selected.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/raw_intro.mp4.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/raw/intro.mp4"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_logistics.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_community.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_community.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_community.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_community.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_accommodation.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_accommodation.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_edit_text_background.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/edit_text_background.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_dining_selector.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/dining_selector.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_accom_selector.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/accom_selector.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_accom_selector.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/accom_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_dining_selected.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_dining_selected.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_transport_selector.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/transport_selector.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/raw_intro.mp4.flat",
-        "source": "com.example.sprintproject.app-main-60:/raw/intro.mp4"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/xml_backup_rules.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/xml/backup_rules.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_edit_text_background.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/edit_text_background.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_add_contributors.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_add_contributors.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_dining.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_dining.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_dining_list_entries.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_transport_selected.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_transport_selected.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_dining_selected.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_dining_selected.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_notes.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_notes.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/ic_notifications_black_24dp.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_reservation_font.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/reservation_font.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_wandersynclogo.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/wandersynclogo.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_transition_layout.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/transition_layout.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_destination_selector.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/destination_selector.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_dining.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_dining.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_table_pink_inverted.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/table_pink_inverted.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_accom_selected.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_accom_selected.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_logistics_selector.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/logistics_selector.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_accommodation.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_accommodation.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_add_contributors.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_add_contributors.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_community_entry_inner.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_community_entry_inner.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_transport_selected.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_transport_selected.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_community_selector.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/community_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_notes.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_notes.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_dining_selector.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/dining_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_accom.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_accom.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_accom.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_accom.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_activity_second.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/activity_second.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_locate.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_locate.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_eclipse.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_eclipse.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_locate_selected.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_locate_selected.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_destination_selector.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/destination_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_logistics.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_logistics.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_destination.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_destination.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/raw_takeoff.mp4.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/raw/takeoff.mp4"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_ic_home_black_24dp.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/ic_home_black_24dp.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_activity_create.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/activity_create.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_table_pink_inverted.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/table_pink_inverted.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_ic_dashboard_black_24dp.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/ic_dashboard_black_24dp.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_activity_main.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/activity_main.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_button_logistics_selected.png.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/button_logistics_selected.png"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_activity_navigation.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/activity_navigation.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/layout_fragment_transportation.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/layout/fragment_transportation.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_ic_home_black_24dp.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/ic_home_black_24dp.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/xml_backup_rules.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/xml/backup_rules.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_logistics_selector.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/logistics_selector.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_community_selector.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/community_selector.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_community_entry.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_community_entry.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_ic_notifications_black_24dp.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/ic_notifications_black_24dp.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_table_pink.xml.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/table_pink.xml"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_dining_list_entries.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_dining_list_entries.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_fragment_logistics.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/fragment_logistics.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/drawable_button_logistics.png.flat",
-        "source": "com.example.sprintproject.app-main-60:/drawable/button_logistics.png"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_edittext_boarder.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/edittext_boarder.xml"
     },
     {
-        "merged": "com.example.sprintproject.app-debug-58:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.sprintproject.app-main-60:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_reservation_font.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/reservation_font.xml"
+    },
+    {
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_transition_layout.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/transition_layout.xml"
+    },
+    {
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-debug-58:/layout_activity_create.xml.flat",
+        "source": "/home/killerpawz/.gradle/daemon/8.7/com.example.sprintproject.app-main-60:/layout/activity_create.xml"
     }
 ]

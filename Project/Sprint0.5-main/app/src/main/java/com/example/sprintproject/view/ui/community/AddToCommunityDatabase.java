@@ -16,6 +16,7 @@ public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
                                               CommunityEntry post,
                                               ArrayList<CommunityEntry> communityEntries,
                                               Context context, CommunityRecycleViewAdapter adapter) {
+
         if (user != null) {
             String uid = user.getUid();
 
@@ -51,3 +52,4 @@ public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
         communityEntries.add(post);
     }
 }
+

@@ -33,14 +33,26 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommunityFragment extends Fragment {
+public class CommunityFragment extends Fragment implements RecycleViewInterface {
+
+    private FragmentCommunityBinding binding;
+
+    //Added arrayList (Allyson)
     private ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
+
+    //private SortContext context = new SortContext();
+
     private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
     private String uid = currentUser.getUid();
+
     private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("communityEntry");
 
-    private FragmentCommunityBinding binding;
+
+    //Too  public??
+    private String startDate;
+    private String endDate;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -78,7 +90,7 @@ public class CommunityFragment extends Fragment {
                 communityCard.setVisibility(View.GONE);
             }
         });
-
+      
         LoadFromCommunityDatabase load = new LoadFromCommunityDatabase();
         load.interactWithCommunityDatabase(currentUser, tripRef, null,
                 communityEntries, fragContext, adapter);
@@ -241,13 +253,19 @@ public class CommunityFragment extends Fragment {
         load.interactWithCommunityDatabase(currentUser, tripRef, null,
                 communityEntries, fragContext, adapter);
         adapter.notifyDataSetChanged();
-
         return root;
     }
 
+
+    public void startDateUsage() {
+        int year;
+        int month;
+        int day;
+    }
+
+    //onclick for recycleview
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    public void onItemClick(int position) {
+        //potential implementation
     }
 }
