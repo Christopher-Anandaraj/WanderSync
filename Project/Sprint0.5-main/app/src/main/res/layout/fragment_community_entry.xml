@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Start of Allyson Implementation -->
+
+<!-- Linear layout for dining entries -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_location_foreground"
+            android:contentDescription="Location Icon"/>
+
+        <TextView
+            android:id="@+id/community_entry_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#000000"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_duration_foreground"
+            android:contentDescription="Duration Icon"/>
+
+        <TextView
+            android:id="@+id/community_entry_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_dining_foreground"
+            android:contentDescription="Dining Icon"/>
+
+        <TextView
+            android:id="@+id/community_entry_dining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dining"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_accommodations_foreground"
+            android:contentDescription="Accommodations Icon"/>
+
+        <TextView
+        android:id="@+id/community_entry_accomodations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accomodations"
+        android:textSize="18sp"
+        android:textColor="@android:color/black" />
+    </LinearLayout>
+    <!-- Text for accommodations entry in community -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_transportation_foreground"
+            android:contentDescription="Transportation Icon"/>
+
+        <TextView
+            android:id="@+id/community_entry_transportation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transportation"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_notes_foreground"
+            android:contentDescription="Transportation Icon"/>
+
+        <TextView
+            android:id="@+id/community_entry_notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+    <!-- End of Allyson Implementation -->

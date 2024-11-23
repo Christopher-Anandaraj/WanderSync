@@ -5,4 +5,6 @@
 
     <color name="allocatedDays">#FFC0CB</color>
     <color name="plannedDays">#FFA500</color>
+    
+    <color name="darkBlue">#4e867f</color>
 </resources>

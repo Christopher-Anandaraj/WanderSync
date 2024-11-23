@@ -1,5 +1,6 @@
 package com.example.sprintproject.view.ui.community;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +14,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
 import com.example.sprintproject.model.FirebaseManager;
-import com.example.sprintproject.view.ui.destination.DestinationUtils;
+import com.example.sprintproject.view.ui.ReservationUtils;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,9 +34,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommunityFragment extends Fragment {
-
+    private ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
     private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
-    String uid = currentUser.getUid();
+    private String uid = currentUser.getUid();
+    private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
+            .child("communityEntry");
 
     private FragmentCommunityBinding binding;
 
@@ -48,10 +54,35 @@ public class CommunityFragment extends Fragment {
         Spinner tripDestination = binding.communityPostDestination;
         EditText accommodationReservations = binding.communityPostAccommodations;
         EditText diningReservations = binding.communityPostDining;
-        EditText transportation = binding.communityPostTransportation;
+        EditText tripTransportation = binding.communityPostTransportation;
         EditText tripNotes = binding.communityPostNotes;
+
         Button submitPostButton = binding.addCommunityPostButton;
         Button openCreatePostButton = binding.createCommunityPostButton;
+
+        Context fragContext = requireContext();
+
+
+        RecyclerView recyclerView = binding.communityPostList;
+        CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(),
+                communityEntries);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView.setAdapter(adapter);
+
+        CardView communityCard = binding.createCommunityPostCardview;
+        communityCard.setVisibility(View.GONE);
+        openCreatePostButton.setOnClickListener(v -> {
+            if (communityCard.getVisibility() == View.GONE) {
+                communityCard.setVisibility(View.VISIBLE);
+            } else {
+                communityCard.setVisibility(View.GONE);
+            }
+        });
+
+        LoadFromCommunityDatabase load = new LoadFromCommunityDatabase();
+        load.interactWithCommunityDatabase(currentUser, tripRef, null,
+                communityEntries, fragContext, adapter);
+        adapter.notifyDataSetChanged();
 
         // create arraylist of all destinations the current user logged
         List<String> destinationItems = new ArrayList<>();
@@ -79,16 +110,17 @@ public class CommunityFragment extends Fragment {
         });
 
         // Set up the ArrayAdapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getContext(),
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this.getContext(),
                 android.R.layout.simple_spinner_dropdown_item, destinationItems);
-        tripDestination.setAdapter(adapter);
+        tripDestination.setAdapter(arrayAdapter);
 
+        final String[] selectedItem = new String[1];
         // Handle item selection
         tripDestination.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 0) {
-                    String selectedItem = parent.getItemAtPosition(position).toString();
+                    selectedItem[0] = parent.getItemAtPosition(position).toString();
 
                     destinationRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -96,11 +128,11 @@ public class CommunityFragment extends Fragment {
                             // Loop through all children of the branch
                             for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                                 Object value = childSnapshot.child("location").getValue();
-                                if (value.equals(selectedItem)) {
+                                if (value.equals(selectedItem[0])) {
                                     Object startDate = childSnapshot.child("startDate").getValue();
                                     Object endDate = childSnapshot.child("endDate").getValue();
 
-                                    long duration = DestinationUtils.calculateDaysBetween((String) startDate,
+                                    long duration = ReservationUtils.calculateDaysBetween((String) startDate,
                                             (String) endDate);
                                     tripDuration.setText(String.valueOf(duration));
                                 }
@@ -171,6 +203,44 @@ public class CommunityFragment extends Fragment {
                 System.err.println("Error: " + databaseError.getMessage());
             }
         });
+
+        submitPostButton.setOnClickListener(v -> {
+            //get review info
+            String duration = tripDuration.getText().toString().trim();
+            String destination = selectedItem[0];
+            String accommodations = accommodationReservations.getText().toString().trim();
+            String dining = diningReservations.getText().toString().trim();
+            String transportation = tripTransportation.getText().toString().trim();
+            String notes = tripNotes.getText().toString().trim();
+
+            if (destination.isEmpty() || accommodations.isEmpty()
+                    || dining.isEmpty() || transportation.isEmpty() || notes.isEmpty()) {
+                Toast.makeText(getContext(), "Please fill in all fields and try again.",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            //make new community entry
+            CommunityEntry post = new CommunityEntry(duration,
+                    dining, accommodations, destination, transportation, notes);
+
+            //Please check firefox implementation
+            AddToCommunityDatabase add = new AddToCommunityDatabase();
+            add.interactWithCommunityDatabase(currentUser, tripRef, post,
+                    communityEntries, fragContext, adapter);
+
+            tripDuration.setText("");
+            accommodationReservations.setText("");
+            diningReservations.setText("");
+            tripTransportation.setText("");
+            tripNotes.setText("");
+
+            adapter.notifyDataSetChanged();
+            communityCard.setVisibility(View.GONE);
+        });
+        load.interactWithCommunityDatabase(currentUser, tripRef, null,
+                communityEntries, fragContext, adapter);
+        adapter.notifyDataSetChanged();
 
         return root;
     }
