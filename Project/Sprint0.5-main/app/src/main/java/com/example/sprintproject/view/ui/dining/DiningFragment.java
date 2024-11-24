@@ -20,17 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.sprintproject.databinding.FragmentDiningBinding;
 import com.example.sprintproject.model.FirebaseManager;
 import com.google.firebase.auth.FirebaseUser;
-/*import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;*/
 import com.google.firebase.database.DatabaseReference;
-/*
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-*/
-
-/*import java.util.ArrayDeque;
-import java.util.HashMap;
-import java.util.Map;*/
 
 import java.util.ArrayList;
 
@@ -148,7 +138,7 @@ public class DiningFragment extends Fragment {
     }
   
     public boolean isValidMilitaryTime(String time) {
-        String regex = "^([01]?[0-9]|2[0-3]):[0-5][0-9]$";
+        String regex = "^([01]?\\d|2[0-3]):[0-5]\\d$";
         return time.matches(regex);
     }
 

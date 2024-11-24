@@ -15,7 +15,8 @@ public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
     public void interactWithCommunityDatabase(FirebaseUser user, DatabaseReference database,
                                               CommunityEntry post,
                                               ArrayList<CommunityEntry> communityEntries,
-                                              Context context) {
+                                              Context context, CommunityRecycleViewAdapter adapter) {
+
         if (user != null) {
             String uid = user.getUid();
 
@@ -24,11 +25,11 @@ public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
             String postId = userReservations.child("community").push().getKey();
 
             Map<String, String> communityMap = new HashMap<>();
-            communityMap.put("Start date", post.getStartDate());
-            communityMap.put("End Date", post.getEndDate());
-            communityMap.put("Dining review", post.getDiningReview());
-            communityMap.put("Accommodation review", post.getAccommodationsReview());
+            communityMap.put("Duration", post.getDuration());
+            communityMap.put("Dining reservations", post.getDiningReview());
+            communityMap.put("Accommodation reservations", post.getAccommodationsReview());
             communityMap.put("Destination", post.getDestination());
+            communityMap.put("Transportation", post.getTransportation());
             communityMap.put("Trip notes", post.getTripNotes());
 
             if (postId != null) {
@@ -51,3 +52,4 @@ public class AddToCommunityDatabase implements CommunityDatabaseInteraction {
         communityEntries.add(post);
     }
 }
+

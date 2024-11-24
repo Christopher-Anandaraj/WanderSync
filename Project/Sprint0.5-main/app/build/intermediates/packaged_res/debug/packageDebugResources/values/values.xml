@@ -2,6 +2,7 @@
 <resources>
     <color name="allocatedDays">#FFC0CB</color>
     <color name="black">#FF000000</color>
+    <color name="darkBlue">#4e867f</color>
     <color name="plannedDays">#FFA500</color>
     <color name="white">#FFFFFFFF</color>
     <dimen name="activity_horizontal_margin">16dp</dimen>

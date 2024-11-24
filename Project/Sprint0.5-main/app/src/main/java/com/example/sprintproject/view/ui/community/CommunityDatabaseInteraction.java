@@ -9,5 +9,7 @@ import java.util.ArrayList;
 public interface CommunityDatabaseInteraction {
     void interactWithCommunityDatabase(FirebaseUser user, DatabaseReference database,
                                        CommunityEntry post,
-                                       ArrayList<CommunityEntry> communityEntries, Context context);
+                                       ArrayList<CommunityEntry> communityEntries, Context context,
+                                       CommunityRecycleViewAdapter adapter);
 }
+

@@ -33,5 +33,13 @@ public class DiningEntry {
     public String getLink() {
         return link;
     }
+
+    // sophie
+    public int getTotalMinutes() {
+        String[] parts = time.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        return hours * 60 + minutes;
+    }
 }
 //End of Allyson Implementation ------------------------------------------------------------------

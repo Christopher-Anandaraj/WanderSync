@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,10 +22,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.databinding.FragmentCommunityBinding;
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.ui.ReservationUtils;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CommunityFragment extends Fragment implements RecycleViewInterface {
 
@@ -34,6 +43,7 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
     //private SortContext context = new SortContext();
 
     private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
+    private String uid = currentUser.getUid();
 
     private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("communityEntry");
@@ -52,113 +62,197 @@ public class CommunityFragment extends Fragment implements RecycleViewInterface 
         binding = FragmentCommunityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        //Allyson Implementation ------------------------
+        EditText tripDuration = binding.communityPostDuration;
+        Spinner tripDestination = binding.communityPostDestination;
+        EditText accommodationReservations = binding.communityPostAccommodations;
+        EditText diningReservations = binding.communityPostDining;
+        EditText tripTransportation = binding.communityPostTransportation;
+        EditText tripNotes = binding.communityPostNotes;
 
-        //added UI buttons
-        Button startDateButton = binding.startDateButtonCommunity;
-        Button endDateButton = binding.endDateButtonCommunity;
-        Button addTripReviewButton = binding.addTripPostbutton;
-        Button openCardButton = binding.communityExit;
-
-        //textViews
-        TextView startDateTextDisplay = binding.startDateTextDisplay;
-        TextView endDateTextDisplay = binding.endDateTextDisplay;
-
-        //cardView
-        CardView communityCard = binding.communityCardview;
-
-        //editText
-        EditText communityDestinationInput = binding.communityDestinationInput;
-        EditText communityAccommodationsInput = binding.accommodationsInput;
-        EditText communityDiningInput = binding.diningInput;
-        EditText communityNotesInput = binding.notesInput;
+        Button submitPostButton = binding.addCommunityPostButton;
+        Button openCreatePostButton = binding.createCommunityPostButton;
 
         Context fragContext = requireContext();
 
-        RecyclerView recyclerView = binding.recyclerViewCommunity;
 
+        RecyclerView recyclerView = binding.communityPostList;
         CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(),
-                communityEntries, this);
+                communityEntries);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(adapter);
 
-
-        //opens and closes fragments
-        openCardButton.setOnClickListener(v -> {
+        CardView communityCard = binding.createCommunityPostCardview;
+        communityCard.setVisibility(View.GONE);
+        openCreatePostButton.setOnClickListener(v -> {
             if (communityCard.getVisibility() == View.GONE) {
                 communityCard.setVisibility(View.VISIBLE);
             } else {
                 communityCard.setVisibility(View.GONE);
             }
         });
+      
+        LoadFromCommunityDatabase load = new LoadFromCommunityDatabase();
+        load.interactWithCommunityDatabase(currentUser, tripRef, null,
+                communityEntries, fragContext, adapter);
+        adapter.notifyDataSetChanged();
 
-        //calls a new date picker fragment when the button is clicked
-        startDateButton.setOnClickListener(v -> {
-            DatePickerFragment startDatePicker =
-                    DatePickerFragment.newInstance((year, month, day) -> {
-                        //call whatever method you need with these variables for start date :)
+        // create arraylist of all destinations the current user logged
+        List<String> destinationItems = new ArrayList<>();
+        destinationItems.add("Destinations");
+        DatabaseReference destinationRef = FirebaseDatabase.getInstance().getReference()
+                .child("travelLogs").child(uid).child("destinations");
+        DatabaseReference userTravelRef = FirebaseDatabase.getInstance().getReference()
+                .child("travelLogs").child(uid);
 
-                        //note to self: java converts if for you!!!
-                        startDate = year + "/" + month + "/" + day;
-                        startDateTextDisplay.setText(startDate);
-                    });
-            //make sure it updates properly (will need to test)
-            startDatePicker.show(getChildFragmentManager(), "startDatePicker");
+        destinationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Loop through all children of the branch
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Object value = childSnapshot.child("location").getValue();
+                    destinationItems.add((String) value);
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                System.err.println("Error: " + databaseError.getMessage());
+            }
         });
 
-        //calls a new date picker fragment when the button is clicked
-        endDateButton.setOnClickListener(v -> {
-            DatePickerFragment endDatePicker =
-                    DatePickerFragment.newInstance((year, month, day) -> {
+        // Set up the ArrayAdapter
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this.getContext(),
+                android.R.layout.simple_spinner_dropdown_item, destinationItems);
+        tripDestination.setAdapter(arrayAdapter);
 
-                        //add method call for firebase upload
-                        endDate = year + "/" + month + "/" + day;
-                        endDateTextDisplay.setText(endDate);
+        final String[] selectedItem = new String[1];
+        // Handle item selection
+        tripDestination.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position > 0) {
+                    selectedItem[0] = parent.getItemAtPosition(position).toString();
+
+                    destinationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // Loop through all children of the branch
+                            for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                                Object value = childSnapshot.child("location").getValue();
+                                if (value.equals(selectedItem[0])) {
+                                    Object startDate = childSnapshot.child("startDate").getValue();
+                                    Object endDate = childSnapshot.child("endDate").getValue();
+
+                                    long duration = ReservationUtils.calculateDaysBetween((String) startDate,
+                                            (String) endDate);
+                                    tripDuration.setText(String.valueOf(duration));
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            // Handle possible errors
+                            System.err.println("Error: " + databaseError.getMessage());
+                        }
                     });
-            endDatePicker.show(getChildFragmentManager(), "endDatePicker");
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
         });
 
-        //press submit button
-        addTripReviewButton.setOnClickListener(v -> {
+
+        // create arraylist of all dining reservations the current user logged
+        List<String> diningItems = new ArrayList<>();
+        DatabaseReference diningRef = FirebaseDatabase.getInstance().getReference()
+                .child("diningReservations").child(uid);
+
+        diningRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Loop through all children of the branch
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Object value = childSnapshot.child("name").getValue();
+                    diningItems.add(String.valueOf(value));
+                }
+                String formattedDiningItems = String.join(", ", diningItems);
+                diningReservations.setText(formattedDiningItems);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                System.err.println("Error: " + databaseError.getMessage());
+            }
+        });
+
+
+        // create arraylist of all accommodations reservations the current user logged
+        List<String> accommodationItems = new ArrayList<>();
+        DatabaseReference accommodationRef = FirebaseDatabase.getInstance().getReference()
+                .child("accommodation").child(uid).child("accommodations");
+
+        accommodationRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Loop through all children of the branch
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    Object value = childSnapshot.child("locationName").getValue();
+                    accommodationItems.add((String) value);
+                }
+                String formattedAccommodationItems = String.join(", ", accommodationItems);
+                accommodationReservations.setText(formattedAccommodationItems);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Handle possible errors
+                System.err.println("Error: " + databaseError.getMessage());
+            }
+        });
+
+        submitPostButton.setOnClickListener(v -> {
             //get review info
-            String destinationReview = communityDestinationInput.getText().toString();
-            String accommodationsReview = communityAccommodationsInput.getText().toString();
-            String diningReview = communityDiningInput.getText().toString();
-            String tripNotes = communityNotesInput.getText().toString();
+            String duration = tripDuration.getText().toString().trim();
+            String destination = selectedItem[0];
+            String accommodations = accommodationReservations.getText().toString().trim();
+            String dining = diningReservations.getText().toString().trim();
+            String transportation = tripTransportation.getText().toString().trim();
+            String notes = tripNotes.getText().toString().trim();
 
-            if (destinationReview.isEmpty() || accommodationsReview.isEmpty()
-                    || diningReview.isEmpty() || tripNotes.isEmpty()) {
+            if (destination.isEmpty() || accommodations.isEmpty()
+                    || dining.isEmpty() || transportation.isEmpty() || notes.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
             }
 
             //make new community entry
-            CommunityEntry post = new CommunityEntry(startDate, endDate,
-                    diningReview, accommodationsReview, destinationReview, tripNotes);
-            //communityEntries.add(post);
+            CommunityEntry post = new CommunityEntry(duration,
+                    dining, accommodations, destination, transportation, notes);
 
             //Please check firefox implementation
             AddToCommunityDatabase add = new AddToCommunityDatabase();
             add.interactWithCommunityDatabase(currentUser, tripRef, post,
-                    communityEntries, fragContext);
+                    communityEntries, fragContext, adapter);
 
-            communityDestinationInput.setText("");
-            communityAccommodationsInput.setText("");
-            communityDiningInput.setText("");
-            communityNotesInput.setText("");
+            tripDuration.setText("");
+            accommodationReservations.setText("");
+            diningReservations.setText("");
+            tripTransportation.setText("");
+            tripNotes.setText("");
 
             adapter.notifyDataSetChanged();
+            communityCard.setVisibility(View.GONE);
         });
-
-        LoadFromCommunityDatabase load = new LoadFromCommunityDatabase();
         load.interactWithCommunityDatabase(currentUser, tripRef, null,
-                communityEntries, fragContext);
+                communityEntries, fragContext, adapter);
         adapter.notifyDataSetChanged();
-
-        final TextView textView = binding.textCommunity;
-        communityViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

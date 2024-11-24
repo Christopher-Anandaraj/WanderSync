@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class LoadFromCommunityDatabase implements CommunityDatabaseInteraction {
     @Override
     public void interactWithCommunityDatabase(FirebaseUser user, DatabaseReference database, CommunityEntry
-            post, ArrayList<CommunityEntry> communityEntries, Context context) {
+            post, ArrayList<CommunityEntry> communityEntries, Context context, CommunityRecycleViewAdapter adapter) {
         //Allyson ________________________________
         //Clear arraylist beforehand
         communityEntries.clear();
@@ -77,31 +77,34 @@ public class LoadFromCommunityDatabase implements CommunityDatabaseInteraction {
                                     communityEntries.clear();
 
                                     for (DataSnapshot childSnapshot : snapshot.getChildren()) {
-                                        String loadedStartDate =
+                                        String loadedDuration =
                                                 childSnapshot
-                                                        .child("Start date").getValue().toString();
-                                        String loadedEndDate =
-                                                childSnapshot
-                                                        .child("End date").getValue().toString();
+                                                        .child("Duration").getValue()
+                                                        .toString();
                                         String loadedDiningReview =
                                                 childSnapshot
-                                                        .child("Dining Review").getValue()
+                                                        .child("Dining reservations").getValue()
                                                         .toString();
                                         String loadedAccommodationReview =
                                                 childSnapshot
-                                                        .child("Accommodation Review").getValue().toString();
+                                                        .child("Accommodation reservations").getValue().toString();
                                         String loadedDestination =
                                                 childSnapshot
                                                         .child("Destination").getValue().toString();
+                                        String loadedTransportation =
+                                                childSnapshot
+                                                        .child("Transportation").getValue().toString();
                                         String loadedTripNotes =
                                                 childSnapshot
                                                         .child("Trip notes").getValue().toString();
 
                                         communityEntries.
-                                                add(new CommunityEntry(loadedStartDate, loadedEndDate,
+                                                add(new CommunityEntry(loadedDuration,
                                                         loadedDiningReview, loadedAccommodationReview,
-                                                        loadedDestination, loadedTripNotes));
+                                                        loadedDestination, loadedTransportation,
+                                                        loadedTripNotes));
                                     }
+                                    adapter.notifyDataSetChanged();
 
                                 }
 
