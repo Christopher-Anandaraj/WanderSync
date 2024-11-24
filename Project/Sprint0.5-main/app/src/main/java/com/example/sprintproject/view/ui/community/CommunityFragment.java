@@ -37,6 +37,7 @@ public class CommunityFragment extends Fragment {
     private ArrayList<CommunityEntry> communityEntries = new ArrayList<>();
     private FirebaseUser currentUser = FirebaseManager.getInstance().getAuth().getCurrentUser();
     private String uid = currentUser.getUid();
+    private static String currentUsername;
     private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("communityEntry");
 
@@ -50,18 +51,23 @@ public class CommunityFragment extends Fragment {
         binding = FragmentCommunityBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        EditText tripDuration = binding.communityPostDuration;
+        final long[] foundDuration = new long[1];
         Spinner tripDestination = binding.communityPostDestination;
         EditText accommodationReservations = binding.communityPostAccommodations;
         EditText diningReservations = binding.communityPostDining;
         EditText tripTransportation = binding.communityPostTransportation;
         EditText tripNotes = binding.communityPostNotes;
 
+        TextView startDateTextDisplay = binding.startDateTextDisplay;
+        TextView endDateTextDisplay = binding.endDateTextDisplay;
+
+        Button startDateButton = binding.startDateButtonCommunity;
+        Button endDateButton = binding.endDateButtonCommunity;
+
         Button submitPostButton = binding.addCommunityPostButton;
         Button openCreatePostButton = binding.createCommunityPostButton;
 
         Context fragContext = requireContext();
-
 
         RecyclerView recyclerView = binding.communityPostList;
         CommunityRecycleViewAdapter adapter = new CommunityRecycleViewAdapter(this.getContext(),
@@ -83,6 +89,50 @@ public class CommunityFragment extends Fragment {
         load.interactWithCommunityDatabase(currentUser, tripRef, null,
                 communityEntries, fragContext, adapter);
         adapter.notifyDataSetChanged();
+
+        //calls a new date picker fragment when the button is clicked
+        startDateButton.setOnClickListener(v -> {
+            DatePickerFragment startDatePicker =
+                    DatePickerFragment.newInstance((year, month, day) -> {
+                        //call whatever method you need with these variables for start date :)
+
+                        //note to self: java converts if for you!!!
+                        String startDate = year + "/" + month + "/" + day;
+                        startDateTextDisplay.setText(startDate);
+                    });
+            //make sure it updates properly (will need to test)
+            startDatePicker.show(getChildFragmentManager(), "startDatePicker");
+
+        });
+
+        //calls a new date picker fragment when the button is clicked
+        endDateButton.setOnClickListener(v -> {
+            DatePickerFragment endDatePicker =
+                    DatePickerFragment.newInstance((year, month, day) -> {
+
+                        //add method call for firebase upload
+                        String endDate = year + "/" + month + "/" + day;
+                        endDateTextDisplay.setText(endDate);
+                    });
+            endDatePicker.show(getChildFragmentManager(), "endDatePicker");
+        });
+
+        // get username of current user
+        DatabaseReference usersRef = FirebaseManager.getInstance()
+                .getDatabaseReference().child("users")
+                .child(uid).child("username");
+
+        usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                currentUsername = snapshot.getValue(String.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         // create arraylist of all destinations the current user logged
         List<String> destinationItems = new ArrayList<>();
@@ -129,12 +179,19 @@ public class CommunityFragment extends Fragment {
                             for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                                 Object value = childSnapshot.child("location").getValue();
                                 if (value.equals(selectedItem[0])) {
-                                    Object startDate = childSnapshot.child("startDate").getValue();
-                                    Object endDate = childSnapshot.child("endDate").getValue();
+                                    final Object[] startDate = {childSnapshot.child("startDate").getValue()};
+                                    final Object[] endDate = {childSnapshot.child("endDate").getValue()};
 
-                                    long duration = ReservationUtils.calculateDaysBetween((String) startDate,
-                                            (String) endDate);
-                                    tripDuration.setText(String.valueOf(duration));
+                                    String[] startSplit = ((String) startDate[0]).split("-");
+                                    String newStartDate = startSplit[0] + "/" + startSplit[1] + "/" + startSplit[2]; // Hardcoded date
+                                    startDateTextDisplay.setText(newStartDate); // Update the TextView
+
+                                    String[] endSplit = ((String) endDate[0]).split("-");
+                                    String newEndDate = endSplit[0] + "/" + endSplit[1] + "/" + endSplit[2]; // Hardcoded date
+                                    endDateTextDisplay.setText(newEndDate); // Update the TextView
+
+                                    foundDuration[0] = ReservationUtils.calculateDaysBetween((String) startDate[0],
+                                            (String) endDate[0]);
                                 }
                             }
                         }
@@ -206,7 +263,7 @@ public class CommunityFragment extends Fragment {
 
         submitPostButton.setOnClickListener(v -> {
             //get review info
-            String duration = tripDuration.getText().toString().trim();
+            String duration = String.valueOf(foundDuration[0]);
             String destination = selectedItem[0];
             String accommodations = accommodationReservations.getText().toString().trim();
             String dining = diningReservations.getText().toString().trim();
@@ -229,7 +286,6 @@ public class CommunityFragment extends Fragment {
             add.interactWithCommunityDatabase(currentUser, tripRef, post,
                     communityEntries, fragContext, adapter);
 
-            tripDuration.setText("");
             accommodationReservations.setText("");
             diningReservations.setText("");
             tripTransportation.setText("");
@@ -249,5 +305,9 @@ public class CommunityFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public static String getCurrentUsername() {
+        return currentUsername;
     }
 }

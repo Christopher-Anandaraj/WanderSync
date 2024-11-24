@@ -20,7 +20,7 @@ public class LoadFromDatabase implements DatabaseInteraction {
     public void interactWithDatabase(FirebaseUser user,
                                      DatabaseReference database,
                                      DiningEntry reservation, ArrayList<DiningEntry> diningEntries,
-                                     Context context) {
+                                     Context context, DiningRecycleViewAdapter adapter) {
         //Allyson ________________________________
         //Clear arraylist beforehand
         diningEntries.clear();
@@ -70,7 +70,7 @@ public class LoadFromDatabase implements DatabaseInteraction {
 
                         if (hasAccess && ownerID != null) {
                             DatabaseReference diningRef = database.child(ownerID);
-                            addToEntries(diningRef, diningEntries, context);
+                            addToEntries(diningRef, diningEntries, context, adapter);
 
                         } else {
                             Toast.makeText(context, "Access denied.", Toast.LENGTH_SHORT).show();
@@ -93,7 +93,7 @@ public class LoadFromDatabase implements DatabaseInteraction {
         });
     }
 
-    public void addToEntries(DatabaseReference databaseReference, ArrayList<DiningEntry> list, Context context) {
+    public void addToEntries(DatabaseReference databaseReference, ArrayList<DiningEntry> list, Context context, DiningRecycleViewAdapter adapter) {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -118,6 +118,7 @@ public class LoadFromDatabase implements DatabaseInteraction {
                             add(new DiningEntry(loadedName, loadedLoc,
                                     loadedTime, loadedWebsite));
                 }
+                adapter.notifyDataSetChanged();
 
             }
 
