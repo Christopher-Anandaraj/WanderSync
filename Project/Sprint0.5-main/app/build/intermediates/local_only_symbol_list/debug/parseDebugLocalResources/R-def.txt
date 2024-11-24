@@ -27,6 +27,7 @@ drawable community_selector
 drawable destination_selector
 drawable dining_selector
 drawable edit_text_background
+drawable edittext_boarder
 drawable ic_dashboard_black_24dp
 drawable ic_home_black_24dp
 drawable ic_launcher_background
@@ -49,6 +50,8 @@ id accommodation_location_name
 id accommodation_table
 id accommodation_website
 id accommodation_website_name
+id accommodationsInput
+id addTripPostbutton
 id add_reservation_button
 id add_reservation_title
 id box
@@ -72,9 +75,19 @@ id button_vacation_time_cancel
 id button_vacation_time_submit
 id button_x
 id cardViewGraph
+id communityDestinationInput
+id communityExit
+id community_cardview
+id community_endDate_entry
+id community_entry_accomodations
+id community_entry_dining
+id community_entry_location
+id community_entry_notes
+id community_startDate_entry
 id container
 id contributors_list
 id createButton
+id diningInput
 id dining_list
 id dining_location_input
 id dining_name_input
@@ -85,6 +98,8 @@ id editTextNewNote
 id editTextPassword
 id editTextUsername
 id editText_contributor_name
+id endDateButtonCommunity
+id endDateTextDisplay
 id end_date
 id fragment_accommodation
 id fragment_community
@@ -108,10 +123,13 @@ id navigation_dashboard
 id navigation_dining
 id navigation_home
 id navigation_notifications
+id newTravelPost_title
 id notes
+id notesInput
 id open_reservation_cardview_button
 id password
 id piechart
+id recyclerViewCommunity
 id reservation_cardview
 id reservation_entry_link
 id reservation_entry_location
@@ -119,6 +137,8 @@ id reservation_entry_restaurant
 id reservation_entry_time
 id rooms_number
 id rooms_type
+id startDateButtonCommunity
+id startDateTextDisplay
 id start_date
 id tableLayoutNotes
 id tableLayout_add_contributor
@@ -161,6 +181,7 @@ layout activity_navigation
 layout activity_second
 layout fragment_accommodation
 layout fragment_community
+layout fragment_community_entry
 layout fragment_destination
 layout fragment_dining
 layout fragment_dining_list_entries

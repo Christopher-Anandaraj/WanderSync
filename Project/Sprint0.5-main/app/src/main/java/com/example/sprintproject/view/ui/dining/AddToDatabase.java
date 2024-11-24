@@ -47,5 +47,4 @@ public class AddToDatabase implements DatabaseInteraction {
         //update list
         diningEntries.add(reservation);
     }
-
 }
