@@ -43,8 +43,4 @@ public class CommunityEntry {
     public String getTripNotes() {
         return tripNotes;
     }
-  
-    public String getTripNotes() {
-        return tripNotes;
-    }
 }
