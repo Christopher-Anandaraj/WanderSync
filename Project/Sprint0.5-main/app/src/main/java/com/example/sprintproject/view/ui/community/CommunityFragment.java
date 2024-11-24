@@ -2,6 +2,7 @@ package com.example.sprintproject.view.ui.community;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CommunityFragment extends Fragment {
@@ -40,6 +44,9 @@ public class CommunityFragment extends Fragment {
     private static String currentUsername;
     private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("communityEntry");
+
+    String startDate;
+    String endDate;
 
     private FragmentCommunityBinding binding;
 
@@ -97,7 +104,7 @@ public class CommunityFragment extends Fragment {
                         //call whatever method you need with these variables for start date :)
 
                         //note to self: java converts if for you!!!
-                        String startDate = year + "/" + month + "/" + day;
+                        startDate = year + "/" + month + "/" + day;
                         startDateTextDisplay.setText(startDate);
                     });
             //make sure it updates properly (will need to test)
@@ -111,9 +118,19 @@ public class CommunityFragment extends Fragment {
                     DatePickerFragment.newInstance((year, month, day) -> {
 
                         //add method call for firebase upload
-                        String endDate = year + "/" + month + "/" + day;
+                        String endDate = year + "/" + (month + 1) + "/" + day;
                         endDateTextDisplay.setText(endDate);
+
+                        boolean result = isStartDateBeforeEndDate(startDate, endDate);
+
+                        //check end date is after start date
+                        if (result) {
+                            endDateTextDisplay.setText(endDate);
+                        } else {
+                            endDateTextDisplay.setText("Invalid Date!");
+                        }
                     });
+
             endDatePicker.show(getChildFragmentManager(), "endDatePicker");
         });
 
@@ -270,8 +287,11 @@ public class CommunityFragment extends Fragment {
             String transportation = tripTransportation.getText().toString().trim();
             String notes = tripNotes.getText().toString().trim();
 
-            if (destination.isEmpty() || accommodations.isEmpty()
-                    || dining.isEmpty() || transportation.isEmpty() || notes.isEmpty()) {
+            if (TextUtils.isEmpty(startDateTextDisplay.getText().toString().trim())
+                    || TextUtils.isEmpty(endDateTextDisplay.getText().toString().trim())
+                    || destination.isEmpty()
+                    || accommodations.isEmpty() || dining.isEmpty()
+                    || transportation.isEmpty() || notes.isEmpty()) {
                 Toast.makeText(getContext(), "Please fill in all fields and try again.",
                         Toast.LENGTH_SHORT).show();
                 return;
@@ -309,5 +329,19 @@ public class CommunityFragment extends Fragment {
 
     public static String getCurrentUsername() {
         return currentUsername;
+    }
+
+    public static boolean isStartDateBeforeEndDate(String startDate, String endDate) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        dateFormat.setLenient(false); // Ensures strict parsing of date strings
+
+        try {
+            Date start = dateFormat.parse(startDate);
+            Date end = dateFormat.parse(endDate);
+
+            return start.before(end);
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }
