@@ -30,7 +30,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CommunityFragment extends Fragment {
@@ -40,6 +43,8 @@ public class CommunityFragment extends Fragment {
     private static String currentUsername;
     private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("communityEntry");
+
+    private String startDate;
 
     private FragmentCommunityBinding binding;
 
@@ -97,7 +102,7 @@ public class CommunityFragment extends Fragment {
                         //call whatever method you need with these variables for start date :)
 
                         //note to self: java converts if for you!!!
-                        String startDate = year + "/" + month + "/" + day;
+                        startDate = year + "/" + month + "/" + day;
                         startDateTextDisplay.setText(startDate);
                     });
             //make sure it updates properly (will need to test)
@@ -112,7 +117,18 @@ public class CommunityFragment extends Fragment {
 
                         //add method call for firebase upload
                         String endDate = year + "/" + month + "/" + day;
-                        endDateTextDisplay.setText(endDate);
+
+                        //check its valid
+                        boolean result = isStartDateBeforeEndDate(startDate, endDate);
+
+                        //check end date is after start date
+                        if (result) {
+                            endDateTextDisplay.setText(endDate);
+                        } else {
+                            endDateTextDisplay.setText("Invalid Date!");
+                        }
+
+                        //endDateTextDisplay.setText(endDate);
                     });
             endDatePicker.show(getChildFragmentManager(), "endDatePicker");
         });
@@ -219,7 +235,7 @@ public class CommunityFragment extends Fragment {
 
         diningRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Loop through all children of the branch
                 for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                     Object value = childSnapshot.child("name").getValue();
@@ -309,5 +325,19 @@ public class CommunityFragment extends Fragment {
 
     public static String getCurrentUsername() {
         return currentUsername;
+    }
+
+    public static boolean isStartDateBeforeEndDate(String startDate, String endDate) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        dateFormat.setLenient(false); // Ensures strict parsing of date strings
+
+        try {
+            Date start = dateFormat.parse(startDate);
+            Date end = dateFormat.parse(endDate);
+
+            return start.before(end);
+        } catch (ParseException e) {
+            return false;
+        }
     }
 }

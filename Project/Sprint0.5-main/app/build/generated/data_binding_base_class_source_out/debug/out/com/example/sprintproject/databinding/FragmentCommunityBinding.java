@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,22 +26,37 @@ public final class FragmentCommunityBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final EditText accommodationsInput;
+  public final TextView addCommunityPost;
 
   @NonNull
-  public final Button addTripPostbutton;
+  public final Button addCommunityPostButton;
 
   @NonNull
-  public final CardView communityCardview;
+  public final TableLayout communityPost;
 
   @NonNull
-  public final EditText communityDestinationInput;
+  public final EditText communityPostAccommodations;
 
   @NonNull
-  public final Button communityExit;
+  public final Spinner communityPostDestination;
 
   @NonNull
-  public final EditText diningInput;
+  public final EditText communityPostDining;
+
+  @NonNull
+  public final RecyclerView communityPostList;
+
+  @NonNull
+  public final EditText communityPostNotes;
+
+  @NonNull
+  public final EditText communityPostTransportation;
+
+  @NonNull
+  public final Button createCommunityPostButton;
+
+  @NonNull
+  public final CardView createCommunityPostCardview;
 
   @NonNull
   public final Button endDateButtonCommunity;
@@ -51,48 +68,37 @@ public final class FragmentCommunityBinding implements ViewBinding {
   public final ConstraintLayout fragmentCommunity;
 
   @NonNull
-  public final TextView newTravelPostTitle;
-
-  @NonNull
-  public final EditText notesInput;
-
-  @NonNull
-  public final RecyclerView recyclerViewCommunity;
-
-  @NonNull
   public final Button startDateButtonCommunity;
 
   @NonNull
   public final TextView startDateTextDisplay;
 
-  @NonNull
-  public final TextView textCommunity;
-
   private FragmentCommunityBinding(@NonNull ConstraintLayout rootView,
-      @NonNull EditText accommodationsInput, @NonNull Button addTripPostbutton,
-      @NonNull CardView communityCardview, @NonNull EditText communityDestinationInput,
-      @NonNull Button communityExit, @NonNull EditText diningInput,
-      @NonNull Button endDateButtonCommunity, @NonNull TextView endDateTextDisplay,
-      @NonNull ConstraintLayout fragmentCommunity, @NonNull TextView newTravelPostTitle,
-      @NonNull EditText notesInput, @NonNull RecyclerView recyclerViewCommunity,
-      @NonNull Button startDateButtonCommunity, @NonNull TextView startDateTextDisplay,
-      @NonNull TextView textCommunity) {
+      @NonNull TextView addCommunityPost, @NonNull Button addCommunityPostButton,
+      @NonNull TableLayout communityPost, @NonNull EditText communityPostAccommodations,
+      @NonNull Spinner communityPostDestination, @NonNull EditText communityPostDining,
+      @NonNull RecyclerView communityPostList, @NonNull EditText communityPostNotes,
+      @NonNull EditText communityPostTransportation, @NonNull Button createCommunityPostButton,
+      @NonNull CardView createCommunityPostCardview, @NonNull Button endDateButtonCommunity,
+      @NonNull TextView endDateTextDisplay, @NonNull ConstraintLayout fragmentCommunity,
+      @NonNull Button startDateButtonCommunity, @NonNull TextView startDateTextDisplay) {
     this.rootView = rootView;
-    this.accommodationsInput = accommodationsInput;
-    this.addTripPostbutton = addTripPostbutton;
-    this.communityCardview = communityCardview;
-    this.communityDestinationInput = communityDestinationInput;
-    this.communityExit = communityExit;
-    this.diningInput = diningInput;
+    this.addCommunityPost = addCommunityPost;
+    this.addCommunityPostButton = addCommunityPostButton;
+    this.communityPost = communityPost;
+    this.communityPostAccommodations = communityPostAccommodations;
+    this.communityPostDestination = communityPostDestination;
+    this.communityPostDining = communityPostDining;
+    this.communityPostList = communityPostList;
+    this.communityPostNotes = communityPostNotes;
+    this.communityPostTransportation = communityPostTransportation;
+    this.createCommunityPostButton = createCommunityPostButton;
+    this.createCommunityPostCardview = createCommunityPostCardview;
     this.endDateButtonCommunity = endDateButtonCommunity;
     this.endDateTextDisplay = endDateTextDisplay;
     this.fragmentCommunity = fragmentCommunity;
-    this.newTravelPostTitle = newTravelPostTitle;
-    this.notesInput = notesInput;
-    this.recyclerViewCommunity = recyclerViewCommunity;
     this.startDateButtonCommunity = startDateButtonCommunity;
     this.startDateTextDisplay = startDateTextDisplay;
-    this.textCommunity = textCommunity;
   }
 
   @Override
@@ -122,39 +128,69 @@ public final class FragmentCommunityBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.accommodationsInput;
-      EditText accommodationsInput = ViewBindings.findChildViewById(rootView, id);
-      if (accommodationsInput == null) {
+      id = R.id.addCommunityPost;
+      TextView addCommunityPost = ViewBindings.findChildViewById(rootView, id);
+      if (addCommunityPost == null) {
         break missingId;
       }
 
-      id = R.id.addTripPostbutton;
-      Button addTripPostbutton = ViewBindings.findChildViewById(rootView, id);
-      if (addTripPostbutton == null) {
+      id = R.id.addCommunityPostButton;
+      Button addCommunityPostButton = ViewBindings.findChildViewById(rootView, id);
+      if (addCommunityPostButton == null) {
         break missingId;
       }
 
-      id = R.id.community_cardview;
-      CardView communityCardview = ViewBindings.findChildViewById(rootView, id);
-      if (communityCardview == null) {
+      id = R.id.communityPost;
+      TableLayout communityPost = ViewBindings.findChildViewById(rootView, id);
+      if (communityPost == null) {
         break missingId;
       }
 
-      id = R.id.communityDestinationInput;
-      EditText communityDestinationInput = ViewBindings.findChildViewById(rootView, id);
-      if (communityDestinationInput == null) {
+      id = R.id.communityPostAccommodations;
+      EditText communityPostAccommodations = ViewBindings.findChildViewById(rootView, id);
+      if (communityPostAccommodations == null) {
         break missingId;
       }
 
-      id = R.id.communityExit;
-      Button communityExit = ViewBindings.findChildViewById(rootView, id);
-      if (communityExit == null) {
+      id = R.id.communityPostDestination;
+      Spinner communityPostDestination = ViewBindings.findChildViewById(rootView, id);
+      if (communityPostDestination == null) {
         break missingId;
       }
 
-      id = R.id.diningInput;
-      EditText diningInput = ViewBindings.findChildViewById(rootView, id);
-      if (diningInput == null) {
+      id = R.id.communityPostDining;
+      EditText communityPostDining = ViewBindings.findChildViewById(rootView, id);
+      if (communityPostDining == null) {
+        break missingId;
+      }
+
+      id = R.id.communityPostList;
+      RecyclerView communityPostList = ViewBindings.findChildViewById(rootView, id);
+      if (communityPostList == null) {
+        break missingId;
+      }
+
+      id = R.id.communityPostNotes;
+      EditText communityPostNotes = ViewBindings.findChildViewById(rootView, id);
+      if (communityPostNotes == null) {
+        break missingId;
+      }
+
+      id = R.id.communityPostTransportation;
+      EditText communityPostTransportation = ViewBindings.findChildViewById(rootView, id);
+      if (communityPostTransportation == null) {
+        break missingId;
+      }
+
+      id = R.id.createCommunityPostButton;
+      Button createCommunityPostButton = ViewBindings.findChildViewById(rootView, id);
+      if (createCommunityPostButton == null) {
+        break missingId;
+      }
+
+      id = R.id.createCommunityPost_cardview;
+      CardView createCommunityPostCardview = ViewBindings.findChildViewById(rootView, id);
+      if (createCommunityPostCardview == null) {
         break missingId;
       }
 
@@ -172,24 +208,6 @@ public final class FragmentCommunityBinding implements ViewBinding {
 
       ConstraintLayout fragmentCommunity = (ConstraintLayout) rootView;
 
-      id = R.id.newTravelPost_title;
-      TextView newTravelPostTitle = ViewBindings.findChildViewById(rootView, id);
-      if (newTravelPostTitle == null) {
-        break missingId;
-      }
-
-      id = R.id.notesInput;
-      EditText notesInput = ViewBindings.findChildViewById(rootView, id);
-      if (notesInput == null) {
-        break missingId;
-      }
-
-      id = R.id.recyclerViewCommunity;
-      RecyclerView recyclerViewCommunity = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerViewCommunity == null) {
-        break missingId;
-      }
-
       id = R.id.startDateButtonCommunity;
       Button startDateButtonCommunity = ViewBindings.findChildViewById(rootView, id);
       if (startDateButtonCommunity == null) {
@@ -202,17 +220,12 @@ public final class FragmentCommunityBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.text_community;
-      TextView textCommunity = ViewBindings.findChildViewById(rootView, id);
-      if (textCommunity == null) {
-        break missingId;
-      }
-
-      return new FragmentCommunityBinding((ConstraintLayout) rootView, accommodationsInput,
-          addTripPostbutton, communityCardview, communityDestinationInput, communityExit,
-          diningInput, endDateButtonCommunity, endDateTextDisplay, fragmentCommunity,
-          newTravelPostTitle, notesInput, recyclerViewCommunity, startDateButtonCommunity,
-          startDateTextDisplay, textCommunity);
+      return new FragmentCommunityBinding((ConstraintLayout) rootView, addCommunityPost,
+          addCommunityPostButton, communityPost, communityPostAccommodations,
+          communityPostDestination, communityPostDining, communityPostList, communityPostNotes,
+          communityPostTransportation, createCommunityPostButton, createCommunityPostCardview,
+          endDateButtonCommunity, endDateTextDisplay, fragmentCommunity, startDateButtonCommunity,
+          startDateTextDisplay);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
