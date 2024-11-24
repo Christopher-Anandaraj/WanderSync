@@ -59,18 +59,65 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"/>
 
-                <!-- This is the cardView duration edittext -->
-                <EditText
+                <TableRow
+                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:id="@+id/communityPostDuration"
-                    android:background="@color/white"
-                    android:drawablePadding="8dp"
-                    android:hint="Duration"
-                    android:padding="8dp"
-                    android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"
-                    android:layout_marginTop="40dp"/>
+                    android:layout_gravity="center">
+
+                    <!-- DatePicker Fragment Button (Start) -->
+                    <Button
+                        android:id="@+id/startDateButtonCommunity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Start Date" />
+
+                    <!-- Change to display inserted date -->
+                    <TextView
+                        android:id="@+id/startDateTextDisplay"
+                        android:layout_width="153dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:drawablePadding="4dp"
+                        android:padding="5dp"
+                        android:paddingStart="8dp"
+                        android:hint="xx/xx/xxxx"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center">
+
+                    <!-- DatePicker Fragment Button (End) -->
+                    <Button
+                        android:id="@+id/endDateButtonCommunity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="End Date" />
+
+                    <!-- Change to display inserted date -->
+                    <TextView
+                        android:id="@+id/endDateTextDisplay"
+                        android:layout_width="153dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:drawablePadding="4dp"
+                        android:padding="5dp"
+                        android:paddingStart="8dp"
+                        android:hint="xx/xx/xxxx"
+                        android:textStyle="bold"
+                        android:textSize="22sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/cardview_dark_background" />
+
+                </TableRow>
 
                 <!-- This is the cardView destination edittext -->
                 <Spinner

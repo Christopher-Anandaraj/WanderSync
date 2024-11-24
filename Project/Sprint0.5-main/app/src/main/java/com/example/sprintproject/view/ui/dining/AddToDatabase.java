@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class AddToDatabase implements DatabaseInteraction {
     @Override
-    public void interactWithDatabase(FirebaseUser user, DatabaseReference database, DiningEntry reservation, ArrayList<DiningEntry> diningEntries, Context context) {
+    public void interactWithDatabase(FirebaseUser user, DatabaseReference database, DiningEntry reservation, ArrayList<DiningEntry> diningEntries, Context context, DiningRecycleViewAdapter adapter) {
         if (user != null) {
             String uid = user.getUid();
 

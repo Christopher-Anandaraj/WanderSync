@@ -20,7 +20,8 @@ public class CommunityRecycleViewAdapter extends
         RecyclerView.Adapter
                 <com.example.sprintproject.view.ui.community.
                         CommunityRecycleViewAdapter.MyViewHolder> {
-  
+
+//    private final RecycleViewInterface recycleViewInterface;
     //variables for dining entries
     private Context context; //for inflator
     private ArrayList<CommunityEntry> communityEntries;
@@ -30,6 +31,7 @@ public class CommunityRecycleViewAdapter extends
                                        ArrayList<CommunityEntry> communityEntries) {
         this.context = context;
         this.communityEntries = communityEntries;
+//        this.recycleViewInterface = recycleViewInterface;
     }
 
     //creates 'inflate' layout and gets our next box
@@ -48,6 +50,8 @@ public class CommunityRecycleViewAdapter extends
     @Override
     public void onBindViewHolder(@NonNull CommunityRecycleViewAdapter.MyViewHolder holder,
                                  int position) {
+        //CommunityEntry entry = communityEntries.get(position);
+        holder.username.setText(CommunityFragment.getCurrentUsername());
         holder.destination.setText(communityEntries.get(position).getDestination());
         holder.duration.setText(communityEntries.get(position).getDuration() + " days");
         holder.dining.setText(communityEntries.get(position).getDiningReview());
@@ -66,6 +70,7 @@ public class CommunityRecycleViewAdapter extends
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         //assign textview vars
+        private TextView username;
         private TextView duration;
         private TextView destination;
         private TextView dining;
@@ -79,6 +84,7 @@ public class CommunityRecycleViewAdapter extends
             super(itemView);
 
             //update textViews to correct values
+            username = itemView.findViewById(R.id.community_entry_username);
             duration = itemView.findViewById(R.id.community_entry_duration);
             destination = itemView.findViewById(R.id.community_entry_location);
             accomodations = itemView.findViewById(R.id.community_entry_accomodations);

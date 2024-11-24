@@ -8,5 +8,5 @@ import com.google.firebase.database.DatabaseReference;
 import java.util.ArrayList;
 
 public interface DatabaseInteraction {
-    void interactWithDatabase(FirebaseUser user, DatabaseReference database, DiningEntry reservation, ArrayList<DiningEntry> diningEntries, Context context);
+    void interactWithDatabase(FirebaseUser user, DatabaseReference database, DiningEntry reservation, ArrayList<DiningEntry> diningEntries, Context context, DiningRecycleViewAdapter adapter);
 }

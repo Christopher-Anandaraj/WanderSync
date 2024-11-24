@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sprintproject.databinding.FragmentDiningBinding;
 import com.example.sprintproject.model.FirebaseManager;
+import com.example.sprintproject.view.ui.community.LoadFromCommunityDatabase;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
@@ -74,7 +75,7 @@ public class DiningFragment extends Fragment {
 
         //cardviews
         CardView reservationCardview = binding.reservationCardview;
-
+        reservationCardview.setVisibility(View.GONE);
         //Opens and closes the Add reservation viewcard
         openReservationCardviewButton.setOnClickListener(view -> {
             if (reservationCardview.getVisibility() == View.GONE) {
@@ -84,7 +85,10 @@ public class DiningFragment extends Fragment {
             }
         });
         //End of Allyson Implementation --------------------------------------------------
-
+        LoadFromDatabase load = new LoadFromDatabase();
+        load.interactWithDatabase(currentUser, reservationRef, null,
+                diningEntries, fragContext, adapter);
+        adapter.notifyDataSetChanged();
         // sophie stuff
         //add reservation button
         buttonReservationSubmit.setOnClickListener(v -> {
@@ -110,7 +114,7 @@ public class DiningFragment extends Fragment {
                     new DiningEntry(resvLocation, resvName, resvTime, resvWebsite);
             AddToDatabase add = new AddToDatabase();
             add.interactWithDatabase(currentUser, reservationRef, reservation, diningEntries,
-                    fragContext);
+                    fragContext, adapter);
 
             context.setSortStrategy(new SortByTimeStrategy());
             context.sortReservations(diningEntries);
@@ -123,12 +127,13 @@ public class DiningFragment extends Fragment {
             //Ally
             // Update the list and notify the adapter
             adapter.notifyDataSetChanged(); // Notify adapter of data change
+            reservationCardview.setVisibility(View.GONE);
         });
         // end of sophie stuff
 
         //Allyson Implementaion -----------------------------------------
-        LoadFromDatabase load = new LoadFromDatabase();
-        load.interactWithDatabase(currentUser, reservationRef, null, diningEntries, fragContext);
+        load = new LoadFromDatabase();
+        load.interactWithDatabase(currentUser, reservationRef, null, diningEntries, fragContext, adapter);
         adapter.notifyDataSetChanged();
 
         final TextView textView = binding.textDining;
