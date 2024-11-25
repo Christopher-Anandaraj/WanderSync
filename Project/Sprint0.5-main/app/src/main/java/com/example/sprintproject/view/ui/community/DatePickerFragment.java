@@ -14,11 +14,8 @@ import java.util.Calendar;
     a calendar view.
  */
 
-public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
-
-    public interface OnDateSelectedListener {
-        void onDateSelected(int year, int month, int day);
-    }
+public class DatePickerFragment extends DialogFragment
+        implements DatePickerDialog.OnDateSetListener {
 
     private OnDateSelectedListener listener;
 
@@ -49,5 +46,9 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         if (listener != null) {
             listener.onDateSelected(year, month, day);
         }
+    }
+
+    public interface OnDateSelectedListener {
+        void onDateSelected(int year, int month, int day);
     }
 }

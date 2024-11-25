@@ -46,8 +46,8 @@ public class CommunityFragment extends Fragment {
     private DatabaseReference tripRef = FirebaseManager.getInstance().getDatabaseReference()
             .child("communityEntry");
 
-    String startDate;
-    String endDate;
+    private String startDate;
+    private String endDate;
 
     private FragmentCommunityBinding binding;
 
@@ -197,18 +197,28 @@ public class CommunityFragment extends Fragment {
                             for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
                                 Object value = childSnapshot.child("location").getValue();
                                 if (value.equals(selectedItem[0])) {
-                                    final Object[] startDate = {childSnapshot.child("startDate").getValue()};
-                                    final Object[] endDate = {childSnapshot.child("endDate").getValue()};
+                                    final Object[] startDate = {childSnapshot.child("startDate")
+                                            .getValue()};
+                                    final Object[] endDate = {childSnapshot.child("endDate")
+                                                    .getValue()};
 
                                     String[] startSplit = ((String) startDate[0]).split("-");
-                                    String newStartDate = startSplit[0] + "/" + startSplit[1] + "/" + startSplit[2]; // Hardcoded date
-                                    startDateTextDisplay.setText(newStartDate); // Update the TextView
+                                    String newStartDate =
+                                            startSplit[0] + "/"
+                                                    + startSplit[1] + "/"
+                                                    + startSplit[2]; // Hardcoded date
+                                    startDateTextDisplay
+                                            .setText(newStartDate); // Update the TextView
 
                                     String[] endSplit = ((String) endDate[0]).split("-");
-                                    String newEndDate = endSplit[0] + "/" + endSplit[1] + "/" + endSplit[2]; // Hardcoded date
+                                    String newEndDate =
+                                            endSplit[0] + "/"
+                                                    + endSplit[1]
+                                                    + "/" + endSplit[2]; // Hardcoded date
                                     endDateTextDisplay.setText(newEndDate); // Update the TextView
 
-                                    foundDuration[0] = ReservationUtils.calculateDaysBetween((String) startDate[0],
+                                    foundDuration[0] = ReservationUtils
+                                            .calculateDaysBetween((String) startDate[0],
                                             (String) endDate[0]);
                                 }
                             }

@@ -21,7 +21,7 @@ public class CommunityRecycleViewAdapter extends
                 <com.example.sprintproject.view.ui.community.
                         CommunityRecycleViewAdapter.MyViewHolder> {
 
-//    private final RecycleViewInterface recycleViewInterface;
+
     //variables for dining entries
     private Context context; //for inflator
     private ArrayList<CommunityEntry> communityEntries;
@@ -31,7 +31,7 @@ public class CommunityRecycleViewAdapter extends
                                        ArrayList<CommunityEntry> communityEntries) {
         this.context = context;
         this.communityEntries = communityEntries;
-//        this.recycleViewInterface = recycleViewInterface;
+
     }
 
     //creates 'inflate' layout and gets our next box
