@@ -38,7 +38,8 @@ public class CommunityEntry {
         return destination;
     }
 
-    public String getTransportation() { return transportation; }
+    public String getTransportation() {
+        return transportation; }
 
     public String getTripNotes() {
         return tripNotes;
