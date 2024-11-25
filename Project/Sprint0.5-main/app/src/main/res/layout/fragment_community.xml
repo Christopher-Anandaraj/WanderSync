@@ -7,26 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.community.CommunityFragment">
 
-    <!-- This is the cardView open button -->
-    <Button
-        android:id="@+id/createCommunityPostButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:text="+"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="60dp"
-        android:layout_marginEnd="16dp"
-        app:cornerRadius = "20dp"/>
-
     <!-- This layout holds the reservation widgets and list -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center"
-        android:background="@color/white">
+        android:gravity="center" >
 
         <!-- This is the cardView dimensions/setup (makes it round + adds boarders) -->
         <androidx.cardview.widget.CardView
@@ -46,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/table_sky_evening"
                 android:padding="5dp">
 
                 <!-- This is the cardView Title -->
@@ -69,6 +56,7 @@
                         android:id="@+id/startDateButtonCommunity"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:background="@drawable/button_eclipse_peach"
                         android:text="Start Date" />
 
                     <!-- Change to display inserted date -->
@@ -76,7 +64,6 @@
                         android:id="@+id/startDateTextDisplay"
                         android:layout_width="153dp"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
                         android:drawablePadding="4dp"
                         android:padding="5dp"
                         android:paddingStart="8dp"
@@ -99,6 +86,8 @@
                         android:id="@+id/endDateButtonCommunity"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:background="@drawable/button_eclipse_peach"
+
                         android:text="End Date" />
 
                     <!-- Change to display inserted date -->
@@ -106,7 +95,6 @@
                         android:id="@+id/endDateTextDisplay"
                         android:layout_width="153dp"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
                         android:drawablePadding="4dp"
                         android:padding="5dp"
                         android:paddingStart="8dp"
@@ -124,7 +112,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/communityPostDestination"
-                    android:background="@color/white"
                     android:drawablePadding="8dp"
                     android:hint="Destination"
                     android:padding="8dp"
@@ -137,7 +124,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/communityPostAccommodations"
-                    android:background="@color/white"
                     android:drawablePadding="8dp"
                     android:hint="Accommodations"
                     android:padding="8dp"
@@ -150,7 +136,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/communityPostDining"
-                    android:background="@color/white"
                     android:drawablePadding="8dp"
                     android:hint="Dining Reservations"
                     android:padding="8dp"
@@ -163,7 +148,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/communityPostTransportation"
-                    android:background="@color/white"
                     android:drawablePadding="8dp"
                     android:hint="Transportation"
                     android:padding="8dp"
@@ -176,7 +160,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:id="@+id/communityPostNotes"
-                    android:background="@color/white"
                     android:drawablePadding="8dp"
                     android:hint="Notes"
                     android:padding="8dp"
@@ -191,6 +174,8 @@
                     android:layout_height="60dp"
                     android:text="Add Post"
                     android:textSize="18sp"
+                    android:background="@drawable/button_eclipse_brown"
+                    android:textColor="@color/white"
                     android:layout_marginTop="30dp"
                     app:cornerRadius = "20dp"/>
             </TableLayout>
@@ -204,6 +189,7 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             android:visibility="visible"
+            android:background="@drawable/table_notes"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -211,4 +197,18 @@
             android:layout_marginBottom="55dp"/>
 
     </LinearLayout>
+
+    <!-- This is the cardView open button -->
+    <ImageButton
+        android:id="@+id/createCommunityPostButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/button_add"
+        android:background="@drawable/button_eclipse_brown"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="16dp"
+        app:cornerRadius = "20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,7 @@
         android:visibility="visible"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
-        android:background="@drawable/table_pink"
+        android:background="@drawable/table_sky_evening"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_accommodation">
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="casual"
-            android:paddingLeft="5dp"
+            android:paddingLeft="20dp"
             android:textColor="@color/white"
             android:textStyle="bold">
         </ListView>
@@ -55,7 +55,7 @@
         android:visibility="gone"
         android:layout_marginTop="10dp"
         android:paddingBottom="10dp"
-        android:background="@drawable/table_pink_inverted"
+        android:background="@drawable/table_sky"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_accommodation">
@@ -275,7 +275,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
-        android:background="@drawable/button_eclipse"
+        android:background="@drawable/button_eclipse_brown"
         android:contentDescription="Add Contributors"
         android:src="@drawable/button_add"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,0 +1,7 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#424b4a"/> <!-- Button fill color -->
+    <corners android:radius="100dp"/> <!-- Makes the button elliptical/oval -->
+    <stroke
+        android:width="2dp"
+        android:color="#4e867f"/> <!-- Optional border outline -->
+</shape>

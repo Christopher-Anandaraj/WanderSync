@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,7 +72,7 @@ public class DiningFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
         //Buttons for Dining Screen
-        Button openReservationCardviewButton = binding.openReservationCardviewButton;
+        ImageButton openReservationCardviewButton = binding.openReservationCardviewButton;
 
         //cardviews
         CardView reservationCardview = binding.reservationCardview;
