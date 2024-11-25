@@ -2,3 +2,4 @@
 - Xavistin Christopher Arul Arasu.
 - Victor Hernandez
 - Bralon Burgess
+- Sophie Baker
