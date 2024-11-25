@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -52,7 +53,7 @@ public final class FragmentDiningBinding implements ViewBinding {
   public final ConstraintLayout fragmentDining;
 
   @NonNull
-  public final Button openReservationCardviewButton;
+  public final ImageButton openReservationCardviewButton;
 
   @NonNull
   public final CardView reservationCardview;
@@ -65,7 +66,7 @@ public final class FragmentDiningBinding implements ViewBinding {
       @NonNull RecyclerView diningList, @NonNull EditText diningLocationInput,
       @NonNull EditText diningNameInput, @NonNull TableLayout diningReservation,
       @NonNull EditText diningTimeInput, @NonNull EditText diningWebsiteInput,
-      @NonNull ConstraintLayout fragmentDining, @NonNull Button openReservationCardviewButton,
+      @NonNull ConstraintLayout fragmentDining, @NonNull ImageButton openReservationCardviewButton,
       @NonNull CardView reservationCardview, @NonNull TextView textDining) {
     this.rootView = rootView;
     this.addReservationButton = addReservationButton;
@@ -160,7 +161,7 @@ public final class FragmentDiningBinding implements ViewBinding {
       ConstraintLayout fragmentDining = (ConstraintLayout) rootView;
 
       id = R.id.open_reservation_cardview_button;
-      Button openReservationCardviewButton = ViewBindings.findChildViewById(rootView, id);
+      ImageButton openReservationCardviewButton = ViewBindings.findChildViewById(rootView, id);
       if (openReservationCardviewButton == null) {
         break missingId;
       }
